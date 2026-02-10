@@ -2,6 +2,7 @@
   "name": "orangewind",
   "module": "index.ts",
   "type": "module",
+  "browser": "./src/index.css",
   "devDependencies": {
     "@types/bun": "latest",
     "tailwindcss": "^4.1.18"
