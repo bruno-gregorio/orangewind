@@ -1,13 +1,15 @@
 {
-  "name": "orangewind",
+  "name": "orangewind_monorepo",
   "module": "index.ts",
   "type": "module",
   "browser": "./src/index.css",
   "devDependencies": {
-    "@types/bun": "latest",
-    "tailwindcss": "^4.1.18"
+    "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5"
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
