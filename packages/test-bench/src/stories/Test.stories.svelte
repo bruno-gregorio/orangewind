@@ -7,5 +7,5 @@
 </script>
 
 <Story name="Test">
-  <div>Test</div>
+  <div class="text-orangewind-500">Test</div>
 </Story>
