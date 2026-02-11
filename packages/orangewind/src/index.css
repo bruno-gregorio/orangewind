@@ -1,4 +1,5 @@
 @import './utilities/headings.css';
+@import './utilities/animations.css';
 
 @theme {
   /* Breakpoints */
@@ -70,4 +71,15 @@
   --font-weight-medium: 500;
   --font-weight-bold: 700;
   --font-weight-extrabold: 800;
+
+  /* Animation — Durations */
+  --ow-duration-snap: 0.1s;
+  --ow-duration-fast: 0.165s;
+  --ow-duration-brisk: 0.333s;
+  --ow-duration-slow: 0.5s;
+  --ow-duration-sleepy: 1s;
+
+  /* Animation — Easing */
+  --ow-easing-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ow-easing-in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
