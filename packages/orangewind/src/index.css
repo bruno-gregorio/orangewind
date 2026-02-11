@@ -8,6 +8,32 @@
   --breakpoint-xl: 105.0625rem; /* 1681px — $breakpoint-x-large */
   --breakpoint-2xl: initial;
 
+  /* Colors — Base Palette */
+  --color-ow-x-light: #fff;
+  --color-ow-light: #f7f7f7;
+  --color-ow-mid-x-light: #e5e5e5;
+  --color-ow-mid-light: #d9d9d9;
+  --color-ow-mid: #999;
+  --color-ow-mid-dark: #666;
+  --color-ow-dark: #111;
+  --color-ow-x-dark: #000;
+  --color-ow-paper: #f3f3f3;
+
+  /* Colors — Brand & Accent */
+  --color-ow-brand: #e95420;
+  --color-ow-accent: #0f95a1;
+
+  /* Colors — Semantic */
+  --color-ow-negative: #c7162b;
+  --color-ow-caution: #cc7900;
+  --color-ow-positive: #0e8420;
+  --color-ow-information: #24598f;
+
+  /* Colors — Links & Focus */
+  --color-ow-link: #06c;
+  --color-ow-link-visited: #7d42b8;
+  --color-ow-focus: #2e96ff;
+
   /* Font Families */
   --font-sans: 'Ubuntu', Arial, 'libra sans', sans-serif;
   --font-mono: 'Ubuntu Mono', Consolas, Monaco, Courier, monospace;
