@@ -1,7 +1,6 @@
 import neostandard from 'neostandard'
 import tseslint from 'typescript-eslint'
 import svelte from 'eslint-plugin-svelte'
-import svelteParser from 'svelte-eslint-parser'
 import prettier from 'eslint-config-prettier'
 
 export default [
@@ -16,7 +15,6 @@ export default [
   {
     files: ['**/*.svelte'],
     languageOptions: {
-      parser: svelteParser,
       parserOptions: {
         parser: tseslint.parser
       }
