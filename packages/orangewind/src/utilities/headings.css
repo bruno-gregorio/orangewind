@@ -1,13 +1,13 @@
 /* Headings */
 .ow-heading-1 {
   font-size: var(--text-xl);
-  line-height: var(--text-4xl--line-height);
+  line-height: var(--text-xl--line-height);
   font-weight: 550;
 }
 
 .ow-heading-2 {
   font-size: var(--text-xl);
-  line-height: var(--text-3xl--line-height);
+  line-height: var(--text-xl--line-height);
   font-weight: 180;
 }
 
