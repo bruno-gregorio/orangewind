@@ -3,6 +3,13 @@
 @import './utilities/headings.css';
 
 @theme {
+  /* Breakpoints */
+  --breakpoint-sm: 28.75rem; /* 460px — $breakpoint-x-small */
+  --breakpoint-md: 38.75rem; /* 620px — $breakpoint-small */
+  --breakpoint-lg: 64.75rem; /* 1036px — $breakpoint-large */
+  --breakpoint-xl: 105.0625rem; /* 1681px — $breakpoint-x-large */
+  --breakpoint-2xl: initial;
+
   /* Font Families */
   --font-sans: Ubuntu, Arial, 'libra sans', sans-serif;
   --font-mono: 'Ubuntu Mono', Consolas, Monaco, Courier, monospace;
