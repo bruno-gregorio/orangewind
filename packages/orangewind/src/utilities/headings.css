@@ -35,6 +35,19 @@
   font-weight: var(--font-weight-regular);
 }
 
+/* Headings — Large screens */
+@media (width >= theme(--breakpoint-lg)) {
+  .ow-heading-1 {
+    font-size: var(--text-2xl);
+    line-height: var(--text-2xl--line-height);
+  }
+
+  .ow-heading-2 {
+    font-size: var(--text-2xl);
+    line-height: var(--text-2xl--line-height);
+  }
+}
+
 /* Display Headings */
 .ow-display-heading-1 {
   font-size: var(--text-4xl);
