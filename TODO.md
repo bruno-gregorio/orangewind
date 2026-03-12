@@ -1,114 +1,112 @@
-# Orangewind TODO
+# Orangewind Implementation Roadmap (TODO)
 
-The following is a curated list of components, layouts, and utilities from Canonical's Vanilla framework that need to be re-implemented as Tailwind plugins or CSS components in the `orangewind` theme.
+To avoid circular dependencies and ensure a smooth build process, the missing components from Canonical's Vanilla framework have been organized into hierarchical implementation phases. You should generally complete the items in **Phase 1** before moving to **Phase 2**, and so forth, as later components heavily rely on earlier ones.
 
-Features that are inherently covered by base Tailwind CSS (e.g., standard layout grids, flexbox, clearfix, floats, text alignment, truncation, typography max-widths, sizing, and margin collapsing like `space-y-*`) have been excluded from this list to avoid duplication. The features already present in `packages/orangewind/src/utilities` (Animations, Theme Colors, Headings/Typography Definitions) have also been excluded.
+Features that are inherently covered by base Tailwind CSS (e.g., standard layout grids, flexbox, defaults) or are already in your `src/utilities` (Animations, Theme Colors, Typography) have been omitted.
 
-## Components
+---
 
-- [ ] [Accordion](https://vanillaframework.io/docs/patterns/accordion)
-      _Note: Needs a Tailwind plugin/component for the collapsible nature, headers, and panels._
-- [ ] [Article](https://vanillaframework.io/docs/patterns/article) & Article Pagination
-      _Note: Handles specific typographical rhythms and borders for blog posts or documentation articles._
-- [ ] [Badge](https://vanillaframework.io/docs/patterns/badge)
-      _Note: Small status indicators often placed inside other elements, not just standalone pills._
-- [ ] [Blog Pattern](https://vanillaframework.io/docs/patterns/blog)
-      _Note: Specific layouts for blog article cards and listings, distinct from standard cards._
-- [ ] [Breadcrumbs](https://vanillaframework.io/docs/patterns/breadcrumbs)
-      _Note: Navigation trail with specific separator icons and line-wrapping behaviors._
-- [ ] [Buttons](https://vanillaframework.io/docs/patterns/buttons)
-      _Note: Includes primary, positive, negative, base, and inline button styles with focus states._
-- [ ] [Card](https://vanillaframework.io/docs/patterns/card)
-      _Note: Highlighting bordered containers with specific padding and highlighted top borders._
-- [ ] [Chip](https://vanillaframework.io/docs/patterns/chip)
-      _Note: Used for tags or dismissible selections, with leading/trailing icon support._
-- [ ] [Code Snippet](https://vanillaframework.io/docs/patterns/code-snippet)
-      _Note: Blocks with copy-to-clipboard functionality and numbered lines (often requires JS)._
-- [ ] [Contextual Menu](https://vanillaframework.io/docs/patterns/contextual-menu)
-      _Note: Dropdown menus usually attached to a button or icon._
-- [ ] [CTA (Call to Action)](https://vanillaframework.io/docs/patterns/cta)
-      _Note: Highlighted blocks to grab user attention, usually integrating a button and text._
-- [ ] [Divider](https://vanillaframework.io/docs/patterns/divider) & Divided Section
-      _Note: Thematic horizontal rules with specific margins separating major content blocks._
-- [ ] [Forms](https://vanillaframework.io/docs/patterns/forms)
-      _Note: Highly specific styles for inputs, textareas, checkboxes, radios, help text, and validation states (error, success)._
-- [ ] [Heading Icon](https://vanillaframework.io/docs/patterns/heading-icon) & [Muted Heading](https://vanillaframework.io/docs/patterns/muted-heading)
-      _Note: Specific alignment for icons paired with headings, and subdued typography for sub-headings._
+## Phase 1: Foundations & Utilities
+
+_These are the lowest-level primitives. They don't depend on any other components and are used frequently by everything else._
+
 - [ ] [Icons](https://vanillaframework.io/docs/patterns/icons)
-      _Note: Implementing Vanilla's specific icon set natively (e.g., through SVGs or mask-image classes)._
-- [ ] [Image Pattern](https://vanillaframework.io/docs/patterns/image)
-      _Note: Bordered or shadowed image wrappers with captions._
-- [ ] [In-Page Navigation](https://vanillaframework.io/docs/patterns/in-page-navigation)
-      _Note: Sticky jump links used within a single page's content._
+      _Dependency for: Buttons, Navigation, Notifications, Forms, etc. Needs to be established first natively (e.g., SVGs or mask-images)._
+- [ ] [Baseline Grid](https://vanillaframework.io/docs/utilities/baseline-grid) & Font Metrics
+      _Dependency for: Article, Docs layout, basically all typography snapping._
 - [ ] [Links](https://vanillaframework.io/docs/patterns/links)
-      _Note: Specific underline thickness, hover states, and external link icon treatments._
-- [ ] [Lists](https://vanillaframework.io/docs/patterns/lists) & [List Tree](https://vanillaframework.io/docs/patterns/list-tree)
-      _Note: Custom bullet styling (e.g. tick marks) and hierarchical folder structures._
-- [ ] [Logo Section](https://vanillaframework.io/docs/patterns/logo-section)
-      _Note: Grid layout specifically for showcasing partner or customer logos._
-- [ ] [Matrix](https://vanillaframework.io/docs/patterns/matrix)
-      _Note: A specific presentation of layered list items or feature comparisons._
-- [ ] [Media Object](https://vanillaframework.io/docs/patterns/media-object)
-      _Note: Classic layout with an image to the left and text body to the right._
-- [ ] [Modal](https://vanillaframework.io/docs/patterns/modal)
-      _Note: Dialog overlays focusing the user, needing a backdrop and centered panel._
-- [ ] [Navigation](https://vanillaframework.io/docs/patterns/navigation) & Settings
-      _Note: The global header (dark/light), reduced headers, and expandable side navigations._
-- [ ] [Newsletter Signup](https://vanillaframework.io/docs/patterns/newsletter-signup)
-      _Note: Form layout specifically optimized for email capture._
-- [ ] [Notifications](https://vanillaframework.io/docs/patterns/notifications)
-      _Note: Banner alerts (Information, Caution, Negative, Positive) with icons._
-- [ ] [Pagination](https://vanillaframework.io/docs/patterns/pagination)
-      _Note: List of numbered pages for navigating large data sets._
-- [ ] [Pricing Block](https://vanillaframework.io/docs/patterns/pricing-block)
-      _Note: Feature lists with price callouts, usually aligned in a grid._
-- [ ] [Quotes](https://vanillaframework.io/docs/patterns/quotes) & Pull Quotes
-      _Note: Stylized blockquotes with citation alignment._
-- [ ] [Search and Filter](https://vanillaframework.io/docs/patterns/search-and-filter) & [Search Box](https://vanillaframework.io/docs/patterns/search-box)
-      _Note: Complex inputs combining text search with dropdown filters._
-- [ ] [Section Pattern](https://vanillaframework.io/docs/patterns/section)
-      _Note: Thematic wrappers (e.g., `is-dark`, `is-light`) setting text/link colors for child elements._
-- [ ] [Segmented Control](https://vanillaframework.io/docs/patterns/segmented-control)
-      _Note: A group of mutually exclusive buttons (like tabs but styled as a single toggle bar)._
-- [ ] [Slider](https://vanillaframework.io/docs/patterns/slider)
-      _Note: Styling for range inputs (`<input type="range">`)._
+      _Dependency for: Breadcrumbs, Navigation, Lists._
+- [ ] [Divider](https://vanillaframework.io/docs/patterns/divider) (Rule)
+      _Dependency for: Divided Section, Navigation, Application Layouts._
+- [ ] Utility tweaks: [Deprecate](https://vanillaframework.io/docs/utilities/deprecate), Has Icon Utility.
+
+---
+
+## Phase 2: Basic Elements
+
+_Simple, single-node elements that are widely nested inside larger structures._
+
+- [ ] [Buttons](https://vanillaframework.io/docs/patterns/buttons)
+      _Dependency for: Forms, Modal, CTA, Newsletter, Navigation, Search. Massive dependency._
+- [ ] [Badge](https://vanillaframework.io/docs/patterns/badge)
+      _Dependency for: Navigation, Cards, Tables._
 - [ ] [Status Label](https://vanillaframework.io/docs/patterns/status-label)
-      _Note: Colored dots with text indicating entity status (e.g., Running, Stopped)._
-- [ ] [Strip](https://vanillaframework.io/docs/patterns/strip)
-      _Note: Full-width horizontal bands of color framing inner constrained content._
-- [ ] [Suru](https://vanillaframework.io/docs/patterns/suru)
-      _Note: Canonical's signature folded-paper background visual element._
+      _Dependency for: Tables, Matrix, Lists._
+- [ ] [Chip](https://vanillaframework.io/docs/patterns/chip)
+      _Dependency for: Search and Filter, Forms._
+- [ ] [Heading Icon](https://vanillaframework.io/docs/patterns/heading-icon) & [Muted Heading](https://vanillaframework.io/docs/patterns/muted-heading)
+      _Dependency for: Section Pattern, Cards, Modal headers._
+
+---
+
+## Phase 3: Forms & Inputs
+
+_Interactive elements that require Phase 1 rules and Buttons to be complete._
+
+- [ ] [Forms](https://vanillaframework.io/docs/patterns/forms) (Base Inputs, Textareas, Checkboxes, Radios, Validation)
+      _Dependency for: Search Box, Newsletter, Auth pages, Settings pages._
 - [ ] [Switch](https://vanillaframework.io/docs/patterns/switch)
-      _Note: Toggle input styling replacing default checkboxes._
-- [ ] [Tables](https://vanillaframework.io/docs/patterns/tables)
-      _Note: Sortable headers, expanding rows, and mobile-card views for tabular data._
-- [ ] [Table of Contents](https://vanillaframework.io/docs/patterns/table-of-contents)
-      _Note: Sidebar navigation specifically referencing headings in documentation._
-- [ ] [Tabs](https://vanillaframework.io/docs/patterns/tabs)
-      _Note: Horizontal navigation for switching between views within the same page context._
-- [ ] [Tooltips](https://vanillaframework.io/docs/patterns/tooltips)
-      _Note: Hover-reveal text explanations attached to elements._
+      _Dependency for: Forms, Application Panels._
+- [ ] [Slider](https://vanillaframework.io/docs/patterns/slider)
+      _Dependency for: Forms, specific Filter setups._
+- [ ] [Segmented Control](https://vanillaframework.io/docs/patterns/segmented-control)
+      _Dependency for: Navigation, Data Filtering view toggles._
+- [ ] [Search Box](https://vanillaframework.io/docs/patterns/search-box)
+      _Dependency for: Global Navigation, Search and Filter._
 
-## Layouts
+---
 
-- [ ] [Application Layout](https://vanillaframework.io/docs/layouts/application)
-      _Note: Full-viewport layout separating a side nav from the main dynamic reading area._
-- [ ] [Application Panels](https://vanillaframework.io/docs/layouts/application-panels)
-      _Note: Drawer panels that pop out in the application layout._
+## Phase 4: Intermediate Components
+
+_Components that rely entirely on the primitives from Phases 1-3 being complete._
+
+- [ ] [Notifications](https://vanillaframework.io/docs/patterns/notifications) (Requires Icons, Buttons)
+- [ ] [Tooltips](https://vanillaframework.io/docs/patterns/tooltips) (Requires Typography, Z-index handling)
+- [ ] [Tabs](https://vanillaframework.io/docs/patterns/tabs) (Requires Typography, Links)
+- [ ] [Breadcrumbs](https://vanillaframework.io/docs/patterns/breadcrumbs) (Requires Links)
+- [ ] [Accordion](https://vanillaframework.io/docs/patterns/accordion) (Requires Icons, Typography)
+- [ ] [Pagination](https://vanillaframework.io/docs/patterns/pagination) (Requires Buttons, Links)
+- [ ] [Code Snippet](https://vanillaframework.io/docs/patterns/code-snippet) (Requires Typography, Buttons for 'Copy')
+
+---
+
+## Phase 5: Complex Content Blocks
+
+_Larger data presentation blocks that nest multiple basic elements together._
+
+- [ ] [Lists](https://vanillaframework.io/docs/patterns/lists) & [List Tree](https://vanillaframework.io/docs/patterns/list-tree)
+- [ ] [Tables](https://vanillaframework.io/docs/patterns/tables) (Requires Icons, Buttons, Status Labels, Pagination)
+- [ ] [Matrix](https://vanillaframework.io/docs/patterns/matrix)
+- [ ] [Card](https://vanillaframework.io/docs/patterns/card) (Requires Typography, Links, Buttons)
+- [ ] [Media Object](https://vanillaframework.io/docs/patterns/media-object) / [Image Pattern](https://vanillaframework.io/docs/patterns/image)
+- [ ] [Quotes](https://vanillaframework.io/docs/patterns/quotes) & Pull Quotes
+
+---
+
+## Phase 6: Layout Components & Patterns
+
+_Full-width or macro-layout elements that frame content from previous phases._
+
+- [ ] [Strip](https://vanillaframework.io/docs/patterns/strip) & [Section Pattern](https://vanillaframework.io/docs/patterns/section)
+      _Note: These establish the light/dark thematic wrappers for everything inside them._
+- [ ] Divided Section (Requires Strip, Divider)
+- [ ] [Modal](https://vanillaframework.io/docs/patterns/modal) (Requires Buttons, Forms, Typography)
+- [ ] [Contextual Menu](https://vanillaframework.io/docs/patterns/contextual-menu) (Requires Buttons, Lists, Links)
+- [ ] [In-Page Navigation](https://vanillaframework.io/docs/patterns/in-page-navigation) & [Table of Contents](https://vanillaframework.io/docs/patterns/table-of-contents)
+- [ ] Feature Blocks: [Pricing Block](https://vanillaframework.io/docs/patterns/pricing-block), [Resources Block](https://vanillaframework.io/docs/patterns/resources-block), [Logo Section](https://vanillaframework.io/docs/patterns/logo-section), [CTA](https://vanillaframework.io/docs/patterns/cta), [Data Spotlight](https://vanillaframework.io/docs/patterns/data-spotlight), [Newsletter Signup](https://vanillaframework.io/docs/patterns/newsletter-signup)
+- [ ] [Blog Pattern](https://vanillaframework.io/docs/patterns/blog) & [Article](https://vanillaframework.io/docs/patterns/article)
+
+---
+
+## Phase 7: Application Scaffolding
+
+_The highest level wrappers. These define the entire shell of the page._
+
+- [ ] [Navigation](https://vanillaframework.io/docs/patterns/navigation)
+      _Note: The global header. Requires Icons, Links, Forms (Search), Buttons, and responsive toggles._
+- [ ] [Application Layout](https://vanillaframework.io/docs/layouts/application) & [Application Panels](https://vanillaframework.io/docs/layouts/application-panels)
+      _Note: Standard app shell with side-nav and drawers._
 - [ ] [Docs Layout](https://vanillaframework.io/docs/layouts/docs)
-      _Note: Three-column split (Side Nav -> Content -> Table of Contents)._
-- [ ] [Fluid Breakout](https://vanillaframework.io/docs/layouts/fluid-breakout)
-      _Note: Content that normally stays bounded but 'breaks out' to full-width when necessary._
-- [ ] [Grid](https://vanillaframework.io/docs/rules/grid) (12 Column & 8 Column logic)
-      _Note: Tailwind's grid handles basic columns, but Vanilla has specific gutters and responsive collapsing behaviors that may need distinct mappings._
-
-## Utilities
-
-_Note: Base Tailwind CSS inherently handles `clearfix`, `display`/`hide`, `float`, `margin`/`padding` basics, `max-width`, and `vertical-align`. The following are highly Vanilla-specific tweaks._
-
-- [ ] [Baseline Grid](https://vanillaframework.io/docs/utilities/baseline-grid)
-      _Note: Strict text-to-baseline alignment utility to ensure elements snap to a visual grid._
-- [ ] [Deprecate](https://vanillaframework.io/docs/utilities/deprecate)
-      _Note: Visual deprecation styling for elements (strikethroughs or fading)._
-- [ ] Has Icon Utility
-      _Note: Specific padding margins for inline icons next to text to prevent clipping._
+      _Note: Three-column layout for documentation pages._
+- [ ] [Suru](https://vanillaframework.io/docs/patterns/suru) (Canonical's signature background visual element)
+- [ ] Layout tweaks: [Fluid Breakout](https://vanillaframework.io/docs/layouts/fluid-breakout), [Grid 8](https://vanillaframework.io/docs/rules/grid)
