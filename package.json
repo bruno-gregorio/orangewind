@@ -6,7 +6,8 @@
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint --fix .",
-    "check": "eslint . && prettier --check ."
+    "check": "eslint . && prettier --check .",
+    "storybook": "bun run --cwd packages/test-bench storybook"
   },
   "devDependencies": {
     "@types/bun": "latest",
