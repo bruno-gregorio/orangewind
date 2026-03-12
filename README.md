@@ -27,3 +27,9 @@ This is a monorepo containing the following packages:
 
 - `packages/orangewind`: The core Tailwind CSS plugin.
 - `packages/test-bench`: A test bench environment for testing and developing the plugin using Storybook.
+
+## Reference Codebase
+
+The original Canonical Vanilla framework source code is included as a git submodule to be used as reference:
+
+- `vanilla-framework/`: A submodule pointing to `canonical/vanilla-framework`.

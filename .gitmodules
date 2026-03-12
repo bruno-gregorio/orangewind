@@ -1,0 +1,3 @@
+[submodule "vanilla-eval"]
+	path = vanilla-framework
+	url = https://github.com/canonical/vanilla-framework.git
