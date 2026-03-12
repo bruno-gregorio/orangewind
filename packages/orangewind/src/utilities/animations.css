@@ -1,61 +1,75 @@
-/* Transition durations */
-.ow-transition-snap {
+@theme {
+  /* Animation — Durations */
+  --ow-duration-snap: 0.1s;
+  --ow-duration-fast: 0.165s;
+  --ow-duration-brisk: 0.333s;
+  --ow-duration-slow: 0.5s;
+  --ow-duration-sleepy: 1s;
+
+  /* Animation — Easing */
+  --ow-easing-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ow-easing-in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+@utility ow-transition-snap {
   transition-duration: var(--ow-duration-snap);
 }
-.ow-transition-fast {
+@utility ow-transition-fast {
   transition-duration: var(--ow-duration-fast);
 }
-.ow-transition-brisk {
+@utility ow-transition-brisk {
   transition-duration: var(--ow-duration-brisk);
 }
-.ow-transition-slow {
+@utility ow-transition-slow {
   transition-duration: var(--ow-duration-slow);
 }
-.ow-transition-sleepy {
+@utility ow-transition-sleepy {
   transition-duration: var(--ow-duration-sleepy);
 }
 
 /* Animation durations */
-.ow-animation-snap {
+@utility ow-animation-snap {
   animation-duration: var(--ow-duration-snap);
 }
-.ow-animation-fast {
+@utility ow-animation-fast {
   animation-duration: var(--ow-duration-fast);
 }
-.ow-animation-brisk {
+@utility ow-animation-brisk {
   animation-duration: var(--ow-duration-brisk);
 }
-.ow-animation-slow {
+@utility ow-animation-slow {
   animation-duration: var(--ow-duration-slow);
 }
-.ow-animation-sleepy {
+@utility ow-animation-sleepy {
   animation-duration: var(--ow-duration-sleepy);
 }
 
 /* Transition easing */
-.ow-transition-ease-in {
+@utility ow-transition-ease-in {
   transition-timing-function: var(--ow-easing-in);
 }
-.ow-transition-ease-out {
+@utility ow-transition-ease-out {
   transition-timing-function: var(--ow-easing-out);
 }
 
 /* Animation easing */
-.ow-animation-ease-in {
+@utility ow-animation-ease-in {
   animation-timing-function: var(--ow-easing-in);
 }
-.ow-animation-ease-out {
+@utility ow-animation-ease-out {
   animation-timing-function: var(--ow-easing-out);
 }
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+@layer base {
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }

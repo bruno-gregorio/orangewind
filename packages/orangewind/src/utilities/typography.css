@@ -1,0 +1,97 @@
+@theme {
+  /* Font Families */
+  --font-sans: 'Ubuntu', Arial, 'libra sans', sans-serif;
+  --font-mono: 'Ubuntu Mono', Consolas, Monaco, Courier, monospace;
+
+  /* Font Sizes & Line Heights */
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.25rem;
+
+  --text-base: 1rem;
+  --text-base--line-height: 1.5rem;
+
+  --text-lg: 1.5rem;
+  --text-lg--line-height: 2rem;
+
+  --text-xl: 2rem;
+  --text-xl--line-height: 2.5rem;
+
+  --text-2xl: 2.5rem;
+  --text-2xl--line-height: 3rem;
+
+  --text-3xl: 4rem;
+  --text-3xl--line-height: 4.5rem;
+
+  --text-4xl: 5rem;
+  --text-4xl--line-height: 5.5rem;
+
+  /* Font Weights */
+  --font-weight-thin: 100;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+}
+
+@layer components {
+  /* Headings */
+  .ow-heading-1 {
+    font-size: var(--text-xl);
+    line-height: var(--text-xl--line-height);
+    font-weight: 550;
+  }
+
+  .ow-heading-2 {
+    font-size: var(--text-xl);
+    line-height: var(--text-xl--line-height);
+    font-weight: 180;
+  }
+
+  .ow-heading-3 {
+    font-size: var(--text-lg);
+    line-height: var(--text-lg--line-height);
+    font-weight: 550;
+  }
+
+  .ow-heading-4 {
+    font-size: var(--text-lg);
+    line-height: var(--text-lg--line-height);
+    font-weight: 275;
+  }
+
+  .ow-heading-5 {
+    font-size: var(--text-base);
+    line-height: var(--text-base--line-height);
+    font-weight: 550;
+  }
+
+  .ow-heading-6 {
+    font-size: var(--text-base);
+    line-height: var(--text-base--line-height);
+    font-weight: var(--font-weight-regular);
+  }
+
+  /* Headings — Large screens */
+  @media (width >= theme(--breakpoint-lg)) {
+    .ow-heading-1 {
+      font-size: var(--text-2xl);
+      line-height: var(--text-2xl--line-height);
+    }
+
+    .ow-heading-2 {
+      font-size: var(--text-2xl);
+      line-height: var(--text-2xl--line-height);
+    }
+  }
+
+  /* Display Heading */
+  .ow-display-heading {
+    font-size: var(--text-3xl);
+    line-height: var(--text-3xl--line-height);
+    font-weight: var(--font-weight-thin);
+  }
+}
