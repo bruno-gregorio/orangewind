@@ -101,8 +101,20 @@
       <span style="font-size: 0.75rem;">change-version</span>
     </div>
     <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-chevron" style="width: 2rem; height: 2rem;">chevron</i>
-      <span style="font-size: 0.75rem;">chevron</span>
+      <i class="ow-icon-chevron-down" style="width: 2rem; height: 2rem;">chevron-down</i>
+      <span style="font-size: 0.75rem;">chevron-down</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
+      <i class="ow-icon-chevron-left" style="width: 2rem; height: 2rem;">chevron-left</i>
+      <span style="font-size: 0.75rem;">chevron-left</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
+      <i class="ow-icon-chevron-right" style="width: 2rem; height: 2rem;">chevron-right</i>
+      <span style="font-size: 0.75rem;">chevron-right</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
+      <i class="ow-icon-chevron-up" style="width: 2rem; height: 2rem;">chevron-up</i>
+      <span style="font-size: 0.75rem;">chevron-up</span>
     </div>
     <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
       <i class="ow-icon-close" style="width: 2rem; height: 2rem;">close</i>
@@ -317,8 +329,8 @@
       <span style="font-size: 0.75rem;">in-progress</span>
     </div>
     <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-info" style="width: 2rem; height: 2rem;">info</i>
-      <span style="font-size: 0.75rem;">info</span>
+      <i class="ow-icon-information" style="width: 2rem; height: 2rem;">information</i>
+      <span style="font-size: 0.75rem;">information</span>
     </div>
     <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
       <i class="ow-icon-inspector-debug" style="width: 2rem; height: 2rem;">inspector-debug</i>
@@ -335,10 +347,6 @@
     <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
       <i class="ow-icon-linkedin" style="width: 2rem; height: 2rem;">linkedin</i>
       <span style="font-size: 0.75rem;">linkedin</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-linux" style="width: 2rem; height: 2rem;">linux</i>
-      <span style="font-size: 0.75rem;">linux</span>
     </div>
     <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
       <i class="ow-icon-loading-steps" style="width: 2rem; height: 2rem;">loading-steps</i>
@@ -481,6 +489,10 @@
       <span style="font-size: 0.75rem;">profiles</span>
     </div>
     <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
+      <i class="ow-icon-question" style="width: 2rem; height: 2rem;">question</i>
+      <span style="font-size: 0.75rem;">question</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
       <i class="ow-icon-quote" style="width: 2rem; height: 2rem;">quote</i>
       <span style="font-size: 0.75rem;">quote</span>
     </div>
@@ -603,10 +615,6 @@
     <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
       <i class="ow-icon-status-queued-small" style="width: 2rem; height: 2rem;">status-queued-small</i>
       <span style="font-size: 0.75rem;">status-queued-small</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-status-small" style="width: 2rem; height: 2rem;">status-small</i>
-      <span style="font-size: 0.75rem;">status-small</span>
     </div>
     <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
       <i class="ow-icon-status-succeeded-small" style="width: 2rem; height: 2rem;">status-succeeded-small</i>
@@ -763,5 +771,6 @@
     <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
       <i class="ow-icon-youtube" style="width: 2rem; height: 2rem;">youtube</i>
       <span style="font-size: 0.75rem;">youtube</span>
-    </div></div>
+    </div>
+</div>
 </Story>
