@@ -585,20 +585,40 @@
       <span style="font-size: 0.75rem;">status</span>
     </div>
     <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
+      <i class="ow-icon-status-failed-small" style="width: 2rem; height: 2rem;">status-failed-small</i>
+      <span style="font-size: 0.75rem;">status-failed-small</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
       <i class="ow-icon-status-in-progress" style="width: 2rem; height: 2rem;">status-in-progress</i>
       <span style="font-size: 0.75rem;">status-in-progress</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
+      <i class="ow-icon-status-in-progress-small" style="width: 2rem; height: 2rem;">status-in-progress-small</i>
+      <span style="font-size: 0.75rem;">status-in-progress-small</span>
     </div>
     <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
       <i class="ow-icon-status-queued" style="width: 2rem; height: 2rem;">status-queued</i>
       <span style="font-size: 0.75rem;">status-queued</span>
     </div>
     <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
+      <i class="ow-icon-status-queued-small" style="width: 2rem; height: 2rem;">status-queued-small</i>
+      <span style="font-size: 0.75rem;">status-queued-small</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
       <i class="ow-icon-status-small" style="width: 2rem; height: 2rem;">status-small</i>
       <span style="font-size: 0.75rem;">status-small</span>
     </div>
     <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
+      <i class="ow-icon-status-succeeded-small" style="width: 2rem; height: 2rem;">status-succeeded-small</i>
+      <span style="font-size: 0.75rem;">status-succeeded-small</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
       <i class="ow-icon-status-waiting" style="width: 2rem; height: 2rem;">status-waiting</i>
       <span style="font-size: 0.75rem;">status-waiting</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
+      <i class="ow-icon-status-waiting-small" style="width: 2rem; height: 2rem;">status-waiting-small</i>
+      <span style="font-size: 0.75rem;">status-waiting-small</span>
     </div>
     <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
       <i class="ow-icon-stop" style="width: 2rem; height: 2rem;">stop</i>
