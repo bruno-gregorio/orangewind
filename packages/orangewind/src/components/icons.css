@@ -78,6 +78,10 @@
     background-position: center;
     background-size: contain;
     mask-image: none;
+
+    @variant dark {
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle stroke='%23d17b85' stroke-width='1.5' fill='%23d17b85' cx='8' cy='8' r='6.25'/%3E%3Cpath fill='%23262626' fill-rule='nonzero' d='M10.282 4.638l1.06 1.06L9.05 7.99l2.293 2.292-1.06 1.06L7.99 9.05 5.7 11.343l-1.06-1.06 2.29-2.293L4.64 5.7l1.06-1.06 2.291 2.29z'/%3E%3C/g%3E%3C/svg%3E");
+    }
   }
 
   .ow-icon-error-grey {
@@ -91,6 +95,10 @@
     background-position: center;
     background-size: contain;
     mask-image: none;
+
+    @variant dark {
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M9.34 1.2l5.842 11.627A1.5 1.5 0 0113.842 15H2.158a1.5 1.5 0 01-1.34-2.173L6.66 1.2a1.5 1.5 0 012.68 0z' fill='%23c48831'/%3E%3Cpath d='M8.5 11a.5.5 0 01.492.41L9 11.5v1a.5.5 0 01-.41.492L8.5 13h-1a.5.5 0 01-.492-.41L7 12.5v-1a.5.5 0 01.41-.492L7.5 11h1zM9 5v4.5H7V5h2z' fill='%23262626'/%3E%3C/g%3E%3C/svg%3E");
+    }
   }
 
   .ow-icon-external-link {
@@ -124,6 +132,10 @@
     background-position: center;
     background-size: contain;
     mask-image: none;
+
+    @variant dark {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cg fill='none' fill-rule='nonzero'%3E%3Cpath fill='%2362a36c' d='M8 1a7 7 0 110 14A7 7 0 018 1zm2.83 3.502L6.863 9.884 5.174 8.096l-1.09 1.03 2.92 3.096 5.034-6.83-1.208-.89z'/%3E%3Cpath fill='%23262626' d='M10.83 4.502l1.208.89-5.033 6.83-2.922-3.096 1.091-1.03 1.689 1.789z'/%3E%3C/g%3E%3C/svg%3E");
+    }
   }
 
   .ow-icon-success-grey {
@@ -387,6 +399,10 @@
     background-position: center;
     background-size: contain;
     mask-image: none;
+
+    @variant dark {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cpath fill='%23d17b85' fill-rule='evenodd' d='M1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8' clip-rule='evenodd'/%3E%3Cpath fill='%23262626' fill-rule='evenodd' d='M9 8.5V4H7v4.5zm-.008 1.91A.5.5 0 0 0 8.5 10h-1l-.09.008A.5.5 0 0 0 7 10.5v1l.008.09A.5.5 0 0 0 7.5 12h1l.09-.008A.5.5 0 0 0 9 11.5v-1z' clip-rule='evenodd'/%3E%3C/svg%3E");
+    }
   }
 
   .ow-icon-restart {
@@ -571,6 +587,10 @@
     background-position: center;
     background-size: contain;
     mask-image: none;
+
+    @variant dark {
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Crect fill='%2362a36c'  x='1' y='1' width='14' height='14' rx='3'/%3E%3Cpath fill='%23262626'  fill-rule='nonzero' d='M11.527 3.655l1.208.89-5.955 8.082L3.386 9.03 4.477 8l2.161 2.29z'/%3E%3C/g%3E%3C/svg%3E");
+    }
   }
 
   .ow-icon-conflict {
@@ -580,6 +600,10 @@
     background-position: center;
     background-size: contain;
     mask-image: none;
+
+    @variant dark {
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Crect fill='%23c48831'  x='1' y='1' width='14' height='14' rx='3'/%3E%3Cpath fill='%23262626'  d='M8.73 1L6.693 7.235h4.784L8.85 15H7.267l2.119-6.265h-4.76L7.152 1z'/%3E%3C/g%3E%3C/svg%3E");
+    }
   }
 
   .ow-icon-connected {
@@ -647,6 +671,10 @@
     background-position: center;
     background-size: contain;
     mask-image: none;
+
+    @variant dark {
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M8 1a7 7 0 110 14A7 7 0 018 1zm0 1.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11z' fill='%2362a36c'  fill-rule='nonzero'/%3E%3Cpath d='M8 1a7 7 0 11-6.996 7.24L1 8h1.5A5.5 5.5 0 108 2.5V1z' fill='%23262626' /%3E%3C/g%3E%3C/svg%3E");
+    }
   }
 
   .ow-icon-inspector-debug {
@@ -712,6 +740,10 @@
     background-position: center;
     background-size: contain;
     mask-image: none;
+
+    @variant dark {
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle fill='%2362a36c'  cx='8' cy='8' r='8'/%3E%3Cpath d='M10.488 2.538a6.001 6.001 0 11-5.033.027v1.723a4.5 4.5 0 105.033-.039V2.54zM8.75.591V7h-1.5V.855L8.75.59z' fill='%23262626' /%3E%3C/g%3E%3C/svg%3E");
+    }
   }
 
   .ow-icon-profile {
@@ -753,24 +785,36 @@
     background-position: center;
     background-size: contain;
     mask-image: none;
+
+    @variant dark {
+      background-image: url("data:image/svg+xml,%3Csvg width='17' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 4a4 4 0 110 8 4 4 0 010-8z' fill='%23d17b85'  fill-rule='nonzero'/%3E%3C/svg%3E");
+    }
   }
 
-  .ow-icon-status-in-progress-small {
+  .ow-icon-status-information-small {
     background-color: transparent;
     background-image: url("data:image/svg+xml,%3Csvg width='17' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 4a4 4 0 110 8 4 4 0 010-8z' fill='%2324598f'  fill-rule='nonzero'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     mask-image: none;
+
+    @variant dark {
+      background-image: url("data:image/svg+xml,%3Csvg width='17' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 4a4 4 0 110 8 4 4 0 010-8z' fill='%235db3ff'  fill-rule='nonzero'/%3E%3C/svg%3E");
+    }
   }
 
-  .ow-icon-status-in-progress {
+  .ow-icon-status-in-progress, .ow-icon-status-in-progress-small {
     background-color: transparent;
     background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle fill='%2324598f'  cx='8' cy='8' r='7'/%3E%3Cpath d='M8 3.5a4.5 4.5 0 110 9 4.5 4.5 0 010-9zM8 5a3 3 0 100 6 3 3 0 000-6z' fill='%23f7f7f7'  fill-rule='nonzero' opacity='.5'/%3E%3Cpath d='M8.15 5.004l-.037-1.502L8 3.5a4.5 4.5 0 11-4.43 5.3h1.538A3.001 3.001 0 0011 8a3 3 0 00-2.85-2.996z' fill='white' /%3E%3C/g%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     mask-image: none;
+
+    @variant dark {
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle fill='%235db3ff'  cx='8' cy='8' r='7'/%3E%3Cpath d='M8 3.5a4.5 4.5 0 110 9 4.5 4.5 0 010-9zM8 5a3 3 0 100 6 3 3 0 000-6z' fill='%23262626'  fill-rule='nonzero' opacity='.5'/%3E%3Cpath d='M8.15 5.004l-.037-1.502L8 3.5a4.5 4.5 0 11-4.43 5.3h1.538A3.001 3.001 0 0011 8a3 3 0 00-2.85-2.996z' fill='%23262626' /%3E%3C/g%3E%3C/svg%3E");
+    }
   }
 
   .ow-icon-status-queued-small {
@@ -795,6 +839,10 @@
     background-position: center;
     background-size: contain;
     mask-image: none;
+
+    @variant dark {
+      background-image: url("data:image/svg+xml,%3Csvg width='17' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 4a4 4 0 110 8 4 4 0 010-8z' fill='%2362a36c'  fill-rule='nonzero'/%3E%3C/svg%3E");
+    }
   }
 
   .ow-icon-status-waiting-small {
@@ -804,6 +852,10 @@
     background-position: center;
     background-size: contain;
     mask-image: none;
+
+    @variant dark {
+      background-image: url("data:image/svg+xml,%3Csvg width='17' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 4a4 4 0 110 8 4 4 0 010-8z' fill='%23c48831'  fill-rule='nonzero'/%3E%3C/svg%3E");
+    }
   }
 
   .ow-icon-status-waiting {
@@ -813,6 +865,10 @@
     background-position: center;
     background-size: contain;
     mask-image: none;
+
+    @variant dark {
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle fill='%23c48831'  cx='8' cy='8' r='7'/%3E%3Crect fill='%23d9d9d9'  opacity='.7' x='3' y='7' width='2' height='2' rx='.5'/%3E%3Crect fill='%23f7f7f7'  opacity='.85' x='7' y='7' width='2' height='2' rx='.5'/%3E%3Crect fill='white'  x='11' y='7' width='2' height='2' rx='.5'/%3E%3C/g%3E%3C/svg%3E");
+    }
   }
 
   .ow-icon-status {
@@ -865,6 +921,10 @@
     background-position: center;
     background-size: contain;
     mask-image: none;
+
+    @variant dark {
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M8 1a7 7 0 110 14A7 7 0 018 1z' fill='%2362a36c' /%3E%3Cpath fill='%23262626'  d='M6.022 4.454v7.105L11.537 8z'/%3E%3C/g%3E%3C/svg%3E");
+    }
   }
 
   .ow-icon-unmount {
