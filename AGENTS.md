@@ -1,0 +1,45 @@
+# AI Agents Guidelines (Orangewind)
+
+This document provides context, core rules, and architectural standards for the **Orangewind** project for Artificial Intelligence agents.
+
+## 1. Project Overview
+**Orangewind** is a *monorepo* whose main objective is to re-implement **Canonical's Vanilla Framework** as a **Tailwind CSS** plugin. The central premise is to **avoid duplicating** utility classes that Tailwind already provides natively.
+
+- **Stack / Runtime:** [Bun](https://bun.com)
+- **Front-end Framework:** Svelte (used for validation inside the `test-bench` package)
+- **Monorepo Management:** Bun Workspaces (defined in `package.json` for files inside `packages/*`)
+
+## 2. Monorepo Structure
+The main structure of the project is divided between the following packages:
+- `packages/orangewind`: The core package containing the Tailwind CSS plugin.
+- `packages/test-bench`: The environment to develop and test the plugin (using **Storybook** and Svelte).
+- `vanilla-framework/`: A git submodule pointing to Canonical's original repository (`canonical/vanilla-framework`).
+  - **Critical Submodule Usage:** Agents must always consult this directory as a "Template" (Reference) to understand how a CSS rule or component was originally created in the Vanilla Framework before attempting to implement it in `orangewind`.
+
+## 3. Code Standards & Formatting (Lint & Prettier)
+
+The project employs strict rules to ensure a clean and modern codebase.
+
+**3.1. Linting (ESLint)**
+- **Base:** Based on the `neostandard` config (StandardJS) with native support for `.ts` (TypeScript) and `.svelte` (Svelte) files.
+- **Variables (`prefer-const` and `no-var`):** Use `const` whenever possible; under no circumstances use `var`; strict restriction on creating unused variables/arguments (except those prefixed with an underscore `^_`).
+- **Strict Equality (`eqeqeq`):** Always use `===` or `!==`, instead of `==` or `!=`.
+- **Typing (TypeScript):** Avoid using the explicit `any` type as much as possible (`@typescript-eslint/no-explicit-any` will throw a warning).
+
+**3.2. Formatting (Prettier)**
+- **Code Style:**
+  - No semicolons (`semi: false`);
+  - Single quotes (`singleQuote: true`);
+  - No trailing commas on the last item of lists/objects (`trailingComma: "none"`);
+  - Exact 2 spaces indentation (`tabWidth: 2`), `useTabs: false`;
+  - Maximum code line width of 80 characters (`printWidth: 80`);
+  - No parentheses in single-argument arrow functions (`arrowParens: "avoid"`, e.g., `x => x`).
+
+## 4. Execution Scripts & Routines
+
+When changing or completing code, you or the developer can run the following commands from the root (`bun run ...`):
+
+- **`storybook`:** Starts the component preview via Storybook inside `test-bench`.
+- **`format`:** Triggers automatic visual correction using Prettier. **Always use this when creating or changing multiple files**.
+- **`lint`:** Executes ESLint scanning and automatic corrections.
+- **`check`:** Performs passive validations (`eslint . && prettier --check .`) useful for continuous integration (CI).
