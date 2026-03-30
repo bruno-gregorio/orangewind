@@ -6,7 +6,7 @@
   })
 </script>
 
-<Story name="All Icons">
+{#snippet iconGrid()}
   <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem;">
     <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
       <i class="ow-icon-add-canvas" style="width: 2rem; height: 2rem;">add-canvas</i>
@@ -773,4 +773,14 @@
       <span style="font-size: 0.75rem;">youtube</span>
     </div>
 </div>
+{/snippet}
+
+<Story name="Light Mode">
+  {@render iconGrid()}
+</Story>
+
+<Story name="Dark Mode">
+  <div class="dark" style="background-color: #262626; color: white; padding: 1rem;">
+    {@render iconGrid()}
+  </div>
 </Story>
