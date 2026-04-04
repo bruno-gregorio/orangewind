@@ -27,8 +27,10 @@
 
   /* Vanilla Framework — Background */
   --color-ow-background-default: var(--color-ow-light);
+  --color-ow-background-alt: var(--color-ow-mid-x-light);
 }
 
 .dark {
   --color-ow-background-default: var(--color-ow-dark);
+  --color-ow-background-alt: var(--color-ow-mid-dark);
 }
