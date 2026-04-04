@@ -24,4 +24,13 @@
   --color-ow-link: #06c;
   --color-ow-link-visited: #7d42b8;
   --color-ow-focus: #2e96ff;
+
+  /* Vanilla Framework — Background */
+  --color-ow-background-default: var(--color-ow-light);
+}
+
+@variant dark {
+  @theme {
+    --color-ow-background-default: var(--color-ow-dark);
+  }
 }
