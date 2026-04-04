@@ -29,843 +29,843 @@
 </script>
 
 {#snippet iconGrid()}
-  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem;">
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-add-canvas" style="width: 2rem; height: 2rem;">add-canvas</i>
-      <span style="font-size: 0.75rem;">add-canvas</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-add-logical-volume" style="width: 2rem; height: 2rem;">add-logical-volume</i>
-      <span style="font-size: 0.75rem;">add-logical-volume</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-add-partition" style="width: 2rem; height: 2rem;">add-partition</i>
-      <span style="font-size: 0.75rem;">add-partition</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-anchor" style="width: 2rem; height: 2rem;">anchor</i>
-      <span style="font-size: 0.75rem;">anchor</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-applications" style="width: 2rem; height: 2rem;">applications</i>
-      <span style="font-size: 0.75rem;">applications</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-archive" style="width: 2rem; height: 2rem;">archive</i>
-      <span style="font-size: 0.75rem;">archive</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-arrow-bottom-left" style="width: 2rem; height: 2rem;">arrow-bottom-left</i>
-      <span style="font-size: 0.75rem;">arrow-bottom-left</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-arrow-bottom-right" style="width: 2rem; height: 2rem;">arrow-bottom-right</i>
-      <span style="font-size: 0.75rem;">arrow-bottom-right</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-arrow-down" style="width: 2rem; height: 2rem;">arrow-down</i>
-      <span style="font-size: 0.75rem;">arrow-down</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-arrow-left" style="width: 2rem; height: 2rem;">arrow-left</i>
-      <span style="font-size: 0.75rem;">arrow-left</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-arrow-right" style="width: 2rem; height: 2rem;">arrow-right</i>
-      <span style="font-size: 0.75rem;">arrow-right</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-arrow-top-left" style="width: 2rem; height: 2rem;">arrow-top-left</i>
-      <span style="font-size: 0.75rem;">arrow-top-left</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-arrow-top-right" style="width: 2rem; height: 2rem;">arrow-top-right</i>
-      <span style="font-size: 0.75rem;">arrow-top-right</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-arrow-up" style="width: 2rem; height: 2rem;">arrow-up</i>
-      <span style="font-size: 0.75rem;">arrow-up</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-back-to-top" style="width: 2rem; height: 2rem;">back-to-top</i>
-      <span style="font-size: 0.75rem;">back-to-top</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-begin-downloading" style="width: 2rem; height: 2rem;">begin-downloading</i>
-      <span style="font-size: 0.75rem;">begin-downloading</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-blueprint" style="width: 2rem; height: 2rem;">blueprint</i>
-      <span style="font-size: 0.75rem;">blueprint</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-book" style="width: 2rem; height: 2rem;">book</i>
-      <span style="font-size: 0.75rem;">book</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-bundle" style="width: 2rem; height: 2rem;">bundle</i>
-      <span style="font-size: 0.75rem;">bundle</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-canvas" style="width: 2rem; height: 2rem;">canvas</i>
-      <span style="font-size: 0.75rem;">canvas</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-certificate" style="width: 2rem; height: 2rem;">certificate</i>
-      <span style="font-size: 0.75rem;">certificate</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-certification" style="width: 2rem; height: 2rem;">certification</i>
-      <span style="font-size: 0.75rem;">certification</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-change-version" style="width: 2rem; height: 2rem;">change-version</i>
-      <span style="font-size: 0.75rem;">change-version</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-chevron-down" style="width: 2rem; height: 2rem;">chevron-down</i>
-      <span style="font-size: 0.75rem;">chevron-down</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-chevron-left" style="width: 2rem; height: 2rem;">chevron-left</i>
-      <span style="font-size: 0.75rem;">chevron-left</span>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-chevron-right" style="width: 2rem; height: 2rem;">chevron-right</i>
-      <span style="font-size: 0.75rem;">chevron-right</span>
+  <div class="grid grid-cols-[repeat(auto-fill,minmax(160px,1fr))] gap-4">
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-add-canvas w-8 h-8">add-canvas</i>
+      <span class="text-xs">add-canvas</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-add-logical-volume w-8 h-8">add-logical-volume</i>
+      <span class="text-xs">add-logical-volume</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-add-partition w-8 h-8">add-partition</i>
+      <span class="text-xs">add-partition</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-anchor w-8 h-8">anchor</i>
+      <span class="text-xs">anchor</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-applications w-8 h-8">applications</i>
+      <span class="text-xs">applications</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-archive w-8 h-8">archive</i>
+      <span class="text-xs">archive</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-arrow-bottom-left w-8 h-8">arrow-bottom-left</i>
+      <span class="text-xs">arrow-bottom-left</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-arrow-bottom-right w-8 h-8">arrow-bottom-right</i>
+      <span class="text-xs">arrow-bottom-right</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-arrow-down w-8 h-8">arrow-down</i>
+      <span class="text-xs">arrow-down</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-arrow-left w-8 h-8">arrow-left</i>
+      <span class="text-xs">arrow-left</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-arrow-right w-8 h-8">arrow-right</i>
+      <span class="text-xs">arrow-right</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-arrow-top-left w-8 h-8">arrow-top-left</i>
+      <span class="text-xs">arrow-top-left</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-arrow-top-right w-8 h-8">arrow-top-right</i>
+      <span class="text-xs">arrow-top-right</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-arrow-up w-8 h-8">arrow-up</i>
+      <span class="text-xs">arrow-up</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-back-to-top w-8 h-8">back-to-top</i>
+      <span class="text-xs">back-to-top</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-begin-downloading w-8 h-8">begin-downloading</i>
+      <span class="text-xs">begin-downloading</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-blueprint w-8 h-8">blueprint</i>
+      <span class="text-xs">blueprint</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-book w-8 h-8">book</i>
+      <span class="text-xs">book</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-bundle w-8 h-8">bundle</i>
+      <span class="text-xs">bundle</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-canvas w-8 h-8">canvas</i>
+      <span class="text-xs">canvas</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-certificate w-8 h-8">certificate</i>
+      <span class="text-xs">certificate</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-certification w-8 h-8">certification</i>
+      <span class="text-xs">certification</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-change-version w-8 h-8">change-version</i>
+      <span class="text-xs">change-version</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-chevron-down w-8 h-8">chevron-down</i>
+      <span class="text-xs">chevron-down</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-chevron-left w-8 h-8">chevron-left</i>
+      <span class="text-xs">chevron-left</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-chevron-right w-8 h-8">chevron-right</i>
+      <span class="text-xs">chevron-right</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-chevron-up" style="width: 2rem; height: 2rem;">chevron-up</i>
-      <span style="font-size: 0.75rem;">chevron-up</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-chevron-up w-8 h-8">chevron-up</i>
+      <span class="text-xs">chevron-up</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-close" style="width: 2rem; height: 2rem;">close</i>
-      <span style="font-size: 0.75rem;">close</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-close w-8 h-8">close</i>
+      <span class="text-xs">close</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-cluster-host" style="width: 2rem; height: 2rem;">cluster-host</i>
-      <span style="font-size: 0.75rem;">cluster-host</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-cluster-host w-8 h-8">cluster-host</i>
+      <span class="text-xs">cluster-host</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-code" style="width: 2rem; height: 2rem;">code</i>
-      <span style="font-size: 0.75rem;">code</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-code w-8 h-8">code</i>
+      <span class="text-xs">code</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-collapse" style="width: 2rem; height: 2rem;">collapse</i>
-      <span style="font-size: 0.75rem;">collapse</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-collapse w-8 h-8">collapse</i>
+      <span class="text-xs">collapse</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-comments" style="width: 2rem; height: 2rem;">comments</i>
-      <span style="font-size: 0.75rem;">comments</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-comments w-8 h-8">comments</i>
+      <span class="text-xs">comments</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-conflict" style="width: 2rem; height: 2rem;">conflict</i>
-      <span style="font-size: 0.75rem;">conflict</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-conflict w-8 h-8">conflict</i>
+      <span class="text-xs">conflict</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-conflict-grey" style="width: 2rem; height: 2rem;">conflict-grey</i>
-      <span style="font-size: 0.75rem;">conflict-grey</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-conflict-grey w-8 h-8">conflict-grey</i>
+      <span class="text-xs">conflict-grey</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-conflict-resolution" style="width: 2rem; height: 2rem;">conflict-resolution</i>
-      <span style="font-size: 0.75rem;">conflict-resolution</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-conflict-resolution w-8 h-8">conflict-resolution</i>
+      <span class="text-xs">conflict-resolution</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-conflict-resolution-grey" style="width: 2rem; height: 2rem;">conflict-resolution-grey</i>
-      <span style="font-size: 0.75rem;">conflict-resolution-grey</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-conflict-resolution-grey w-8 h-8">conflict-resolution-grey</i>
+      <span class="text-xs">conflict-resolution-grey</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-connected" style="width: 2rem; height: 2rem;">connected</i>
-      <span style="font-size: 0.75rem;">connected</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-connected w-8 h-8">connected</i>
+      <span class="text-xs">connected</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-contact" style="width: 2rem; height: 2rem;">contact</i>
-      <span style="font-size: 0.75rem;">contact</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-contact w-8 h-8">contact</i>
+      <span class="text-xs">contact</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-containers" style="width: 2rem; height: 2rem;">containers</i>
-      <span style="font-size: 0.75rem;">containers</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-containers w-8 h-8">containers</i>
+      <span class="text-xs">containers</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-contextual-menu" style="width: 2rem; height: 2rem;">contextual-menu</i>
-      <span style="font-size: 0.75rem;">contextual-menu</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-contextual-menu w-8 h-8">contextual-menu</i>
+      <span class="text-xs">contextual-menu</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-controllers" style="width: 2rem; height: 2rem;">controllers</i>
-      <span style="font-size: 0.75rem;">controllers</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-controllers w-8 h-8">controllers</i>
+      <span class="text-xs">controllers</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-copy" style="width: 2rem; height: 2rem;">copy</i>
-      <span style="font-size: 0.75rem;">copy</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-copy w-8 h-8">copy</i>
+      <span class="text-xs">copy</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-copy-to-clipboard" style="width: 2rem; height: 2rem;">copy-to-clipboard</i>
-      <span style="font-size: 0.75rem;">copy-to-clipboard</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-copy-to-clipboard w-8 h-8">copy-to-clipboard</i>
+      <span class="text-xs">copy-to-clipboard</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-credit-card" style="width: 2rem; height: 2rem;">credit-card</i>
-      <span style="font-size: 0.75rem;">credit-card</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-credit-card w-8 h-8">credit-card</i>
+      <span class="text-xs">credit-card</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-cursor" style="width: 2rem; height: 2rem;">cursor</i>
-      <span style="font-size: 0.75rem;">cursor</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-cursor w-8 h-8">cursor</i>
+      <span class="text-xs">cursor</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-delete" style="width: 2rem; height: 2rem;">delete</i>
-      <span style="font-size: 0.75rem;">delete</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-delete w-8 h-8">delete</i>
+      <span class="text-xs">delete</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-desktop" style="width: 2rem; height: 2rem;">desktop</i>
-      <span style="font-size: 0.75rem;">desktop</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-desktop w-8 h-8">desktop</i>
+      <span class="text-xs">desktop</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-disconnect" style="width: 2rem; height: 2rem;">disconnect</i>
-      <span style="font-size: 0.75rem;">disconnect</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-disconnect w-8 h-8">disconnect</i>
+      <span class="text-xs">disconnect</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-drag" style="width: 2rem; height: 2rem;">drag</i>
-      <span style="font-size: 0.75rem;">drag</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-drag w-8 h-8">drag</i>
+      <span class="text-xs">drag</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-edit" style="width: 2rem; height: 2rem;">edit</i>
-      <span style="font-size: 0.75rem;">edit</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-edit w-8 h-8">edit</i>
+      <span class="text-xs">edit</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-email" style="width: 2rem; height: 2rem;">email</i>
-      <span style="font-size: 0.75rem;">email</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-email w-8 h-8">email</i>
+      <span class="text-xs">email</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-error" style="width: 2rem; height: 2rem;">error</i>
-      <span style="font-size: 0.75rem;">error</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-error w-8 h-8">error</i>
+      <span class="text-xs">error</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-error-grey" style="width: 2rem; height: 2rem;">error-grey</i>
-      <span style="font-size: 0.75rem;">error-grey</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-error-grey w-8 h-8">error-grey</i>
+      <span class="text-xs">error-grey</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-expand" style="width: 2rem; height: 2rem;">expand</i>
-      <span style="font-size: 0.75rem;">expand</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-expand w-8 h-8">expand</i>
+      <span class="text-xs">expand</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-export" style="width: 2rem; height: 2rem;">export</i>
-      <span style="font-size: 0.75rem;">export</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-export w-8 h-8">export</i>
+      <span class="text-xs">export</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-exposed" style="width: 2rem; height: 2rem;">exposed</i>
-      <span style="font-size: 0.75rem;">exposed</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-exposed w-8 h-8">exposed</i>
+      <span class="text-xs">exposed</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-external-link" style="width: 2rem; height: 2rem;">external-link</i>
-      <span style="font-size: 0.75rem;">external-link</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-external-link w-8 h-8">external-link</i>
+      <span class="text-xs">external-link</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-facebook" style="width: 2rem; height: 2rem;">facebook</i>
-      <span style="font-size: 0.75rem;">facebook</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-facebook w-8 h-8">facebook</i>
+      <span class="text-xs">facebook</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-file" style="width: 2rem; height: 2rem;">file</i>
-      <span style="font-size: 0.75rem;">file</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-file w-8 h-8">file</i>
+      <span class="text-xs">file</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-file-blank" style="width: 2rem; height: 2rem;">file-blank</i>
-      <span style="font-size: 0.75rem;">file-blank</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-file-blank w-8 h-8">file-blank</i>
+      <span class="text-xs">file-blank</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-filter" style="width: 2rem; height: 2rem;">filter</i>
-      <span style="font-size: 0.75rem;">filter</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-filter w-8 h-8">filter</i>
+      <span class="text-xs">filter</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-folder" style="width: 2rem; height: 2rem;">folder</i>
-      <span style="font-size: 0.75rem;">folder</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-folder w-8 h-8">folder</i>
+      <span class="text-xs">folder</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-fork" style="width: 2rem; height: 2rem;">fork</i>
-      <span style="font-size: 0.75rem;">fork</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-fork w-8 h-8">fork</i>
+      <span class="text-xs">fork</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-fullscreen" style="width: 2rem; height: 2rem;">fullscreen</i>
-      <span style="font-size: 0.75rem;">fullscreen</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-fullscreen w-8 h-8">fullscreen</i>
+      <span class="text-xs">fullscreen</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-generative-ai" style="width: 2rem; height: 2rem;">generative-ai</i>
-      <span style="font-size: 0.75rem;">generative-ai</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-generative-ai w-8 h-8">generative-ai</i>
+      <span class="text-xs">generative-ai</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-get-link" style="width: 2rem; height: 2rem;">get-link</i>
-      <span style="font-size: 0.75rem;">get-link</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-get-link w-8 h-8">get-link</i>
+      <span class="text-xs">get-link</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-gift" style="width: 2rem; height: 2rem;">gift</i>
-      <span style="font-size: 0.75rem;">gift</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-gift w-8 h-8">gift</i>
+      <span class="text-xs">gift</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-github" style="width: 2rem; height: 2rem;">github</i>
-      <span style="font-size: 0.75rem;">github</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-github w-8 h-8">github</i>
+      <span class="text-xs">github</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-halfscreen-bar" style="width: 2rem; height: 2rem;">halfscreen-bar</i>
-      <span style="font-size: 0.75rem;">halfscreen-bar</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-halfscreen-bar w-8 h-8">halfscreen-bar</i>
+      <span class="text-xs">halfscreen-bar</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-heading" style="width: 2rem; height: 2rem;">heading</i>
-      <span style="font-size: 0.75rem;">heading</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-heading w-8 h-8">heading</i>
+      <span class="text-xs">heading</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-help" style="width: 2rem; height: 2rem;">help</i>
-      <span style="font-size: 0.75rem;">help</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-help w-8 h-8">help</i>
+      <span class="text-xs">help</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-hide" style="width: 2rem; height: 2rem;">hide</i>
-      <span style="font-size: 0.75rem;">hide</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-hide w-8 h-8">hide</i>
+      <span class="text-xs">hide</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-highlight-off" style="width: 2rem; height: 2rem;">highlight-off</i>
-      <span style="font-size: 0.75rem;">highlight-off</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-highlight-off w-8 h-8">highlight-off</i>
+      <span class="text-xs">highlight-off</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-highlight-on" style="width: 2rem; height: 2rem;">highlight-on</i>
-      <span style="font-size: 0.75rem;">highlight-on</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-highlight-on w-8 h-8">highlight-on</i>
+      <span class="text-xs">highlight-on</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-history" style="width: 2rem; height: 2rem;">history</i>
-      <span style="font-size: 0.75rem;">history</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-history w-8 h-8">history</i>
+      <span class="text-xs">history</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-home" style="width: 2rem; height: 2rem;">home</i>
-      <span style="font-size: 0.75rem;">home</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-home w-8 h-8">home</i>
+      <span class="text-xs">home</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-ignored" style="width: 2rem; height: 2rem;">ignored</i>
-      <span style="font-size: 0.75rem;">ignored</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-ignored w-8 h-8">ignored</i>
+      <span class="text-xs">ignored</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-image" style="width: 2rem; height: 2rem;">image</i>
-      <span style="font-size: 0.75rem;">image</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-image w-8 h-8">image</i>
+      <span class="text-xs">image</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-import" style="width: 2rem; height: 2rem;">import</i>
-      <span style="font-size: 0.75rem;">import</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-import w-8 h-8">import</i>
+      <span class="text-xs">import</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-in-progress" style="width: 2rem; height: 2rem;">in-progress</i>
-      <span style="font-size: 0.75rem;">in-progress</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-in-progress w-8 h-8">in-progress</i>
+      <span class="text-xs">in-progress</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-information" style="width: 2rem; height: 2rem;">information</i>
-      <span style="font-size: 0.75rem;">information</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-information w-8 h-8">information</i>
+      <span class="text-xs">information</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-inspector-debug" style="width: 2rem; height: 2rem;">inspector-debug</i>
-      <span style="font-size: 0.75rem;">inspector-debug</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-inspector-debug w-8 h-8">inspector-debug</i>
+      <span class="text-xs">inspector-debug</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-instagram" style="width: 2rem; height: 2rem;">instagram</i>
-      <span style="font-size: 0.75rem;">instagram</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-instagram w-8 h-8">instagram</i>
+      <span class="text-xs">instagram</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-iso" style="width: 2rem; height: 2rem;">iso</i>
-      <span style="font-size: 0.75rem;">iso</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-iso w-8 h-8">iso</i>
+      <span class="text-xs">iso</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-linkedin" style="width: 2rem; height: 2rem;">linkedin</i>
-      <span style="font-size: 0.75rem;">linkedin</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-linkedin w-8 h-8">linkedin</i>
+      <span class="text-xs">linkedin</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-loading-steps" style="width: 2rem; height: 2rem;">loading-steps</i>
-      <span style="font-size: 0.75rem;">loading-steps</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-loading-steps w-8 h-8">loading-steps</i>
+      <span class="text-xs">loading-steps</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-location" style="width: 2rem; height: 2rem;">location</i>
-      <span style="font-size: 0.75rem;">location</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-location w-8 h-8">location</i>
+      <span class="text-xs">location</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-lock-locked" style="width: 2rem; height: 2rem;">lock-locked</i>
-      <span style="font-size: 0.75rem;">lock-locked</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-lock-locked w-8 h-8">lock-locked</i>
+      <span class="text-xs">lock-locked</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-lock-locked-active" style="width: 2rem; height: 2rem;">lock-locked-active</i>
-      <span style="font-size: 0.75rem;">lock-locked-active</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-lock-locked-active w-8 h-8">lock-locked-active</i>
+      <span class="text-xs">lock-locked-active</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-lock-unlock" style="width: 2rem; height: 2rem;">lock-unlock</i>
-      <span style="font-size: 0.75rem;">lock-unlock</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-lock-unlock w-8 h-8">lock-unlock</i>
+      <span class="text-xs">lock-unlock</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-log-out" style="width: 2rem; height: 2rem;">log-out</i>
-      <span style="font-size: 0.75rem;">log-out</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-log-out w-8 h-8">log-out</i>
+      <span class="text-xs">log-out</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-machines" style="width: 2rem; height: 2rem;">machines</i>
-      <span style="font-size: 0.75rem;">machines</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-machines w-8 h-8">machines</i>
+      <span class="text-xs">machines</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-map" style="width: 2rem; height: 2rem;">map</i>
-      <span style="font-size: 0.75rem;">map</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-map w-8 h-8">map</i>
+      <span class="text-xs">map</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-maximise-bar" style="width: 2rem; height: 2rem;">maximise-bar</i>
-      <span style="font-size: 0.75rem;">maximise-bar</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-maximise-bar w-8 h-8">maximise-bar</i>
+      <span class="text-xs">maximise-bar</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-menu" style="width: 2rem; height: 2rem;">menu</i>
-      <span style="font-size: 0.75rem;">menu</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-menu w-8 h-8">menu</i>
+      <span class="text-xs">menu</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-minimise-bar" style="width: 2rem; height: 2rem;">minimise-bar</i>
-      <span style="font-size: 0.75rem;">minimise-bar</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-minimise-bar w-8 h-8">minimise-bar</i>
+      <span class="text-xs">minimise-bar</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-minus" style="width: 2rem; height: 2rem;">minus</i>
-      <span style="font-size: 0.75rem;">minus</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-minus w-8 h-8">minus</i>
+      <span class="text-xs">minus</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-models" style="width: 2rem; height: 2rem;">models</i>
-      <span style="font-size: 0.75rem;">models</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-models w-8 h-8">models</i>
+      <span class="text-xs">models</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-mount" style="width: 2rem; height: 2rem;">mount</i>
-      <span style="font-size: 0.75rem;">mount</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-mount w-8 h-8">mount</i>
+      <span class="text-xs">mount</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-mount-2" style="width: 2rem; height: 2rem;">mount-2</i>
-      <span style="font-size: 0.75rem;">mount-2</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-mount-2 w-8 h-8">mount-2</i>
+      <span class="text-xs">mount-2</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-notifications" style="width: 2rem; height: 2rem;">notifications</i>
-      <span style="font-size: 0.75rem;">notifications</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-notifications w-8 h-8">notifications</i>
+      <span class="text-xs">notifications</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-open-terminal" style="width: 2rem; height: 2rem;">open-terminal</i>
-      <span style="font-size: 0.75rem;">open-terminal</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-open-terminal w-8 h-8">open-terminal</i>
+      <span class="text-xs">open-terminal</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-pause" style="width: 2rem; height: 2rem;">pause</i>
-      <span style="font-size: 0.75rem;">pause</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-pause w-8 h-8">pause</i>
+      <span class="text-xs">pause</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-pin" style="width: 2rem; height: 2rem;">pin</i>
-      <span style="font-size: 0.75rem;">pin</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-pin w-8 h-8">pin</i>
+      <span class="text-xs">pin</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-plans" style="width: 2rem; height: 2rem;">plans</i>
-      <span style="font-size: 0.75rem;">plans</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-plans w-8 h-8">plans</i>
+      <span class="text-xs">plans</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-play" style="width: 2rem; height: 2rem;">play</i>
-      <span style="font-size: 0.75rem;">play</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-play w-8 h-8">play</i>
+      <span class="text-xs">play</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-plus" style="width: 2rem; height: 2rem;">plus</i>
-      <span style="font-size: 0.75rem;">plus</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-plus w-8 h-8">plus</i>
+      <span class="text-xs">plus</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-pods" style="width: 2rem; height: 2rem;">pods</i>
-      <span style="font-size: 0.75rem;">pods</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-pods w-8 h-8">pods</i>
+      <span class="text-xs">pods</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-power-error" style="width: 2rem; height: 2rem;">power-error</i>
-      <span style="font-size: 0.75rem;">power-error</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-power-error w-8 h-8">power-error</i>
+      <span class="text-xs">power-error</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-power-off" style="width: 2rem; height: 2rem;">power-off</i>
-      <span style="font-size: 0.75rem;">power-off</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-power-off w-8 h-8">power-off</i>
+      <span class="text-xs">power-off</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-power-on" style="width: 2rem; height: 2rem;">power-on</i>
-      <span style="font-size: 0.75rem;">power-on</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-power-on w-8 h-8">power-on</i>
+      <span class="text-xs">power-on</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-priority-critical" style="width: 2rem; height: 2rem;">priority-critical</i>
-      <span style="font-size: 0.75rem;">priority-critical</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-priority-critical w-8 h-8">priority-critical</i>
+      <span class="text-xs">priority-critical</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-priority-high" style="width: 2rem; height: 2rem;">priority-high</i>
-      <span style="font-size: 0.75rem;">priority-high</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-priority-high w-8 h-8">priority-high</i>
+      <span class="text-xs">priority-high</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-priority-low" style="width: 2rem; height: 2rem;">priority-low</i>
-      <span style="font-size: 0.75rem;">priority-low</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-priority-low w-8 h-8">priority-low</i>
+      <span class="text-xs">priority-low</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-priority-medium" style="width: 2rem; height: 2rem;">priority-medium</i>
-      <span style="font-size: 0.75rem;">priority-medium</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-priority-medium w-8 h-8">priority-medium</i>
+      <span class="text-xs">priority-medium</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-priority-negligible" style="width: 2rem; height: 2rem;">priority-negligible</i>
-      <span style="font-size: 0.75rem;">priority-negligible</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-priority-negligible w-8 h-8">priority-negligible</i>
+      <span class="text-xs">priority-negligible</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-priority-unknown" style="width: 2rem; height: 2rem;">priority-unknown</i>
-      <span style="font-size: 0.75rem;">priority-unknown</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-priority-unknown w-8 h-8">priority-unknown</i>
+      <span class="text-xs">priority-unknown</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-private-key" style="width: 2rem; height: 2rem;">private-key</i>
-      <span style="font-size: 0.75rem;">private-key</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-private-key w-8 h-8">private-key</i>
+      <span class="text-xs">private-key</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-profile" style="width: 2rem; height: 2rem;">profile</i>
-      <span style="font-size: 0.75rem;">profile</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-profile w-8 h-8">profile</i>
+      <span class="text-xs">profile</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-profiles" style="width: 2rem; height: 2rem;">profiles</i>
-      <span style="font-size: 0.75rem;">profiles</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-profiles w-8 h-8">profiles</i>
+      <span class="text-xs">profiles</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-question" style="width: 2rem; height: 2rem;">question</i>
-      <span style="font-size: 0.75rem;">question</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-question w-8 h-8">question</i>
+      <span class="text-xs">question</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-quote" style="width: 2rem; height: 2rem;">quote</i>
-      <span style="font-size: 0.75rem;">quote</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-quote w-8 h-8">quote</i>
+      <span class="text-xs">quote</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-repository" style="width: 2rem; height: 2rem;">repository</i>
-      <span style="font-size: 0.75rem;">repository</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-repository w-8 h-8">repository</i>
+      <span class="text-xs">repository</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-restart" style="width: 2rem; height: 2rem;">restart</i>
-      <span style="font-size: 0.75rem;">restart</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-restart w-8 h-8">restart</i>
+      <span class="text-xs">restart</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-revisions" style="width: 2rem; height: 2rem;">revisions</i>
-      <span style="font-size: 0.75rem;">revisions</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-revisions w-8 h-8">revisions</i>
+      <span class="text-xs">revisions</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-rss" style="width: 2rem; height: 2rem;">rss</i>
-      <span style="font-size: 0.75rem;">rss</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-rss w-8 h-8">rss</i>
+      <span class="text-xs">rss</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-search" style="width: 2rem; height: 2rem;">search</i>
-      <span style="font-size: 0.75rem;">search</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-search w-8 h-8">search</i>
+      <span class="text-xs">search</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-security" style="width: 2rem; height: 2rem;">security</i>
-      <span style="font-size: 0.75rem;">security</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-security w-8 h-8">security</i>
+      <span class="text-xs">security</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-security-error" style="width: 2rem; height: 2rem;">security-error</i>
-      <span style="font-size: 0.75rem;">security-error</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-security-error w-8 h-8">security-error</i>
+      <span class="text-xs">security-error</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-security-tick" style="width: 2rem; height: 2rem;">security-tick</i>
-      <span style="font-size: 0.75rem;">security-tick</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-security-tick w-8 h-8">security-tick</i>
+      <span class="text-xs">security-tick</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-security-warning" style="width: 2rem; height: 2rem;">security-warning</i>
-      <span style="font-size: 0.75rem;">security-warning</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-security-warning w-8 h-8">security-warning</i>
+      <span class="text-xs">security-warning</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-select" style="width: 2rem; height: 2rem;">select</i>
-      <span style="font-size: 0.75rem;">select</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-select w-8 h-8">select</i>
+      <span class="text-xs">select</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-select-add" style="width: 2rem; height: 2rem;">select-add</i>
-      <span style="font-size: 0.75rem;">select-add</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-select-add w-8 h-8">select-add</i>
+      <span class="text-xs">select-add</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-select-remove" style="width: 2rem; height: 2rem;">select-remove</i>
-      <span style="font-size: 0.75rem;">select-remove</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-select-remove w-8 h-8">select-remove</i>
+      <span class="text-xs">select-remove</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-settings" style="width: 2rem; height: 2rem;">settings</i>
-      <span style="font-size: 0.75rem;">settings</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-settings w-8 h-8">settings</i>
+      <span class="text-xs">settings</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-share" style="width: 2rem; height: 2rem;">share</i>
-      <span style="font-size: 0.75rem;">share</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-share w-8 h-8">share</i>
+      <span class="text-xs">share</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-show" style="width: 2rem; height: 2rem;">show</i>
-      <span style="font-size: 0.75rem;">show</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-show w-8 h-8">show</i>
+      <span class="text-xs">show</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-single-host" style="width: 2rem; height: 2rem;">single-host</i>
-      <span style="font-size: 0.75rem;">single-host</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-single-host w-8 h-8">single-host</i>
+      <span class="text-xs">single-host</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-snapshot" style="width: 2rem; height: 2rem;">snapshot</i>
-      <span style="font-size: 0.75rem;">snapshot</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-snapshot w-8 h-8">snapshot</i>
+      <span class="text-xs">snapshot</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-snooze" style="width: 2rem; height: 2rem;">snooze</i>
-      <span style="font-size: 0.75rem;">snooze</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-snooze w-8 h-8">snooze</i>
+      <span class="text-xs">snooze</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-sort-both" style="width: 2rem; height: 2rem;">sort-both</i>
-      <span style="font-size: 0.75rem;">sort-both</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-sort-both w-8 h-8">sort-both</i>
+      <span class="text-xs">sort-both</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-sort-down" style="width: 2rem; height: 2rem;">sort-down</i>
-      <span style="font-size: 0.75rem;">sort-down</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-sort-down w-8 h-8">sort-down</i>
+      <span class="text-xs">sort-down</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-sort-up" style="width: 2rem; height: 2rem;">sort-up</i>
-      <span style="font-size: 0.75rem;">sort-up</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-sort-up w-8 h-8">sort-up</i>
+      <span class="text-xs">sort-up</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-spinner" style="width: 2rem; height: 2rem;">spinner</i>
-      <span style="font-size: 0.75rem;">spinner</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-spinner w-8 h-8">spinner</i>
+      <span class="text-xs">spinner</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-starred" style="width: 2rem; height: 2rem;">starred</i>
-      <span style="font-size: 0.75rem;">starred</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-starred w-8 h-8">starred</i>
+      <span class="text-xs">starred</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-statistics" style="width: 2rem; height: 2rem;">statistics</i>
-      <span style="font-size: 0.75rem;">statistics</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-statistics w-8 h-8">statistics</i>
+      <span class="text-xs">statistics</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-status" style="width: 2rem; height: 2rem;">status</i>
-      <span style="font-size: 0.75rem;">status</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-status w-8 h-8">status</i>
+      <span class="text-xs">status</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-status-failed-small" style="width: 2rem; height: 2rem;">status-failed-small</i>
-      <span style="font-size: 0.75rem;">status-failed-small</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-status-failed-small w-8 h-8">status-failed-small</i>
+      <span class="text-xs">status-failed-small</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-status-in-progress" style="width: 2rem; height: 2rem;">status-in-progress</i>
-      <span style="font-size: 0.75rem;">status-in-progress</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-status-in-progress w-8 h-8">status-in-progress</i>
+      <span class="text-xs">status-in-progress</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-status-in-progress-small" style="width: 2rem; height: 2rem;">status-in-progress-small</i>
-      <span style="font-size: 0.75rem;">status-in-progress-small</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-status-in-progress-small w-8 h-8">status-in-progress-small</i>
+      <span class="text-xs">status-in-progress-small</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-status-queued" style="width: 2rem; height: 2rem;">status-queued</i>
-      <span style="font-size: 0.75rem;">status-queued</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-status-queued w-8 h-8">status-queued</i>
+      <span class="text-xs">status-queued</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-status-queued-small" style="width: 2rem; height: 2rem;">status-queued-small</i>
-      <span style="font-size: 0.75rem;">status-queued-small</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-status-queued-small w-8 h-8">status-queued-small</i>
+      <span class="text-xs">status-queued-small</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-status-succeeded-small" style="width: 2rem; height: 2rem;">status-succeeded-small</i>
-      <span style="font-size: 0.75rem;">status-succeeded-small</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-status-succeeded-small w-8 h-8">status-succeeded-small</i>
+      <span class="text-xs">status-succeeded-small</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-status-waiting" style="width: 2rem; height: 2rem;">status-waiting</i>
-      <span style="font-size: 0.75rem;">status-waiting</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-status-waiting w-8 h-8">status-waiting</i>
+      <span class="text-xs">status-waiting</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-status-waiting-small" style="width: 2rem; height: 2rem;">status-waiting-small</i>
-      <span style="font-size: 0.75rem;">status-waiting-small</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-status-waiting-small w-8 h-8">status-waiting-small</i>
+      <span class="text-xs">status-waiting-small</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-stop" style="width: 2rem; height: 2rem;">stop</i>
-      <span style="font-size: 0.75rem;">stop</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-stop w-8 h-8">stop</i>
+      <span class="text-xs">stop</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-storage-bucket" style="width: 2rem; height: 2rem;">storage-bucket</i>
-      <span style="font-size: 0.75rem;">storage-bucket</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-storage-bucket w-8 h-8">storage-bucket</i>
+      <span class="text-xs">storage-bucket</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-storage-pool" style="width: 2rem; height: 2rem;">storage-pool</i>
-      <span style="font-size: 0.75rem;">storage-pool</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-storage-pool w-8 h-8">storage-pool</i>
+      <span class="text-xs">storage-pool</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-storage-volume" style="width: 2rem; height: 2rem;">storage-volume</i>
-      <span style="font-size: 0.75rem;">storage-volume</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-storage-volume w-8 h-8">storage-volume</i>
+      <span class="text-xs">storage-volume</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-submit-bug" style="width: 2rem; height: 2rem;">submit-bug</i>
-      <span style="font-size: 0.75rem;">submit-bug</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-submit-bug w-8 h-8">submit-bug</i>
+      <span class="text-xs">submit-bug</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-success" style="width: 2rem; height: 2rem;">success</i>
-      <span style="font-size: 0.75rem;">success</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-success w-8 h-8">success</i>
+      <span class="text-xs">success</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-success-grey" style="width: 2rem; height: 2rem;">success-grey</i>
-      <span style="font-size: 0.75rem;">success-grey</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-success-grey w-8 h-8">success-grey</i>
+      <span class="text-xs">success-grey</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-switcher" style="width: 2rem; height: 2rem;">switcher</i>
-      <span style="font-size: 0.75rem;">switcher</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-switcher w-8 h-8">switcher</i>
+      <span class="text-xs">switcher</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-switcher-dashboard" style="width: 2rem; height: 2rem;">switcher-dashboard</i>
-      <span style="font-size: 0.75rem;">switcher-dashboard</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-switcher-dashboard w-8 h-8">switcher-dashboard</i>
+      <span class="text-xs">switcher-dashboard</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-switcher-environments" style="width: 2rem; height: 2rem;">switcher-environments</i>
-      <span style="font-size: 0.75rem;">switcher-environments</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-switcher-environments w-8 h-8">switcher-environments</i>
+      <span class="text-xs">switcher-environments</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-tag" style="width: 2rem; height: 2rem;">tag</i>
-      <span style="font-size: 0.75rem;">tag</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-tag w-8 h-8">tag</i>
+      <span class="text-xs">tag</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-task-outstanding" style="width: 2rem; height: 2rem;">task-outstanding</i>
-      <span style="font-size: 0.75rem;">task-outstanding</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-task-outstanding w-8 h-8">task-outstanding</i>
+      <span class="text-xs">task-outstanding</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-thumbs-down" style="width: 2rem; height: 2rem;">thumbs-down</i>
-      <span style="font-size: 0.75rem;">thumbs-down</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-thumbs-down w-8 h-8">thumbs-down</i>
+      <span class="text-xs">thumbs-down</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-thumbs-up" style="width: 2rem; height: 2rem;">thumbs-up</i>
-      <span style="font-size: 0.75rem;">thumbs-up</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-thumbs-up w-8 h-8">thumbs-up</i>
+      <span class="text-xs">thumbs-up</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-tidy" style="width: 2rem; height: 2rem;">tidy</i>
-      <span style="font-size: 0.75rem;">tidy</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-tidy w-8 h-8">tidy</i>
+      <span class="text-xs">tidy</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-timed-out" style="width: 2rem; height: 2rem;">timed-out</i>
-      <span style="font-size: 0.75rem;">timed-out</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-timed-out w-8 h-8">timed-out</i>
+      <span class="text-xs">timed-out</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-timed-out-grey" style="width: 2rem; height: 2rem;">timed-out-grey</i>
-      <span style="font-size: 0.75rem;">timed-out-grey</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-timed-out-grey w-8 h-8">timed-out-grey</i>
+      <span class="text-xs">timed-out-grey</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-toggle-side-nav" style="width: 2rem; height: 2rem;">toggle-side-nav</i>
-      <span style="font-size: 0.75rem;">toggle-side-nav</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-toggle-side-nav w-8 h-8">toggle-side-nav</i>
+      <span class="text-xs">toggle-side-nav</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-topic" style="width: 2rem; height: 2rem;">topic</i>
-      <span style="font-size: 0.75rem;">topic</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-topic w-8 h-8">topic</i>
+      <span class="text-xs">topic</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-turn-off-notification" style="width: 2rem; height: 2rem;">turn-off-notification</i>
-      <span style="font-size: 0.75rem;">turn-off-notification</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-turn-off-notification w-8 h-8">turn-off-notification</i>
+      <span class="text-xs">turn-off-notification</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-twitter" style="width: 2rem; height: 2rem;">twitter</i>
-      <span style="font-size: 0.75rem;">twitter</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-twitter w-8 h-8">twitter</i>
+      <span class="text-xs">twitter</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-unit-pending" style="width: 2rem; height: 2rem;">unit-pending</i>
-      <span style="font-size: 0.75rem;">unit-pending</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-unit-pending w-8 h-8">unit-pending</i>
+      <span class="text-xs">unit-pending</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-unit-running" style="width: 2rem; height: 2rem;">unit-running</i>
-      <span style="font-size: 0.75rem;">unit-running</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-unit-running w-8 h-8">unit-running</i>
+      <span class="text-xs">unit-running</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-units" style="width: 2rem; height: 2rem;">units</i>
-      <span style="font-size: 0.75rem;">units</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-units w-8 h-8">units</i>
+      <span class="text-xs">units</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-unmount" style="width: 2rem; height: 2rem;">unmount</i>
-      <span style="font-size: 0.75rem;">unmount</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-unmount w-8 h-8">unmount</i>
+      <span class="text-xs">unmount</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-unstarred" style="width: 2rem; height: 2rem;">unstarred</i>
-      <span style="font-size: 0.75rem;">unstarred</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-unstarred w-8 h-8">unstarred</i>
+      <span class="text-xs">unstarred</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-upload" style="width: 2rem; height: 2rem;">upload</i>
-      <span style="font-size: 0.75rem;">upload</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-upload w-8 h-8">upload</i>
+      <span class="text-xs">upload</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-usb" style="width: 2rem; height: 2rem;">usb</i>
-      <span style="font-size: 0.75rem;">usb</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-usb w-8 h-8">usb</i>
+      <span class="text-xs">usb</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-user" style="width: 2rem; height: 2rem;">user</i>
-      <span style="font-size: 0.75rem;">user</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-user w-8 h-8">user</i>
+      <span class="text-xs">user</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-user-group" style="width: 2rem; height: 2rem;">user-group</i>
-      <span style="font-size: 0.75rem;">user-group</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-user-group w-8 h-8">user-group</i>
+      <span class="text-xs">user-group</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-video-play" style="width: 2rem; height: 2rem;">video-play</i>
-      <span style="font-size: 0.75rem;">video-play</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-video-play w-8 h-8">video-play</i>
+      <span class="text-xs">video-play</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-vulnerable" style="width: 2rem; height: 2rem;">vulnerable</i>
-      <span style="font-size: 0.75rem;">vulnerable</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-vulnerable w-8 h-8">vulnerable</i>
+      <span class="text-xs">vulnerable</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-warning" style="width: 2rem; height: 2rem;">warning</i>
-      <span style="font-size: 0.75rem;">warning</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-warning w-8 h-8">warning</i>
+      <span class="text-xs">warning</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-warning-grey" style="width: 2rem; height: 2rem;">warning-grey</i>
-      <span style="font-size: 0.75rem;">warning-grey</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-warning-grey w-8 h-8">warning-grey</i>
+      <span class="text-xs">warning-grey</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-website" style="width: 2rem; height: 2rem;">website</i>
-      <span style="font-size: 0.75rem;">website</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-website w-8 h-8">website</i>
+      <span class="text-xs">website</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-youtube" style="width: 2rem; height: 2rem;">youtube</i>
-      <span style="font-size: 0.75rem;">youtube</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-youtube w-8 h-8">youtube</i>
+      <span class="text-xs">youtube</span>
     </div>
 </div>
 {/snippet}
 
 {#snippet contextualIconGrid()}
-  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-error" style="width: 2rem; height: 2rem;">error</i>
-      <span style="font-size: 0.75rem;">error</span>
+  <div class="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4">
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-error w-8 h-8">error</i>
+      <span class="text-xs">error</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-warning" style="width: 2rem; height: 2rem;">warning</i>
-      <span style="font-size: 0.75rem;">warning</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-warning w-8 h-8">warning</i>
+      <span class="text-xs">warning</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-success" style="width: 2rem; height: 2rem;">success</i>
-      <span style="font-size: 0.75rem;">success</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-success w-8 h-8">success</i>
+      <span class="text-xs">success</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-vulnerable" style="width: 2rem; height: 2rem;">vulnerable</i>
-      <span style="font-size: 0.75rem;">vulnerable</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-vulnerable w-8 h-8">vulnerable</i>
+      <span class="text-xs">vulnerable</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-conflict-resolution" style="width: 2rem; height: 2rem;">conflict-resolution</i>
-      <span style="font-size: 0.75rem;">conflict-resolution</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-conflict-resolution w-8 h-8">conflict-resolution</i>
+      <span class="text-xs">conflict-resolution</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-conflict" style="width: 2rem; height: 2rem;">conflict</i>
-      <span style="font-size: 0.75rem;">conflict</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-conflict w-8 h-8">conflict</i>
+      <span class="text-xs">conflict</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-in-progress" style="width: 2rem; height: 2rem;">in-progress</i>
-      <span style="font-size: 0.75rem;">in-progress</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-in-progress w-8 h-8">in-progress</i>
+      <span class="text-xs">in-progress</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-power-on" style="width: 2rem; height: 2rem;">power-on</i>
-      <span style="font-size: 0.75rem;">power-on</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-power-on w-8 h-8">power-on</i>
+      <span class="text-xs">power-on</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-unit-running" style="width: 2rem; height: 2rem;">unit-running</i>
-      <span style="font-size: 0.75rem;">unit-running</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-unit-running w-8 h-8">unit-running</i>
+      <span class="text-xs">unit-running</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-status-failed-small" style="width: 2rem; height: 2rem;">status-failed-small</i>
-      <span style="font-size: 0.75rem;">status-failed-small</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-status-failed-small w-8 h-8">status-failed-small</i>
+      <span class="text-xs">status-failed-small</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-status-information-small" style="width: 2rem; height: 2rem;">status-information-small</i>
-      <span style="font-size: 0.75rem;">status-information-small</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-status-information-small w-8 h-8">status-information-small</i>
+      <span class="text-xs">status-information-small</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-status-in-progress" style="width: 2rem; height: 2rem;">status-in-progress</i>
-      <span style="font-size: 0.75rem;">status-in-progress</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-status-in-progress w-8 h-8">status-in-progress</i>
+      <span class="text-xs">status-in-progress</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-status-in-progress-small" style="width: 2rem; height: 2rem;">status-in-progress-small</i>
-      <span style="font-size: 0.75rem;">status-in-progress-small</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-status-in-progress-small w-8 h-8">status-in-progress-small</i>
+      <span class="text-xs">status-in-progress-small</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-status-queued" style="width: 2rem; height: 2rem;">status-queued</i>
-      <span style="font-size: 0.75rem;">status-queued</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-status-queued w-8 h-8">status-queued</i>
+      <span class="text-xs">status-queued</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-status-succeeded-small" style="width: 2rem; height: 2rem;">status-succeeded-small</i>
-      <span style="font-size: 0.75rem;">status-succeeded-small</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-status-succeeded-small w-8 h-8">status-succeeded-small</i>
+      <span class="text-xs">status-succeeded-small</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-status-waiting-small" style="width: 2rem; height: 2rem;">status-waiting-small</i>
-      <span style="font-size: 0.75rem;">status-waiting-small</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-status-waiting-small w-8 h-8">status-waiting-small</i>
+      <span class="text-xs">status-waiting-small</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-      <i class="ow-icon-status-waiting" style="width: 2rem; height: 2rem;">status-waiting</i>
-      <span style="font-size: 0.75rem;">status-waiting</span>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-status-waiting w-8 h-8">status-waiting</i>
+      <span class="text-xs">status-waiting</span>
     </div>
   </div>
 {/snippet}
@@ -883,16 +883,16 @@
   {#snippet template(args)}
     <div
       class:dark={args?.darkMode}
-      style:background-color={args?.darkMode ? '#111111' : 'transparent'}
-      style:color={args?.darkMode ? 'white' : 'inherit'}
-      style:padding="1rem"
+      class:bg-[#111111]={args?.darkMode}
+      class:text-white={args?.darkMode}
+      class="p-4"
       style:--color-ow-negative={args?.colorNegative}
       style:--color-ow-caution={args?.colorCaution}
       style:--color-ow-positive={args?.colorPositive}
       style:--color-ow-information={args?.colorInformation}
     >
       {@render iconGrid()}
-      <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Contextual Colors</h3>
+      <h3 class="mt-8 mb-4">Contextual Colors</h3>
       {@render contextualIconGrid()}
     </div>
   {/snippet}
