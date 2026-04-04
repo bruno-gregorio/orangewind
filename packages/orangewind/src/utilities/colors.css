@@ -29,8 +29,6 @@
   --color-ow-background-default: var(--color-ow-light);
 }
 
-@variant dark {
-  @theme {
-    --color-ow-background-default: var(--color-ow-dark);
-  }
+.dark {
+  --color-ow-background-default: var(--color-ow-dark);
 }
