@@ -10,7 +10,7 @@ Features that are inherently covered by base Tailwind CSS (e.g., standard layout
 
 _These are the lowest-level primitives. They don't depend on any other components and are used frequently by everything else._
 
-- [ ] [Icons](https://vanillaframework.io/docs/patterns/icons)
+- [x] [Icons](https://vanillaframework.io/docs/patterns/icons)
       _Dependency for: Buttons, Navigation, Notifications, Forms, etc. Needs to be established first natively (e.g., SVGs or mask-images)._
 - [ ] [Baseline Grid](https://vanillaframework.io/docs/utilities/baseline-grid) & Font Metrics
       _Dependency for: Article, Docs layout, basically all typography snapping._
