@@ -2,7 +2,29 @@
   import { defineMeta } from '@storybook/addon-svelte-csf'
 
   const { Story } = defineMeta({
-    title: 'Icons'
+    title: 'Icons',
+    argTypes: {
+      darkMode: {
+        control: 'boolean',
+        description: 'Toggle dark/light mode'
+      },
+      colorNegative: {
+        control: 'color',
+        description: 'Negative (error) color'
+      },
+      colorCaution: {
+        control: 'color',
+        description: 'Caution (warning) color'
+      },
+      colorPositive: {
+        control: 'color',
+        description: 'Positive (success) color'
+      },
+      colorInformation: {
+        control: 'color',
+        description: 'Information color'
+      }
+    }
   })
 </script>
 
@@ -775,16 +797,6 @@
 </div>
 {/snippet}
 
-<Story name="Light Mode">
-  {@render iconGrid()}
-</Story>
-
-<Story name="Dark Mode">
-  <div class="dark" style="background-color: #262626; color: white; padding: 1rem;">
-    {@render iconGrid()}
-  </div>
-</Story>
-
 {#snippet contextualIconGrid()}
   <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
     <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: 4px;">
@@ -858,12 +870,31 @@
   </div>
 {/snippet}
 
-<Story name="Contextual Colors - Light Mode">
-  {@render contextualIconGrid()}
+<Story
+  name="Icons"
+  args={{
+    darkMode: false,
+    colorNegative: '#c7162b',
+    colorCaution: '#cc7900',
+    colorPositive: '#0e8420',
+    colorInformation: '#24598f'
+  }}
+>
+  {#snippet template(args)}
+    <div
+      class:dark={args?.darkMode}
+      style:background-color={args?.darkMode ? '#111111' : 'transparent'}
+      style:color={args?.darkMode ? 'white' : 'inherit'}
+      style:padding="1rem"
+      style:--color-ow-negative={args?.colorNegative}
+      style:--color-ow-caution={args?.colorCaution}
+      style:--color-ow-positive={args?.colorPositive}
+      style:--color-ow-information={args?.colorInformation}
+    >
+      {@render iconGrid()}
+      <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Contextual Colors</h3>
+      {@render contextualIconGrid()}
+    </div>
+  {/snippet}
 </Story>
 
-<Story name="Contextual Colors - Dark Mode">
-  <div class="dark" style="background-color: #111; color: white; padding: 1rem;">
-    {@render contextualIconGrid()}
-  </div>
-</Story>
