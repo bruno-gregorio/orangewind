@@ -3,14 +3,17 @@
 This document provides context, core rules, and architectural standards for the **Orangewind** project for Artificial Intelligence agents.
 
 ## 1. Project Overview
-**Orangewind** is a *monorepo* whose main objective is to re-implement **Canonical's Vanilla Framework** as a **Tailwind CSS** plugin. The central premise is to **avoid duplicating** utility classes that Tailwind already provides natively.
+
+**Orangewind** is a _monorepo_ whose main objective is to re-implement **Canonical's Vanilla Framework** as a **Tailwind CSS** plugin. The central premise is to **avoid duplicating** utility classes that Tailwind already provides natively.
 
 - **Stack / Runtime:** [Bun](https://bun.com)
 - **Front-end Framework:** Svelte (used for validation inside the `test-bench` package)
 - **Monorepo Management:** Bun Workspaces (defined in `package.json` for files inside `packages/*`)
 
 ## 2. Monorepo Structure
+
 The main structure of the project is divided between the following packages:
+
 - `packages/orangewind`: The core package containing the Tailwind CSS plugin.
 - `packages/test-bench`: The environment to develop and test the plugin (using **Storybook** and Svelte).
 - `vanilla-framework/`: A git submodule pointing to Canonical's original repository (`canonical/vanilla-framework`).
@@ -21,12 +24,14 @@ The main structure of the project is divided between the following packages:
 The project employs strict rules to ensure a clean and modern codebase.
 
 **3.1. Linting (ESLint)**
+
 - **Base:** Based on the `neostandard` config (StandardJS) with native support for `.ts` (TypeScript) and `.svelte` (Svelte) files.
 - **Variables (`prefer-const` and `no-var`):** Use `const` whenever possible; under no circumstances use `var`; strict restriction on creating unused variables/arguments (except those prefixed with an underscore `^_`).
 - **Strict Equality (`eqeqeq`):** Always use `===` or `!==`, instead of `==` or `!=`.
 - **Typing (TypeScript):** Avoid using the explicit `any` type as much as possible (`@typescript-eslint/no-explicit-any` will throw a warning).
 
 **3.2. Formatting (Prettier)**
+
 - **Code Style:**
   - No semicolons (`semi: false`);
   - Single quotes (`singleQuote: true`);
@@ -43,3 +48,7 @@ When changing or completing code, you or the developer can run the following com
 - **`format`:** Triggers automatic visual correction using Prettier. **Always use this when creating or changing multiple files**.
 - **`lint`:** Executes ESLint scanning and automatic corrections.
 - **`check`:** Performs passive validations (`eslint . && prettier --check .`) useful for continuous integration (CI).
+
+## 5. Additional Rules
+
+- Do not mark tasks as complete on the TO-DO file. This step should be done by the user.
