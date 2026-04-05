@@ -1,0 +1,41 @@
+@layer components {
+  .ow-visualise-font-metrics {
+    position: relative;
+
+    &::before {
+      border-bottom-color: color-mix(
+        in srgb,
+        var(--color-ow-information) 50%,
+        transparent
+      );
+      border-bottom-style: solid;
+      border-top-color: color-mix(
+        in srgb,
+        var(--color-ow-positive) 50%,
+        transparent
+      );
+      border-top-style: solid;
+      border-width: 1px 0;
+      content: '';
+      height: calc(var(--ow-cap-height) - var(--ow-x-height));
+      left: calc(var(--spacing) * 8 * -1);
+      position: absolute;
+      top: calc(var(--ow-baseline-position) - var(--ow-cap-height) - 1px);
+      width: calc(var(--spacing) * 16 + 100%);
+    }
+
+    &::after {
+      background-color: color-mix(
+        in srgb,
+        var(--color-ow-negative) 50%,
+        transparent
+      );
+      content: '';
+      height: 1px;
+      left: calc(var(--spacing) * 8 * -1);
+      position: absolute;
+      top: calc(var(--ow-baseline-position) - 1px);
+      width: calc(var(--spacing) * 16 + 100%);
+    }
+  }
+}

@@ -5,6 +5,11 @@
   --font-sans: 'Ubuntu', Arial, 'libra sans', sans-serif;
   --font-mono: 'Ubuntu Mono', Consolas, Monaco, Courier, monospace;
 
+  /* Font Metrics */
+  --ow-baseline-position: 0.932em;
+  --ow-cap-height: 0.693em;
+  --ow-x-height: 0.517em;
+
   /* Font Sizes & Line Heights */
   --text-xs: 0.75rem;
   --text-xs--line-height: 1rem;
