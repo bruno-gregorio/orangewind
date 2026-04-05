@@ -6,6 +6,7 @@
 @import './components/font-metrics.css';
 @import './components/links.css';
 @import './components/divider.css';
+@import './components/buttons.css';
 
 @theme {
   /* Breakpoints */

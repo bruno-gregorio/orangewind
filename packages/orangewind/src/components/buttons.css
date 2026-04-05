@@ -1,0 +1,338 @@
+/* Buttons — https://vanillaframework.io/docs/patterns/buttons */
+
+@layer base {
+  button {
+    appearance: none;
+    background: transparent;
+    border: none;
+    font-family: inherit;
+    padding: 0;
+  }
+}
+
+@layer theme {
+  :root {
+    --color-ow-btn-bg: #fff;
+    --color-ow-btn-text: var(--color-ow-dark);
+    --color-ow-btn-border: #707070;
+    --color-ow-btn-hover-bg: #f5f5f5;
+    --color-ow-btn-hover-border: #707070;
+    --color-ow-btn-active-bg: #e5e5e5;
+    --color-ow-btn-active-border: #707070;
+    --color-ow-btn-disabled-bg: transparent;
+    --color-ow-btn-disabled-border: #707070;
+
+    --color-ow-btn-positive-bg: #0e8420;
+    --color-ow-btn-positive-hover-bg: #0a6318;
+    --color-ow-btn-positive-active-bg: #09571a;
+    --color-ow-btn-positive-text: #fff;
+
+    --color-ow-btn-negative-bg: #c7162b;
+    --color-ow-btn-negative-hover-bg: #9e1122;
+    --color-ow-btn-negative-active-bg: #8a0e1d;
+    --color-ow-btn-negative-text: #fff;
+  }
+
+  .dark {
+    --color-ow-btn-bg: #262626;
+    --color-ow-btn-text: var(--color-ow-x-light);
+    --color-ow-btn-border: #939393;
+    --color-ow-btn-hover-bg: #313131;
+    --color-ow-btn-hover-border: #939393;
+    --color-ow-btn-active-bg: #373737;
+    --color-ow-btn-active-border: #939393;
+    --color-ow-btn-disabled-bg: transparent;
+    --color-ow-btn-disabled-border: #939393;
+
+    --color-ow-btn-positive-bg: #0a6318;
+    --color-ow-btn-positive-hover-bg: #0e8420;
+    --color-ow-btn-positive-active-bg: #11a028;
+
+    --color-ow-btn-negative-bg: #9e1122;
+    --color-ow-btn-negative-hover-bg: #c7162b;
+    --color-ow-btn-negative-active-bg: #d41c32;
+  }
+}
+
+@layer components {
+  /* Shared base styles */
+  .ow-btn,
+  .ow-btn-positive,
+  .ow-btn-negative,
+  .ow-btn-base,
+  .ow-btn-link {
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 400;
+    justify-content: center;
+    line-height: 1.5rem;
+    padding: calc(0.375rem - 1px) 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition:
+      background-color 0.1s ease-in,
+      border-color 0.1s ease-in;
+  }
+
+
+  .ow-btn:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']),
+  .ow-btn-positive:is(
+      :active,
+      [aria-pressed='true'],
+      [aria-selected='true'],
+      [aria-expanded='true']
+    ),
+  .ow-btn-negative:is(
+      :active,
+      [aria-pressed='true'],
+      [aria-selected='true'],
+      [aria-expanded='true']
+    ),
+  .ow-btn-base:is(
+      :active,
+      [aria-pressed='true'],
+      [aria-selected='true'],
+      [aria-expanded='true']
+    ) {
+    transition-duration: 0s;
+  }
+
+  .ow-btn:is(:active, :hover, :focus),
+  .ow-btn-positive:is(:active, :hover, :focus),
+  .ow-btn-negative:is(:active, :hover, :focus),
+  .ow-btn-base:is(:active, :hover, :focus) {
+    text-decoration: none;
+  }
+
+  .ow-btn:is(:disabled, .is-disabled),
+  .ow-btn-positive:is(:disabled, .is-disabled),
+  .ow-btn-negative:is(:disabled, .is-disabled),
+  .ow-btn-base:is(:disabled, .is-disabled) {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .ow-btn:focus-visible,
+  .ow-btn-positive:focus-visible,
+  .ow-btn-negative:focus-visible,
+  .ow-btn-base:focus-visible,
+  .ow-btn-link:focus-visible {
+    outline: 3px solid var(--color-ow-focus);
+    outline-offset: 2px;
+  }
+
+  /* .ow-btn */
+  .ow-btn {
+    background-color: var(--color-ow-btn-bg);
+    border-color: var(--color-ow-btn-border);
+    color: var(--color-ow-btn-text);
+  }
+
+  .ow-btn:visited {
+    color: var(--color-ow-btn-text);
+  }
+
+  .ow-btn:hover {
+    background-color: var(--color-ow-btn-hover-bg);
+    border-color: var(--color-ow-btn-hover-border);
+  }
+
+  .ow-btn:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']) {
+    background-color: var(--color-ow-btn-active-bg);
+    border-color: var(--color-ow-btn-active-border);
+  }
+
+  .ow-btn:is(:disabled, .is-disabled):is(:active, :hover) {
+    background-color: var(--color-ow-btn-disabled-bg);
+    border-color: var(--color-ow-btn-disabled-border);
+  }
+
+  /* .ow-btn-positive */
+  .ow-btn-positive {
+    background-color: var(--color-ow-btn-positive-bg);
+    border-color: var(--color-ow-btn-positive-bg);
+    color: var(--color-ow-btn-positive-text);
+  }
+
+  .ow-btn-positive:visited {
+    color: var(--color-ow-btn-positive-text);
+  }
+
+  .ow-btn-positive:hover {
+    background-color: var(--color-ow-btn-positive-hover-bg);
+    border-color: var(--color-ow-btn-positive-hover-bg);
+  }
+
+  .ow-btn-positive:is(
+      :active,
+      [aria-pressed='true'],
+      [aria-selected='true'],
+      [aria-expanded='true']
+    ) {
+    background-color: var(--color-ow-btn-positive-active-bg);
+    border-color: var(--color-ow-btn-positive-active-bg);
+  }
+
+  .ow-btn-positive:is(:disabled, .is-disabled):is(:active, :hover) {
+    background-color: var(--color-ow-btn-positive-bg);
+    border-color: var(--color-ow-btn-positive-bg);
+  }
+
+  /* .ow-btn-negative */
+  .ow-btn-negative {
+    background-color: var(--color-ow-btn-negative-bg);
+    border-color: var(--color-ow-btn-negative-bg);
+    color: var(--color-ow-btn-negative-text);
+  }
+
+  .ow-btn-negative:visited {
+    color: var(--color-ow-btn-negative-text);
+  }
+
+  .ow-btn-negative:hover {
+    background-color: var(--color-ow-btn-negative-hover-bg);
+    border-color: var(--color-ow-btn-negative-hover-bg);
+  }
+
+  .ow-btn-negative:is(
+      :active,
+      [aria-pressed='true'],
+      [aria-selected='true'],
+      [aria-expanded='true']
+    ) {
+    background-color: var(--color-ow-btn-negative-active-bg);
+    border-color: var(--color-ow-btn-negative-active-bg);
+  }
+
+  .ow-btn-negative:is(:disabled, .is-disabled):is(:active, :hover) {
+    background-color: var(--color-ow-btn-negative-bg);
+    border-color: var(--color-ow-btn-negative-bg);
+  }
+
+  /* .ow-btn-base */
+  .ow-btn-base {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--color-ow-btn-text);
+  }
+
+  .ow-btn-base:visited {
+    color: var(--color-ow-btn-text);
+  }
+
+  .ow-btn-base:hover {
+    background-color: var(--color-ow-btn-hover-bg);
+    border-color: transparent;
+  }
+
+  .ow-btn-base:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']) {
+    background-color: var(--color-ow-btn-active-bg);
+    border-color: transparent;
+  }
+
+  .ow-btn-base:is(:disabled, .is-disabled):is(:active, :hover) {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  /* .ow-btn-link */
+  .ow-btn-link {
+    background-color: transparent;
+    border-color: transparent;
+    border-width: 0;
+    border-radius: 0;
+    color: var(--color-ow-link);
+    padding: 0;
+  }
+
+  .ow-btn-link:hover {
+    background: transparent;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.075em;
+  }
+
+  .ow-btn-link:visited {
+    color: var(--color-ow-link-visited);
+  }
+
+  /* Modifiers */
+  .ow-btn.is-dense,
+  .ow-btn-positive.is-dense,
+  .ow-btn-negative.is-dense,
+  .ow-btn-base.is-dense {
+    padding-bottom: calc(0.125rem - 1px);
+    padding-top: calc(0.125rem - 1px);
+  }
+
+  .ow-btn.is-small,
+  .ow-btn-positive.is-small,
+  .ow-btn-negative.is-small,
+  .ow-btn-base.is-small {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    padding: calc(0.25rem - 1px) 0.75rem;
+  }
+
+  .ow-btn.is-inline,
+  .ow-btn-positive.is-inline,
+  .ow-btn-negative.is-inline,
+  .ow-btn-base.is-inline,
+  .ow-btn-link.is-inline {
+    margin-left: 1rem;
+  }
+
+  .ow-btn.is-processing,
+  .ow-btn-positive.is-processing,
+  .ow-btn-negative.is-processing,
+  .ow-btn-base.is-processing {
+    opacity: 1 !important;
+  }
+
+  .ow-btn.has-icon [class*='ow-icon'],
+  .ow-btn-positive.has-icon [class*='ow-icon'],
+  .ow-btn-negative.has-icon [class*='ow-icon'],
+  .ow-btn-base.has-icon [class*='ow-icon'] {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .ow-btn.has-icon [class*='ow-icon']:first-child,
+  .ow-btn-positive.has-icon [class*='ow-icon']:first-child,
+  .ow-btn-negative.has-icon [class*='ow-icon']:first-child,
+  .ow-btn-base.has-icon [class*='ow-icon']:first-child {
+    margin-left: -0.5rem;
+  }
+
+  .ow-btn.has-icon [class*='ow-icon']:last-child,
+  .ow-btn-positive.has-icon [class*='ow-icon']:last-child,
+  .ow-btn-negative.has-icon [class*='ow-icon']:last-child,
+  .ow-btn-base.has-icon [class*='ow-icon']:last-child {
+    margin-right: -0.5rem;
+  }
+
+  .ow-btn.is-small.has-icon [class*='ow-icon'],
+  .ow-btn-positive.is-small.has-icon [class*='ow-icon'],
+  .ow-btn-negative.is-small.has-icon [class*='ow-icon'],
+  .ow-btn-base.is-small.has-icon [class*='ow-icon'] {
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+  }
+
+  .ow-btn.is-small.has-icon [class*='ow-icon']:first-child,
+  .ow-btn-positive.is-small.has-icon [class*='ow-icon']:first-child,
+  .ow-btn-negative.is-small.has-icon [class*='ow-icon']:first-child,
+  .ow-btn-base.is-small.has-icon [class*='ow-icon']:first-child {
+    margin-left: -0.25rem;
+  }
+
+  .ow-btn.is-small.has-icon [class*='ow-icon']:last-child,
+  .ow-btn-positive.is-small.has-icon [class*='ow-icon']:last-child,
+  .ow-btn-negative.is-small.has-icon [class*='ow-icon']:last-child,
+  .ow-btn-base.is-small.has-icon [class*='ow-icon']:last-child {
+    margin-right: -0.25rem;
+  }
+}
