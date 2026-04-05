@@ -20,19 +20,27 @@
 </Story>
 
 <Story name="Font Metrics">
-  <p>The font metrics utility visualizes baseline alignment of typography. Notice how the blue background sits precisely from the font baseline, to the cap-height, helping aligning elements.</p>
-  <br />
-  <h1 class="ow-visualise-font-metrics ow-display-heading" style="margin-left: 2rem;">Display Heading Align</h1>
-  <br />
-  <p class="ow-visualise-font-metrics ow-heading-1" style="margin-left: 2rem;">Heading 1 Align</p>
-  <br />
-  <p class="ow-visualise-font-metrics" style="margin-left: 2rem;">Regular text with font metrics visualizer</p>
+  <div class="p-10 space-y-12">
+    <div>
+      <h1 class="ow-display-heading ow-visualise-font-metrics inline-block">Display</h1>
+    </div>
+    <div>
+      <h2 class="ow-heading-1 ow-visualise-font-metrics inline-block">Heading 1</h2>
+    </div>
+    <div>
+      <p class="ow-visualise-font-metrics inline-block">Regular paragraph text</p>
+    </div>
+  </div>
 </Story>
 
 <Story name="Baseline Grid">
-  <p>The baseline grid allows visualizing the structural spacing grid.</p>
-  <div class="ow-baseline-grid p-4" style="height: 300px;">
-    <h1 class="ow-heading-1">Content snapped to grid ideally</h1>
-    <p class="ow-heading-5" style="margin-top: 1.5rem">More content here</p>
+  <div class="ow-baseline-grid p-10 min-h-screen">
+    <h1 class="ow-display-heading mb-4">Baseline Grid</h1>
+    <p class="ow-heading-3 mb-6">Line heights map organically to the spatial grid.</p>
+    <p class="ow-heading-5">
+      The baseline aligns uniformly across layouts.
+      <br />
+      This maintains vertical rhythm.
+    </p>
   </div>
 </Story>
