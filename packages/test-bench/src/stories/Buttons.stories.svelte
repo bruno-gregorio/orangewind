@@ -1,4 +1,4 @@
-<script module>
+<script module lang="ts">
   import { defineMeta } from '@storybook/addon-svelte-csf'
 
   const { Story } = defineMeta({
@@ -7,7 +7,8 @@
       dark: false,
       baselineGrid: false,
       positiveColor: '#0e8420',
-      negativeColor: '#c7162b'
+      negativeColor: '#c7162b',
+      rounded: false
     },
     argTypes: {
       dark: {
@@ -16,6 +17,10 @@
       },
       baselineGrid: {
         name: 'Baseline grid',
+        control: 'boolean'
+      },
+      rounded: {
+        name: 'Rounded',
         control: 'boolean'
       },
       positiveColor: {
@@ -31,7 +36,8 @@
 </script>
 
 <Story name="Buttons">
-  {#snippet template({ dark, baselineGrid, positiveColor, negativeColor })}
+  {#snippet template({ dark, baselineGrid, positiveColor, negativeColor, rounded })}
+    {@const btnClass = (base: string) => [base, rounded && 'ow-btn-round'].filter(Boolean).join(' ')}
     <div
       class={[
         'p-10 space-y-8',
@@ -55,11 +61,11 @@
           Default size
         </p>
         <div class="flex flex-wrap gap-2 items-center">
-          <button class="ow-btn">Default</button>
-          <button class="ow-btn-positive">Positive</button>
-          <button class="ow-btn-negative">Negative</button>
-          <button class="ow-btn-base">Base</button>
-          <button class="ow-btn-link">Link</button>
+          <button class={btnClass('ow-btn')}>Default</button>
+          <button class={btnClass('ow-btn-positive')}>Positive</button>
+          <button class={btnClass('ow-btn-negative')}>Negative</button>
+          <button class={btnClass('ow-btn-base')}>Base</button>
+          <button class={btnClass('ow-btn-link')}>Link</button>
         </div>
       </section>
 
@@ -73,10 +79,10 @@
           Dense
         </p>
         <div class="flex flex-wrap gap-2 items-center">
-          <button class="ow-btn is-dense">Default</button>
-          <button class="ow-btn-positive is-dense">Positive</button>
-          <button class="ow-btn-negative is-dense">Negative</button>
-          <button class="ow-btn-base is-dense">Base</button>
+          <button class={btnClass('ow-btn is-dense')}>Default</button>
+          <button class={btnClass('ow-btn-positive is-dense')}>Positive</button>
+          <button class={btnClass('ow-btn-negative is-dense')}>Negative</button>
+          <button class={btnClass('ow-btn-base is-dense')}>Base</button>
         </div>
       </section>
 
@@ -90,10 +96,10 @@
           Small
         </p>
         <div class="flex flex-wrap gap-2 items-center">
-          <button class="ow-btn is-small">Default</button>
-          <button class="ow-btn-positive is-small">Positive</button>
-          <button class="ow-btn-negative is-small">Negative</button>
-          <button class="ow-btn-base is-small">Base</button>
+          <button class={btnClass('ow-btn is-small')}>Default</button>
+          <button class={btnClass('ow-btn-positive is-small')}>Positive</button>
+          <button class={btnClass('ow-btn-negative is-small')}>Negative</button>
+          <button class={btnClass('ow-btn-base is-small')}>Base</button>
         </div>
       </section>
 
@@ -107,10 +113,10 @@
           Disabled
         </p>
         <div class="flex flex-wrap gap-2 items-center">
-          <button class="ow-btn" disabled>Default</button>
-          <button class="ow-btn-positive" disabled>Positive</button>
-          <button class="ow-btn-negative" disabled>Negative</button>
-          <button class="ow-btn-base" disabled>Base</button>
+          <button class={btnClass('ow-btn')} disabled>Default</button>
+          <button class={btnClass('ow-btn-positive')} disabled>Positive</button>
+          <button class={btnClass('ow-btn-negative')} disabled>Negative</button>
+          <button class={btnClass('ow-btn-base')} disabled>Base</button>
         </div>
       </section>
 
@@ -127,8 +133,8 @@
           <span class={dark ? 'text-white text-sm' : 'text-sm'}>
             Action required:
           </span>
-          <button class="ow-btn is-inline is-small">Acknowledge</button>
-          <button class="ow-btn-negative is-inline is-small">Dismiss</button>
+          <button class={btnClass('ow-btn is-inline is-small')}>Acknowledge</button>
+          <button class={btnClass('ow-btn-negative is-inline is-small')}>Dismiss</button>
         </div>
       </section>
     </div>
