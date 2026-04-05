@@ -26,6 +26,13 @@
   --color-ow-link-visited: #7d42b8;
   --color-ow-focus: #2e96ff;
 
+  /* Vanilla Framework — Text */
+  --color-ow-text-default: var(--color-ow-dark);
+  --color-ow-text-muted: rgba(0, 0, 0, 0.6);
+
+  /* Vanilla Framework — Border */
+  --color-ow-border-default: rgba(0, 0, 0, 0.2);
+
   /* Vanilla Framework — Background */
   --color-ow-background-default: var(--color-ow-light);
   --color-ow-background-alt: var(--color-ow-mid-x-light);
@@ -34,4 +41,7 @@
 .dark {
   --color-ow-background-default: var(--color-ow-dark);
   --color-ow-background-alt: var(--color-ow-mid-dark);
+  --color-ow-text-default: var(--color-ow-x-light);
+  --color-ow-text-muted: rgba(255, 255, 255, 0.6);
+  --color-ow-border-default: rgba(255, 255, 255, 0.2);
 }

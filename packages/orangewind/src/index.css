@@ -4,6 +4,8 @@
 @import './components/icons.css';
 @import './components/baseline-grid.css';
 @import './components/font-metrics.css';
+@import './components/links.css';
+
 @theme {
   /* Breakpoints */
   --breakpoint-sm: 28.75rem; /* 460px — $breakpoint-x-small */

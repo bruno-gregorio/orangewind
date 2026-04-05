@@ -2,7 +2,7 @@
   import { defineMeta } from '@storybook/addon-svelte-csf'
 
   const { Story } = defineMeta({
-    title: 'Icons',
+    title: 'Components/Icons',
     argTypes: {
       darkMode: {
         control: 'boolean',
