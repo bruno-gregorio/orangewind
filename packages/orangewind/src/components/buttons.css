@@ -12,45 +12,75 @@
 
 @layer theme {
   :root {
-    --color-ow-btn-bg: #fff;
+    /* Default button — derived from x-light background */
+    --color-ow-btn-bg: var(--color-ow-x-light);
     --color-ow-btn-text: var(--color-ow-dark);
     --color-ow-btn-border: #707070;
-    --color-ow-btn-hover-bg: #f5f5f5;
-    --color-ow-btn-hover-border: #707070;
-    --color-ow-btn-active-bg: #e5e5e5;
-    --color-ow-btn-active-border: #707070;
-    --color-ow-btn-disabled-bg: transparent;
-    --color-ow-btn-disabled-border: #707070;
+    --color-ow-btn-hover-bg: color-mix(
+      in oklch,
+      var(--color-ow-x-light),
+      black 8%
+    );
+    --color-ow-btn-active-bg: color-mix(
+      in oklch,
+      var(--color-ow-x-light),
+      black 15%
+    );
 
-    --color-ow-btn-positive-bg: #0e8420;
-    --color-ow-btn-positive-hover-bg: #0a6318;
-    --color-ow-btn-positive-active-bg: #09571a;
-    --color-ow-btn-positive-text: #fff;
+    /* Positive — derived from --color-ow-positive */
+    --color-ow-btn-positive-hover-bg: color-mix(
+      in oklch,
+      var(--color-ow-positive),
+      black 8%
+    );
+    --color-ow-btn-positive-active-bg: color-mix(
+      in oklch,
+      var(--color-ow-positive),
+      black 15%
+    );
 
-    --color-ow-btn-negative-bg: #c7162b;
-    --color-ow-btn-negative-hover-bg: #9e1122;
-    --color-ow-btn-negative-active-bg: #8a0e1d;
-    --color-ow-btn-negative-text: #fff;
+    /* Negative — derived from --color-ow-negative */
+    --color-ow-btn-negative-hover-bg: color-mix(
+      in oklch,
+      var(--color-ow-negative),
+      black 8%
+    );
+    --color-ow-btn-negative-active-bg: color-mix(
+      in oklch,
+      var(--color-ow-negative),
+      black 15%
+    );
   }
 
   .dark {
     --color-ow-btn-bg: #262626;
     --color-ow-btn-text: var(--color-ow-x-light);
     --color-ow-btn-border: #939393;
-    --color-ow-btn-hover-bg: #313131;
-    --color-ow-btn-hover-border: #939393;
-    --color-ow-btn-active-bg: #373737;
-    --color-ow-btn-active-border: #939393;
-    --color-ow-btn-disabled-bg: transparent;
-    --color-ow-btn-disabled-border: #939393;
+    --color-ow-btn-hover-bg: color-mix(in oklch, #262626, white 12%);
+    --color-ow-btn-active-bg: color-mix(in oklch, #262626, white 22%);
 
-    --color-ow-btn-positive-bg: #0a6318;
-    --color-ow-btn-positive-hover-bg: #0e8420;
-    --color-ow-btn-positive-active-bg: #11a028;
+    /* Dark theme lightens rather than darkens */
+    --color-ow-btn-positive-hover-bg: color-mix(
+      in oklch,
+      var(--color-ow-positive),
+      white 12%
+    );
+    --color-ow-btn-positive-active-bg: color-mix(
+      in oklch,
+      var(--color-ow-positive),
+      white 22%
+    );
 
-    --color-ow-btn-negative-bg: #9e1122;
-    --color-ow-btn-negative-hover-bg: #c7162b;
-    --color-ow-btn-negative-active-bg: #d41c32;
+    --color-ow-btn-negative-hover-bg: color-mix(
+      in oklch,
+      var(--color-ow-negative),
+      white 12%
+    );
+    --color-ow-btn-negative-active-bg: color-mix(
+      in oklch,
+      var(--color-ow-negative),
+      white 22%
+    );
   }
 }
 
@@ -76,7 +106,6 @@
       background-color 0.1s ease-in,
       border-color 0.1s ease-in;
   }
-
 
   .ow-btn:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']),
   .ow-btn-positive:is(
@@ -137,28 +166,28 @@
 
   .ow-btn:hover {
     background-color: var(--color-ow-btn-hover-bg);
-    border-color: var(--color-ow-btn-hover-border);
+    border-color: var(--color-ow-btn-border);
   }
 
   .ow-btn:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']) {
     background-color: var(--color-ow-btn-active-bg);
-    border-color: var(--color-ow-btn-active-border);
+    border-color: var(--color-ow-btn-border);
   }
 
   .ow-btn:is(:disabled, .is-disabled):is(:active, :hover) {
-    background-color: var(--color-ow-btn-disabled-bg);
-    border-color: var(--color-ow-btn-disabled-border);
+    background-color: var(--color-ow-btn-bg);
+    border-color: var(--color-ow-btn-border);
   }
 
   /* .ow-btn-positive */
   .ow-btn-positive {
-    background-color: var(--color-ow-btn-positive-bg);
-    border-color: var(--color-ow-btn-positive-bg);
-    color: var(--color-ow-btn-positive-text);
+    background-color: var(--color-ow-positive);
+    border-color: var(--color-ow-positive);
+    color: var(--color-ow-x-light);
   }
 
   .ow-btn-positive:visited {
-    color: var(--color-ow-btn-positive-text);
+    color: var(--color-ow-x-light);
   }
 
   .ow-btn-positive:hover {
@@ -177,19 +206,19 @@
   }
 
   .ow-btn-positive:is(:disabled, .is-disabled):is(:active, :hover) {
-    background-color: var(--color-ow-btn-positive-bg);
-    border-color: var(--color-ow-btn-positive-bg);
+    background-color: var(--color-ow-positive);
+    border-color: var(--color-ow-positive);
   }
 
   /* .ow-btn-negative */
   .ow-btn-negative {
-    background-color: var(--color-ow-btn-negative-bg);
-    border-color: var(--color-ow-btn-negative-bg);
-    color: var(--color-ow-btn-negative-text);
+    background-color: var(--color-ow-negative);
+    border-color: var(--color-ow-negative);
+    color: var(--color-ow-x-light);
   }
 
   .ow-btn-negative:visited {
-    color: var(--color-ow-btn-negative-text);
+    color: var(--color-ow-x-light);
   }
 
   .ow-btn-negative:hover {
@@ -208,8 +237,8 @@
   }
 
   .ow-btn-negative:is(:disabled, .is-disabled):is(:active, :hover) {
-    background-color: var(--color-ow-btn-negative-bg);
-    border-color: var(--color-ow-btn-negative-bg);
+    background-color: var(--color-ow-negative);
+    border-color: var(--color-ow-negative);
   }
 
   /* .ow-btn-base */
