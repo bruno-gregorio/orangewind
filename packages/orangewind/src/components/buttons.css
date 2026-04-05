@@ -306,13 +306,7 @@
     padding: calc(0.25rem - 1px) 0.75rem;
   }
 
-  .ow-btn.is-inline,
-  .ow-btn-positive.is-inline,
-  .ow-btn-negative.is-inline,
-  .ow-btn-base.is-inline,
-  .ow-btn-link.is-inline {
-    margin-left: 1rem;
-  }
+
 
   .ow-btn.is-processing,
   .ow-btn-positive.is-processing,
@@ -321,48 +315,20 @@
     opacity: 1 !important;
   }
 
-  .ow-btn.has-icon [class*='ow-icon'],
-  .ow-btn-positive.has-icon [class*='ow-icon'],
-  .ow-btn-negative.has-icon [class*='ow-icon'],
-  .ow-btn-base.has-icon [class*='ow-icon'] {
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+  .ow-btn.has-icon,
+  .ow-btn-positive.has-icon,
+  .ow-btn-negative.has-icon,
+  .ow-btn-base.has-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
-  .ow-btn.has-icon [class*='ow-icon']:first-child,
-  .ow-btn-positive.has-icon [class*='ow-icon']:first-child,
-  .ow-btn-negative.has-icon [class*='ow-icon']:first-child,
-  .ow-btn-base.has-icon [class*='ow-icon']:first-child {
-    margin-left: -0.5rem;
-  }
-
-  .ow-btn.has-icon [class*='ow-icon']:last-child,
-  .ow-btn-positive.has-icon [class*='ow-icon']:last-child,
-  .ow-btn-negative.has-icon [class*='ow-icon']:last-child,
-  .ow-btn-base.has-icon [class*='ow-icon']:last-child {
-    margin-right: -0.5rem;
-  }
-
-  .ow-btn.is-small.has-icon [class*='ow-icon'],
-  .ow-btn-positive.is-small.has-icon [class*='ow-icon'],
-  .ow-btn-negative.is-small.has-icon [class*='ow-icon'],
-  .ow-btn-base.is-small.has-icon [class*='ow-icon'] {
-    margin-left: 0.25rem;
-    margin-right: 0.25rem;
-  }
-
-  .ow-btn.is-small.has-icon [class*='ow-icon']:first-child,
-  .ow-btn-positive.is-small.has-icon [class*='ow-icon']:first-child,
-  .ow-btn-negative.is-small.has-icon [class*='ow-icon']:first-child,
-  .ow-btn-base.is-small.has-icon [class*='ow-icon']:first-child {
-    margin-left: -0.25rem;
-  }
-
-  .ow-btn.is-small.has-icon [class*='ow-icon']:last-child,
-  .ow-btn-positive.is-small.has-icon [class*='ow-icon']:last-child,
-  .ow-btn-negative.is-small.has-icon [class*='ow-icon']:last-child,
-  .ow-btn-base.is-small.has-icon [class*='ow-icon']:last-child {
-    margin-right: -0.25rem;
+  .ow-btn.is-small.has-icon,
+  .ow-btn-positive.is-small.has-icon,
+  .ow-btn-negative.is-small.has-icon,
+  .ow-btn-base.is-small.has-icon {
+    gap: 0.25rem;
   }
 
   .ow-btn-round {
