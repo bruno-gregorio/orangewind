@@ -18,7 +18,6 @@ _These are the lowest-level primitives. They don't depend on any other component
       _Dependency for: Breadcrumbs, Navigation, Lists._
 - [x] [Divider](https://vanillaframework.io/docs/patterns/divider) (Rule)
       _Dependency for: Divided Section, Navigation, Application Layouts._
-- [ ] Utility tweaks: [Deprecate](https://vanillaframework.io/docs/utilities/deprecate), Has Icon Utility.
 
 ---
 
