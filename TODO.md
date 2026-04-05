@@ -14,7 +14,7 @@ _These are the lowest-level primitives. They don't depend on any other component
       _Dependency for: Buttons, Navigation, Notifications, Forms, etc. Needs to be established first natively (e.g., SVGs or mask-images)._
 - [x] [Baseline Grid](https://vanillaframework.io/docs/utilities/baseline-grid) & Font Metrics
       _Dependency for: Article, Docs layout, basically all typography snapping._
-- [ ] [Links](https://vanillaframework.io/docs/patterns/links)
+- [x] [Links](https://vanillaframework.io/docs/patterns/links)
       _Dependency for: Breadcrumbs, Navigation, Lists._
 - [ ] [Divider](https://vanillaframework.io/docs/patterns/divider) (Rule)
       _Dependency for: Divided Section, Navigation, Application Layouts._
