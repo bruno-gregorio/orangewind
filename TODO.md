@@ -25,7 +25,7 @@ _These are the lowest-level primitives. They don't depend on any other component
 
 _Simple, single-node elements that are widely nested inside larger structures._
 
-- [ ] [Buttons](https://vanillaframework.io/docs/patterns/buttons)
+- [x] [Buttons](https://vanillaframework.io/docs/patterns/buttons)
       _Dependency for: Forms, Modal, CTA, Newsletter, Navigation, Search. Massive dependency._
 - [ ] [Badge](https://vanillaframework.io/docs/patterns/badge)
       _Dependency for: Navigation, Cards, Tables._
