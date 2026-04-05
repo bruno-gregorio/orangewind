@@ -1,0 +1,32 @@
+@layer components {
+  .ow-rule,
+  .ow-rule-muted,
+  .ow-rule-highlight {
+    background-color: var(--color-ow-border-default);
+    border: 0;
+    height: 1px;
+    margin-top: 0;
+    margin-bottom: calc(0.5rem - 1px);
+    position: relative;
+    width: 100%;
+  }
+
+  .ow-rule-muted {
+    opacity: 0.5; /* Muted appearance for contexts needing lower contrast */
+  }
+
+  .ow-rule-highlight::before {
+    background-color: var(--color-ow-text-default);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0.1875rem; /* bar-thickness: 3px */
+    width: auto;
+  }
+
+  .ow-rule-highlight.is-accent::before {
+    background-color: var(--color-ow-accent);
+  }
+}
