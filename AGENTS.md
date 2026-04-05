@@ -52,3 +52,4 @@ When changing or completing code, you or the developer can run the following com
 ## 5. Additional Rules
 
 - Do not mark tasks as complete on the TO-DO file. This step should be done by the user.
+- Whenever possible avoid margins for spacing, prefer padding or layout utilities fabsed on grid or flex.
