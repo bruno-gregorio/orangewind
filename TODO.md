@@ -12,12 +12,14 @@ _These are the lowest-level primitives. They don't depend on any other component
 
 - [x] [Icons](https://vanillaframework.io/docs/patterns/icons)
       _Dependency for: Buttons, Navigation, Notifications, Forms, etc. Needs to be established first natively (e.g., SVGs or mask-images)._
+      _Audit: Sync with 2025/2026 additions (circle-of-friends, storage-bucket, generative-ai)._
 - [x] [Baseline Grid](https://vanillaframework.io/docs/utilities/baseline-grid) & Font Metrics
       _Dependency for: Article, Docs layout, basically all typography snapping._
 - [x] [Links](https://vanillaframework.io/docs/patterns/links)
       _Dependency for: Breadcrumbs, Navigation, Lists._
 - [x] [Divider](https://vanillaframework.io/docs/patterns/divider) (Rule)
       _Dependency for: Divided Section, Navigation, Application Layouts._
+      _Maintenance: Add `.is-fixed-width` modifier._
 
 ---
 
@@ -30,7 +32,7 @@ _Simple, single-node elements that are widely nested inside larger structures._
 - [x] [Badge](https://vanillaframework.io/docs/patterns/badge)
       _Dependency for: Navigation, Cards, Tables._
 - [x] [Status Label](https://vanillaframework.io/docs/patterns/status-labels)
-      _Dependency for: Tables, Matrix, Lists._
+      _DEPRECATED: Merged into Chips. Keep for legacy support or migrate._
 - [ ] [Chip](https://vanillaframework.io/docs/patterns/chip)
       _Dependency for: Search and Filter, Forms._
 - [ ] [Heading Icon](https://vanillaframework.io/docs/patterns/heading-icon) & [Muted Heading](https://vanillaframework.io/docs/patterns/muted-heading)
@@ -52,6 +54,8 @@ _Interactive elements that require Phase 1 rules and Buttons to be complete._
       _Dependency for: Navigation, Data Filtering view toggles._
 - [ ] [Search Box](https://vanillaframework.io/docs/patterns/search-box)
       _Dependency for: Global Navigation, Search and Filter._
+- [ ] [Search and Filter](https://vanillaframework.io/docs/patterns/search-and-filter)
+      _Requires: Chip, Search Box._
 
 ---
 
@@ -65,7 +69,9 @@ _Components that rely entirely on the primitives from Phases 1-3 being complete.
 - [ ] [Breadcrumbs](https://vanillaframework.io/docs/patterns/breadcrumbs) (Requires Links)
 - [ ] [Accordion](https://vanillaframework.io/docs/patterns/accordion) (Requires Icons, Typography)
 - [ ] [Pagination](https://vanillaframework.io/docs/patterns/pagination) (Requires Buttons, Links)
-- [ ] [Code Snippet](https://vanillaframework.io/docs/patterns/code-snippet) (Requires Typography, Buttons for 'Copy')
+      _Note: Includes [Article Pagination](https://vanillaframework.io/docs/patterns/pagination#article-pagination)._
+- [ ] [Code Snippet](https://vanillaframework.io/docs/base/code) (Requires Typography, Buttons for 'Copy')
+- [ ] [Empty State](https://vanillaframework.io/docs/patterns/empty-state)
 
 ---
 
@@ -74,10 +80,11 @@ _Components that rely entirely on the primitives from Phases 1-3 being complete.
 _Larger data presentation blocks that nest multiple basic elements together._
 
 - [ ] [Lists](https://vanillaframework.io/docs/patterns/lists) & [List Tree](https://vanillaframework.io/docs/patterns/list-tree)
+      _Note: Includes [Rich list](https://vanillaframework.io/docs/patterns/rich-list), [Tiered list](https://vanillaframework.io/docs/patterns/tiered-list), and [Stepped list](https://vanillaframework.io/docs/patterns/lists#vertical-stepped)._
 - [ ] [Tables](https://vanillaframework.io/docs/base/tables) (Requires Icons, Buttons, Status Labels, Pagination)
 - [ ] [Matrix](https://vanillaframework.io/docs/patterns/matrix)
 - [ ] [Card](https://vanillaframework.io/docs/patterns/card) (Requires Typography, Links, Buttons)
-- [ ] [Media Object](https://vanillaframework.io/docs/patterns/media-object) / [Image Pattern](https://vanillaframework.io/docs/patterns/image)
+- [ ] [Media Object](https://vanillaframework.io/docs/patterns/media-object) / [Image Pattern](https://vanillaframework.io/docs/patterns/images)
 - [ ] [Quotes](https://vanillaframework.io/docs/patterns/pull-quote) & Pull Quotes
 
 ---
@@ -92,8 +99,9 @@ _Full-width or macro-layout elements that frame content from previous phases._
 - [ ] [Modal](https://vanillaframework.io/docs/patterns/modal) (Requires Buttons, Forms, Typography)
 - [ ] [Contextual Menu](https://vanillaframework.io/docs/patterns/contextual-menu) (Requires Buttons, Lists, Links)
 - [ ] [In-Page Navigation](https://vanillaframework.io/docs/patterns/in-page-navigation) & [Table of Contents](https://vanillaframework.io/docs/patterns/table-of-contents)
-- [ ] Feature Blocks: [Pricing Block](https://vanillaframework.io/docs/patterns/pricing-block), [Resources Block](https://vanillaframework.io/docs/patterns/resources-block), [Logo Section](https://vanillaframework.io/docs/patterns/logo-section), [CTA](https://vanillaframework.io/docs/patterns/cta), [Data Spotlight](https://vanillaframework.io/docs/patterns/data-spotlight), [Newsletter Signup](https://vanillaframework.io/docs/patterns/newsletter-signup)
-- [ ] [Blog Pattern](https://vanillaframework.io/docs/patterns/blog) & [Article](https://vanillaframework.io/docs/patterns/article)
+- [ ] Feature Blocks: [Pricing Block](https://vanillaframework.io/docs/patterns/pricing-block), [Resources Block](https://vanillaframework.io/docs/patterns/resources), [Logo Section](https://vanillaframework.io/docs/patterns/logo-section) & [Linked Logo Section](https://vanillaframework.io/docs/patterns/linked-logo-section), [CTA](https://vanillaframework.io/docs/patterns/cta-section), [Data Spotlight](https://vanillaframework.io/docs/patterns/data-spotlight), [Newsletter Signup](https://vanillaframework.io/docs/patterns/newsletter-signup)
+- [ ] [Blog Pattern](https://vanillaframework.io/docs/patterns/blog) & [Article](https://vanillaframework.io/docs/patterns/article-block)
+- [ ] [Hero](https://vanillaframework.io/docs/patterns/hero), [Tab Section](https://vanillaframework.io/docs/patterns/tab-section), [Text Spotlight](https://vanillaframework.io/docs/patterns/text-spotlight), [Equal Height Row](https://vanillaframework.io/docs/patterns/equal-height-row)
 
 ---
 
@@ -107,5 +115,7 @@ _The highest level wrappers. These define the entire shell of the page._
       _Note: Standard app shell with side-nav and drawers._
 - [ ] [Docs Layout](https://vanillaframework.io/docs/layouts/documentation)
       _Note: Three-column layout for documentation pages._
+- [ ] [Brochure Site](https://vanillaframework.io/docs/layouts/brochure)
+      _Note: Layout pattern for marketing or informational websites._
 - [ ] [Suru](https://vanillaframework.io/docs/patterns/suru) (Canonical's signature background visual element)
 - [ ] Layout tweaks: [Fluid Breakout](https://vanillaframework.io/docs/layouts/fluid-breakout), [Grid 8](https://vanillaframework.io/docs/patterns/grid)
