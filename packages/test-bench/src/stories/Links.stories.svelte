@@ -2,55 +2,105 @@
   import { defineMeta } from '@storybook/addon-svelte-csf'
 
   const { Story } = defineMeta({
-    title: 'Components/Links'
+    title: 'Components/Links',
+    argTypes: {
+      type: {
+        control: 'select',
+        options: [
+          'standard',
+          'soft',
+          'inverted',
+          'top',
+          'anchor-heading',
+          'skip'
+        ],
+        description: 'The style of the link'
+      },
+      text: {
+        control: 'text',
+        description: 'The text of the link'
+      },
+      isDark: {
+        control: 'boolean',
+        description: 'Toggle dark mode for the container'
+      }
+    }
   })
 </script>
 
-<Story name="Base Links">
-  <div class="p-10 space-y-4 max-w-2xl">
-    <p>
-      This is a <a href="#/" on:click={(e) => e.preventDefault()}>default link</a> inside some text.
-    </p>
-  </div>
-</Story>
+<Story
+  name="Links"
+  args={{
+    type: 'standard',
+    text: 'Link Example',
+    isDark: false
+  }}
+>
+  {#snippet template(args)}
+    <div
+      class="p-10 max-w-2xl transition-colors duration-200 rounded-md"
+      class:dark={args.isDark}
+      class:bg-gray-900={args.isDark}
+      class:text-white={args.isDark}
+    >
+      <h3 class="mb-4 text-xl font-bold capitalize">
+        {args.type.replace('-', ' ')} Link
+      </h3>
 
-<Story name="Soft Link">
-  <div class="p-10">
-    <a href="#/" class="ow-link-soft" on:click={(e) => e.preventDefault()}>Soft Link Example</a>
-  </div>
-</Story>
-
-<Story name="Inverted Link">
-  <div class="p-10 bg-gray-900 rounded-md dark text-white">
-    <a href="#/" class="ow-link-inverted" on:click={(e) => e.preventDefault()}>Inverted Link Example</a>
-  </div>
-</Story>
-
-<Story name="Back to Top (ow-top)">
-  <div class="p-10">
-    <div class="ow-top">
-      <a href="#/" class="ow-top-link" on:click={(e) => e.preventDefault()}>Back to top</a>
+      <div class="space-y-6">
+        {#if args.type === 'standard'}
+          <p>
+            This is a <a href="#/" on:click={e => e.preventDefault()}
+              >{args.text}</a
+            > inside some text.
+          </p>
+        {:else if args.type === 'soft'}
+          <p>
+            <a href="#/" class="ow-link-soft" on:click={e => e.preventDefault()}
+              >{args.text}</a
+            >
+          </p>
+        {:else if args.type === 'inverted'}
+          <p>
+            <a
+              href="#/"
+              class="ow-link-inverted"
+              on:click={e => e.preventDefault()}>{args.text}</a
+            >
+          </p>
+        {:else if args.type === 'top'}
+          <div class="ow-top">
+            <a href="#/" class="ow-top-link" on:click={e => e.preventDefault()}
+              >Back to top</a
+            >
+          </div>
+        {:else if args.type === 'anchor-heading'}
+          <h3 class="text-2xl font-bold">
+            <a
+              href="#/"
+              class="ow-link-anchor-heading"
+              on:click={e => e.preventDefault()}
+            >
+              {args.text}
+            </a>
+          </h3>
+        {:else if args.type === 'skip'}
+          <p class="text-sm text-gray-500">
+            Use the <b>Tab</b> key to focus the invisible skip link.
+          </p>
+          <a href="#/" class="ow-link-skip" on:click={e => e.preventDefault()}>
+            Skip to main content
+          </a>
+          <a
+            href="#/"
+            class="underline"
+            tabindex="0"
+            on:click={e => e.preventDefault()}
+          >
+            Focus me first, then Tab again
+          </a>
+        {/if}
+      </div>
     </div>
-  </div>
-</Story>
-
-<Story name="Anchor Heading Link">
-  <div class="p-10 relative">
-    <h3 class="ow-heading-3">
-      <a href="#/" class="ow-link-anchor-heading" on:click={(e) => e.preventDefault()}>
-        Anchor Heading Title
-      </a>
-    </h3>
-  </div>
-</Story>
-
-<Story name="Skip Link">
-  <div class="p-10 relative">
-    <p>
-      Use the tab key to focus the invisible skip link.
-      <br />
-      <a href="#/" class="ow-link-skip" on:click={(e) => e.preventDefault()}>Skip to main content</a>
-      <a href="#/" class="ow-link" tabindex="0" on:click={(e) => e.preventDefault()}>Focus me first</a>
-    </p>
-  </div>
+  {/snippet}
 </Story>
