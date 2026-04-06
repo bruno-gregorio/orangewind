@@ -5,8 +5,10 @@
   --color-ow-badge-text: var(--color-ow-background-default);
   --color-ow-badge-negative-bg: var(--color-ow-negative);
   --color-ow-badge-negative-text: var(--color-ow-x-light);
+}
 
-  @variant dark {
+@variant dark {
+  @theme {
     --color-ow-badge-bg: var(--color-ow-mid-light);
     --color-ow-badge-text: var(--color-ow-dark);
   }
