@@ -1,0 +1,47 @@
+/* Badge — https://vanillaframework.io/docs/patterns/badge */
+
+@theme {
+  --color-ow-badge-bg: var(--color-ow-text-default);
+  --color-ow-badge-text: var(--color-ow-background-default);
+  --color-ow-badge-negative-bg: var(--color-ow-negative);
+  --color-ow-badge-negative-text: var(--color-ow-x-light);
+
+  @variant dark {
+    --color-ow-badge-bg: var(--color-ow-mid-light);
+    --color-ow-badge-text: var(--color-ow-dark);
+  }
+}
+
+@layer components {
+  .ow-badge,
+  .ow-badge-negative {
+    background-color: var(--color-ow-badge-bg);
+    border-radius: 1rem;
+    box-sizing: content-box;
+    color: var(--color-ow-badge-text);
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: 500;
+    line-height: var(--text-xs--line-height);
+    margin-bottom: 0;
+    max-width: 4ch;
+    min-width: calc(var(--text-xs--line-height) - 0.5rem);
+    overflow: hidden;
+    padding: 0 0.25rem;
+    text-align: center;
+    text-indent: 0;
+    vertical-align: middle;
+  }
+
+  .ow-badge-negative {
+    background-color: var(--color-ow-badge-negative-bg);
+    color: var(--color-ow-badge-negative-text);
+  }
+
+  .ow-chip .ow-badge,
+  .ow-chip .ow-badge-negative {
+    align-self: center;
+    margin-left: 0.5rem;
+    margin-right: -0.15rem;
+  }
+}
