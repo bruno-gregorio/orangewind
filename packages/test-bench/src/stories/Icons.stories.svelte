@@ -139,6 +139,10 @@
       <span class="text-xs">chevron-up</span>
     </div>
     <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
+      <i class="ow-icon-circle-of-friends w-8 h-8">circle-of-friends</i>
+      <span class="text-xs">circle-of-friends</span>
+    </div>
+    <div class="flex flex-col items-center gap-2 p-3 border border-[#e0e0e0] rounded">
       <i class="ow-icon-close w-8 h-8">close</i>
       <span class="text-xs">close</span>
     </div>
