@@ -29,7 +29,7 @@ _Simple, single-node elements that are widely nested inside larger structures._
       _Dependency for: Forms, Modal, CTA, Newsletter, Navigation, Search. Massive dependency._
 - [x] [Badge](https://vanillaframework.io/docs/patterns/badge)
       _Dependency for: Navigation, Cards, Tables._
-- [ ] [Status Label](https://vanillaframework.io/docs/patterns/status-labels)
+- [x] [Status Label](https://vanillaframework.io/docs/patterns/status-labels)
       _Dependency for: Tables, Matrix, Lists._
 - [ ] [Chip](https://vanillaframework.io/docs/patterns/chips)
       _Dependency for: Search and Filter, Forms._
