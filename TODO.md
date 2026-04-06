@@ -31,7 +31,7 @@ _Simple, single-node elements that are widely nested inside larger structures._
       _Dependency for: Navigation, Cards, Tables._
 - [x] [Status Label](https://vanillaframework.io/docs/patterns/status-labels)
       _Dependency for: Tables, Matrix, Lists._
-- [ ] [Chip](https://vanillaframework.io/docs/patterns/chips)
+- [ ] [Chip](https://vanillaframework.io/docs/patterns/chip)
       _Dependency for: Search and Filter, Forms._
 - [ ] [Heading Icon](https://vanillaframework.io/docs/patterns/heading-icon) & [Muted Heading](https://vanillaframework.io/docs/patterns/muted-heading)
       _Dependency for: Section Pattern, Cards, Modal headers._
