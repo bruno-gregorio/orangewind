@@ -27,7 +27,7 @@ _Simple, single-node elements that are widely nested inside larger structures._
 
 - [x] [Buttons](https://vanillaframework.io/docs/patterns/buttons)
       _Dependency for: Forms, Modal, CTA, Newsletter, Navigation, Search. Massive dependency._
-- [ ] [Badge](https://vanillaframework.io/docs/patterns/badge)
+- [x] [Badge](https://vanillaframework.io/docs/patterns/badge)
       _Dependency for: Navigation, Cards, Tables._
 - [ ] [Status Label](https://vanillaframework.io/docs/patterns/status-label)
       _Dependency for: Tables, Matrix, Lists._
