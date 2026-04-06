@@ -107,6 +107,14 @@
       border-color 0.1s ease-in;
   }
 
+  p > .ow-btn,
+  p > .ow-btn-positive,
+  p > .ow-btn-negative,
+  p > .ow-btn-base,
+  p > .ow-btn-link {
+    vertical-align: middle;
+  }
+
   .ow-btn:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']),
   .ow-btn-positive:is(
       :active,
