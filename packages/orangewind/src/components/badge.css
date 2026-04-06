@@ -1,5 +1,3 @@
-/* Badge — https://vanillaframework.io/docs/patterns/badge */
-
 @theme {
   --color-ow-badge-bg: var(--color-ow-text-default);
   --color-ow-badge-text: var(--color-ow-background-default);

@@ -8,6 +8,7 @@
 @import './components/divider.css';
 @import './components/buttons.css';
 @import './components/badge.css';
+@import './components/status-label.css';
 
 @theme {
   /* Breakpoints */

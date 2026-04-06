@@ -1,0 +1,59 @@
+@theme {
+  --color-ow-status-label-bg: var(--color-ow-mid-dark);
+  --color-ow-status-label-text: var(--color-ow-x-light);
+
+  --color-ow-status-label-positive-bg: var(--color-ow-positive);
+  --color-ow-status-label-positive-text: var(--color-ow-x-light);
+
+  --color-ow-status-label-caution-bg: var(--color-ow-caution);
+  --color-ow-status-label-caution-text: var(--color-ow-dark);
+
+  --color-ow-status-label-information-bg: var(--color-ow-information);
+  --color-ow-status-label-information-text: var(--color-ow-x-light);
+
+  --color-ow-status-label-negative-bg: var(--color-ow-negative);
+  --color-ow-status-label-negative-text: var(--color-ow-x-light);
+}
+
+@layer components {
+  .ow-status-label,
+  .ow-status-label-positive,
+  .ow-status-label-caution,
+  .ow-status-label-information,
+  .ow-status-label-negative {
+    display: inline-block;
+    padding: 0.0625rem 0.5rem;
+    font-size: var(--text-xs);
+    line-height: var(--text-xs--line-height);
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none;
+    margin-bottom: 0;
+  }
+
+  .ow-status-label {
+    background-color: var(--color-ow-status-label-bg);
+    color: var(--color-ow-status-label-text);
+  }
+
+  .ow-status-label-positive {
+    background-color: var(--color-ow-status-label-positive-bg);
+    color: var(--color-ow-status-label-positive-text);
+  }
+
+  .ow-status-label-caution {
+    background-color: var(--color-ow-status-label-caution-bg);
+    color: var(--color-ow-status-label-caution-text);
+  }
+
+  .ow-status-label-information {
+    background-color: var(--color-ow-status-label-information-bg);
+    color: var(--color-ow-status-label-information-text);
+  }
+
+  .ow-status-label-negative {
+    background-color: var(--color-ow-status-label-negative-bg);
+    color: var(--color-ow-status-label-negative-text);
+  }
+}
