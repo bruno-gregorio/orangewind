@@ -189,6 +189,23 @@
           <input type="range" id="range-disabled" min="0" max="100" value="30" step="1" disabled aria-label="Disabled Range" />
         </div>
       </section>
+
+      <section>
+        <p class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4">
+          Multiple Select
+        </p>
+        <div class="ow-form ow-form-stacked">
+          <label for="select-multiple">Ubuntu Releases</label>
+          <select id="select-multiple" name="select-multiple" multiple>
+            <option value="" disabled>Select...</option>
+            <option value="1">Cosmic Cuttlefish</option>
+            <option value="2">Bionic Beaver</option>
+            <option value="3">Xenial Xerus</option>
+            <option value="4">Focal Fossa</option>
+            <option value="5">Jammy Jellyfish</option>
+          </select>
+        </div>
+      </section>
     </div>
   {/snippet}
 </Story>

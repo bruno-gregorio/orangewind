@@ -153,6 +153,20 @@
     cursor: pointer;
   }
 
+  select[multiple],
+  select[size] {
+    background-image: none;
+    box-shadow: none;
+    height: auto;
+  }
+
+  select[multiple] option,
+  select[size] option {
+    font-weight: 400;
+    line-height: calc(0.5rem * 2 - 2px);
+    padding: 0.25rem 0;
+  }
+
   textarea {
     min-height: 4.5rem;
     vertical-align: top;
