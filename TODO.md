@@ -35,7 +35,7 @@ _Simple, single-node elements that are widely nested inside larger structures._
       _DEPRECATED: Merged into Chips. Keep for legacy support or migrate._
 - [x] [Chip](https://vanillaframework.io/docs/patterns/chip)
       _Dependency for: Search and Filter, Forms._
-- [ ] [Heading Icon](https://vanillaframework.io/docs/patterns/heading-icon) & [Muted Heading](https://vanillaframework.io/docs/patterns/muted-heading)
+- [x] [Heading Icon](https://vanillaframework.io/docs/patterns/heading-icon) & [Muted Heading](https://vanillaframework.io/docs/patterns/muted-heading)
       _Dependency for: Section Pattern, Cards, Modal headers._
 
 ---
