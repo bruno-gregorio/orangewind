@@ -1,0 +1,240 @@
+@layer theme {
+  :root {
+    --color-ow-chip-bg: #f2f2f2;
+    --color-ow-chip-hover-bg: color-mix(in oklch, #f2f2f2, black 5%);
+    --color-ow-chip-active-bg: color-mix(in oklch, #f2f2f2, black 8%);
+    --color-ow-chip-border: #707070;
+    
+    --color-ow-chip-positive-bg: hsl(129deg 90% 39% / 10%);
+    --color-ow-chip-positive-hover-bg: hsl(129deg 100% 39% / 15%);
+    --color-ow-chip-positive-active-bg: hsl(129deg 100% 39% / 18%);
+    --color-ow-chip-positive-border: var(--color-ow-positive);
+    
+    --color-ow-chip-caution-bg: hsl(27deg 100% 39% / 10%);
+    --color-ow-chip-caution-hover-bg: hsl(27deg 100% 39% / 15%);
+    --color-ow-chip-caution-active-bg: hsl(27deg 100% 39% / 18%);
+    --color-ow-chip-caution-border: var(--color-ow-caution);
+
+    --color-ow-chip-negative-bg: hsl(354deg 100% 39% / 10%);
+    --color-ow-chip-negative-hover-bg: hsl(354deg 100% 39% / 15%);
+    --color-ow-chip-negative-active-bg: hsl(354deg 100% 39% / 18%);
+    --color-ow-chip-negative-border: var(--color-ow-negative);
+
+    --color-ow-chip-information-bg: hsl(210deg 100% 39% / 10%);
+    --color-ow-chip-information-hover-bg: hsl(210deg 100% 39% / 15%);
+    --color-ow-chip-information-active-bg: hsl(210deg 100% 39% / 18%);
+    --color-ow-chip-information-border: var(--color-ow-information);
+
+    --color-ow-chip-branded-bg: #202020;
+    --color-ow-chip-branded-text: var(--color-ow-x-light);
+  }
+
+  .dark {
+    --color-ow-chip-bg: rgba(255, 255, 255, 0.15);
+    --color-ow-chip-hover-bg: rgba(255, 255, 255, 0.2);
+    --color-ow-chip-active-bg: rgba(255, 255, 255, 0.25);
+    --color-ow-chip-border: hsl(0deg 0% 65%);
+    
+    --color-ow-chip-positive-bg: hsl(129deg 90% 39% / 20%);
+    --color-ow-chip-positive-hover-bg: hsl(129deg 100% 39% / 30%);
+    --color-ow-chip-positive-active-bg: hsl(129deg 100% 39% / 36%);
+    --color-ow-chip-positive-border: #62a36c;
+
+    --color-ow-chip-caution-bg: hsl(27deg 100% 50% / 20%);
+    --color-ow-chip-caution-hover-bg: hsl(27deg 100% 60% / 30%);
+    --color-ow-chip-caution-active-bg: hsl(27deg 100% 50% / 36%);
+    --color-ow-chip-caution-border: #c48831;
+
+    --color-ow-chip-negative-bg: hsl(353deg 100% 70% / 20%);
+    --color-ow-chip-negative-hover-bg: hsl(353deg 100% 70% / 30%);
+    --color-ow-chip-negative-active-bg: hsl(353deg 100% 70% / 36%);
+    --color-ow-chip-negative-border: #d17b85;
+
+    --color-ow-chip-information-bg: hsl(210deg 100% 50% / 20%);
+    --color-ow-chip-information-hover-bg: hsl(210deg 100% 50% / 30%);
+    --color-ow-chip-information-active-bg: hsl(210deg 100% 50% / 36%);
+    --color-ow-chip-information-border: hsl(210deg 80% 65%);
+
+    --color-ow-chip-branded-bg: #f7f7f7;
+    --color-ow-chip-branded-text: var(--color-ow-dark);
+  }
+}
+
+@layer components {
+  .ow-chip,
+  .ow-chip-positive,
+  .ow-chip-caution,
+  .ow-chip-negative,
+  .ow-chip-information,
+  .ow-chip-branded {
+    align-items: baseline;
+    border-radius: 1rem;
+    display: inline-flex;
+    margin: 0 0.5rem 0.5rem 0;
+    max-width: 100%;
+    padding: calc(0.25rem - 1px) 0.5rem;
+    position: relative;
+    user-select: none;
+    vertical-align: calc(1px - 0.125rem);
+    white-space: nowrap;
+    
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    transition: background-color 0.1s ease-in, border-color 0.1s ease-in;
+    
+    border: 1px solid var(--ow-chip-border);
+    background-color: var(--ow-chip-bg);
+    color: var(--color-ow-text-default);
+  }
+
+  .ow-chip-lead,
+  .ow-chip-value {
+    color: inherit;
+    display: inline;
+    margin-bottom: 0;
+    overflow: hidden;
+    padding: 0;
+    text-overflow: ellipsis;
+    vertical-align: baseline;
+    font-size: var(--text-sm);
+  }
+  .ow-chip-lead {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .ow-chip-lead + .ow-chip-value::before {
+    content: ': ';
+    font-size: var(--text-xs);
+  }
+
+  .ow-chip-dismiss {
+    align-self: center;
+    border-radius: 50%;
+    margin-left: 0.25rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0;
+    width: 1rem;
+    height: 1rem;
+    padding: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .ow-chip-dismiss::before {
+    content: '';
+    display: block;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: currentColor;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 6.884L12.558 2.326L13.674 3.442L9.116 8L13.674 12.558L12.558 13.674L8 9.116L3.442 13.674L2.326 12.558L6.884 8L2.326 3.442L3.442 2.326L8 6.884Z'/%3E%3C/svg%3E");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 6.884L12.558 2.326L13.674 3.442L9.116 8L13.674 12.558L12.558 13.674L8 9.116L3.442 13.674L2.326 12.558L6.884 8L2.326 3.442L3.442 2.326L8 6.884Z'/%3E%3C/svg%3E");
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+  }
+
+  .ow-chip.is-dense {
+    padding: 0 0.5rem;
+  }
+
+  .ow-chip.inline {
+    margin: 0;
+    vertical-align: baseline;
+  }
+
+  .ow-chip.is-readonly,
+  .ow-chip-positive.is-readonly,
+  .ow-chip-caution.is-readonly,
+  .ow-chip-negative.is-readonly,
+  .ow-chip-information.is-readonly {
+    border-color: transparent !important;
+  }
+
+  .ow-chip {
+    --ow-chip-bg: var(--color-ow-chip-bg);
+    --ow-chip-border: var(--color-ow-chip-border);
+    --ow-chip-hover-bg: var(--color-ow-chip-hover-bg);
+    --ow-chip-active-bg: var(--color-ow-chip-active-bg);
+  }
+  .ow-chip-positive {
+    --ow-chip-bg: var(--color-ow-chip-positive-bg);
+    --ow-chip-border: var(--color-ow-chip-positive-border);
+    --ow-chip-hover-bg: var(--color-ow-chip-positive-hover-bg);
+    --ow-chip-active-bg: var(--color-ow-chip-positive-active-bg);
+  }
+  .ow-chip-caution {
+    --ow-chip-bg: var(--color-ow-chip-caution-bg);
+    --ow-chip-border: var(--color-ow-chip-caution-border);
+    --ow-chip-hover-bg: var(--color-ow-chip-caution-hover-bg);
+    --ow-chip-active-bg: var(--color-ow-chip-caution-active-bg);
+  }
+  .ow-chip-negative {
+    --ow-chip-bg: var(--color-ow-chip-negative-bg);
+    --ow-chip-border: var(--color-ow-chip-negative-border);
+    --ow-chip-hover-bg: var(--color-ow-chip-negative-hover-bg);
+    --ow-chip-active-bg: var(--color-ow-chip-negative-active-bg);
+  }
+  .ow-chip-information {
+    --ow-chip-bg: var(--color-ow-chip-information-bg);
+    --ow-chip-border: var(--color-ow-chip-information-border);
+    --ow-chip-hover-bg: var(--color-ow-chip-information-hover-bg);
+    --ow-chip-active-bg: var(--color-ow-chip-information-active-bg);
+  }
+
+  .ow-chip-branded {
+    align-items: center;
+    background-color: var(--color-ow-chip-branded-bg);
+    border-color: transparent;
+    gap: 0.25rem;
+    height: 1.5rem;
+    justify-content: center;
+    margin-bottom: calc(0.5rem + 0.125rem);
+    min-width: max-content;
+    padding: calc(0.125rem - 1px) 0.5rem calc(0.125rem - 1px) 0.25rem;
+    color: var(--color-ow-chip-branded-text);
+  }
+  .ow-chip-branded .ow-chip-value {
+    color: var(--color-ow-chip-branded-text);
+    font-weight: 500;
+  }
+  .ow-chip-branded > .ow-icon-circle-of-friends {
+    background-color: var(--color-ow-chip-branded-text);
+    height: 1rem;
+    margin: 0;
+    width: 1rem;
+  }
+  .ow-chip-branded:has(> .ow-icon-circle-of-friends:only-child) {
+    border-radius: 50%;
+    padding: 0;
+    width: 1.5rem;
+  }
+
+  :is(button, a):is(.ow-chip, .ow-chip-positive, .ow-chip-caution, .ow-chip-negative, .ow-chip-information) {
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  :is(button, a):is(.ow-chip, .ow-chip-positive, .ow-chip-caution, .ow-chip-negative, .ow-chip-information):hover {
+    background-color: var(--ow-chip-hover-bg);
+    border-color: var(--ow-chip-border);
+  }
+  
+  :is(button, a):is(.ow-chip, .ow-chip-positive, .ow-chip-caution, .ow-chip-negative, .ow-chip-information):is(:active, [aria-pressed='true'], .is-selected) {
+    background-color: var(--ow-chip-active-bg);
+    border-color: var(--ow-chip-border);
+  }
+
+  :is(.ow-chip, .ow-chip-positive, .ow-chip-caution, .ow-chip-negative, .ow-chip-information) .ow-chip-dismiss:hover {
+    background-color: var(--ow-chip-hover-bg);
+  }
+  :is(.ow-chip, .ow-chip-positive, .ow-chip-caution, .ow-chip-negative, .ow-chip-information) .ow-chip-dismiss:active {
+    background-color: var(--ow-chip-active-bg);
+  }
+}
