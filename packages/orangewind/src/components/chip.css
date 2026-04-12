@@ -136,6 +136,7 @@
       --color-ow-chip-hover-bg: rgba(255, 255, 255, 0.2);
       --color-ow-chip-active-bg: rgba(255, 255, 255, 0.25);
       --color-ow-chip-border: hsl(0deg 0% 65%);
+      color: var(--color-ow-x-light);
     }
   }
   .ow-chip-positive {
@@ -149,6 +150,7 @@
       --color-ow-chip-positive-hover-bg: hsl(129deg 100% 39% / 30%);
       --color-ow-chip-positive-active-bg: hsl(129deg 100% 39% / 36%);
       --color-ow-chip-positive-border: #62a36c;
+      color: var(--color-ow-x-light);
     }
   }
   .ow-chip-caution {
@@ -162,6 +164,7 @@
       --color-ow-chip-caution-hover-bg: hsl(27deg 100% 60% / 30%);
       --color-ow-chip-caution-active-bg: hsl(27deg 100% 50% / 36%);
       --color-ow-chip-caution-border: #c48831;
+      color: var(--color-ow-x-light);
     }
   }
   .ow-chip-negative {
@@ -175,6 +178,7 @@
       --color-ow-chip-negative-hover-bg: hsl(353deg 100% 70% / 30%);
       --color-ow-chip-negative-active-bg: hsl(353deg 100% 70% / 36%);
       --color-ow-chip-negative-border: #d17b85;
+      color: var(--color-ow-x-light);
     }
   }
   .ow-chip-information {
@@ -188,6 +192,7 @@
       --color-ow-chip-information-hover-bg: hsl(210deg 100% 50% / 30%);
       --color-ow-chip-information-active-bg: hsl(210deg 100% 50% / 36%);
       --color-ow-chip-information-border: hsl(210deg 80% 65%);
+      color: var(--color-ow-x-light);
     }
   }
 
