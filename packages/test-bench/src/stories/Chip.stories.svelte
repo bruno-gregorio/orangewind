@@ -20,10 +20,20 @@
   })
 </script>
 
-<Story name="Chip">
-  {#snippet template({ dark, baselineGrid })}
+<Story
+  name="Chip"
+  args={{
+    dark: false,
+    baselineGrid: false
+  }}
+>
+  {#snippet template(args)}
     <div
-      class={['p-10 space-y-12', dark && 'dark bg-[#111] text-white', baselineGrid && 'ow-baseline-grid']
+      class={[
+        'p-10 space-y-12',
+        args?.dark && 'dark bg-[#111] text-white',
+        args?.baselineGrid && 'ow-baseline-grid'
+      ]
         .filter(Boolean)
         .join(' ')}
     >
