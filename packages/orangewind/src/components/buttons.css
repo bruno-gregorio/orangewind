@@ -10,49 +10,45 @@
   }
 }
 
-@layer theme {
+@theme {
+  /* Default button — derived from x-light background */
+  --color-ow-btn-bg: var(--color-ow-x-light);
+  --color-ow-btn-text: var(--color-ow-dark);
+  --color-ow-btn-border: #707070;
+  --color-ow-btn-hover-bg: color-mix(in oklch, var(--color-ow-x-light), black 8%);
+  --color-ow-btn-active-bg: color-mix(
+    in oklch,
+    var(--color-ow-x-light),
+    black 15%
+  );
+
+  /* Positive — derived from --color-ow-positive */
+  --color-ow-btn-positive-hover-bg: color-mix(
+    in oklch,
+    var(--color-ow-positive),
+    black 8%
+  );
+  --color-ow-btn-positive-active-bg: color-mix(
+    in oklch,
+    var(--color-ow-positive),
+    black 15%
+  );
+
+  /* Negative — derived from --color-ow-negative */
+  --color-ow-btn-negative-hover-bg: color-mix(
+    in oklch,
+    var(--color-ow-negative),
+    black 8%
+  );
+  --color-ow-btn-negative-active-bg: color-mix(
+    in oklch,
+    var(--color-ow-negative),
+    black 15%
+  );
+}
+
+@variant dark {
   :root {
-    /* Default button — derived from x-light background */
-    --color-ow-btn-bg: var(--color-ow-x-light);
-    --color-ow-btn-text: var(--color-ow-dark);
-    --color-ow-btn-border: #707070;
-    --color-ow-btn-hover-bg: color-mix(
-      in oklch,
-      var(--color-ow-x-light),
-      black 8%
-    );
-    --color-ow-btn-active-bg: color-mix(
-      in oklch,
-      var(--color-ow-x-light),
-      black 15%
-    );
-
-    /* Positive — derived from --color-ow-positive */
-    --color-ow-btn-positive-hover-bg: color-mix(
-      in oklch,
-      var(--color-ow-positive),
-      black 8%
-    );
-    --color-ow-btn-positive-active-bg: color-mix(
-      in oklch,
-      var(--color-ow-positive),
-      black 15%
-    );
-
-    /* Negative — derived from --color-ow-negative */
-    --color-ow-btn-negative-hover-bg: color-mix(
-      in oklch,
-      var(--color-ow-negative),
-      black 8%
-    );
-    --color-ow-btn-negative-active-bg: color-mix(
-      in oklch,
-      var(--color-ow-negative),
-      black 15%
-    );
-  }
-
-  .dark {
     --color-ow-btn-bg: #262626;
     --color-ow-btn-text: var(--color-ow-x-light);
     --color-ow-btn-border: #939393;

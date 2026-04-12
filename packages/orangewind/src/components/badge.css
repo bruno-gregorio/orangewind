@@ -1,12 +1,12 @@
-@layer theme {
-  :root {
-    --color-ow-badge-bg: var(--color-ow-x-dark);
-    --color-ow-badge-text: var(--color-ow-x-light);
-    --color-ow-badge-negative-bg: var(--color-ow-negative);
-    --color-ow-badge-negative-text: var(--color-ow-x-light);
-  }
+@theme {
+  --color-ow-badge-bg: var(--color-ow-x-dark);
+  --color-ow-badge-text: var(--color-ow-x-light);
+  --color-ow-badge-negative-bg: var(--color-ow-negative);
+  --color-ow-badge-negative-text: var(--color-ow-x-light);
+}
 
-  .dark {
+@variant dark {
+  :root {
     --color-ow-badge-bg: var(--color-ow-x-light);
     --color-ow-badge-text: var(--color-ow-dark);
     --color-ow-badge-negative-bg: #a11223;
