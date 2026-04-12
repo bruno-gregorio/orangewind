@@ -40,16 +40,7 @@ The project employs strict rules to ensure a clean and modern codebase.
   - Maximum code line width of 80 characters (`printWidth: 80`);
   - No parentheses in single-argument arrow functions (`arrowParens: "avoid"`, e.g., `x => x`).
 
-## 4. Execution Scripts & Routines
-
-When changing or completing code, you or the developer can run the following commands from the root (`bun run ...`):
-
-- **`storybook`:** Starts the component preview via Storybook inside `test-bench`.
-- **`format`:** Triggers automatic visual correction using Prettier. **Always use this when creating or changing multiple files**.
-- **`lint`:** Executes ESLint scanning and automatic corrections.
-- **`check`:** Performs passive validations (`eslint . && prettier --check .`) useful for continuous integration (CI).
-
-## 5. Additional Rules
+## 4. Additional Rules
 
 - Do not mark tasks as complete on the TO-DO file. This step should be done by the user.
 - Whenever possible avoid margins for spacing, prefer padding, gap or layout utilities based on grid or flex.
