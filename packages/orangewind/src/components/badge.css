@@ -5,14 +5,6 @@
   --color-ow-badge-negative-text: var(--color-ow-x-light);
 }
 
-@variant dark {
-  :root {
-    --color-ow-badge-bg: var(--color-ow-x-light);
-    --color-ow-badge-text: var(--color-ow-dark);
-    --color-ow-badge-negative-bg: #a11223;
-  }
-}
-
 @layer components {
   .ow-badge,
   .ow-badge-negative {
@@ -32,11 +24,20 @@
     text-align: center;
     text-indent: 0;
     vertical-align: middle;
+
+    @variant dark {
+      --color-ow-badge-bg: var(--color-ow-x-light);
+      --color-ow-badge-text: var(--color-ow-dark);
+    }
   }
 
   .ow-badge-negative {
     background-color: var(--color-ow-badge-negative-bg);
     color: var(--color-ow-badge-negative-text);
+
+    @variant dark {
+      --color-ow-badge-negative-bg: #a11223;
+    }
   }
 
   .ow-chip .ow-badge,

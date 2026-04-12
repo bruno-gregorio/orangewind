@@ -47,39 +47,6 @@
   );
 }
 
-@variant dark {
-  :root {
-    --color-ow-btn-bg: #262626;
-    --color-ow-btn-text: var(--color-ow-x-light);
-    --color-ow-btn-border: #939393;
-    --color-ow-btn-hover-bg: color-mix(in oklch, #262626, white 12%);
-    --color-ow-btn-active-bg: color-mix(in oklch, #262626, white 22%);
-
-    /* Dark theme lightens rather than darkens */
-    --color-ow-btn-positive-hover-bg: color-mix(
-      in oklch,
-      var(--color-ow-positive),
-      white 12%
-    );
-    --color-ow-btn-positive-active-bg: color-mix(
-      in oklch,
-      var(--color-ow-positive),
-      white 22%
-    );
-
-    --color-ow-btn-negative-hover-bg: color-mix(
-      in oklch,
-      var(--color-ow-negative),
-      white 12%
-    );
-    --color-ow-btn-negative-active-bg: color-mix(
-      in oklch,
-      var(--color-ow-negative),
-      white 22%
-    );
-  }
-}
-
 @layer components {
   /* Shared base styles */
   .ow-btn,
@@ -162,6 +129,14 @@
     background-color: var(--color-ow-btn-bg);
     border-color: var(--color-ow-btn-border);
     color: var(--color-ow-btn-text);
+
+    @variant dark {
+      --color-ow-btn-bg: #262626;
+      --color-ow-btn-text: var(--color-ow-x-light);
+      --color-ow-btn-border: #939393;
+      --color-ow-btn-hover-bg: color-mix(in oklch, #262626, white 12%);
+      --color-ow-btn-active-bg: color-mix(in oklch, #262626, white 22%);
+    }
   }
 
   .ow-btn:visited {
@@ -188,6 +163,11 @@
     background-color: var(--color-ow-positive);
     border-color: var(--color-ow-positive);
     color: var(--color-ow-x-light);
+
+    @variant dark {
+      --color-ow-btn-positive-hover-bg: color-mix(in oklch, var(--color-ow-positive), white 12%);
+      --color-ow-btn-positive-active-bg: color-mix(in oklch, var(--color-ow-positive), white 22%);
+    }
   }
 
   .ow-btn-positive:visited {
@@ -219,6 +199,11 @@
     background-color: var(--color-ow-negative);
     border-color: var(--color-ow-negative);
     color: var(--color-ow-x-light);
+
+    @variant dark {
+      --color-ow-btn-negative-hover-bg: color-mix(in oklch, var(--color-ow-negative), white 12%);
+      --color-ow-btn-negative-active-bg: color-mix(in oklch, var(--color-ow-negative), white 22%);
+    }
   }
 
   .ow-btn-negative:visited {
@@ -250,6 +235,12 @@
     background-color: transparent;
     border-color: transparent;
     color: var(--color-ow-btn-text);
+
+    @variant dark {
+      --color-ow-btn-text: var(--color-ow-x-light);
+      --color-ow-btn-hover-bg: color-mix(in oklch, #262626, white 12%);
+      --color-ow-btn-active-bg: color-mix(in oklch, #262626, white 22%);
+    }
   }
 
   .ow-btn-base:visited {
