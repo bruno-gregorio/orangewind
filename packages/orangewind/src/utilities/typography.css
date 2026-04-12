@@ -101,4 +101,57 @@
     line-height: var(--text-3xl--line-height);
     font-weight: var(--font-weight-thin);
   }
+
+  .ow-text-small-caps {
+    font-variant-caps: all-small-caps;
+    font-variant-numeric: oldstyle-nums;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-top: 0;
+  }
+
+  .ow-muted-heading {
+    border-top: 0;
+    display: block;
+    font-variant-caps: all-small-caps;
+    font-variant-numeric: oldstyle-nums;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.625rem;
+    margin-top: 0;
+    padding-top: 0.375rem;
+  }
+
+  .ow-heading-icon,
+  .ow-heading-icon-small {
+    margin-bottom: 1.5rem;
+
+    @media (width >= theme(--breakpoint-lg)) {
+      margin-bottom: 0;
+    }
+  }
+
+  .ow-heading-icon-header {
+    display: flex;
+    align-items: center;
+
+    &.is-stacked {
+      display: block;
+    }
+  }
+
+  .ow-heading-icon-img {
+    flex-shrink: 0;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
+
+  .ow-heading-icon-small {
+    .ow-heading-icon-img {
+      height: 2rem;
+      width: 2rem;
+    }
+  }
 }

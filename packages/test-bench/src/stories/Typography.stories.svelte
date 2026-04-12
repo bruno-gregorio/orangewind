@@ -44,3 +44,89 @@
     </p>
   </div>
 </Story>
+
+<Story name="Heading Icon">
+  <div class="p-10">
+    <div class="ow-heading-icon">
+      <div class="ow-heading-icon-header">
+        <img
+          class="ow-heading-icon-img"
+          src="https://assets.ubuntu.com/v1/425efe3a-lxd.svg"
+          alt=""
+        />
+        <h3 class="ow-heading-icon-title ow-heading-3">
+          LXD — system containers
+        </h3>
+      </div>
+      <p>
+        LXD, the Linux container hypervisor, merges the speed and density of
+        containers with the manageability and security of traditional virtual
+        machines. Economics are directly tied to density, and no other
+        virtualisation technology is as fast or dense as LXD.
+      </p>
+    </div>
+  </div>
+</Story>
+
+<Story name="Heading Icon Small">
+  <div class="p-10">
+    <div class="ow-heading-icon-small">
+      <div class="ow-heading-icon-header">
+        <img
+          class="ow-heading-icon-img"
+          src="https://assets.ubuntu.com/v1/425efe3a-lxd.svg"
+          alt=""
+        />
+        <h3 class="ow-heading-icon-title ow-heading-3">
+          LXD — system containers
+        </h3>
+      </div>
+      <p>
+        LXD, the Linux container hypervisor, merges the speed and density of
+        containers with the manageability and security of traditional virtual
+        machines. Economics are directly tied to density, and no other
+        virtualisation technology is as fast or dense as LXD.
+      </p>
+    </div>
+  </div>
+</Story>
+
+<Story name="Heading Icon Stacked">
+  <div class="p-10">
+    <div class="ow-heading-icon">
+      <div class="ow-heading-icon-header is-stacked">
+        <img
+          class="ow-heading-icon-img"
+          src="https://assets.ubuntu.com/v1/425efe3a-lxd.svg"
+          alt=""
+        />
+        <h3 class="ow-heading-icon-title ow-heading-3">
+          LXD — system containers
+        </h3>
+      </div>
+      <p>
+        LXD, the Linux container hypervisor, merges the speed and density of
+        containers with the manageability and security of traditional virtual
+        machines. Economics are directly tied to density, and no other
+        virtualisation technology is as fast or dense as LXD.
+      </p>
+    </div>
+  </div>
+</Story>
+
+<Story name="Muted Heading">
+  <div class="p-10">
+    <span class="ow-muted-heading">Latest News</span>
+    <h2 class="ow-heading-2">Canonical expands its generative AI portfolio</h2>
+    <p>
+      We are excited to announce new partnerships and projects in the AI
+      space...
+    </p>
+  </div>
+</Story>
+
+<Story name="Small Caps Utility">
+  <div class="p-10">
+    <p class="ow-text-small-caps">This is some small caps text for evaluation.</p>
+  </div>
+</Story>
