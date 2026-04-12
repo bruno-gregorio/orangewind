@@ -176,6 +176,19 @@
           <button class="ow-btn ow-btn-positive">Search</button>
         </div>
       </section>
+
+      <section>
+        <p class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4">
+          Range Input
+        </p>
+        <div class="ow-form ow-form-stacked">
+          <label for="range-enabled">Volume</label>
+          <input type="range" id="range-enabled" min="0" max="100" value="50" step="1" aria-label="Volume" />
+
+          <label for="range-disabled">Disabled Range</label>
+          <input type="range" id="range-disabled" min="0" max="100" value="30" step="1" disabled aria-label="Disabled Range" />
+        </div>
+      </section>
     </div>
   {/snippet}
 </Story>
