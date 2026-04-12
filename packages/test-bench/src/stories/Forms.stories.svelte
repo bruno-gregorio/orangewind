@@ -206,6 +206,23 @@
           </select>
         </div>
       </section>
+
+      <section>
+        <p class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4">
+          Datalist
+        </p>
+        <div class="ow-form ow-form-stacked">
+          <label for="ice-cream-choice">Choose a flavor</label>
+          <input type="text" list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" placeholder="Start typing..." />
+          <datalist id="ice-cream-flavors">
+            <option value="Vanilla">Vanilla</option>
+            <option value="Chocolate">Chocolate</option>
+            <option value="Coconut">Coconut</option>
+            <option value="Mint">Mint</option>
+            <option value="Strawberry">Strawberry</option>
+          </datalist>
+        </div>
+      </section>
     </div>
   {/snippet}
 </Story>

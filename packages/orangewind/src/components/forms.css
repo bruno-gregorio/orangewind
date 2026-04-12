@@ -167,6 +167,11 @@
     padding: 0.25rem 0;
   }
 
+  /* Datalist — hide native dropdown indicator */
+  input[list]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+
   textarea {
     min-height: 4.5rem;
     vertical-align: top;
