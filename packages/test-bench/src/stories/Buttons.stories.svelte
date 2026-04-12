@@ -1,5 +1,6 @@
 <script module lang="ts">
   import { defineMeta } from '@storybook/addon-svelte-csf'
+  import { darkMode } from '../lib/actions'
 
   const { Story } = defineMeta({
     title: 'Components/Buttons',
@@ -39,9 +40,10 @@
   {#snippet template({ dark, baselineGrid, positiveColor, negativeColor, rounded })}
     {@const btnClass = (base: string) => [base, rounded && 'ow-btn-round'].filter(Boolean).join(' ')}
     <div
+      use:darkMode={dark}
       class={[
         'p-10 space-y-8',
-        dark && 'dark bg-[#111]',
+        dark && 'bg-[#111]',
         baselineGrid && 'ow-baseline-grid'
       ]
         .filter(Boolean)

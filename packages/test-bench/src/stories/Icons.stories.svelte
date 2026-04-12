@@ -1,5 +1,6 @@
 <script module>
   import { defineMeta } from '@storybook/addon-svelte-csf'
+  import { darkMode } from '../lib/actions'
 
   const { Story } = defineMeta({
     title: 'Components/Icons',
@@ -886,7 +887,7 @@
 >
   {#snippet template(args)}
     <div
-      class:dark={args?.darkMode}
+      use:darkMode={args?.darkMode ?? false}
       class:bg-[#111111]={args?.darkMode}
       class:text-white={args?.darkMode}
       class="p-4"

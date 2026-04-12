@@ -1,5 +1,6 @@
 <script module>
   import { defineMeta } from '@storybook/addon-svelte-csf'
+  import { darkMode } from '../lib/actions'
 
   const { Story } = defineMeta({
     title: 'Components/Rule (Divider)',
@@ -31,8 +32,8 @@
 >
   {#snippet template(args)}
     <div
+      use:darkMode={args.isDark}
       class="p-10 max-w-2xl transition-colors duration-200"
-      class:dark={args.isDark}
       class:bg-gray-900={args.isDark}
       class:text-white={args.isDark}
     >
