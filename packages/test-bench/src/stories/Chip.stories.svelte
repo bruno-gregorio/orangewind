@@ -74,6 +74,21 @@
       </section>
 
       <section class="space-y-4">
+        <p class="text-sm font-semibold uppercase tracking-wider opacity-50">With Badge</p>
+        <div class="flex items-center gap-4">
+          <span class="ow-chip gap-2 pr-2">
+            <span class="ow-chip-value">Updates</span>
+            <span class="ow-badge">3</span>
+          </span>
+          <span class="ow-chip gap-2 pr-2">
+            <span class="ow-chip-lead">Errors</span>
+            <span class="ow-chip-value">System</span>
+            <span class="ow-badge-negative">99+</span>
+          </span>
+        </div>
+      </section>
+
+      <section class="space-y-4">
         <p class="text-sm font-semibold uppercase tracking-wider opacity-50">Interactive Chips</p>
         <div>
           <button class="ow-chip" aria-pressed="false">
