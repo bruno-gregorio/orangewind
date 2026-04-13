@@ -1,6 +1,6 @@
 <script module lang="ts">
   import { defineMeta } from '@storybook/addon-svelte-csf'
-  import { darkMode } from '../lib/actions'
+  import { darkMode, rangeProgress } from '../lib/actions'
 
   const { Story } = defineMeta({
     title: 'Components/Forms',
@@ -219,10 +219,10 @@
         </p>
         <div class="ow-form ow-form-stacked">
           <label for="range-enabled">Volume</label>
-          <input type="range" id="range-enabled" min="0" max="100" value="50" step="1" aria-label="Volume" />
+          <input type="range" id="range-enabled" min="0" max="100" value="50" step="1" aria-label="Volume" use:rangeProgress />
 
           <label for="range-disabled">Disabled Range</label>
-          <input type="range" id="range-disabled" min="0" max="100" value="30" step="1" disabled aria-label="Disabled Range" />
+          <input type="range" id="range-disabled" min="0" max="100" value="30" step="1" disabled aria-label="Disabled Range" use:rangeProgress />
         </div>
       </section>
 
