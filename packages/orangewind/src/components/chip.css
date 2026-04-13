@@ -38,7 +38,7 @@
   .ow-chip-negative,
   .ow-chip-information,
   .ow-chip-branded {
-    align-items: baseline;
+    align-items: center;
     border-radius: 1rem;
     display: inline-flex;
     gap: 0.5rem;

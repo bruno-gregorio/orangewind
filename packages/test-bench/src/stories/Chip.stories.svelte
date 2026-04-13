@@ -40,29 +40,55 @@
         .join(' ')}
     >
       <section class="space-y-4">
-        <p class="text-sm font-semibold uppercase tracking-wider opacity-50">Base Chips</p>
+        <p class="text-sm font-semibold uppercase tracking-wider opacity-50">
+          Base Chips
+        </p>
         <div>
-          <span class="ow-chip"><span class="ow-chip-value">Default chip</span></span>
-          <span class="ow-chip-positive"><span class="ow-chip-value">Positive</span></span>
-          <span class="ow-chip-negative"><span class="ow-chip-value">Negative</span></span>
-          <span class="ow-chip-caution"><span class="ow-chip-value">Caution</span></span>
-          <span class="ow-chip-information"><span class="ow-chip-value">Information</span></span>
+          <span class="ow-chip"
+            ><span class="ow-chip-value">Default chip</span></span
+          >
+          <span class="ow-chip-positive"
+            ><span class="ow-chip-value">Positive</span></span
+          >
+          <span class="ow-chip-negative"
+            ><span class="ow-chip-value">Negative</span></span
+          >
+          <span class="ow-chip-caution"
+            ><span class="ow-chip-value">Caution</span></span
+          >
+          <span class="ow-chip-information"
+            ><span class="ow-chip-value">Information</span></span
+          >
         </div>
       </section>
 
       <section class="space-y-4">
-        <p class="text-sm font-semibold uppercase tracking-wider opacity-50">Readonly Chips</p>
+        <p class="text-sm font-semibold uppercase tracking-wider opacity-50">
+          Readonly Chips
+        </p>
         <div>
-          <span class="ow-chip is-readonly"><span class="ow-chip-value">Default chip</span></span>
-          <span class="ow-chip-positive is-readonly"><span class="ow-chip-value">Positive</span></span>
-          <span class="ow-chip-negative is-readonly"><span class="ow-chip-value">Negative</span></span>
-          <span class="ow-chip-caution is-readonly"><span class="ow-chip-value">Caution</span></span>
-          <span class="ow-chip-information is-readonly"><span class="ow-chip-value">Information</span></span>
+          <span class="ow-chip is-readonly"
+            ><span class="ow-chip-value">Default chip</span></span
+          >
+          <span class="ow-chip-positive is-readonly"
+            ><span class="ow-chip-value">Positive</span></span
+          >
+          <span class="ow-chip-negative is-readonly"
+            ><span class="ow-chip-value">Negative</span></span
+          >
+          <span class="ow-chip-caution is-readonly"
+            ><span class="ow-chip-value">Caution</span></span
+          >
+          <span class="ow-chip-information is-readonly"
+            ><span class="ow-chip-value">Information</span></span
+          >
         </div>
       </section>
 
       <section class="space-y-4">
-        <p class="text-sm font-semibold uppercase tracking-wider opacity-50">With Lead Value</p>
+        <p class="text-sm font-semibold uppercase tracking-wider opacity-50">
+          With Lead Value
+        </p>
         <div>
           <span class="ow-chip">
             <span class="ow-chip-lead">Owner</span>
@@ -76,7 +102,9 @@
       </section>
 
       <section class="space-y-4">
-        <p class="text-sm font-semibold uppercase tracking-wider opacity-50">With Badge</p>
+        <p class="text-sm font-semibold uppercase tracking-wider opacity-50">
+          With Badge
+        </p>
         <div class="flex items-center gap-4">
           <span class="ow-chip gap-2 pr-2">
             <span class="ow-chip-value">Updates</span>
@@ -91,7 +119,9 @@
       </section>
 
       <section class="space-y-4">
-        <p class="text-sm font-semibold uppercase tracking-wider opacity-50">Interactive Chips</p>
+        <p class="text-sm font-semibold uppercase tracking-wider opacity-50">
+          Interactive Chips
+        </p>
         <div>
           <button class="ow-chip" aria-pressed="false">
             <span class="ow-chip-value">Click me</span>
@@ -106,17 +136,22 @@
       </section>
 
       <section class="space-y-4">
-        <p class="text-sm font-semibold uppercase tracking-wider opacity-50">Dismissible Chips</p>
+        <p class="text-sm font-semibold uppercase tracking-wider opacity-50">
+          Dismissible Chips
+        </p>
         <div>
           <span class="ow-chip">
             <span class="ow-chip-value">Ubuntu</span>
-            <button class="ow-chip-dismiss" aria-label="Dismiss">Dismiss</button>
+            <button class="ow-chip-dismiss" aria-label="Dismiss">Dismiss</button
+            >
           </span>
         </div>
       </section>
-      
+
       <section class="space-y-4">
-        <p class="text-sm font-semibold uppercase tracking-wider opacity-50">Branded Chip</p>
+        <p class="text-sm font-semibold uppercase tracking-wider opacity-50">
+          Branded Chip
+        </p>
         <div>
           <span class="ow-chip-branded">
             <i class="ow-icon-circle-of-friends"></i>
