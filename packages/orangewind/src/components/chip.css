@@ -26,6 +26,9 @@
 
   --color-ow-chip-branded-bg: #202020;
   --color-ow-chip-branded-text: var(--color-ow-x-light);
+
+  /* Chip Icons */
+  --icon-ow-chip-dismiss: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 6.884L12.558 2.326L13.674 3.442L9.116 8L13.674 12.558L12.558 13.674L8 9.116L3.442 13.674L2.326 12.558L6.884 8L2.326 3.442L3.442 2.326L8 6.884Z'/%3E%3C/svg%3E");
 }
 
 @layer components {
@@ -98,11 +101,11 @@
         width: 0.75rem;
         height: 0.75rem;
         background-color: currentColor;
-        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 6.884L12.558 2.326L13.674 3.442L9.116 8L13.674 12.558L12.558 13.674L8 9.116L3.442 13.674L2.326 12.558L6.884 8L2.326 3.442L3.442 2.326L8 6.884Z'/%3E%3C/svg%3E");
+        mask-image: var(--icon-ow-chip-dismiss);
         mask-size: contain;
         mask-repeat: no-repeat;
         mask-position: center;
-        -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 6.884L12.558 2.326L13.674 3.442L9.116 8L13.674 12.558L12.558 13.674L8 9.116L3.442 13.674L2.326 12.558L6.884 8L2.326 3.442L3.442 2.326L8 6.884Z'/%3E%3C/svg%3E");
+        -webkit-mask-image: var(--icon-ow-chip-dismiss);
         -webkit-mask-size: contain;
         -webkit-mask-repeat: no-repeat;
         -webkit-mask-position: center;
