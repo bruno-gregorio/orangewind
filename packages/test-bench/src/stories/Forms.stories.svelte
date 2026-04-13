@@ -108,6 +108,10 @@
                 <input type="checkbox" id="check-3" class="ow-checkbox-input" disabled />
                 <label for="check-3" class="ow-checkbox-label">Checkbox Disabled</label>
               </div>
+              <div class="ow-checkbox">
+                <input type="checkbox" id="check-indeterminate" class="ow-checkbox-input" indeterminate={true} />
+                <label for="check-indeterminate" class="ow-checkbox-label">Checkbox Indeterminate</label>
+              </div>
             </div>
             
             <div class="ow-form mt-4">

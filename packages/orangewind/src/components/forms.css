@@ -449,6 +449,21 @@
     opacity: 1;
   }
 
+  /* Indeterminate Checkbox State */
+  .ow-checkbox-input:indeterminate + .ow-checkbox-label::before,
+  .ow-checkbox-input[aria-checked='mixed'] + .ow-checkbox-label::before {
+    background-color: var(--color-ow-link);
+    border-color: var(--color-ow-link);
+  }
+
+  .ow-checkbox-input:indeterminate + .ow-checkbox-label::after,
+  .ow-checkbox-input[aria-checked='mixed'] + .ow-checkbox-label::after {
+    opacity: 1;
+    border-left: none;
+    transform: none;
+    height: 0;
+  }
+
   /* Form Help Text */
   .ow-form-help-text {
     font-size: 0.875rem;
