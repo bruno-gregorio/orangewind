@@ -449,6 +449,22 @@
     opacity: 1;
   }
 
+  /* Form Help Text */
+  .ow-form-help-text {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    color: var(--color-ow-text-muted);
+    padding-top: 0.5rem;
+  }
+
+  .is-dense + .ow-form-help-text {
+    padding-top: 0.25rem;
+  }
+
+  .ow-form-help-text.is-tick-element {
+    padding-left: 2rem;
+  }
+
   /* Validation API */
   .ow-input-error {
     background-color: var(--color-ow-form-error-bg) !important;

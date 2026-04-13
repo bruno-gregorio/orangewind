@@ -40,6 +40,7 @@
         <div class="ow-form ow-form-stacked">
           <label for="input-text">Text Input</label>
           <input type="text" id="input-text" placeholder="Enter text..." />
+          <p class="ow-form-help-text">Please enter your full name.</p>
 
           <label for="input-password" class="is-required">Password</label>
           <input type="password" id="input-password" placeholder="Enter password..." />
@@ -87,6 +88,7 @@
               <div class="ow-checkbox">
                 <input type="checkbox" id="check-1" class="ow-checkbox-input" />
                 <label for="check-1" class="ow-checkbox-label">Checkbox 1</label>
+                <p class="ow-form-help-text is-tick-element">Optional description for this checkbox.</p>
               </div>
               <div class="ow-checkbox">
                 <input type="checkbox" id="check-2" class="ow-checkbox-input" checked />
