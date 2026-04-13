@@ -101,14 +101,14 @@
   }
 
   select {
-    background-image: var(--icon-ow-chevron-down);
+    background-image: var(--ow-select-bg-icon, var(--icon-ow-chevron-down));
     background-position: right 0.75rem center;
     background-repeat: no-repeat;
     background-size: 1rem;
     padding-right: 2.25rem;
 
     @variant dark {
-      background-image: var(--icon-ow-chevron-down-dark);
+      --ow-select-bg-icon: var(--icon-ow-chevron-down-dark);
     }
 
     &:hover {
@@ -147,10 +147,10 @@
 
     &::file-selector-button {
       appearance: none;
-      background-color: var(--color-ow-mid-x-light);
-      border: 1px solid var(--color-ow-border-default);
+      background-color: var(--ow-file-btn-bg, var(--color-ow-mid-x-light));
+      border: 1px solid var(--ow-file-btn-border, var(--color-ow-border-default));
       border-radius: 0.25rem;
-      color: var(--color-ow-dark);
+      color: var(--ow-file-btn-text, var(--color-ow-dark));
       cursor: pointer;
       font-family: inherit;
       font-size: 1rem;
@@ -161,16 +161,16 @@
       margin-right: 2rem;
 
       @variant dark {
-        background-color: var(--color-ow-dark);
-        border-color: var(--color-ow-form-border);
-        color: var(--color-ow-x-light);
+        --ow-file-btn-bg: var(--color-ow-dark);
+        --ow-file-btn-border: var(--color-ow-form-border);
+        --ow-file-btn-text: var(--color-ow-x-light);
       }
 
       &:hover {
-        background-color: var(--color-ow-mid-light);
+        background-color: var(--ow-file-btn-hover-bg, var(--color-ow-mid-light));
 
         @variant dark {
-          background-color: color-mix(in oklch, var(--color-ow-dark), white 12%);
+          --ow-file-btn-hover-bg: color-mix(in oklch, var(--color-ow-dark), white 12%);
         }
       }
     }
@@ -485,11 +485,11 @@
   .ow-form-help-text {
     font-size: 0.875rem;
     line-height: 1.5rem;
-    color: var(--color-ow-text-muted);
+    color: var(--ow-form-help-text, var(--color-ow-text-muted));
     padding-top: 0.5rem;
     
     @variant dark {
-      color: rgba(255, 255, 255, 0.6);
+      --ow-form-help-text: rgba(255, 255, 255, 0.6);
     }
 
     .is-dense + & {
@@ -513,10 +513,10 @@
     }
 
     & + [type='text'][readonly] {
-      color: var(--color-ow-form-text);
+      color: var(--ow-password-toggle-readonly, var(--color-ow-form-text));
 
       @variant dark {
-        color: var(--color-ow-x-light);
+        --ow-password-toggle-readonly: var(--color-ow-x-light);
       }
     }
   }
@@ -603,10 +603,10 @@
     color: var(--color-ow-negative);
 
     &::before {
-      background-image: var(--icon-ow-form-error);
+      background-image: var(--ow-form-msg-err-icon, var(--icon-ow-form-error));
       
       @variant dark {
-        background-image: var(--icon-ow-form-error-dark);
+        --ow-form-msg-err-icon: var(--icon-ow-form-error-dark);
       }
     }
   }
@@ -615,10 +615,10 @@
     color: var(--color-ow-caution);
 
     &::before {
-      background-image: var(--icon-ow-form-caution);
+      background-image: var(--ow-form-msg-ca-icon, var(--icon-ow-form-caution));
       
       @variant dark {
-        background-image: var(--icon-ow-form-caution-dark);
+        --ow-form-msg-ca-icon: var(--icon-ow-form-caution-dark);
       }
     }
   }
@@ -627,10 +627,10 @@
     color: var(--color-ow-positive);
 
     &::before {
-      background-image: var(--icon-ow-form-success);
+      background-image: var(--ow-form-msg-su-icon, var(--icon-ow-form-success));
       
       @variant dark {
-        background-image: var(--icon-ow-form-success-dark);
+        --ow-form-msg-su-icon: var(--icon-ow-form-success-dark);
       }
     }
   }

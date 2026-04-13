@@ -2,7 +2,7 @@
   .ow-rule,
   .ow-rule-muted,
   .ow-rule-highlight {
-    background-color: var(--color-ow-border-default);
+    background-color: var(--ow-rule-bg, var(--color-ow-border-default));
     border: 0;
     height: 1px;
     margin-top: 0;
@@ -11,7 +11,7 @@
     width: 100%;
 
     @variant dark {
-      background-color: rgba(255, 255, 255, 0.2);
+      --ow-rule-bg: rgba(255, 255, 255, 0.2);
     }
   }
 
@@ -20,7 +20,7 @@
   }
 
   .ow-rule-highlight::before {
-    background-color: var(--color-ow-text-default);
+    background-color: var(--ow-rule-highlight-bg, var(--color-ow-text-default));
     content: '';
     position: absolute;
     top: 0;
@@ -30,7 +30,7 @@
     width: auto;
 
     @variant dark {
-      background-color: var(--color-ow-x-light);
+      --ow-rule-highlight-bg: var(--color-ow-x-light);
     }
   }
 

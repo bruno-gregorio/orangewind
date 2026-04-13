@@ -31,20 +31,16 @@
     &:visited {
       color: var(--color-ow-link-visited);
     }
-
-    @variant dark {
-      color: var(--color-ow-link);
-    }
   }
 }
 
 @layer components {
   /* Pattern: Soft Links */
   .ow-link-soft {
-    color: var(--color-ow-text-default);
+    color: var(--ow-link-soft-color, var(--color-ow-text-default));
 
     &:visited {
-      color: var(--color-ow-text-default);
+      color: var(--ow-link-soft-visited-color, var(--color-ow-text-default));
       text-decoration: none;
     }
 
@@ -57,21 +53,18 @@
     }
 
     @variant dark {
-      color: var(--color-ow-x-light);
-
-      &:visited {
-        color: var(--color-ow-x-light);
-      }
+      --ow-link-soft-color: var(--color-ow-x-light);
+      --ow-link-soft-visited-color: var(--color-ow-x-light);
     }
   }
 
   /* Pattern: Inverted Links */
   .ow-link-inverted {
-    color: var(--color-ow-text-default);
+    color: var(--ow-link-inverted-color, var(--color-ow-text-default));
     font-weight: var(--font-weight-bold, 700);
 
     &:hover {
-      color: var(--color-ow-text-default);
+      color: var(--ow-link-inverted-hover, var(--color-ow-text-default));
     }
 
     &:visited {
@@ -79,11 +72,8 @@
     }
 
     @variant dark {
-      color: var(--color-ow-x-light);
-
-      &:hover {
-        color: var(--color-ow-x-light);
-      }
+      --ow-link-inverted-color: var(--color-ow-x-light);
+      --ow-link-inverted-hover: var(--color-ow-x-light);
     }
   }
 
@@ -105,20 +95,18 @@
       top: 0.5rem;
       z-index: 999999;
     }
-
-    @variant dark {
-      background-color: var(--color-ow-background-alt);
-    }
   }
 
   /* Pattern: Top Link wrapper */
   .ow-top {
     align-items: center;
+    color: var(--ow-top-color, inherit);
     display: flex;
     gap: 0.5rem;
 
     @variant dark {
       --color-ow-border-default: #ffffff4d;
+      --ow-top-color: var(--color-ow-x-light);
     }
 
     &::before {
@@ -141,32 +129,28 @@
       height: 1rem;
       vertical-align: middle;
     }
-
-    @variant dark {
-      color: var(--color-ow-x-light);
-    }
   }
 
   /* Pattern: Top Link Element */
   .ow-top-link {
-    color: var(--color-ow-text-default);
+    color: var(--ow-top-link-color, var(--color-ow-text-default));
     padding: 0 0.5rem 0 1rem;
     text-decoration: none;
 
     @variant dark {
-      color: var(--color-ow-x-light);
+      --ow-top-link-color: var(--color-ow-x-light);
     }
   }
 
   /* Pattern: Anchor Heading Link */
   .ow-link-anchor-heading {
-    color: var(--color-ow-text-default);
+    color: var(--ow-link-anchor-color, var(--color-ow-text-default));
     display: inline-flex;
     align-items: baseline;
     gap: 0.5rem;
 
     &:visited {
-      color: var(--color-ow-text-default);
+      color: var(--ow-link-anchor-visited, var(--color-ow-text-default));
     }
 
     &::after {
@@ -191,11 +175,8 @@
     }
 
     @variant dark {
-      color: var(--color-ow-x-light);
-
-      &:visited {
-        color: var(--color-ow-x-light);
-      }
+      --ow-link-anchor-color: var(--color-ow-x-light);
+      --ow-link-anchor-visited: var(--color-ow-x-light);
     }
   }
 }
