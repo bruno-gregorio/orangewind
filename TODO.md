@@ -46,7 +46,7 @@ _Interactive elements that require Phase 1 rules and Buttons to be complete._
 
 - [x] [Forms](https://vanillaframework.io/docs/base/forms) (Base Inputs, Textareas, Checkboxes, Radios, Validation)
       _Dependency for: Search Box, Newsletter, Auth pages, Settings pages._
-- [ ] [Switch](https://vanillaframework.io/docs/patterns/switch)
+- [x] [Switch](https://vanillaframework.io/docs/patterns/switch)
       _Dependency for: Forms, Application Panels._
 - [ ] [Slider](https://vanillaframework.io/docs/patterns/slider)
       _Dependency for: Forms, specific Filter setups._
