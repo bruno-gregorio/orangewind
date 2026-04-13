@@ -223,6 +223,16 @@
           </datalist>
         </div>
       </section>
+
+      <section>
+        <p class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4">
+          File Input
+        </p>
+        <div class="ow-form ow-form-stacked">
+          <label for="file-upload">Upload a file</label>
+          <input type="file" id="file-upload" />
+        </div>
+      </section>
     </div>
   {/snippet}
 </Story>

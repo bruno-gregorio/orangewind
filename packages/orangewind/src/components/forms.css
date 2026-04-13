@@ -172,6 +172,48 @@
     opacity: 0;
   }
 
+  /* File Input */
+  [type='file'] {
+    padding: 0.5rem 0.75rem;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  [type='file']:focus {
+    outline: 3px solid var(--color-ow-focus);
+    outline-offset: -2px;
+  }
+
+  [type='file']::file-selector-button {
+    appearance: none;
+    background-color: var(--color-ow-mid-x-light);
+    border: 1px solid var(--color-ow-border-default);
+    border-radius: 0.25rem;
+    color: var(--color-ow-dark);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    padding: 0.25rem 0.75rem;
+    transition: background-color 0.1s ease-in;
+    margin-right: 2rem;
+
+    @variant dark {
+      background-color: var(--color-ow-dark);
+      border-color: var(--color-ow-form-border);
+      color: var(--color-ow-x-light);
+    }
+  }
+
+  [type='file']::file-selector-button:hover {
+    background-color: var(--color-ow-mid-light);
+
+    @variant dark {
+      background-color: color-mix(in oklch, var(--color-ow-dark), white 12%);
+    }
+  }
+
   textarea {
     min-height: 4.5rem;
     vertical-align: top;
