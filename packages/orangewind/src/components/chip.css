@@ -41,7 +41,7 @@
     align-items: baseline;
     border-radius: 1rem;
     display: inline-flex;
-    margin: 0 0.5rem 0.5rem 0;
+    gap: 0.5rem;
     max-width: 100%;
     padding: calc(0.25rem - 1px) 0.5rem;
     position: relative;
@@ -83,7 +83,6 @@
     .ow-chip-dismiss {
       align-self: center;
       border-radius: 50%;
-      margin-left: 0.25rem;
       background: transparent;
       border: none;
       cursor: pointer;
