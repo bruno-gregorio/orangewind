@@ -43,4 +43,7 @@ The project employs strict rules to ensure a clean and modern codebase.
 ## 4. Additional Rules
 
 - Do not mark tasks as complete on the TO-DO file. This step should be done by the user.
-- Whenever possible avoid margins for spacing, prefer padding, gap or layout utilities based on grid or flex.
+- Whenever possible avoid margins for spacing, prefer padding, gap or layout utilities based on grid or flex. The same rule is also valid for inset-based positioning, if the desired position can be achieved by layout utilities, prefer them over inset utilities.
+- Our CSS naming convention does not include double dashes or underscores.
+- When coding the classes, make use of CSS nesting and the `&` selector to reduce the amount of code top level code blocks per file.
+- Verification is done manually by the user by checking storybook.
