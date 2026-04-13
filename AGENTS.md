@@ -47,3 +47,4 @@ The project employs strict rules to ensure a clean and modern codebase.
 - Our CSS naming convention does not include double dashes or underscores.
 - When coding the classes, make use of CSS nesting and the `&` selector to reduce the amount of code top level code blocks per file.
 - Verification is done manually by the user by checking storybook.
+- The directive `@variant dark` should be used only to set CSS variables.
