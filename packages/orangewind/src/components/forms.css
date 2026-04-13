@@ -356,6 +356,12 @@
     gap: 1.5rem;
   }
 
+  .ow-checkbox-heading,
+  .ow-radio-heading {
+    display: inline-block;
+    padding-bottom: 0;
+  }
+
   .ow-checkbox-input,
   .ow-radio-input {
     position: absolute;

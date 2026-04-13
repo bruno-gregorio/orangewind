@@ -155,6 +155,26 @@
 
       <section>
         <p class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4">
+          Heading Variants
+        </p>
+        <div class="space-y-4">
+          <h2 class="text-2xl font-bold leading-tight">
+            <div class="ow-checkbox ow-checkbox-heading">
+              <input type="checkbox" id="check-heading-1" class="ow-checkbox-input" checked />
+              <label for="check-heading-1" class="ow-checkbox-label">Checkbox in Heading</label>
+            </div>
+          </h2>
+          <h3 class="text-xl font-bold leading-tight">
+            <div class="ow-radio ow-radio-heading">
+              <input type="radio" name="radio-heading" id="rad-heading-1" class="ow-radio-input" />
+              <label for="rad-heading-1" class="ow-radio-label">Radio in Heading</label>
+            </div>
+          </h3>
+        </div>
+      </section>
+
+      <section>
+        <p class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4">
           Validation Forms
         </p>
         <div class="ow-form ow-form-stacked">
