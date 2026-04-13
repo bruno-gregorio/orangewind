@@ -46,6 +46,11 @@ _Interactive elements that require Phase 1 rules and Buttons to be complete._
 
 - [ ] [Forms](https://vanillaframework.io/docs/base/forms) (Base Inputs, Textareas, Checkboxes, Radios, Validation)
       _Dependency for: Search Box, Newsletter, Auth pages, Settings pages._
+      - [ ] Form Help Text
+      - [ ] Password Toggle
+      - [ ] Indeterminate Checkbox State
+      - [ ] Heading Variants for Tick Elements
+      - [ ] Search Input specific reset (WebKit decoration)
 - [ ] [Switch](https://vanillaframework.io/docs/patterns/switch)
       _Dependency for: Forms, Application Panels._
 - [ ] [Slider](https://vanillaframework.io/docs/patterns/slider)
