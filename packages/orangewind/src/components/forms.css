@@ -96,6 +96,10 @@
     }
   }
 
+  [type='search']::-webkit-search-results-decoration {
+    display: none;
+  }
+
   select {
     background-image: var(--icon-ow-chevron-down);
     background-position: right 0.75rem center;
