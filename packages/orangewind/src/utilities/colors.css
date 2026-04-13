@@ -28,10 +28,10 @@
 
   /* Vanilla Framework — Text */
   --color-ow-text-default: var(--color-ow-dark);
-  --color-ow-text-muted: rgba(0, 0, 0, 0.6);
+  --color-ow-text-muted: color-mix(in srgb, var(--color-ow-x-dark) 60%, transparent);
 
   /* Vanilla Framework — Border */
-  --color-ow-border-default: rgba(0, 0, 0, 0.2);
+  --color-ow-border-default: color-mix(in srgb, var(--color-ow-x-dark) 20%, transparent);
 
   /* Vanilla Framework — Background */
   --color-ow-background-default: var(--color-ow-light);
@@ -43,7 +43,7 @@
     --color-ow-background-default: var(--color-ow-dark);
     --color-ow-background-alt: var(--color-ow-mid-dark);
     --color-ow-text-default: var(--color-ow-x-light);
-    --color-ow-text-muted: rgba(255, 255, 255, 0.6);
-    --color-ow-border-default: rgba(255, 255, 255, 0.2);
+    --color-ow-text-muted: color-mix(in srgb, var(--color-ow-x-light) 60%, transparent);
+    --color-ow-border-default: color-mix(in srgb, var(--color-ow-x-light) 20%, transparent);
   }
 }

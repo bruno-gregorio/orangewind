@@ -1,30 +1,30 @@
 @theme {
-  --color-ow-chip-bg: #f2f2f2;
-  --color-ow-chip-hover-bg: color-mix(in oklch, #f2f2f2, black 5%);
-  --color-ow-chip-active-bg: color-mix(in oklch, #f2f2f2, black 8%);
-  --color-ow-chip-border: #707070;
+  --color-ow-chip-bg: var(--color-ow-paper);
+  --color-ow-chip-hover-bg: color-mix(in oklch, var(--color-ow-paper), black 5%);
+  --color-ow-chip-active-bg: color-mix(in oklch, var(--color-ow-paper), black 8%);
+  --color-ow-chip-border: var(--color-ow-mid-dark);
 
-  --color-ow-chip-positive-bg: hsl(129deg 90% 39% / 10%);
-  --color-ow-chip-positive-hover-bg: hsl(129deg 100% 39% / 15%);
-  --color-ow-chip-positive-active-bg: hsl(129deg 100% 39% / 18%);
+  --color-ow-chip-positive-bg: color-mix(in srgb, var(--color-ow-positive) 10%, transparent);
+  --color-ow-chip-positive-hover-bg: color-mix(in srgb, var(--color-ow-positive) 15%, transparent);
+  --color-ow-chip-positive-active-bg: color-mix(in srgb, var(--color-ow-positive) 18%, transparent);
   --color-ow-chip-positive-border: var(--color-ow-positive);
 
-  --color-ow-chip-caution-bg: hsl(27deg 100% 39% / 10%);
-  --color-ow-chip-caution-hover-bg: hsl(27deg 100% 39% / 15%);
-  --color-ow-chip-caution-active-bg: hsl(27deg 100% 39% / 18%);
+  --color-ow-chip-caution-bg: color-mix(in srgb, var(--color-ow-caution) 10%, transparent);
+  --color-ow-chip-caution-hover-bg: color-mix(in srgb, var(--color-ow-caution) 15%, transparent);
+  --color-ow-chip-caution-active-bg: color-mix(in srgb, var(--color-ow-caution) 18%, transparent);
   --color-ow-chip-caution-border: var(--color-ow-caution);
 
-  --color-ow-chip-negative-bg: hsl(354deg 100% 39% / 10%);
-  --color-ow-chip-negative-hover-bg: hsl(354deg 100% 39% / 15%);
-  --color-ow-chip-negative-active-bg: hsl(354deg 100% 39% / 18%);
+  --color-ow-chip-negative-bg: color-mix(in srgb, var(--color-ow-negative) 10%, transparent);
+  --color-ow-chip-negative-hover-bg: color-mix(in srgb, var(--color-ow-negative) 15%, transparent);
+  --color-ow-chip-negative-active-bg: color-mix(in srgb, var(--color-ow-negative) 18%, transparent);
   --color-ow-chip-negative-border: var(--color-ow-negative);
 
-  --color-ow-chip-information-bg: hsl(210deg 100% 39% / 10%);
-  --color-ow-chip-information-hover-bg: hsl(210deg 100% 39% / 15%);
-  --color-ow-chip-information-active-bg: hsl(210deg 100% 39% / 18%);
+  --color-ow-chip-information-bg: color-mix(in srgb, var(--color-ow-information) 10%, transparent);
+  --color-ow-chip-information-hover-bg: color-mix(in srgb, var(--color-ow-information) 15%, transparent);
+  --color-ow-chip-information-active-bg: color-mix(in srgb, var(--color-ow-information) 18%, transparent);
   --color-ow-chip-information-border: var(--color-ow-information);
 
-  --color-ow-chip-branded-bg: #202020;
+  --color-ow-chip-branded-bg: color-mix(in oklch, var(--color-ow-x-dark), white 12%);
   --color-ow-chip-branded-text: var(--color-ow-x-light);
 
   /* Chip Icons */
@@ -132,10 +132,10 @@
     --ow-chip-active-bg: var(--color-ow-chip-active-bg);
 
     @variant dark {
-      --color-ow-chip-bg: rgba(255, 255, 255, 0.15);
-      --color-ow-chip-hover-bg: rgba(255, 255, 255, 0.2);
-      --color-ow-chip-active-bg: rgba(255, 255, 255, 0.25);
-      --color-ow-chip-border: hsl(0deg 0% 65%);
+      --color-ow-chip-bg: color-mix(in srgb, var(--color-ow-x-light) 15%, transparent);
+      --color-ow-chip-hover-bg: color-mix(in srgb, var(--color-ow-x-light) 20%, transparent);
+      --color-ow-chip-active-bg: color-mix(in srgb, var(--color-ow-x-light) 25%, transparent);
+      --color-ow-chip-border: var(--color-ow-mid);
       --ow-chip-text: var(--color-ow-x-light);
     }
   }
@@ -146,10 +146,10 @@
     --ow-chip-active-bg: var(--color-ow-chip-positive-active-bg);
 
     @variant dark {
-      --color-ow-chip-positive-bg: hsl(129deg 90% 39% / 20%);
-      --color-ow-chip-positive-hover-bg: hsl(129deg 100% 39% / 30%);
-      --color-ow-chip-positive-active-bg: hsl(129deg 100% 39% / 36%);
-      --color-ow-chip-positive-border: #62a36c;
+      --color-ow-chip-positive-bg: color-mix(in srgb, var(--color-ow-positive) 20%, transparent);
+      --color-ow-chip-positive-hover-bg: color-mix(in srgb, var(--color-ow-positive) 30%, transparent);
+      --color-ow-chip-positive-active-bg: color-mix(in srgb, var(--color-ow-positive) 36%, transparent);
+      --color-ow-chip-positive-border: color-mix(in oklch, var(--color-ow-positive), var(--color-ow-x-light) 20%);
       --ow-chip-text: var(--color-ow-x-light);
     }
   }
@@ -160,10 +160,10 @@
     --ow-chip-active-bg: var(--color-ow-chip-caution-active-bg);
 
     @variant dark {
-      --color-ow-chip-caution-bg: hsl(27deg 100% 50% / 20%);
-      --color-ow-chip-caution-hover-bg: hsl(27deg 100% 60% / 30%);
-      --color-ow-chip-caution-active-bg: hsl(27deg 100% 50% / 36%);
-      --color-ow-chip-caution-border: #c48831;
+      --color-ow-chip-caution-bg: color-mix(in srgb, var(--color-ow-caution) 20%, transparent);
+      --color-ow-chip-caution-hover-bg: color-mix(in srgb, var(--color-ow-caution) 30%, transparent);
+      --color-ow-chip-caution-active-bg: color-mix(in srgb, var(--color-ow-caution) 36%, transparent);
+      --color-ow-chip-caution-border: color-mix(in oklch, var(--color-ow-caution), var(--color-ow-x-light) 20%);
       --ow-chip-text: var(--color-ow-x-light);
     }
   }
@@ -174,10 +174,10 @@
     --ow-chip-active-bg: var(--color-ow-chip-negative-active-bg);
 
     @variant dark {
-      --color-ow-chip-negative-bg: hsl(353deg 100% 70% / 20%);
-      --color-ow-chip-negative-hover-bg: hsl(353deg 100% 70% / 30%);
-      --color-ow-chip-negative-active-bg: hsl(353deg 100% 70% / 36%);
-      --color-ow-chip-negative-border: #d17b85;
+      --color-ow-chip-negative-bg: color-mix(in srgb, var(--color-ow-negative) 20%, transparent);
+      --color-ow-chip-negative-hover-bg: color-mix(in srgb, var(--color-ow-negative) 30%, transparent);
+      --color-ow-chip-negative-active-bg: color-mix(in srgb, var(--color-ow-negative) 36%, transparent);
+      --color-ow-chip-negative-border: color-mix(in oklch, var(--color-ow-negative), var(--color-ow-x-light) 20%);
       --ow-chip-text: var(--color-ow-x-light);
     }
   }
@@ -188,10 +188,10 @@
     --ow-chip-active-bg: var(--color-ow-chip-information-active-bg);
 
     @variant dark {
-      --color-ow-chip-information-bg: hsl(210deg 100% 50% / 20%);
-      --color-ow-chip-information-hover-bg: hsl(210deg 100% 50% / 30%);
-      --color-ow-chip-information-active-bg: hsl(210deg 100% 50% / 36%);
-      --color-ow-chip-information-border: hsl(210deg 80% 65%);
+      --color-ow-chip-information-bg: color-mix(in srgb, var(--color-ow-information) 20%, transparent);
+      --color-ow-chip-information-hover-bg: color-mix(in srgb, var(--color-ow-information) 30%, transparent);
+      --color-ow-chip-information-active-bg: color-mix(in srgb, var(--color-ow-information) 36%, transparent);
+      --color-ow-chip-information-border: color-mix(in oklch, var(--color-ow-information), var(--color-ow-x-light) 20%);
       --ow-chip-text: var(--color-ow-x-light);
     }
   }
@@ -209,7 +209,7 @@
     color: var(--color-ow-chip-branded-text);
 
     @variant dark {
-      --color-ow-chip-branded-bg: #f7f7f7;
+      --color-ow-chip-branded-bg: var(--color-ow-light);
       --color-ow-chip-branded-text: var(--color-ow-dark);
     }
 

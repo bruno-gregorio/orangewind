@@ -14,7 +14,7 @@
   /* Default button — derived from x-light background */
   --color-ow-btn-bg: var(--color-ow-x-light);
   --color-ow-btn-text: var(--color-ow-dark);
-  --color-ow-btn-border: #707070;
+  --color-ow-btn-border: var(--color-ow-mid-dark);
   --color-ow-btn-hover-bg: color-mix(in oklch, var(--color-ow-x-light), black 8%);
   --color-ow-btn-active-bg: color-mix(
     in oklch,
@@ -101,11 +101,11 @@
     color: var(--color-ow-btn-text);
 
     @variant dark {
-      --color-ow-btn-bg: #262626;
+      --color-ow-btn-bg: color-mix(in oklch, var(--color-ow-x-dark), white 15%);
       --color-ow-btn-text: var(--color-ow-x-light);
-      --color-ow-btn-border: #939393;
-      --color-ow-btn-hover-bg: color-mix(in oklch, #262626, white 12%);
-      --color-ow-btn-active-bg: color-mix(in oklch, #262626, white 22%);
+      --color-ow-btn-border: var(--color-ow-mid);
+      --color-ow-btn-hover-bg: color-mix(in oklch, var(--color-ow-x-dark), white 25%);
+      --color-ow-btn-active-bg: color-mix(in oklch, var(--color-ow-x-dark), white 35%);
     }
 
     &:visited {
@@ -195,8 +195,8 @@
 
     @variant dark {
       --color-ow-btn-text: var(--color-ow-x-light);
-      --color-ow-btn-hover-bg: color-mix(in oklch, #262626, white 12%);
-      --color-ow-btn-active-bg: color-mix(in oklch, #262626, white 22%);
+      --color-ow-btn-hover-bg: color-mix(in oklch, var(--color-ow-x-dark), white 25%);
+      --color-ow-btn-active-bg: color-mix(in oklch, var(--color-ow-x-dark), white 35%);
     }
 
     &:visited {

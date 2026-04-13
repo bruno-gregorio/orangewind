@@ -11,7 +11,7 @@
     width: 100%;
 
     @variant dark {
-      --ow-rule-bg: rgba(255, 255, 255, 0.2);
+      --ow-rule-bg: color-mix(in srgb, var(--color-ow-x-light) 20%, transparent);
     }
   }
 

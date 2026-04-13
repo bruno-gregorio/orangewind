@@ -36,7 +36,7 @@
     color: var(--color-ow-badge-negative-text);
 
     @variant dark {
-      --color-ow-badge-negative-bg: #a11223;
+      --color-ow-badge-negative-bg: color-mix(in oklch, var(--color-ow-negative), var(--color-ow-x-dark) 20%);
     }
   }
 
