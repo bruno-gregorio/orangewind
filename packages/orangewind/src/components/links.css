@@ -31,6 +31,10 @@
     &:visited {
       color: var(--color-ow-link-visited);
     }
+
+    @variant dark {
+      color: var(--color-ow-link);
+    }
   }
 }
 
@@ -51,6 +55,14 @@
     &.is-selected {
       font-weight: var(--font-weight-bold, 700);
     }
+
+    @variant dark {
+      color: var(--color-ow-x-light);
+
+      &:visited {
+        color: var(--color-ow-x-light);
+      }
+    }
   }
 
   /* Pattern: Inverted Links */
@@ -64,6 +76,14 @@
 
     &:visited {
       color: var(--color-ow-text-muted);
+    }
+
+    @variant dark {
+      color: var(--color-ow-x-light);
+
+      &:hover {
+        color: var(--color-ow-x-light);
+      }
     }
   }
 
@@ -84,6 +104,10 @@
       position: fixed;
       top: 0.5rem;
       z-index: 999999;
+    }
+
+    @variant dark {
+      background-color: var(--color-ow-background-alt);
     }
   }
 
@@ -113,6 +137,10 @@
       height: 1rem;
       vertical-align: middle;
     }
+
+    @variant dark {
+      color: var(--color-ow-x-light);
+    }
   }
 
   /* Pattern: Top Link Element */
@@ -120,6 +148,10 @@
     color: var(--color-ow-text-default);
     padding: 0 0.5rem 0 1rem;
     text-decoration: none;
+
+    @variant dark {
+      color: var(--color-ow-x-light);
+    }
   }
 
   /* Pattern: Anchor Heading Link */
@@ -152,6 +184,14 @@
     &:hover::after,
     &:focus::after {
       visibility: visible;
+    }
+
+    @variant dark {
+      color: var(--color-ow-x-light);
+
+      &:visited {
+        color: var(--color-ow-x-light);
+      }
     }
   }
 }
