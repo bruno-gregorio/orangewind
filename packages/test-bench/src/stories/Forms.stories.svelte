@@ -21,6 +21,10 @@
   })
 </script>
 
+<script lang="ts">
+  let showPassword = $state(false);
+</script>
+
 <Story name="Forms">
   {#snippet template({ dark, baselineGrid })}
     <div
@@ -42,8 +46,14 @@
           <input type="text" id="input-text" placeholder="Enter text..." />
           <p class="ow-form-help-text">Please enter your full name.</p>
 
-          <label for="input-password" class="is-required">Password</label>
-          <input type="password" id="input-password" placeholder="Enter password..." />
+          <div class="ow-form-password-toggle">
+            <label for="input-password" class="is-required">Password</label>
+            <button class="ow-btn-base has-icon" onclick={() => showPassword = !showPassword}>
+              <span class="ow-form-password-toggle-label">{showPassword ? 'Hide' : 'Show'}</span>
+              <i class={showPassword ? 'ow-icon-hide' : 'ow-icon-show'}></i>
+            </button>
+          </div>
+          <input type={showPassword ? 'text' : 'password'} id="input-password" placeholder="Enter password..." />
 
           <label for="input-search">Search</label>
           <input type="search" id="input-search" placeholder="Search..." />

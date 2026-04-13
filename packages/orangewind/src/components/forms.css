@@ -455,6 +455,10 @@
     line-height: 1.5rem;
     color: var(--color-ow-text-muted);
     padding-top: 0.5rem;
+    
+    @variant dark {
+      color: rgba(255, 255, 255, 0.6);
+    }
   }
 
   .is-dense + .ow-form-help-text {
@@ -463,6 +467,31 @@
 
   .ow-form-help-text.is-tick-element {
     padding-left: 2rem;
+  }
+
+  /* Password Toggle */
+  .ow-form-password-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.5rem;
+  }
+
+  .ow-form-password-toggle > label {
+    padding-bottom: 0;
+  }
+
+  .ow-form-password-toggle-label {
+    display: inline-block;
+    padding-right: 0.25rem;
+  }
+
+  .ow-form-password-toggle + [type='text'][readonly] {
+    color: var(--color-ow-form-text);
+
+    @variant dark {
+      color: var(--color-ow-x-light);
+    }
   }
 
   /* Validation API */
