@@ -50,12 +50,22 @@
     font-size: var(--text-xl);
     line-height: var(--text-xl--line-height);
     font-weight: 550;
+
+    @media (width >= theme(--breakpoint-lg)) {
+      font-size: var(--text-2xl);
+      line-height: var(--text-2xl--line-height);
+    }
   }
 
   .ow-heading-2 {
     font-size: var(--text-xl);
     line-height: var(--text-xl--line-height);
     font-weight: 180;
+
+    @media (width >= theme(--breakpoint-lg)) {
+      font-size: var(--text-2xl);
+      line-height: var(--text-2xl--line-height);
+    }
   }
 
   .ow-heading-3 {
@@ -82,18 +92,6 @@
     font-weight: var(--font-weight-regular);
   }
 
-  /* Headings — Large screens */
-  @media (width >= theme(--breakpoint-lg)) {
-    .ow-heading-1 {
-      font-size: var(--text-2xl);
-      line-height: var(--text-2xl--line-height);
-    }
-
-    .ow-heading-2 {
-      font-size: var(--text-2xl);
-      line-height: var(--text-2xl--line-height);
-    }
-  }
 
   /* Display Heading */
   .ow-display-heading {
@@ -138,17 +136,24 @@
     &.is-stacked {
       display: block;
     }
+
+    .ow-heading-icon-img {
+      flex-shrink: 0;
+      height: 2.5rem;
+      width: 2.5rem;
+      margin-bottom: 0;
+      margin-right: 1rem;
+    }
   }
 
-  .ow-heading-icon-img {
-    flex-shrink: 0;
-    height: 2.5rem;
-    width: 2.5rem;
-    margin-bottom: 0;
-    margin-right: 1rem;
-  }
 
   .ow-heading-icon-small {
+    margin-bottom: 1.5rem;
+
+    @media (width >= theme(--breakpoint-lg)) {
+      margin-bottom: 0;
+    }
+
     .ow-heading-icon-img {
       height: 2rem;
       width: 2rem;

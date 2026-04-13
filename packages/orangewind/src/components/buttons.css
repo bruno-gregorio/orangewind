@@ -48,7 +48,7 @@
 }
 
 @layer components {
-  /* Shared base styles */
+  /* Shared base styles and states */
   .ow-btn,
   .ow-btn-positive,
   .ow-btn-negative,
@@ -65,66 +65,36 @@
     padding: calc(0.375rem - 1px) 1rem;
     text-align: center;
     text-decoration: none;
-    transition:
-      background-color 0.1s ease-in,
-      border-color 0.1s ease-in;
+    transition: background-color 0.1s ease-in, border-color 0.1s ease-in;
+
+    p > & {
+      vertical-align: middle;
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--color-ow-focus);
+      outline-offset: 2px;
+    }
   }
 
-  p > .ow-btn,
-  p > .ow-btn-positive,
-  p > .ow-btn-negative,
-  p > .ow-btn-base,
-  p > .ow-btn-link {
-    vertical-align: middle;
+  .ow-btn,
+  .ow-btn-positive,
+  .ow-btn-negative,
+  .ow-btn-base {
+    &:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']) {
+      transition-duration: 0s;
+    }
+
+    &:is(:active, :hover, :focus) {
+      text-decoration: none;
+    }
+
+    &:is(:disabled, .is-disabled) {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
   }
 
-  .ow-btn:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']),
-  .ow-btn-positive:is(
-      :active,
-      [aria-pressed='true'],
-      [aria-selected='true'],
-      [aria-expanded='true']
-    ),
-  .ow-btn-negative:is(
-      :active,
-      [aria-pressed='true'],
-      [aria-selected='true'],
-      [aria-expanded='true']
-    ),
-  .ow-btn-base:is(
-      :active,
-      [aria-pressed='true'],
-      [aria-selected='true'],
-      [aria-expanded='true']
-    ) {
-    transition-duration: 0s;
-  }
-
-  .ow-btn:is(:active, :hover, :focus),
-  .ow-btn-positive:is(:active, :hover, :focus),
-  .ow-btn-negative:is(:active, :hover, :focus),
-  .ow-btn-base:is(:active, :hover, :focus) {
-    text-decoration: none;
-  }
-
-  .ow-btn:is(:disabled, .is-disabled),
-  .ow-btn-positive:is(:disabled, .is-disabled),
-  .ow-btn-negative:is(:disabled, .is-disabled),
-  .ow-btn-base:is(:disabled, .is-disabled) {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-
-  .ow-btn:focus-visible,
-  .ow-btn-positive:focus-visible,
-  .ow-btn-negative:focus-visible,
-  .ow-btn-base:focus-visible,
-  .ow-btn-link:focus-visible {
-    outline: 3px solid var(--color-ow-focus);
-    outline-offset: 2px;
-  }
-
-  /* .ow-btn */
   .ow-btn {
     background-color: var(--color-ow-btn-bg);
     border-color: var(--color-ow-btn-border);
@@ -137,28 +107,27 @@
       --color-ow-btn-hover-bg: color-mix(in oklch, #262626, white 12%);
       --color-ow-btn-active-bg: color-mix(in oklch, #262626, white 22%);
     }
+
+    &:visited {
+      color: var(--color-ow-btn-text);
+    }
+
+    &:hover {
+      background-color: var(--color-ow-btn-hover-bg);
+      border-color: var(--color-ow-btn-border);
+    }
+
+    &:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']) {
+      background-color: var(--color-ow-btn-active-bg);
+      border-color: var(--color-ow-btn-border);
+    }
+
+    &:is(:disabled, .is-disabled):is(:active, :hover) {
+      background-color: var(--color-ow-btn-bg);
+      border-color: var(--color-ow-btn-border);
+    }
   }
 
-  .ow-btn:visited {
-    color: var(--color-ow-btn-text);
-  }
-
-  .ow-btn:hover {
-    background-color: var(--color-ow-btn-hover-bg);
-    border-color: var(--color-ow-btn-border);
-  }
-
-  .ow-btn:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']) {
-    background-color: var(--color-ow-btn-active-bg);
-    border-color: var(--color-ow-btn-border);
-  }
-
-  .ow-btn:is(:disabled, .is-disabled):is(:active, :hover) {
-    background-color: var(--color-ow-btn-bg);
-    border-color: var(--color-ow-btn-border);
-  }
-
-  /* .ow-btn-positive */
   .ow-btn-positive {
     background-color: var(--color-ow-positive);
     border-color: var(--color-ow-positive);
@@ -168,33 +137,27 @@
       --color-ow-btn-positive-hover-bg: color-mix(in oklch, var(--color-ow-positive), white 12%);
       --color-ow-btn-positive-active-bg: color-mix(in oklch, var(--color-ow-positive), white 22%);
     }
+
+    &:visited {
+      color: var(--color-ow-x-light);
+    }
+
+    &:hover {
+      background-color: var(--color-ow-btn-positive-hover-bg);
+      border-color: var(--color-ow-btn-positive-hover-bg);
+    }
+
+    &:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']) {
+      background-color: var(--color-ow-btn-positive-active-bg);
+      border-color: var(--color-ow-btn-positive-active-bg);
+    }
+
+    &:is(:disabled, .is-disabled):is(:active, :hover) {
+      background-color: var(--color-ow-positive);
+      border-color: var(--color-ow-positive);
+    }
   }
 
-  .ow-btn-positive:visited {
-    color: var(--color-ow-x-light);
-  }
-
-  .ow-btn-positive:hover {
-    background-color: var(--color-ow-btn-positive-hover-bg);
-    border-color: var(--color-ow-btn-positive-hover-bg);
-  }
-
-  .ow-btn-positive:is(
-      :active,
-      [aria-pressed='true'],
-      [aria-selected='true'],
-      [aria-expanded='true']
-    ) {
-    background-color: var(--color-ow-btn-positive-active-bg);
-    border-color: var(--color-ow-btn-positive-active-bg);
-  }
-
-  .ow-btn-positive:is(:disabled, .is-disabled):is(:active, :hover) {
-    background-color: var(--color-ow-positive);
-    border-color: var(--color-ow-positive);
-  }
-
-  /* .ow-btn-negative */
   .ow-btn-negative {
     background-color: var(--color-ow-negative);
     border-color: var(--color-ow-negative);
@@ -204,33 +167,27 @@
       --color-ow-btn-negative-hover-bg: color-mix(in oklch, var(--color-ow-negative), white 12%);
       --color-ow-btn-negative-active-bg: color-mix(in oklch, var(--color-ow-negative), white 22%);
     }
+
+    &:visited {
+      color: var(--color-ow-x-light);
+    }
+
+    &:hover {
+      background-color: var(--color-ow-btn-negative-hover-bg);
+      border-color: var(--color-ow-btn-negative-hover-bg);
+    }
+
+    &:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']) {
+      background-color: var(--color-ow-btn-negative-active-bg);
+      border-color: var(--color-ow-btn-negative-active-bg);
+    }
+
+    &:is(:disabled, .is-disabled):is(:active, :hover) {
+      background-color: var(--color-ow-negative);
+      border-color: var(--color-ow-negative);
+    }
   }
 
-  .ow-btn-negative:visited {
-    color: var(--color-ow-x-light);
-  }
-
-  .ow-btn-negative:hover {
-    background-color: var(--color-ow-btn-negative-hover-bg);
-    border-color: var(--color-ow-btn-negative-hover-bg);
-  }
-
-  .ow-btn-negative:is(
-      :active,
-      [aria-pressed='true'],
-      [aria-selected='true'],
-      [aria-expanded='true']
-    ) {
-    background-color: var(--color-ow-btn-negative-active-bg);
-    border-color: var(--color-ow-btn-negative-active-bg);
-  }
-
-  .ow-btn-negative:is(:disabled, .is-disabled):is(:active, :hover) {
-    background-color: var(--color-ow-negative);
-    border-color: var(--color-ow-negative);
-  }
-
-  /* .ow-btn-base */
   .ow-btn-base {
     background-color: transparent;
     border-color: transparent;
@@ -241,28 +198,27 @@
       --color-ow-btn-hover-bg: color-mix(in oklch, #262626, white 12%);
       --color-ow-btn-active-bg: color-mix(in oklch, #262626, white 22%);
     }
+
+    &:visited {
+      color: var(--color-ow-btn-text);
+    }
+
+    &:hover {
+      background-color: var(--color-ow-btn-hover-bg);
+      border-color: transparent;
+    }
+
+    &:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']) {
+      background-color: var(--color-ow-btn-active-bg);
+      border-color: transparent;
+    }
+
+    &:is(:disabled, .is-disabled):is(:active, :hover) {
+      background-color: transparent;
+      border-color: transparent;
+    }
   }
 
-  .ow-btn-base:visited {
-    color: var(--color-ow-btn-text);
-  }
-
-  .ow-btn-base:hover {
-    background-color: var(--color-ow-btn-hover-bg);
-    border-color: transparent;
-  }
-
-  .ow-btn-base:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']) {
-    background-color: var(--color-ow-btn-active-bg);
-    border-color: transparent;
-  }
-
-  .ow-btn-base:is(:disabled, .is-disabled):is(:active, :hover) {
-    background-color: transparent;
-    border-color: transparent;
-  }
-
-  /* .ow-btn-link */
   .ow-btn-link {
     background-color: transparent;
     border-color: transparent;
@@ -270,60 +226,48 @@
     border-radius: 0;
     color: var(--color-ow-link);
     padding: 0;
-  }
 
-  .ow-btn-link:hover {
-    background: transparent;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.075em;
-  }
+    &:hover {
+      background: transparent;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.075em;
+    }
 
-  .ow-btn-link:visited {
-    color: var(--color-ow-link-visited);
+    &:visited {
+      color: var(--color-ow-link-visited);
+    }
   }
 
   /* Modifiers */
-  .ow-btn.is-dense,
-  .ow-btn-positive.is-dense,
-  .ow-btn-negative.is-dense,
-  .ow-btn-base.is-dense {
-    padding-bottom: calc(0.125rem - 1px);
-    padding-top: calc(0.125rem - 1px);
-  }
+  .ow-btn,
+  .ow-btn-positive,
+  .ow-btn-negative,
+  .ow-btn-base {
+    &.is-dense {
+      padding-bottom: calc(0.125rem - 1px);
+      padding-top: calc(0.125rem - 1px);
+    }
 
-  .ow-btn.is-small,
-  .ow-btn-positive.is-small,
-  .ow-btn-negative.is-small,
-  .ow-btn-base.is-small {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    padding: calc(0.25rem - 1px) 0.75rem;
-  }
+    &.is-small {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      padding: calc(0.25rem - 1px) 0.75rem;
 
+      &.has-icon {
+        gap: 0.25rem;
+      }
+    }
 
+    &.is-processing {
+      opacity: 1 !important;
+    }
 
-  .ow-btn.is-processing,
-  .ow-btn-positive.is-processing,
-  .ow-btn-negative.is-processing,
-  .ow-btn-base.is-processing {
-    opacity: 1 !important;
-  }
-
-  .ow-btn.has-icon,
-  .ow-btn-positive.has-icon,
-  .ow-btn-negative.has-icon,
-  .ow-btn-base.has-icon {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .ow-btn.is-small.has-icon,
-  .ow-btn-positive.is-small.has-icon,
-  .ow-btn-negative.is-small.has-icon,
-  .ow-btn-base.is-small.has-icon {
-    gap: 0.25rem;
+    &.has-icon {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
   }
 
   .ow-btn-round {

@@ -40,10 +40,12 @@
     }
   }
 
-  .ow-chip .ow-badge,
-  .ow-chip .ow-badge-negative {
-    align-self: center;
-    margin-left: 0.5rem;
-    margin-right: -0.15rem;
+  .ow-chip {
+    .ow-badge,
+    .ow-badge-negative {
+      align-self: center;
+      margin-left: 0.5rem;
+      margin-right: -0.15rem;
+    }
   }
 }

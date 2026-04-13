@@ -53,76 +53,74 @@
     border: 1px solid var(--ow-chip-border);
     background-color: var(--ow-chip-bg);
     color: var(--color-ow-text-default);
-  }
 
-  .ow-chip-lead,
-  .ow-chip-value {
-    color: inherit;
-    display: inline;
-    margin-bottom: 0;
-    overflow: hidden;
-    padding: 0;
-    text-overflow: ellipsis;
-    vertical-align: baseline;
-    font-size: var(--text-sm);
-  }
-  .ow-chip-lead {
-    font-size: var(--text-xs);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-  .ow-chip-lead + .ow-chip-value::before {
-    content: ': ';
-    font-size: var(--text-xs);
-  }
+    .ow-chip-lead,
+    .ow-chip-value {
+      color: inherit;
+      display: inline;
+      margin-bottom: 0;
+      overflow: hidden;
+      padding: 0;
+      text-overflow: ellipsis;
+      vertical-align: baseline;
+      font-size: var(--text-sm);
+    }
 
-  .ow-chip-dismiss {
-    align-self: center;
-    border-radius: 50%;
-    margin-left: 0.25rem;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 0;
-    width: 1rem;
-    height: 1rem;
-    padding: 0;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .ow-chip-dismiss::before {
-    content: '';
-    display: block;
-    width: 0.75rem;
-    height: 0.75rem;
-    background-color: currentColor;
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 6.884L12.558 2.326L13.674 3.442L9.116 8L13.674 12.558L12.558 13.674L8 9.116L3.442 13.674L2.326 12.558L6.884 8L2.326 3.442L3.442 2.326L8 6.884Z'/%3E%3C/svg%3E");
-    mask-size: contain;
-    mask-repeat: no-repeat;
-    mask-position: center;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 6.884L12.558 2.326L13.674 3.442L9.116 8L13.674 12.558L12.558 13.674L8 9.116L3.442 13.674L2.326 12.558L6.884 8L2.326 3.442L3.442 2.326L8 6.884Z'/%3E%3C/svg%3E");
-    -webkit-mask-size: contain;
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-  }
+    .ow-chip-lead {
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
 
-  .ow-chip.is-dense {
-    padding: 0 0.5rem;
-  }
+      & + .ow-chip-value::before {
+        content: ': ';
+        font-size: var(--text-xs);
+      }
+    }
 
-  .ow-chip.inline {
-    margin: 0;
-    vertical-align: baseline;
-  }
+    .ow-chip-dismiss {
+      align-self: center;
+      border-radius: 50%;
+      margin-left: 0.25rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 0;
+      width: 1rem;
+      height: 1rem;
+      padding: 0;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
 
-  .ow-chip.is-readonly,
-  .ow-chip-positive.is-readonly,
-  .ow-chip-caution.is-readonly,
-  .ow-chip-negative.is-readonly,
-  .ow-chip-information.is-readonly {
-    border-color: transparent !important;
+      &::before {
+        content: '';
+        display: block;
+        width: 0.75rem;
+        height: 0.75rem;
+        background-color: currentColor;
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 6.884L12.558 2.326L13.674 3.442L9.116 8L13.674 12.558L12.558 13.674L8 9.116L3.442 13.674L2.326 12.558L6.884 8L2.326 3.442L3.442 2.326L8 6.884Z'/%3E%3C/svg%3E");
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        mask-position: center;
+        -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 6.884L12.558 2.326L13.674 3.442L9.116 8L13.674 12.558L12.558 13.674L8 9.116L3.442 13.674L2.326 12.558L6.884 8L2.326 3.442L3.442 2.326L8 6.884Z'/%3E%3C/svg%3E");
+        -webkit-mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+      }
+    }
+
+    &.is-dense {
+      padding: 0 0.5rem;
+    }
+
+    &.inline {
+      margin: 0;
+      vertical-align: baseline;
+    }
+
+    &.is-readonly {
+      border-color: transparent !important;
+    }
   }
 
   .ow-chip {
@@ -212,42 +210,47 @@
       --color-ow-chip-branded-bg: #f7f7f7;
       --color-ow-chip-branded-text: var(--color-ow-dark);
     }
-  }
-  .ow-chip-branded .ow-chip-value {
-    color: var(--color-ow-chip-branded-text);
-    font-weight: 500;
-  }
-  .ow-chip-branded > .ow-icon-circle-of-friends {
-    background-color: var(--color-ow-chip-branded-text);
-    height: 1rem;
-    margin: 0;
-    width: 1rem;
-  }
-  .ow-chip-branded:has(> .ow-icon-circle-of-friends:only-child) {
-    border-radius: 50%;
-    padding: 0;
-    width: 1.5rem;
+
+    .ow-chip-value {
+      color: var(--color-ow-chip-branded-text);
+      font-weight: 500;
+    }
+
+    & > .ow-icon-circle-of-friends {
+      background-color: var(--color-ow-chip-branded-text);
+      height: 1rem;
+      margin: 0;
+      width: 1rem;
+    }
+
+    &:has(> .ow-icon-circle-of-friends:only-child) {
+      border-radius: 50%;
+      padding: 0;
+      width: 1.5rem;
+    }
   }
 
   :is(button, a):is(.ow-chip, .ow-chip-positive, .ow-chip-caution, .ow-chip-negative, .ow-chip-information) {
     cursor: pointer;
     text-decoration: none;
-  }
-  
-  :is(button, a):is(.ow-chip, .ow-chip-positive, .ow-chip-caution, .ow-chip-negative, .ow-chip-information):hover {
-    background-color: var(--ow-chip-hover-bg);
-    border-color: var(--ow-chip-border);
-  }
-  
-  :is(button, a):is(.ow-chip, .ow-chip-positive, .ow-chip-caution, .ow-chip-negative, .ow-chip-information):is(:active, [aria-pressed='true'], .is-selected) {
-    background-color: var(--ow-chip-active-bg);
-    border-color: var(--ow-chip-border);
-  }
 
-  :is(.ow-chip, .ow-chip-positive, .ow-chip-caution, .ow-chip-negative, .ow-chip-information) .ow-chip-dismiss:hover {
-    background-color: var(--ow-chip-hover-bg);
-  }
-  :is(.ow-chip, .ow-chip-positive, .ow-chip-caution, .ow-chip-negative, .ow-chip-information) .ow-chip-dismiss:active {
-    background-color: var(--ow-chip-active-bg);
+    &:hover {
+      background-color: var(--ow-chip-hover-bg);
+      border-color: var(--ow-chip-border);
+    }
+    
+    &:is(:active, [aria-pressed='true'], .is-selected) {
+      background-color: var(--ow-chip-active-bg);
+      border-color: var(--ow-chip-border);
+    }
+
+    .ow-chip-dismiss {
+      &:hover {
+        background-color: var(--ow-chip-hover-bg);
+      }
+      &:active {
+        background-color: var(--ow-chip-active-bg);
+      }
+    }
   }
 }
