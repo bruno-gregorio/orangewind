@@ -11,7 +11,12 @@
     width: 100%;
 
     @variant dark {
-      --ow-rule-bg: color-mix(in srgb, var(--color-ow-x-light) 20%, transparent);
+      --ow-rule-bg: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 20%,
+        transparent
+      );
+      --ow-rule-highlight-bg: var(--color-ow-brand);
     }
   }
 
@@ -28,10 +33,6 @@
     right: 0;
     height: 0.1875rem; /* bar-thickness: 3px */
     width: auto;
-
-    @variant dark {
-      --ow-rule-highlight-bg: var(--color-ow-x-light);
-    }
   }
 
   .ow-rule-highlight.is-accent::before {
