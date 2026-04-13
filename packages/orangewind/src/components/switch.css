@@ -1,0 +1,75 @@
+/* Switch — https://vanillaframework.io/docs/patterns/switch */
+
+@layer components {
+  .ow-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-bottom: 0.5rem;
+    cursor: pointer;
+
+    @variant dark {
+      --color-ow-form-text: var(--color-ow-x-light);
+      --color-ow-form-bg: color-mix(in oklch, var(--color-ow-dark), var(--color-ow-x-light) 12%);
+      --color-ow-form-border: var(--color-ow-mid);
+    }
+  }
+
+  .ow-switch-input {
+    position: absolute;
+    opacity: 0 !important;
+    width: 0;
+    height: 0;
+    margin: 0;
+
+    &:checked + .ow-switch-slider {
+      background-color: var(--color-ow-link);
+    }
+
+    &:checked + .ow-switch-slider::before {
+      transform: translateX(100%);
+      border-color: var(--color-ow-link);
+    }
+
+    &:focus-visible + .ow-switch-slider {
+      outline: 3px solid var(--color-ow-focus);
+      outline-offset: 2px;
+    }
+
+    &:disabled + .ow-switch-slider,
+    &:disabled ~ .ow-switch-label {
+      opacity: 0.33;
+      cursor: not-allowed;
+    }
+  }
+
+  .ow-switch-slider {
+    background-color: var(--color-ow-form-border);
+    border-radius: 1.25rem;
+    display: inline-block;
+    height: 1.25rem; /* Matches checkbox height */
+    position: relative;
+    width: 2.5rem;   /* Double the height */
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+
+    &::before {
+      background-color: var(--color-ow-form-bg);
+      border: 2px solid var(--color-ow-form-border);
+      border-radius: 50%;
+      content: '';
+      height: 1.25rem;
+      left: 0;
+      top: 0;
+      position: absolute;
+      width: 1.25rem;
+      transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    }
+  }
+
+  .ow-switch-label {
+    cursor: pointer;
+    display: inline-block;
+    color: var(--color-ow-form-text);
+  }
+}
