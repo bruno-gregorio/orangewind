@@ -117,6 +117,10 @@
     display: flex;
     gap: 0.5rem;
 
+    @variant dark {
+      --color-ow-border-default: #ffffff4d;
+    }
+
     &::before {
       border-bottom: 1px solid var(--color-ow-border-default);
       content: '';
