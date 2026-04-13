@@ -48,4 +48,5 @@ The project employs strict rules to ensure a clean and modern codebase.
 - When coding the classes, make use of CSS nesting and the `&` selector to reduce the amount of code top level code blocks per file.
 - Verification is done manually by the user by checking storybook.
 - The directive `@variant dark` should be used only to set CSS variables.
+- Do not use `@variant dark` inside pseudo-elements, when you need it, just use it on the underlying class to set the css variable.
 - COLOR REDUCTION RULE: avoid using color literals. Use CSS variables unless the color is really exclusive to that line and has no contextual connection. For other cases, prefer CSS variables declared at the top of the file in the theme block. For variables inside the theme block prefer values derived from colors in the colors file. The goal is to reduce the amount of colors in the project as a whole.
