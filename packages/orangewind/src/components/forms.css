@@ -429,49 +429,56 @@
     }
   }
 
-  /* Checked/Specific indicators */
-  .ow-radio-label::before {
-    border-radius: 50%;
+  /* Checked/Specific indicators & States */
+  .ow-radio-label {
+    &::before {
+      border-radius: 50%;
+    }
+
+    &::after {
+      background-color: var(--color-ow-x-light);
+      border-radius: 50%;
+      width: 0.5rem;
+      height: 0.5rem;
+      opacity: 0;
+    }
   }
 
-  .ow-radio-label::after {
-    background-color: var(--color-ow-x-light);
-    border-radius: 50%;
-    width: 0.5rem;
-    height: 0.5rem;
-    opacity: 0;
+  .ow-radio-input {
+    &:checked + .ow-radio-label::after {
+      opacity: 1;
+    }
   }
 
-  .ow-radio-input:checked + .ow-radio-label::after {
-    opacity: 1;
+  .ow-checkbox-label {
+    &::after {
+      border-bottom: 2px solid var(--color-ow-x-light);
+      border-left: 2px solid var(--color-ow-x-light);
+      width: 0.625rem;
+      height: 0.35rem;
+      transform: translateY(-10%) rotate(-45deg);
+      opacity: 0;
+    }
   }
 
-  .ow-checkbox-label::after {
-    border-bottom: 2px solid var(--color-ow-x-light);
-    border-left: 2px solid var(--color-ow-x-light);
-    width: 0.625rem;
-    height: 0.35rem;
-    transform: translateY(-10%) rotate(-45deg);
-    opacity: 0;
-  }
+  .ow-checkbox-input {
+    &:checked + .ow-checkbox-label::after {
+      opacity: 1;
+    }
 
-  .ow-checkbox-input:checked + .ow-checkbox-label::after {
-    opacity: 1;
-  }
+    &:indeterminate + .ow-checkbox-label::before,
+    &[aria-checked='mixed'] + .ow-checkbox-label::before {
+      background-color: var(--color-ow-link);
+      border-color: var(--color-ow-link);
+    }
 
-  /* Indeterminate Checkbox State */
-  .ow-checkbox-input:indeterminate + .ow-checkbox-label::before,
-  .ow-checkbox-input[aria-checked='mixed'] + .ow-checkbox-label::before {
-    background-color: var(--color-ow-link);
-    border-color: var(--color-ow-link);
-  }
-
-  .ow-checkbox-input:indeterminate + .ow-checkbox-label::after,
-  .ow-checkbox-input[aria-checked='mixed'] + .ow-checkbox-label::after {
-    opacity: 1;
-    border-left: none;
-    transform: none;
-    height: 0;
+    &:indeterminate + .ow-checkbox-label::after,
+    &[aria-checked='mixed'] + .ow-checkbox-label::after {
+      opacity: 1;
+      border-left: none;
+      transform: none;
+      height: 0;
+    }
   }
 
   /* Form Help Text */
@@ -484,14 +491,14 @@
     @variant dark {
       color: rgba(255, 255, 255, 0.6);
     }
-  }
 
-  .is-dense + .ow-form-help-text {
-    padding-top: 0.25rem;
-  }
+    .is-dense + & {
+      padding-top: 0.25rem;
+    }
 
-  .ow-form-help-text.is-tick-element {
-    padding-left: 2rem;
+    &.is-tick-element {
+      padding-left: 2rem;
+    }
   }
 
   /* Password Toggle */
@@ -500,23 +507,23 @@
     justify-content: space-between;
     align-items: center;
     padding-bottom: 0.5rem;
-  }
 
-  .ow-form-password-toggle > label {
-    padding-bottom: 0;
+    & > label {
+      padding-bottom: 0;
+    }
+
+    & + [type='text'][readonly] {
+      color: var(--color-ow-form-text);
+
+      @variant dark {
+        color: var(--color-ow-x-light);
+      }
+    }
   }
 
   .ow-form-password-toggle-label {
     display: inline-block;
     padding-right: 0.25rem;
-  }
-
-  .ow-form-password-toggle + [type='text'][readonly] {
-    color: var(--color-ow-form-text);
-
-    @variant dark {
-      color: var(--color-ow-x-light);
-    }
   }
 
   /* Validation API */
