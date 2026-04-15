@@ -13,6 +13,7 @@
 @import './components/forms.css';
 @import './components/switch.css';
 @import './components/slider.css';
+@import './components/segmented-control.css';
 
 @theme {
   /* Breakpoints */

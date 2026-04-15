@@ -1,0 +1,122 @@
+/* Segmented Control — https://vanillaframework.io/docs/patterns/segmented-control */
+
+@theme {
+  --color-ow-segmented-control-border: var(--color-ow-mid-light);
+}
+
+@layer components {
+  .ow-segmented-control-list {
+    display: flex;
+  }
+
+  .ow-segmented-control-button {
+    /* Base Button Styles */
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; /* For icons */
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    padding: calc(0.375rem - 1px) 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition:
+      background-color 0.1s ease-in,
+      border-color 0.1s ease-in;
+
+    p > & {
+      vertical-align: middle;
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--color-ow-focus);
+      outline-offset: 2px;
+      z-index: 1; /* Keep focus outline above pseudo-element dividers */
+    }
+
+    &:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']) {
+      transition-duration: 0s;
+    }
+
+    &:is(:active, :hover, :focus) {
+      text-decoration: none;
+    }
+
+    &:is(:disabled, .is-disabled) {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    /* Colors derived from default button */
+    background-color: var(--color-ow-btn-bg);
+    border-color: var(--color-ow-btn-border);
+    color: var(--color-ow-btn-text);
+
+    @variant dark {
+      --color-ow-segmented-control-border: color-mix(in srgb, var(--color-ow-x-light) 25%, transparent);
+      --color-ow-btn-bg: color-mix(in oklch, var(--color-ow-x-dark), white 15%);
+      --color-ow-btn-text: var(--color-ow-x-light);
+      --color-ow-btn-border: var(--color-ow-mid);
+      --color-ow-btn-hover-bg: color-mix(in oklch, var(--color-ow-x-dark), white 25%);
+      --color-ow-btn-active-bg: color-mix(in oklch, var(--color-ow-x-dark), white 35%);
+    }
+
+    &:visited {
+      color: var(--color-ow-btn-text);
+    }
+
+    &:hover {
+      background-color: var(--color-ow-btn-hover-bg);
+      border-color: var(--color-ow-btn-border);
+    }
+
+    &:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']) {
+      background-color: var(--color-ow-btn-active-bg);
+      border-color: var(--color-ow-btn-border);
+    }
+
+    &:is(:disabled, .is-disabled):is(:active, :hover) {
+      background-color: var(--color-ow-btn-bg);
+      border-color: var(--color-ow-btn-border);
+    }
+
+    /* Segmented Control Layout Overrides */
+    border-radius: 0;
+    margin-right: 0;
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &:not(:first-child) {
+      border-left: 0;
+    }
+
+    &:not(:last-child) {
+      border-right: 0;
+
+      &::after {
+        background-color: var(--color-ow-segmented-control-border);
+        bottom: 0;
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 1px;
+      }
+    }
+  }
+
+  /* Modifiers */
+  .ow-segmented-control,
+  .ow-segmented-control-list {
+    &.is-dense .ow-segmented-control-button {
+      padding-bottom: calc(0.125rem - 1px);
+      padding-top: calc(0.125rem - 1px);
+    }
+  }
+}
