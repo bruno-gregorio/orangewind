@@ -48,7 +48,7 @@ _Interactive elements that require Phase 1 rules and Buttons to be complete._
       _Dependency for: Search Box, Newsletter, Auth pages, Settings pages._
 - [x] [Switch](https://vanillaframework.io/docs/patterns/switch)
       _Dependency for: Forms, Application Panels._
-- [ ] [Slider](https://vanillaframework.io/docs/patterns/slider)
+- [x] [Slider](https://vanillaframework.io/docs/patterns/slider)
       _Dependency for: Forms, specific Filter setups._
 - [ ] [Segmented Control](https://vanillaframework.io/docs/patterns/segmented-control)
       _Dependency for: Navigation, Data Filtering view toggles._
