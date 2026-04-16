@@ -1,0 +1,62 @@
+/* Search Box — https://vanillaframework.io/docs/patterns/search-box */
+
+@layer components {
+  .ow-search-box {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+    position: relative;
+
+    .ow-search-box-input {
+      flex: 1 1 100%;
+      margin-bottom: 0;
+      padding-right: 4rem;
+      position: absolute;
+      right: 0;
+
+      &::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+      }
+
+      &:not(:valid) ~ .ow-search-box-reset {
+        display: none;
+      }
+    }
+
+    .ow-search-box-reset,
+    .ow-search-box-button {
+      background-color: transparent;
+      border-width: 0;
+      color: inherit;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: calc(2.5rem - 2px);
+      margin: 1px 0;
+      padding: 0 0.5rem;
+      position: relative;
+      transition: background-color 0.1s ease-in;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: transparent;
+      }
+
+      &:focus-visible {
+        outline: 3px solid var(--color-ow-focus);
+        outline-offset: 2px;
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+      }
+
+      [class^='ow-icon'],
+      [class*=' ow-icon'] {
+        vertical-align: 0;
+      }
+    }
+  }
+}
