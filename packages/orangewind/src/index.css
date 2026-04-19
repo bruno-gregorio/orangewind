@@ -15,6 +15,7 @@
 @import './components/slider.css';
 @import './components/segmented-control.css';
 @import './components/search-box.css';
+@import './components/search-and-filter.css';
 @import './components/notifications.css';
 @theme {
   /* Breakpoints */
