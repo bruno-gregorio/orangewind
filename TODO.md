@@ -63,7 +63,7 @@ _Interactive elements that require Phase 1 rules and Buttons to be complete._
 
 _Components that rely entirely on the primitives from Phases 1-3 being complete._
 
-- [ ] [Notifications](https://vanillaframework.io/docs/patterns/notification) (Requires Icons, Buttons)
+- [x] [Notifications](https://vanillaframework.io/docs/patterns/notification) (Requires Icons, Buttons)
 - [ ] [Tooltips](https://vanillaframework.io/docs/patterns/tooltips) (Requires Typography, Z-index handling)
 - [ ] [Tabs](https://vanillaframework.io/docs/patterns/tabs) (Requires Typography, Links)
 - [ ] [Breadcrumbs](https://vanillaframework.io/docs/patterns/breadcrumbs) (Requires Links)
