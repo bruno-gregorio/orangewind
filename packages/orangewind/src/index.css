@@ -15,7 +15,7 @@
 @import './components/slider.css';
 @import './components/segmented-control.css';
 @import './components/search-box.css';
-
+@import './components/notifications.css';
 @theme {
   /* Breakpoints */
   --breakpoint-sm: 28.75rem; /* 460px — $breakpoint-x-small */
