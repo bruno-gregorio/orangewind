@@ -22,6 +22,9 @@
 </script>
 
 <script lang="ts">
+  /* global HTMLDivElement, HTMLSpanElement, SubmitEvent, ResizeObserver */
+  import { tick } from 'svelte'
+
   type Chip = {
     lead?: string
     value: string
@@ -80,23 +83,22 @@
     { lead: 'Owner', value: 'baz' }
   ]
 
-  const overflowVisibleCount = 8
-
-  let defaultExpanded = false
-  let chipsExpanded = false
-  let overflowExpanded = false
-  let promptExpanded = true
-  let selectedChips = [...initialSelectedChips]
-  let overflowChips = [...initialOverflowChips]
-  let promptChips: Chip[] = []
-  let promptValue = 'vanilla'
+  let defaultExpanded = $state(false)
+  let chipsExpanded = $state(false)
+  let overflowExpanded = $state(false)
+  let overflowHiddenCount = $state(0)
+  let overflowContainer = $state<HTMLDivElement | null>(null)
+  let promptExpanded = $state(true)
+  let selectedChips = $state([...initialSelectedChips])
+  let overflowChips = $state([...initialOverflowChips])
+  let promptChips = $state<Chip[]>([])
+  let promptValue = $state('vanilla')
+  const promptHasContent = $derived(
+    promptChips.length > 0 || promptValue.trim().length > 0
+  )
 
   function removeChip(chips: Chip[], index: number) {
     return chips.filter((_, chipIndex) => chipIndex !== index)
-  }
-
-  function hiddenOverflowCount() {
-    return Math.max(overflowChips.length - overflowVisibleCount, 0)
   }
 
   function chipKey(chip: Chip, index: number) {
@@ -105,10 +107,6 @@
 
   function panelChipKey(section: FilterSection, chip: string) {
     return `${section.heading}-${chip}`
-  }
-
-  function promptHasContent() {
-    return promptChips.length > 0 || promptValue.trim().length > 0
   }
 
   function addPromptChip() {
@@ -122,6 +120,102 @@
     promptValue = ''
     promptExpanded = false
   }
+
+  function preventSubmit(event: SubmitEvent) {
+    event.preventDefault()
+  }
+
+  function handlePromptSubmit(event: SubmitEvent) {
+    event.preventDefault()
+    addPromptChip()
+  }
+
+  function clearPrompt() {
+    promptValue = ''
+    promptExpanded = false
+  }
+
+  function syncPromptExpanded() {
+    promptExpanded = promptValue.trim() !== ''
+  }
+
+  function handlePromptBlur() {
+    if (promptValue.trim() === '') {
+      promptExpanded = false
+    }
+  }
+
+  function removeSelectedChip(index: number) {
+    selectedChips = removeChip(selectedChips, index)
+  }
+
+  function removeOverflowChip(index: number) {
+    overflowChips = removeChip(overflowChips, index)
+  }
+
+  function removePromptChip(index: number) {
+    promptChips = removeChip(promptChips, index)
+  }
+
+  function scheduleOverflowUpdate() {
+    tick().then(() => {
+      updateOverflowHiddenCount()
+    })
+  }
+
+  function updateOverflowHiddenCount() {
+    const container = overflowContainer
+
+    if (overflowExpanded || container === null) {
+      overflowHiddenCount = 0
+      return
+    }
+
+    const chips = Array.from(container.children).filter(
+      (element): element is HTMLSpanElement =>
+        element.classList.contains('ow-chip')
+    )
+
+    if (chips.length === 0) {
+      overflowHiddenCount = 0
+      return
+    }
+
+    const firstRowTop = chips[0].offsetTop
+
+    overflowHiddenCount = chips.filter(
+      chip => chip.offsetTop > firstRowTop
+    ).length
+  }
+
+  $effect(() => {
+    const container = overflowContainer
+
+    if (container === null) {
+      return
+    }
+
+    const observer = new ResizeObserver(() => {
+      scheduleOverflowUpdate()
+    })
+
+    observer.observe(container)
+    scheduleOverflowUpdate()
+
+    return () => {
+      observer.disconnect()
+    }
+  })
+
+  $effect(() => {
+    if (overflowExpanded) {
+      overflowHiddenCount = 0
+    }
+
+    if (overflowContainer !== null || overflowChips.length >= 0) {
+      scheduleOverflowUpdate()
+    }
+  })
 </script>
 
 <Story
@@ -131,13 +225,13 @@
     baselineGrid: false
   }}
 >
-  {#snippet template(args)}
+  {#snippet template({ dark = false, baselineGrid = false })}
     <div
-      use:darkMode={args?.dark ?? false}
+      use:darkMode={dark}
       class={[
         'p-10 space-y-14',
-        args?.dark && 'bg-[#111] text-white',
-        args?.baselineGrid && 'ow-baseline-grid'
+        dark && 'bg-[#111] text-white',
+        baselineGrid && 'ow-baseline-grid'
       ]
         .filter(Boolean)
         .join(' ')}
@@ -154,12 +248,7 @@
             data-active="true"
             data-empty="true"
           >
-            <form
-              class="ow-search-and-filter-box"
-              onsubmit={event => {
-                event.preventDefault()
-              }}
-            >
+            <form class="ow-search-and-filter-box" onsubmit={preventSubmit}>
               <label class="sr-only" for="search-filter-default">
                 Search and filter
               </label>
@@ -232,7 +321,7 @@
                   class="ow-chip-dismiss"
                   aria-label={`Remove ${chip.value}`}
                   onclick={() => {
-                    selectedChips = removeChip(selectedChips, chipIndex)
+                    removeSelectedChip(chipIndex)
                   }}
                 >
                   Remove
@@ -240,12 +329,7 @@
               </span>
             {/each}
 
-            <form
-              class="ow-search-and-filter-box"
-              onsubmit={event => {
-                event.preventDefault()
-              }}
-            >
+            <form class="ow-search-and-filter-box" onsubmit={preventSubmit}>
               <label class="sr-only" for="search-filter-selected">
                 Search and filter
               </label>
@@ -305,6 +389,7 @@
         <div class="ow-search-and-filter">
           <div
             class="ow-search-and-filter-search-container"
+            bind:this={overflowContainer}
             aria-expanded={overflowExpanded ? 'true' : 'false'}
             data-active="true"
             data-empty={overflowChips.length === 0 ? 'true' : 'false'}
@@ -318,7 +403,7 @@
                   class="ow-chip-dismiss"
                   aria-label={`Remove ${chip.value}`}
                   onclick={() => {
-                    overflowChips = removeChip(overflowChips, chipIndex)
+                    removeOverflowChip(chipIndex)
                   }}
                 >
                   Remove
@@ -326,7 +411,7 @@
               </span>
             {/each}
 
-            {#if hiddenOverflowCount() > 0}
+            {#if overflowHiddenCount > 0}
               <button
                 type="button"
                 class="ow-search-and-filter-selected-count"
@@ -334,15 +419,14 @@
                   overflowExpanded = true
                 }}
               >
-                +{hiddenOverflowCount()}
+                +{overflowHiddenCount}
               </button>
             {/if}
 
             <form
               class="ow-search-and-filter-box"
-              onsubmit={event => {
-                event.preventDefault()
-              }}
+              data-overflowing={overflowExpanded ? 'true' : 'false'}
+              onsubmit={preventSubmit}
             >
               <label class="sr-only" for="search-filter-overflow">
                 Search and filter
@@ -411,10 +495,7 @@
               type="button"
               class="ow-search-and-filter-clear"
               aria-label="Clear search"
-              onclick={() => {
-                promptValue = ''
-                promptExpanded = false
-              }}
+              onclick={clearPrompt}
             >
               <i class="ow-icon-close"></i>
             </button>
@@ -424,7 +505,7 @@
             class="ow-search-and-filter-search-container"
             aria-expanded={promptExpanded ? 'true' : 'false'}
             data-active="true"
-            data-empty={promptHasContent() ? 'false' : 'true'}
+            data-empty={promptHasContent ? 'false' : 'true'}
           >
             {#each promptChips as chip, chipIndex (chipKey(chip, chipIndex))}
               <span class="ow-chip">
@@ -434,7 +515,7 @@
                   class="ow-chip-dismiss"
                   aria-label={`Remove ${chip.value}`}
                   onclick={() => {
-                    promptChips = removeChip(promptChips, chipIndex)
+                    removePromptChip(chipIndex)
                   }}
                 >
                   Remove
@@ -444,10 +525,7 @@
 
             <form
               class="ow-search-and-filter-box"
-              onsubmit={event => {
-                event.preventDefault()
-                addPromptChip()
-              }}
+              onsubmit={handlePromptSubmit}
             >
               <label class="sr-only" for="search-filter-prompt">
                 Search and filter
@@ -460,17 +538,9 @@
                 placeholder="Search and filter"
                 autocomplete="off"
                 bind:value={promptValue}
-                onfocus={() => {
-                  promptExpanded = promptValue.trim() !== ''
-                }}
-                oninput={() => {
-                  promptExpanded = promptValue.trim() !== ''
-                }}
-                onblur={() => {
-                  if (promptValue.trim() === '') {
-                    promptExpanded = false
-                  }
-                }}
+                onfocus={syncPromptExpanded}
+                oninput={syncPromptExpanded}
+                onblur={handlePromptBlur}
               />
               <button type="submit" class="ow-search-and-filter-search-button">
                 Search
