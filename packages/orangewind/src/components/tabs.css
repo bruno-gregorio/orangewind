@@ -1,0 +1,136 @@
+/* Tabs — https://vanillaframework.io/docs/patterns/tabs */
+
+@theme {
+  --color-ow-tabs-border: var(--color-ow-border-default);
+  --color-ow-tabs-text: var(--color-ow-text-default);
+  --color-ow-tabs-hover-bar: var(--color-ow-border-default);
+  --color-ow-tabs-active-bar: var(--color-ow-text-default);
+  --ow-tabs-link-gap: 0.5rem;
+  --ow-tabs-link-padding-block: 0.75rem;
+  --ow-tabs-link-padding-inline: 1rem;
+  --ow-tabs-list-spacing: 2rem;
+  --ow-tabs-list-trailing-space: 3rem;
+  --ow-tabs-marker-height: 0.1875rem;
+}
+
+@layer components {
+  .ow-tabs {
+    border-radius: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+
+    @variant dark {
+      --color-ow-tabs-border: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 20%,
+        transparent
+      );
+      --color-ow-tabs-text: var(--color-ow-x-light);
+      --color-ow-tabs-hover-bar: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 30%,
+        transparent
+      );
+      --color-ow-tabs-active-bar: var(--color-ow-x-light);
+    }
+  }
+
+  .ow-tabs-list {
+    box-shadow: inset 0 -1px 0 0 var(--color-ow-tabs-border);
+    display: flex;
+    margin-bottom: var(--ow-tabs-list-spacing);
+    overflow-x: auto;
+    padding: 0;
+    padding-right: var(--ow-tabs-list-trailing-space);
+    position: relative;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  .ow-tabs-item {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0;
+    width: auto;
+  }
+
+  .ow-tabs-link {
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    color: var(--color-ow-tabs-text);
+    cursor: pointer;
+    display: inline-flex;
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-regular);
+    gap: var(--ow-tabs-link-gap);
+    line-height: var(--text-base--line-height);
+    margin-bottom: 0;
+    min-height: 100%;
+    padding: var(--ow-tabs-link-padding-block)
+      var(--ow-tabs-link-padding-inline);
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    white-space: nowrap;
+
+    &::after {
+      background-color: transparent;
+      bottom: 0;
+      content: '';
+      height: var(--ow-tabs-marker-height);
+      left: 0;
+      position: absolute;
+      right: 0;
+      transition: background-color 0.1s ease-in;
+    }
+
+    &:visited {
+      color: var(--color-ow-tabs-text);
+    }
+
+    &:focus {
+      z-index: 1;
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--color-ow-focus);
+      outline-offset: -3px;
+    }
+
+    &:focus-visible::after {
+      background-color: transparent;
+    }
+
+    &:focus:not(:focus-visible)::after {
+      background-color: var(--color-ow-tabs-active-bar);
+    }
+
+    &:hover {
+      background-color: transparent;
+      color: var(--color-ow-tabs-text);
+      text-decoration: none;
+    }
+
+    &:hover::after {
+      background-color: var(--color-ow-tabs-hover-bar);
+    }
+
+    &:is(:active, [aria-current='page'], [aria-selected='true']) {
+      background-color: transparent;
+      color: var(--color-ow-tabs-text);
+    }
+
+    &:is(:active, [aria-current='page'], [aria-selected='true'])::after {
+      background-color: var(--color-ow-tabs-active-bar);
+    }
+  }
+
+  .ow-tabs-panel {
+    &:focus-visible {
+      outline: 3px solid var(--color-ow-focus);
+      outline-offset: 2px;
+    }
+  }
+}

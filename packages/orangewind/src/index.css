@@ -18,6 +18,7 @@
 @import './components/search-and-filter.css';
 @import './components/notifications.css';
 @import './components/tooltips.css';
+@import './components/tabs.css';
 @theme {
   /* Breakpoints */
   --breakpoint-sm: 28.75rem; /* 460px — $breakpoint-x-small */
