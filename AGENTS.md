@@ -50,3 +50,4 @@ The project employs strict rules to ensure a clean and modern codebase.
 - The directive `@variant dark` should be used only to set CSS variables.
 - Do not use `@variant dark` inside pseudo-elements, when you need it, just use it on the underlying class to set the css variable.
 - COLOR REDUCTION RULE: avoid using color literals. Use CSS variables unless the color is really exclusive to that line and has no contextual connection. For other cases, prefer CSS variables declared at the top of the file in the theme block. For variables inside the theme block prefer values derived from colors in the colors file. The goal is to reduce the amount of colors in the project as a whole.
+- On the test bench, prefer svelte 5+ patterns instead of old patterns.
