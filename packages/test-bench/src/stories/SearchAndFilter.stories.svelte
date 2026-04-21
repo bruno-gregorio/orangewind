@@ -32,19 +32,22 @@
 
   type FilterSection = {
     heading: string
-    lead: string
     chips: string[]
   }
+
+  const sectionTitleClass =
+    'text-sm font-semibold uppercase tracking-wider opacity-50'
+  const wideSectionClass = 'max-w-4xl space-y-4 pb-72'
+  const promptSectionClass = 'max-w-3xl space-y-4 pb-36'
+  const searchAndFilterLabel = 'Search and filter'
 
   const filterSections: FilterSection[] = [
     {
       heading: 'Cloud',
-      lead: 'Cloud',
       chips: ['Google', 'AWS', 'Azure']
     },
     {
       heading: 'Region',
-      lead: 'Region',
       chips: [
         'us-east1',
         'us-north2',
@@ -60,7 +63,6 @@
     },
     {
       heading: 'Owner',
-      lead: 'Owner',
       chips: ['foo', 'bar', 'baz']
     }
   ]
@@ -162,18 +164,20 @@
     return !overflowExpanded && overflowHiddenIndexes.includes(index)
   }
 
+  function resetOverflowState() {
+    overflowHiddenCount = 0
+    overflowHiddenIndexes = []
+  }
+
   function scheduleOverflowUpdate() {
-    tick().then(() => {
-      updateOverflowHiddenCount()
-    })
+    tick().then(updateOverflowHiddenCount)
   }
 
   function updateOverflowHiddenCount() {
     const container = overflowContainer
 
     if (overflowExpanded || container === null) {
-      overflowHiddenCount = 0
-      overflowHiddenIndexes = []
+      resetOverflowState()
       return
     }
 
@@ -183,8 +187,7 @@
     )
 
     if (chips.length === 0) {
-      overflowHiddenCount = 0
-      overflowHiddenIndexes = []
+      resetOverflowState()
       return
     }
 
@@ -224,8 +227,7 @@
 
   $effect(() => {
     if (overflowExpanded) {
-      overflowHiddenCount = 0
-      overflowHiddenIndexes = []
+      resetOverflowState()
     }
 
     if (overflowContainer !== null) {
@@ -233,6 +235,82 @@
     }
   })
 </script>
+
+{#snippet filterPanel(showCounter: boolean)}
+  {#each filterSections as section (section.heading)}
+    <div class="ow-filter-panel-section">
+      <h5 class="ow-filter-panel-section-heading">{section.heading}</h5>
+      <div class="ow-filter-panel-section-chips" aria-expanded="false">
+        {#each section.chips as chip (panelChipKey(section, chip))}
+          <button type="button" class="ow-chip">
+            <span class="ow-chip-lead">{section.heading}</span>
+            <span class="ow-chip-value">{chip}</span>
+          </button>
+        {/each}
+        {#if showCounter && section.heading === 'Region'}
+          <button type="button" class="ow-filter-panel-section-counter">
+            +4
+          </button>
+        {/if}
+      </div>
+    </div>
+  {/each}
+{/snippet}
+
+{#snippet dismissibleChip(
+  chip: { lead?: string; value: string },
+  onRemove: () => void,
+  overflowHidden?: boolean
+)}
+  <span class="ow-chip" data-overflow-hidden={overflowHidden}>
+    {#if chip.lead}
+      <span class="ow-chip-lead">{chip.lead}</span>
+    {/if}
+    <span class="ow-chip-value">{chip.value}</span>
+    <button
+      type="button"
+      class="ow-chip-dismiss"
+      aria-label={`Remove ${chip.value}`}
+      onclick={onRemove}
+    >
+      Remove
+    </button>
+  </span>
+{/snippet}
+
+{#snippet searchForm({
+  id,
+  onFocus,
+  onBlur,
+  overflowing
+}: {
+  id: string
+  onFocus: () => void
+  onBlur?: () => void
+  overflowing?: boolean
+})}
+  <form
+    class="ow-search-and-filter-box"
+    data-overflowing={overflowing}
+    onsubmit={preventSubmit}
+  >
+    <label class="sr-only" for={id}>{searchAndFilterLabel}</label>
+    <input
+      {id}
+      class="ow-search-and-filter-input"
+      type="search"
+      name="search"
+      placeholder={searchAndFilterLabel}
+      autocomplete="off"
+      onfocus={onFocus}
+      onblur={onBlur}
+    />
+    <button type="submit" class="ow-search-and-filter-search-button">
+      Search
+    </button>
+    <i class="ow-icon-search ow-search-and-filter-search-icon">Search</i>
+  </form>
+{/snippet}
 
 <Story
   name="Search and Filter"
@@ -252,267 +330,111 @@
         .filter(Boolean)
         .join(' ')}
     >
-      <section class="max-w-4xl space-y-4 pb-72">
-        <p class="text-sm font-semibold uppercase tracking-wider opacity-50">
-          Default search and filter
-        </p>
+      <section class={wideSectionClass}>
+        <p class={sectionTitleClass}>Default search and filter</p>
 
         <div class="ow-search-and-filter">
           <div
             class="ow-search-and-filter-search-container"
-            aria-expanded={defaultExpanded ? 'true' : 'false'}
+            aria-expanded={defaultExpanded}
             data-active="true"
             data-empty="true"
           >
-            <form class="ow-search-and-filter-box" onsubmit={preventSubmit}>
-              <label class="sr-only" for="search-filter-default">
-                Search and filter
-              </label>
-              <input
-                id="search-filter-default"
-                class="ow-search-and-filter-input"
-                type="search"
-                name="search"
-                placeholder="Search and filter"
-                autocomplete="off"
-                onfocus={() => {
-                  defaultExpanded = true
-                }}
-                onblur={() => {
-                  defaultExpanded = false
-                }}
-              />
-              <button type="submit" class="ow-search-and-filter-search-button">
-                Search
-              </button>
-              <i class="ow-icon-search ow-search-and-filter-search-icon">
-                Search
-              </i>
-            </form>
+            {@render searchForm({
+              id: 'search-filter-default',
+              onFocus: () => (defaultExpanded = true),
+              onBlur: () => (defaultExpanded = false)
+            })}
           </div>
 
           <div
             class="ow-search-and-filter-panel"
-            aria-hidden={defaultExpanded ? 'false' : 'true'}
+            aria-hidden={!defaultExpanded}
           >
-            {#each filterSections as section (section.heading)}
-              <div class="ow-filter-panel-section">
-                <h5 class="ow-filter-panel-section-heading">
-                  {section.heading}
-                </h5>
-                <div
-                  class="ow-filter-panel-section-chips"
-                  aria-expanded="false"
-                >
-                  {#each section.chips as chip (panelChipKey(section, chip))}
-                    <button type="button" class="ow-chip">
-                      <span class="ow-chip-lead">{section.lead}</span>
-                      <span class="ow-chip-value">{chip}</span>
-                    </button>
-                  {/each}
-                </div>
-              </div>
-            {/each}
+            {@render filterPanel(false)}
           </div>
         </div>
       </section>
 
-      <section class="max-w-4xl space-y-4 pb-72">
-        <p class="text-sm font-semibold uppercase tracking-wider opacity-50">
-          Selected chips
-        </p>
+      <section class={wideSectionClass}>
+        <p class={sectionTitleClass}>Selected chips</p>
 
         <div class="ow-search-and-filter">
           <div
             class="ow-search-and-filter-search-container"
-            aria-expanded={chipsExpanded ? 'true' : 'false'}
+            aria-expanded={chipsExpanded}
             data-active="true"
-            data-empty={selectedChips.length === 0 ? 'true' : 'false'}
+            data-empty={selectedChips.length === 0}
           >
             {#each selectedChips as chip, chipIndex (chipKey(chip, chipIndex))}
-              <span class="ow-chip">
-                <span class="ow-chip-lead">{chip.lead}</span>
-                <span class="ow-chip-value">{chip.value}</span>
-                <button
-                  type="button"
-                  class="ow-chip-dismiss"
-                  aria-label={`Remove ${chip.value}`}
-                  onclick={() => {
-                    removeSelectedChip(chipIndex)
-                  }}
-                >
-                  Remove
-                </button>
-              </span>
+              {@render dismissibleChip(
+                chip,
+                () => removeSelectedChip(chipIndex),
+                undefined
+              )}
             {/each}
 
-            <form class="ow-search-and-filter-box" onsubmit={preventSubmit}>
-              <label class="sr-only" for="search-filter-selected">
-                Search and filter
-              </label>
-              <input
-                id="search-filter-selected"
-                class="ow-search-and-filter-input"
-                type="search"
-                name="search"
-                placeholder="Search and filter"
-                autocomplete="off"
-                onfocus={() => {
-                  chipsExpanded = true
-                }}
-                onblur={() => {
-                  chipsExpanded = false
-                }}
-              />
-              <button type="submit" class="ow-search-and-filter-search-button">
-                Search
-              </button>
-              <i class="ow-icon-search ow-search-and-filter-search-icon">
-                Search
-              </i>
-            </form>
+            {@render searchForm({
+              id: 'search-filter-selected',
+              onFocus: () => (chipsExpanded = true),
+              onBlur: () => (chipsExpanded = false)
+            })}
           </div>
 
-          <div
-            class="ow-search-and-filter-panel"
-            aria-hidden={chipsExpanded ? 'false' : 'true'}
-          >
-            {#each filterSections as section (section.heading)}
-              <div class="ow-filter-panel-section">
-                <h5 class="ow-filter-panel-section-heading">
-                  {section.heading}
-                </h5>
-                <div
-                  class="ow-filter-panel-section-chips"
-                  aria-expanded="false"
-                >
-                  {#each section.chips as chip (panelChipKey(section, chip))}
-                    <button type="button" class="ow-chip">
-                      <span class="ow-chip-lead">{section.lead}</span>
-                      <span class="ow-chip-value">{chip}</span>
-                    </button>
-                  {/each}
-                </div>
-              </div>
-            {/each}
+          <div class="ow-search-and-filter-panel" aria-hidden={!chipsExpanded}>
+            {@render filterPanel(false)}
           </div>
         </div>
       </section>
 
-      <section class="max-w-4xl space-y-4 pb-72">
-        <p class="text-sm font-semibold uppercase tracking-wider opacity-50">
-          Overflowing chips
-        </p>
+      <section class={wideSectionClass}>
+        <p class={sectionTitleClass}>Overflowing chips</p>
 
         <div class="ow-search-and-filter">
           <div
             class="ow-search-and-filter-search-container"
             bind:this={overflowContainer}
-            aria-expanded={overflowExpanded ? 'true' : 'false'}
+            aria-expanded={overflowExpanded}
             data-active="true"
-            data-empty={overflowChips.length === 0 ? 'true' : 'false'}
+            data-empty={overflowChips.length === 0}
             data-overflow-layout="true"
           >
             {#each overflowChips as chip, chipIndex (chipKey(chip, chipIndex))}
-              <span
-                class="ow-chip"
-                data-overflow-hidden={isOverflowChipHidden(chipIndex)
-                  ? 'true'
-                  : 'false'}
-              >
-                <span class="ow-chip-lead">{chip.lead}</span>
-                <span class="ow-chip-value">{chip.value}</span>
-                <button
-                  type="button"
-                  class="ow-chip-dismiss"
-                  aria-label={`Remove ${chip.value}`}
-                  onclick={() => {
-                    removeOverflowChip(chipIndex)
-                  }}
-                >
-                  Remove
-                </button>
-              </span>
+              {@render dismissibleChip(
+                chip,
+                () => removeOverflowChip(chipIndex),
+                isOverflowChipHidden(chipIndex)
+              )}
             {/each}
 
             {#if overflowHiddenCount > 0}
               <button
                 type="button"
                 class="ow-search-and-filter-selected-count"
-                onclick={() => {
-                  overflowExpanded = true
-                }}
+                onclick={() => (overflowExpanded = true)}
               >
                 +{overflowHiddenCount}
               </button>
             {/if}
 
-            <form
-              class="ow-search-and-filter-box"
-              data-overflowing={overflowExpanded ? 'true' : 'false'}
-              onsubmit={preventSubmit}
-            >
-              <label class="sr-only" for="search-filter-overflow">
-                Search and filter
-              </label>
-              <input
-                id="search-filter-overflow"
-                class="ow-search-and-filter-input"
-                type="search"
-                name="search"
-                placeholder="Search and filter"
-                autocomplete="off"
-                onfocus={() => {
-                  overflowExpanded = true
-                }}
-              />
-              <button type="submit" class="ow-search-and-filter-search-button">
-                Search
-              </button>
-              <i class="ow-icon-search ow-search-and-filter-search-icon">
-                Search
-              </i>
-            </form>
+            {@render searchForm({
+              id: 'search-filter-overflow',
+              onFocus: () => (overflowExpanded = true),
+              overflowing: overflowExpanded
+            })}
           </div>
 
           <div
             class="ow-search-and-filter-panel"
-            aria-hidden={overflowExpanded ? 'false' : 'true'}
+            aria-hidden={!overflowExpanded}
           >
-            {#each filterSections as section (section.heading)}
-              <div class="ow-filter-panel-section">
-                <h5 class="ow-filter-panel-section-heading">
-                  {section.heading}
-                </h5>
-                <div
-                  class="ow-filter-panel-section-chips"
-                  aria-expanded="false"
-                >
-                  {#each section.chips as chip (panelChipKey(section, chip))}
-                    <button type="button" class="ow-chip">
-                      <span class="ow-chip-lead">{section.lead}</span>
-                      <span class="ow-chip-value">{chip}</span>
-                    </button>
-                  {/each}
-                  {#if section.heading === 'Region'}
-                    <button
-                      type="button"
-                      class="ow-filter-panel-section-counter"
-                    >
-                      +4
-                    </button>
-                  {/if}
-                </div>
-              </div>
-            {/each}
+            {@render filterPanel(true)}
           </div>
         </div>
       </section>
 
-      <section class="max-w-3xl space-y-4 pb-36">
-        <p class="text-sm font-semibold uppercase tracking-wider opacity-50">
-          Search prompt
-        </p>
+      <section class={promptSectionClass}>
+        <p class={sectionTitleClass}>Search prompt</p>
 
         <div class="ow-search-and-filter">
           {#if promptValue !== ''}
@@ -528,24 +450,16 @@
 
           <div
             class="ow-search-and-filter-search-container"
-            aria-expanded={promptExpanded ? 'true' : 'false'}
+            aria-expanded={promptExpanded}
             data-active="true"
-            data-empty={promptHasContent ? 'false' : 'true'}
+            data-empty={!promptHasContent}
           >
             {#each promptChips as chip, chipIndex (chipKey(chip, chipIndex))}
-              <span class="ow-chip">
-                <span class="ow-chip-value">{chip.value}</span>
-                <button
-                  type="button"
-                  class="ow-chip-dismiss"
-                  aria-label={`Remove ${chip.value}`}
-                  onclick={() => {
-                    removePromptChip(chipIndex)
-                  }}
-                >
-                  Remove
-                </button>
-              </span>
+              {@render dismissibleChip(
+                chip,
+                () => removePromptChip(chipIndex),
+                undefined
+              )}
             {/each}
 
             <form
@@ -553,14 +467,14 @@
               onsubmit={handlePromptSubmit}
             >
               <label class="sr-only" for="search-filter-prompt">
-                Search and filter
+                {searchAndFilterLabel}
               </label>
               <input
                 id="search-filter-prompt"
                 class="ow-search-and-filter-input"
                 type="search"
                 name="search"
-                placeholder="Search and filter"
+                placeholder={searchAndFilterLabel}
                 autocomplete="off"
                 bind:value={promptValue}
                 onfocus={syncPromptExpanded}
@@ -573,10 +487,7 @@
             </form>
           </div>
 
-          <div
-            class="ow-search-and-filter-panel"
-            aria-hidden={promptExpanded ? 'false' : 'true'}
-          >
+          <div class="ow-search-and-filter-panel" aria-hidden={!promptExpanded}>
             <button
               type="button"
               class="ow-search-and-filter-search-prompt"
