@@ -15,6 +15,8 @@
     transparent
   );
   --ow-search-filter-input-height: calc(1.5rem + 1rem + 2px);
+  --ow-search-filter-action-width: 3rem;
+  --ow-search-filter-count-width: 3rem;
 }
 
 @layer components {
@@ -65,19 +67,58 @@
     }
 
     .ow-search-and-filter-search-container {
+      align-content: flex-start;
       align-items: center;
       background-color: inherit;
+      box-sizing: border-box;
       column-gap: 0.5rem;
       display: flex;
       flex-wrap: wrap;
       min-height: var(--ow-search-filter-input-height);
       overflow: hidden;
-      padding: 0.25rem 3rem 0.25rem 0.5rem;
+      padding-inline-end: 0;
       position: relative;
-      row-gap: 0.25rem;
+      row-gap: 0.5rem;
+
+      &:has(
+        :is(
+          .ow-chip,
+          .ow-chip-positive,
+          .ow-chip-caution,
+          .ow-chip-negative,
+          .ow-chip-information,
+          .ow-chip-branded
+        )
+      ) {
+        padding-inline-start: 0.5rem;
+      }
+
+      &:has(.ow-search-and-filter-selected-count) {
+        padding-inline-end: calc(var(--ow-search-filter-count-width) + 0.25rem);
+      }
+
+      &[data-overflow-layout='true'] {
+        padding-block-start: 0.25rem;
+      }
 
       &[data-empty='false'][aria-expanded='false'] {
         max-height: var(--ow-search-filter-input-height);
+        overflow: clip;
+        overflow-clip-margin: 0;
+      }
+
+      &[aria-expanded='false'] {
+        :is(
+          .ow-chip,
+          .ow-chip-positive,
+          .ow-chip-caution,
+          .ow-chip-negative,
+          .ow-chip-information,
+          .ow-chip-branded
+        )[data-overflow-hidden='true'] {
+          pointer-events: none;
+          visibility: hidden;
+        }
       }
 
       &[aria-expanded='true'] {
@@ -106,10 +147,14 @@
         cursor: pointer;
         display: inline-flex;
         font-size: 0.875rem;
-        inset-inline-end: 0.5rem;
-        inset-block-start: 0.625rem;
+        inset-inline-end: 0.25rem;
+        inset-block-start: 50%;
+        justify-content: flex-end;
         line-height: 1.25rem;
+        min-width: var(--ow-search-filter-count-width);
         position: absolute;
+        transform: translateY(-50%);
+        z-index: 1;
 
         &:focus-visible {
           outline: 3px solid var(--color-ow-focus);
@@ -167,7 +212,7 @@
       inset-block-start: 0.25rem;
       justify-content: center;
       position: absolute;
-      width: 2.5rem;
+      width: calc(var(--ow-search-filter-action-width) - 0.5rem);
       z-index: 40;
 
       &:hover,
@@ -188,10 +233,10 @@
 
     .ow-search-and-filter-box {
       align-items: center;
-      align-self: center;
       display: inline-flex;
       flex: 1 1 12rem;
-      min-height: calc(var(--ow-search-filter-input-height) - 0.5rem);
+      height: var(--ow-search-filter-input-height);
+      margin: 0;
       min-width: 6rem;
       position: relative;
     }
@@ -203,6 +248,7 @@
       pointer-events: none;
       position: absolute;
       transform: translateY(-50%);
+      z-index: 1;
     }
 
     .ow-search-and-filter-search-button {
@@ -237,7 +283,7 @@
       flex: 1 1 auto;
       margin-bottom: 0;
       min-width: 6rem;
-      padding-right: 2.5rem;
+      padding-right: calc(var(--ow-search-filter-action-width) - 0.5rem);
       position: relative;
       width: 100%;
 

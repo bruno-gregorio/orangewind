@@ -87,6 +87,7 @@
   let chipsExpanded = $state(false)
   let overflowExpanded = $state(false)
   let overflowHiddenCount = $state(0)
+  let overflowHiddenIndexes = $state<number[]>([])
   let overflowContainer = $state<HTMLDivElement | null>(null)
   let promptExpanded = $state(true)
   let selectedChips = $state([...initialSelectedChips])
@@ -157,6 +158,10 @@
     promptChips = removeChip(promptChips, index)
   }
 
+  function isOverflowChipHidden(index: number) {
+    return !overflowExpanded && overflowHiddenIndexes.includes(index)
+  }
+
   function scheduleOverflowUpdate() {
     tick().then(() => {
       updateOverflowHiddenCount()
@@ -168,6 +173,7 @@
 
     if (overflowExpanded || container === null) {
       overflowHiddenCount = 0
+      overflowHiddenIndexes = []
       return
     }
 
@@ -178,14 +184,23 @@
 
     if (chips.length === 0) {
       overflowHiddenCount = 0
+      overflowHiddenIndexes = []
       return
     }
 
     const firstRowTop = chips[0].offsetTop
+    const hiddenIndexes = chips.flatMap((chip, index) =>
+      chip.offsetTop > firstRowTop ? [index] : []
+    )
+    const nextHiddenCount = hiddenIndexes.length
+    const hiddenCountChanged = overflowHiddenCount !== nextHiddenCount
 
-    overflowHiddenCount = chips.filter(
-      chip => chip.offsetTop > firstRowTop
-    ).length
+    overflowHiddenIndexes = hiddenIndexes
+    overflowHiddenCount = nextHiddenCount
+
+    if (hiddenCountChanged) {
+      scheduleOverflowUpdate()
+    }
   }
 
   $effect(() => {
@@ -210,9 +225,10 @@
   $effect(() => {
     if (overflowExpanded) {
       overflowHiddenCount = 0
+      overflowHiddenIndexes = []
     }
 
-    if (overflowContainer !== null || overflowChips.length >= 0) {
+    if (overflowContainer !== null) {
       scheduleOverflowUpdate()
     }
   })
@@ -269,9 +285,10 @@
               <button type="submit" class="ow-search-and-filter-search-button">
                 Search
               </button>
+              <i class="ow-icon-search ow-search-and-filter-search-icon">
+                Search
+              </i>
             </form>
-            <i class="ow-icon-search ow-search-and-filter-search-icon">Search</i
-            >
           </div>
 
           <div
@@ -350,9 +367,10 @@
               <button type="submit" class="ow-search-and-filter-search-button">
                 Search
               </button>
+              <i class="ow-icon-search ow-search-and-filter-search-icon">
+                Search
+              </i>
             </form>
-            <i class="ow-icon-search ow-search-and-filter-search-icon">Search</i
-            >
           </div>
 
           <div
@@ -393,9 +411,15 @@
             aria-expanded={overflowExpanded ? 'true' : 'false'}
             data-active="true"
             data-empty={overflowChips.length === 0 ? 'true' : 'false'}
+            data-overflow-layout="true"
           >
             {#each overflowChips as chip, chipIndex (chipKey(chip, chipIndex))}
-              <span class="ow-chip">
+              <span
+                class="ow-chip"
+                data-overflow-hidden={isOverflowChipHidden(chipIndex)
+                  ? 'true'
+                  : 'false'}
+              >
                 <span class="ow-chip-lead">{chip.lead}</span>
                 <span class="ow-chip-value">{chip.value}</span>
                 <button
@@ -445,9 +469,10 @@
               <button type="submit" class="ow-search-and-filter-search-button">
                 Search
               </button>
+              <i class="ow-icon-search ow-search-and-filter-search-icon">
+                Search
+              </i>
             </form>
-            <i class="ow-icon-search ow-search-and-filter-search-icon">Search</i
-            >
           </div>
 
           <div
