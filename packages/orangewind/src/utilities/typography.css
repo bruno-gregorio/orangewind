@@ -44,6 +44,19 @@
   --font-weight-extrabold: 800;
 }
 
+@layer base {
+  html {
+    font-family: var(--font-sans);
+  }
+
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: var(--font-mono);
+  }
+}
+
 @layer components {
   /* Headings */
   .ow-heading-1 {
@@ -92,7 +105,6 @@
     font-weight: var(--font-weight-regular);
   }
 
-
   /* Display Heading */
   .ow-display-heading {
     font-size: var(--text-3xl);
@@ -133,7 +145,6 @@
       width: 2.5rem;
     }
   }
-
 
   .ow-heading-icon-small {
     .ow-heading-icon-img {
