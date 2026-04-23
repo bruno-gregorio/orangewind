@@ -1,0 +1,59 @@
+/* Breadcrumbs — https://vanillaframework.io/docs/patterns/breadcrumbs */
+
+@theme {
+  --color-ow-breadcrumbs-text: var(--color-ow-text-default);
+  --ow-breadcrumbs-item-offset: 1rem;
+  --ow-breadcrumbs-item-margin-bottom: 0.625rem;
+  --ow-breadcrumbs-item-padding-top: 0.375rem;
+  --ow-breadcrumbs-separator-offset: 0.75rem;
+  --ow-breadcrumbs-separator-gap: 0.5rem;
+}
+
+@layer components {
+  .ow-breadcrumbs {
+    color: var(--color-ow-breadcrumbs-text);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    @variant dark {
+      --color-ow-breadcrumbs-text: var(--color-ow-x-light);
+    }
+  }
+
+  .ow-breadcrumbs-list {
+    list-style: none;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .ow-breadcrumbs-item {
+    display: inline-block;
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-regular);
+    font-variant-caps: all-small-caps;
+    font-variant-numeric: oldstyle-nums;
+    letter-spacing: 0.05em;
+    line-height: var(--text-base--line-height);
+    margin-bottom: var(--ow-breadcrumbs-item-margin-bottom);
+    margin-top: 0;
+    max-width: 100%;
+    padding-top: var(--ow-breadcrumbs-item-padding-top);
+
+    &:not(:first-of-type) {
+      text-indent: var(--ow-breadcrumbs-item-offset);
+    }
+
+    &:not(:first-of-type)::before {
+      content: '/';
+      margin-left: calc(-1 * var(--ow-breadcrumbs-separator-offset));
+      margin-right: var(--ow-breadcrumbs-separator-gap);
+    }
+
+    & > * {
+      max-width: 100%;
+    }
+  }
+}
