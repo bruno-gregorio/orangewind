@@ -67,7 +67,7 @@ _Components that rely entirely on the primitives from Phases 1-3 being complete.
 - [x] [Tooltips](https://vanillaframework.io/docs/patterns/tooltips) (Requires Typography, Z-index handling)
 - [x] [Tabs](https://vanillaframework.io/docs/patterns/tabs) (Requires Typography, Links)
 - [x] [Breadcrumbs](https://vanillaframework.io/docs/patterns/breadcrumbs) (Requires Links)
-- [ ] [Accordion](https://vanillaframework.io/docs/patterns/accordion) (Requires Icons, Typography)
+- [x] [Accordion](https://vanillaframework.io/docs/patterns/accordion) (Requires Icons, Typography)
 - [ ] [Pagination](https://vanillaframework.io/docs/patterns/pagination) (Requires Buttons, Links)
       _Note: Includes [Article Pagination](https://vanillaframework.io/docs/patterns/pagination#article-pagination)._
 - [ ] [Code Snippet](https://vanillaframework.io/docs/base/code) (Requires Typography, Buttons for 'Copy')
