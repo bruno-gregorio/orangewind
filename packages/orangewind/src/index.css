@@ -9,6 +9,7 @@
 @import './components/breadcrumbs.css';
 @import './components/divider.css';
 @import './components/buttons.css';
+@import './components/pagination.css';
 @import './components/badge.css';
 @import './components/status-label.css';
 @import './components/chip.css';
