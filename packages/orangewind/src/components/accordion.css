@@ -1,0 +1,187 @@
+/* Accordion — https://vanillaframework.io/docs/patterns/accordion */
+
+@theme {
+  --color-ow-accordion-border: var(--color-ow-border-default);
+  --color-ow-accordion-text: var(--color-ow-text-default);
+  --color-ow-accordion-hover-bg: color-mix(
+    in srgb,
+    var(--color-ow-x-dark) 5%,
+    var(--color-ow-x-light)
+  );
+  --ow-accordion-list-spacing: 1.5rem;
+  --ow-accordion-tab-padding-top: calc(0.5rem - 1px);
+  --ow-accordion-tab-padding-bottom: 0.5rem;
+  --ow-accordion-tab-padding-inline: 1rem;
+  --ow-accordion-icon-size: 1rem;
+  --ow-accordion-icon-gap: 1rem;
+  --ow-accordion-panel-indent: calc(
+    var(--ow-accordion-icon-size) + (2 * var(--ow-accordion-tab-padding-inline))
+  );
+  --ow-accordion-tick-control-size: 1.25rem;
+  --ow-accordion-tick-panel-indent: calc(
+    var(--ow-accordion-tab-padding-inline) -
+      (
+        (
+            var(--ow-accordion-tick-control-size) -
+              var(--ow-accordion-icon-size)
+          ) /
+          2
+      )
+  );
+  --ow-accordion-transition-duration: 0.1s;
+}
+
+@layer components {
+  .ow-accordion {
+    color: var(--color-ow-accordion-text);
+    width: 100%;
+
+    @variant dark {
+      --color-ow-accordion-border: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 20%,
+        transparent
+      );
+      --color-ow-accordion-text: var(--color-ow-x-light);
+      --color-ow-accordion-hover-bg: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 14%,
+        var(--color-ow-dark)
+      );
+    }
+
+    .ow-accordion-list {
+      list-style: none;
+      margin: 0 0 var(--ow-accordion-list-spacing);
+      padding: 0;
+    }
+
+    .ow-accordion-group {
+      margin: 0;
+
+      & + & {
+        border-top: 1px solid var(--color-ow-accordion-border);
+      }
+    }
+
+    .ow-accordion-heading {
+      margin: 0;
+      max-width: none;
+      padding-top: 0;
+
+      > .ow-accordion-tab {
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+      }
+    }
+
+    .ow-accordion-tab {
+      appearance: none;
+      background-color: inherit;
+      border: 0;
+      border-radius: 0;
+      color: inherit;
+      cursor: pointer;
+      display: inline-block;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      margin-bottom: 0;
+      padding-bottom: var(--ow-accordion-tab-padding-bottom);
+      padding-left: var(--ow-accordion-tab-padding-inline);
+      padding-right: var(--ow-accordion-tab-padding-inline);
+      padding-top: var(--ow-accordion-tab-padding-top);
+      position: relative;
+      text-align: left;
+      transition:
+        background-color var(--ow-accordion-transition-duration) ease-in,
+        border-color var(--ow-accordion-transition-duration) ease-in;
+      width: 100%;
+      z-index: 1;
+
+      &::before {
+        background-color: currentColor;
+        block-size: var(--ow-accordion-icon-size);
+        content: '';
+        display: inline-block;
+        inline-size: var(--ow-accordion-icon-size);
+        margin-right: var(--ow-accordion-icon-gap);
+        mask-image: var(--icon-ow-chevron);
+        mask-position: center;
+        mask-repeat: no-repeat;
+        mask-size: contain;
+        transition: transform var(--ow-accordion-transition-duration) ease-in;
+        vertical-align: calc(
+          0.5px + (0.5 * var(--ow-cap-height)) -
+            (0.5 * var(--ow-accordion-icon-size))
+        );
+      }
+
+      &:hover {
+        background-color: var(--color-ow-accordion-hover-bg);
+      }
+
+      &:focus-visible {
+        outline: 3px solid var(--color-ow-focus);
+        outline-offset: -3px;
+      }
+
+      &[aria-expanded='false']::before {
+        transform: rotate(-90deg);
+      }
+    }
+
+    .ow-heading-2 > .ow-accordion-tab::before,
+    h2.ow-accordion-heading > .ow-accordion-tab::before {
+      block-size: var(--ow-x-height);
+      inline-size: var(--ow-x-height);
+      vertical-align: 0;
+    }
+
+    .ow-heading-3 > .ow-accordion-tab::before,
+    .ow-heading-4 > .ow-accordion-tab::before,
+    h3.ow-accordion-heading > .ow-accordion-tab::before,
+    h4.ow-accordion-heading > .ow-accordion-tab::before {
+      vertical-align: 0;
+    }
+
+    .ow-accordion-panel {
+      margin: 0;
+      overflow: auto;
+      padding-left: var(--ow-accordion-panel-indent);
+      transition:
+        opacity var(--ow-accordion-transition-duration) ease-in,
+        transform var(--ow-accordion-transition-duration) ease-in,
+        visibility var(--ow-accordion-transition-duration) ease-in;
+
+      &[aria-hidden='true'] {
+        block-size: 0;
+        opacity: 0;
+        transform: translate3d(0, -0.5rem, 0);
+        visibility: hidden;
+      }
+
+      &[aria-hidden='false'] {
+        block-size: auto;
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        visibility: visible;
+      }
+
+      > :first-child {
+        margin-top: 0;
+      }
+
+      > :last-child {
+        margin-bottom: 0;
+      }
+
+      &.has-tick-elements {
+        padding-left: var(--ow-accordion-tick-panel-indent);
+      }
+    }
+  }
+}
