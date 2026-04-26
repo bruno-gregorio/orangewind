@@ -326,6 +326,12 @@
       padding-left: var(--ow-code-block-padding-inline);
       padding-top: var(--ow-code-header-spacing);
       width: min-content;
+
+      option,
+      optgroup {
+        background-color: var(--color-ow-x-light);
+        color: var(--color-ow-dark);
+      }
     }
 
     .ow-code-snippet-dropdown + .ow-code-snippet-dropdown {
