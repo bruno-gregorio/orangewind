@@ -22,6 +22,7 @@
 @import './components/notifications.css';
 @import './components/tooltips.css';
 @import './components/tabs.css';
+@import './components/code-snippet.css';
 @theme {
   /* Breakpoints */
   --breakpoint-sm: 28.75rem; /* 460px — $breakpoint-x-small */
