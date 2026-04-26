@@ -70,7 +70,7 @@ _Components that rely entirely on the primitives from Phases 1-3 being complete.
 - [x] [Accordion](https://vanillaframework.io/docs/patterns/accordion) (Requires Icons, Typography)
 - [x] [Pagination](https://vanillaframework.io/docs/patterns/pagination) (Requires Buttons, Links)
       _Note: Includes [Article Pagination](https://vanillaframework.io/docs/patterns/pagination#article-pagination)._
-- [ ] [Code Snippet](https://vanillaframework.io/docs/base/code) (Requires Typography, Buttons for 'Copy')
+- [x] [Code Snippet](https://vanillaframework.io/docs/base/code) (Requires Typography, Buttons for 'Copy')
 - [ ] [Empty State](https://vanillaframework.io/docs/patterns/empty-state)
 
 ---
