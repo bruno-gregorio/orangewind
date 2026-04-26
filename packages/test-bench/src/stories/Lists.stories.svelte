@@ -203,110 +203,186 @@
         .join(' ')}
     >
       <section class="grid gap-4">
-        <p class={sectionTitleClass}>Base lists</p>
+        <p class={sectionTitleClass}>Bulleted with horizontal divider</p>
 
         <div class={[demoContainerClass, 'max-w-5xl'].join(' ')}>
-          <div class="grid gap-8 md:grid-cols-3">
-            <div>
-              <h3 class="ow-heading-5">Unordered</h3>
-              <ul>
-                <li>Commission machines</li>
-                <li>Attach fabrics</li>
-                <li>Deploy workloads</li>
-              </ul>
-            </div>
+          <ul class="ow-list-divided">
+            {#each horizontalItems as item (item.id)}
+              <li class="ow-list-item has-bullet">{item.label}</li>
+            {/each}
+          </ul>
+        </div>
+      </section>
 
-            <div>
-              <h3 class="ow-heading-5">Ordered</h3>
+      <section class="grid gap-4">
+        <p class={sectionTitleClass}>Bulletless with horizontal divider</p>
+
+        <div class={[demoContainerClass, 'max-w-5xl'].join(' ')}>
+          <ul class="ow-list-divided">
+            {#each horizontalItems as item (item.id)}
+              <li class="ow-list-item">{item.label}</li>
+            {/each}
+          </ul>
+        </div>
+      </section>
+
+      <section class="grid gap-4">
+        <p class={sectionTitleClass}>Ordered lists with horizontal divider</p>
+
+        <div class={[demoContainerClass, 'max-w-5xl'].join(' ')}>
+          <ol class="ow-list-divided">
+            <li class="ow-list-item">Bootstrap the controller</li>
+            <li class="ow-list-item">Add the model</li>
+            <li class="ow-list-item">Register credentials</li>
+            <li class="ow-list-item">Start the deployment</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="grid gap-4">
+        <p class={sectionTitleClass}>Ticked with horizontal divider</p>
+
+        <div class={[demoContainerClass, 'max-w-5xl'].join(' ')}>
+          <ul class="ow-list-divided">
+            {#each horizontalItems as item (item.id)}
+              <li class={getListItemClass(item.state)}>{item.label}</li>
+            {/each}
+          </ul>
+        </div>
+      </section>
+
+      <section class="grid gap-4">
+        <p class={sectionTitleClass}>Basic</p>
+
+        <div class={[demoContainerClass, 'max-w-5xl'].join(' ')}>
+          <ul class="ow-list">
+            <li class="ow-list-item">Community</li>
+            <li class="ow-list-item">Careers</li>
+            <li class="ow-list-item">Press centre</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="grid gap-4">
+        <p class={sectionTitleClass}>Nested Count</p>
+
+        <div class={[demoContainerClass, 'max-w-5xl'].join(' ')}>
+          <ol class="ow-list-nested-counter">
+            <li>Install the base system</li>
+            <li>
+              Choose the deployment target
               <ol>
-                <li>Bootstrap controller</li>
-                <li>Add model</li>
-                <li>Integrate services</li>
+                <li>Ubuntu Server</li>
+                <li>MAAS image stream</li>
               </ol>
-            </div>
-
-            <div>
-              <h3 class="ow-heading-5">Definition</h3>
-              <dl>
-                <dt>Model</dt>
-                <dd>A workspace where applications are deployed.</dd>
-                <dt>Charm</dt>
-                <dd>An operator package for a workload.</dd>
-              </dl>
-            </div>
-          </div>
+            </li>
+            <li>Proceed with the relevant install steps</li>
+          </ol>
         </div>
       </section>
 
       <section class="grid gap-4">
-        <p class={sectionTitleClass}>Divided, status and nested counter</p>
+        <p class={sectionTitleClass}>Status</p>
 
         <div class={[demoContainerClass, 'max-w-5xl'].join(' ')}>
-          <div class="grid gap-8 lg:grid-cols-2">
-            <ul class="ow-list-divided">
-              {#each listItems as item (item.id)}
-                <li class={getListItemClass(item.state)}>{item.label}</li>
-              {/each}
-              <li class="ow-list-item has-bullet">
-                Cloud region selection
-                <ul class="ow-list-divided">
-                  <li class="ow-list-item has-bullet">Primary region</li>
-                  <li class="ow-list-item has-bullet">Recovery region</li>
-                </ul>
-              </li>
-            </ul>
-
-            <ol class="ow-list-divided ow-list-nested-counter">
-              <li class="ow-list-item">
-                Install the base system
-                <ol class="ow-list-divided">
-                  <li class="ow-list-item">Ubuntu Server</li>
-                  <li class="ow-list-item">MAAS image stream</li>
-                </ol>
-              </li>
-              <li class="ow-list-item">Register credentials</li>
-              <li class="ow-list-item">Start the deployment</li>
-            </ol>
-          </div>
+          <ul class="ow-list">
+            {#each listItems as item (item.id)}
+              <li class={getListItemClass(item.state)}>{item.label}</li>
+            {/each}
+          </ul>
         </div>
       </section>
 
       <section class="grid gap-4">
-        <p class={sectionTitleClass}>Inline and split</p>
+        <p class={sectionTitleClass}>Inline</p>
 
         <div class={[demoContainerClass, 'max-w-5xl'].join(' ')}>
-          <div class="grid gap-8 lg:grid-cols-2">
-            <div class="grid gap-4">
-              <ul class="ow-inline-list">
-                {#each inlineItems.slice(0, 4) as item (item)}
-                  <li class="ow-inline-list-item">{item}</li>
-                {/each}
-              </ul>
+          <ul class="ow-inline-list">
+            {#each inlineItems.slice(0, 4) as item (item)}
+              <li class="ow-inline-list-item">{item}</li>
+            {/each}
+          </ul>
+        </div>
+      </section>
 
-              <ul class="ow-inline-list-middot">
-                {#each inlineItems as item (item)}
-                  <li class="ow-inline-list-item">
-                    <a href={`#${item.toLowerCase().replace(' ', '-')}`}>
-                      {item}
-                    </a>
-                  </li>
-                {/each}
-              </ul>
+      <section class="grid gap-4">
+        <p class={sectionTitleClass}>Middot</p>
 
-              <ul class="ow-inline-list-stretch">
-                <li class="ow-inline-list-item">Documentation</li>
-                <li class="ow-inline-list-item text-right">
-                  <a href="#all-docs">View all docs</a>
-                </li>
-              </ul>
-            </div>
+        <div class={[demoContainerClass, 'max-w-5xl'].join(' ')}>
+          <ul class="ow-inline-list-middot">
+            {#each inlineItems as item (item)}
+              <li class="ow-inline-list-item">
+                <a href={`#${item.toLowerCase().replace(' ', '-')}`}>
+                  {item}
+                </a>
+              </li>
+            {/each}
+          </ul>
+        </div>
+      </section>
 
-            <ul class="ow-list is-split">
-              {#each horizontalItems.concat(listItems) as item (item.id)}
-                <li class={getListItemClass(item.state)}>{item.label}</li>
-              {/each}
-            </ul>
-          </div>
+      <section class="grid gap-4">
+        <p class={sectionTitleClass}>Inline stretched</p>
+
+        <div class={[demoContainerClass, 'max-w-5xl'].join(' ')}>
+          <ul class="ow-inline-list-stretch">
+            <li class="ow-inline-list-item">Documentation</li>
+            <li class="ow-inline-list-item text-right">
+              <a href="#all-docs">View all docs</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="grid gap-4">
+        <p class={sectionTitleClass}>Vertical stepped</p>
+
+        <div class={[demoContainerClass, 'max-w-6xl'].join(' ')}>
+          <ol class="ow-stepped-list">
+            {#each steps as step (step.id)}
+              <li class="ow-stepped-list-item">
+                <h3 class="ow-stepped-list-title ow-heading-3">
+                  {step.title}
+                </h3>
+                <p class="ow-stepped-list-content">{step.content}</p>
+              </li>
+            {/each}
+          </ol>
+        </div>
+      </section>
+
+      <section class="grid gap-4">
+        <p class={sectionTitleClass}>Horizontal stepped</p>
+
+        <div class={[demoContainerClass, 'max-w-6xl'].join(' ')}>
+          <ol class="ow-stepped-list-detailed">
+            {#each steps as step (step.id)}
+              <li class="ow-stepped-list-item">
+                <h3 class="ow-stepped-list-title ow-heading-4">
+                  {step.title}
+                </h3>
+                <div class="ow-stepped-list-content">
+                  <p>{step.content}</p>
+                  <ul class="ow-list-divided">
+                    <li class="ow-list-item has-bullet">Prepare inputs</li>
+                    <li class="ow-list-item has-bullet">Validate output</li>
+                  </ul>
+                </div>
+              </li>
+            {/each}
+          </ol>
+        </div>
+      </section>
+
+      <section class="grid gap-4">
+        <p class={sectionTitleClass}>Split</p>
+
+        <div class={[demoContainerClass, 'max-w-5xl'].join(' ')}>
+          <ul class="ow-list is-split">
+            {#each horizontalItems.concat(listItems) as item (item.id)}
+              <li class={getListItemClass(item.state)}>{item.label}</li>
+            {/each}
+          </ul>
         </div>
       </section>
 
@@ -314,61 +390,29 @@
         <p class={sectionTitleClass}>Horizontal section</p>
 
         <div class={[demoContainerClass, 'max-w-6xl'].join(' ')}>
-          <div class="grid gap-10">
-            <div class="ow-list-horizontal-section-wrapper">
-              <ul class="ow-list-horizontal-section">
-                {#each horizontalItems as item (item.id)}
-                  <li class={getListItemClass(item.state)}>{item.label}</li>
-                {/each}
-              </ul>
-            </div>
-
-            <div class="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,3fr)]">
-              <h3 class="ow-heading-4">Operator workflow</h3>
-              <div class="ow-list-horizontal-section-wrapper">
-                <ol class="ow-list-horizontal-section is-25-75">
-                  {#each steps as step (step.id)}
-                    <li class="ow-list-item">{step.title}</li>
-                  {/each}
-                </ol>
-              </div>
-            </div>
+          <div class="ow-list-horizontal-section-wrapper">
+            <ul class="ow-list-horizontal-section">
+              {#each horizontalItems as item (item.id)}
+                <li class={getListItemClass(item.state)}>{item.label}</li>
+              {/each}
+            </ul>
           </div>
         </div>
       </section>
 
       <section class="grid gap-4">
-        <p class={sectionTitleClass}>Stepped lists</p>
+        <p class={sectionTitleClass}>25/75 Horizontal section</p>
 
         <div class={[demoContainerClass, 'max-w-6xl'].join(' ')}>
-          <div class="grid gap-10 lg:grid-cols-2">
-            <ol class="ow-stepped-list">
-              {#each steps as step (step.id)}
-                <li class="ow-stepped-list-item">
-                  <h3 class="ow-stepped-list-title ow-heading-3">
-                    {step.title}
-                  </h3>
-                  <p class="ow-stepped-list-content">{step.content}</p>
-                </li>
-              {/each}
-            </ol>
-
-            <ol class="ow-stepped-list-detailed">
-              {#each steps as step (step.id)}
-                <li class="ow-stepped-list-item">
-                  <h3 class="ow-stepped-list-title ow-heading-4">
-                    {step.title}
-                  </h3>
-                  <div class="ow-stepped-list-content">
-                    <p>{step.content}</p>
-                    <ul class="ow-list-divided">
-                      <li class="ow-list-item has-bullet">Prepare inputs</li>
-                      <li class="ow-list-item has-bullet">Validate output</li>
-                    </ul>
-                  </div>
-                </li>
-              {/each}
-            </ol>
+          <div class="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,3fr)]">
+            <h3 class="ow-heading-4">Operator workflow</h3>
+            <div class="ow-list-horizontal-section-wrapper">
+              <ol class="ow-list-horizontal-section is-25-75">
+                {#each steps as step (step.id)}
+                  <li class="ow-list-item">{step.title}</li>
+                {/each}
+              </ol>
+            </div>
           </div>
         </div>
       </section>
@@ -487,49 +531,87 @@
       </section>
 
       <section class="grid gap-4">
-        <p class={sectionTitleClass}>Rich and tiered compositions</p>
+        <p class={sectionTitleClass}>Rich horizontal list</p>
 
         <div class={[demoContainerClass, 'max-w-6xl'].join(' ')}>
-          <div class="grid gap-12">
-            <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
-              <div class="grid gap-4">
-                <h2 class="ow-heading-2">Fleet operations</h2>
-                <p>
-                  A rich list pairs short supporting content with a horizontal
-                  section list for fast scanning.
-                </p>
-              </div>
-
-              <div class="ow-list-horizontal-section-wrapper">
-                <ul class="ow-list-horizontal-section">
-                  {#each horizontalItems as item (item.id)}
-                    <li class={getListItemClass(item.state)}>
-                      {item.label}
-                    </li>
-                  {/each}
-                </ul>
-              </div>
+          <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
+            <div class="grid gap-4">
+              <h2 class="ow-heading-2">Fleet operations</h2>
+              <p>
+                A rich list pairs short supporting content with a horizontal
+                section list for fast scanning.
+              </p>
             </div>
 
-            <div class="grid gap-6">
-              <div class="grid gap-4 lg:grid-cols-2">
-                <h2 class="ow-heading-2">Platform layers</h2>
-                <p>
-                  Tiered entries keep each title close to its description while
-                  retaining the divided-list rhythm.
-                </p>
-              </div>
-
-              <ol class="ow-list-divided">
-                {#each tieredItems as item (item.id)}
-                  <li
-                    class="ow-list-item grid gap-3 md:grid-cols-[minmax(0,12rem)_1fr]"
-                  >
-                    <h3 class="ow-heading-5">{item.title}</h3>
-                    <p>{item.copy}</p>
-                  </li>
+            <div class="ow-list-horizontal-section-wrapper">
+              <ul class="ow-list-horizontal-section">
+                {#each horizontalItems as item (item.id)}
+                  <li class={getListItemClass(item.state)}>{item.label}</li>
                 {/each}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid gap-4">
+        <p class={sectionTitleClass}>Tiered list</p>
+
+        <div class={[demoContainerClass, 'max-w-6xl'].join(' ')}>
+          <div class="grid gap-6">
+            <div class="grid gap-4 lg:grid-cols-2">
+              <h2 class="ow-heading-2">Platform layers</h2>
+              <p>
+                Tiered entries keep each title close to its description while
+                retaining the divided-list rhythm.
+              </p>
+            </div>
+
+            <ol class="ow-list-divided">
+              {#each tieredItems as item (item.id)}
+                <li
+                  class="ow-list-item grid gap-3 md:grid-cols-[minmax(0,12rem)_1fr]"
+                >
+                  <h3 class="ow-heading-5">{item.title}</h3>
+                  <p>{item.copy}</p>
+                </li>
+              {/each}
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid gap-4">
+        <p class={sectionTitleClass}>Base lists</p>
+
+        <div class={[demoContainerClass, 'max-w-5xl'].join(' ')}>
+          <div class="grid gap-8 md:grid-cols-3">
+            <div>
+              <h3 class="ow-heading-5">Unordered</h3>
+              <ul>
+                <li>Commission machines</li>
+                <li>Attach fabrics</li>
+                <li>Deploy workloads</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="ow-heading-5">Ordered</h3>
+              <ol>
+                <li>Bootstrap controller</li>
+                <li>Add model</li>
+                <li>Integrate services</li>
               </ol>
+            </div>
+
+            <div>
+              <h3 class="ow-heading-5">Definition</h3>
+              <dl>
+                <dt>Model</dt>
+                <dd>A workspace where applications are deployed.</dd>
+                <dt>Charm</dt>
+                <dd>An operator package for a workload.</dd>
+              </dl>
             </div>
           </div>
         </div>
