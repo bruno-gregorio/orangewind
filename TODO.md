@@ -79,7 +79,7 @@ _Components that rely entirely on the primitives from Phases 1-3 being complete.
 
 _Larger data presentation blocks that nest multiple basic elements together._
 
-- [ ] [Lists](https://vanillaframework.io/docs/patterns/lists) & [List Tree](https://vanillaframework.io/docs/patterns/list-tree)
+- [x] [Lists](https://vanillaframework.io/docs/patterns/lists) & [List Tree](https://vanillaframework.io/docs/patterns/list-tree)
       _Note: Includes [Rich list](https://vanillaframework.io/docs/patterns/rich-list), [Tiered list](https://vanillaframework.io/docs/patterns/tiered-list), and [Stepped list](https://vanillaframework.io/docs/patterns/lists#vertical-stepped)._
 - [ ] [Tables](https://vanillaframework.io/docs/base/tables) (Requires Icons, Buttons, Status Labels, Pagination)
 - [ ] [Matrix](https://vanillaframework.io/docs/patterns/matrix)
