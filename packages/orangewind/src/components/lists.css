@@ -540,17 +540,6 @@
 
       @media (width >= theme(--breakpoint-lg)) {
         grid-template-columns: repeat(12, minmax(0, 1fr));
-        position: relative;
-
-        &::after {
-          background-color: var(--color-ow-list-border);
-          content: '';
-          height: 1px;
-          left: 0;
-          position: absolute;
-          right: 0;
-          top: 0;
-        }
       }
     }
 

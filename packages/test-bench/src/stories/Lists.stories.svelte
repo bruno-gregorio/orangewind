@@ -603,9 +603,7 @@
         <p class={sectionTitleClass}>Horizontal stepped nested ordered</p>
 
         <div class={[demoContainerClass, 'max-w-6xl'].join(' ')}>
-          <ol
-            class="ow-stepped-list-detailed [&>.ow-stepped-list-item::after]:hidden"
-          >
+          <ol class="ow-stepped-list-detailed">
             {#each stepsWithNestedOrderedLists as step (step.id)}
               <li class="ow-stepped-list-item">
                 <h3 class="ow-stepped-list-title ow-heading-4">
@@ -856,7 +854,7 @@
               </p>
             </div>
 
-            <ol class="ow-list-divided">
+            <ul class="ow-list-divided">
               {#each tieredItems as item (item.id)}
                 <li
                   class="ow-list-item grid gap-3 md:grid-cols-[minmax(0,12rem)_1fr]"
@@ -865,7 +863,7 @@
                   <p>{item.copy}</p>
                 </li>
               {/each}
-            </ol>
+            </ul>
           </div>
         </div>
       </section>
