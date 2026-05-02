@@ -41,6 +41,10 @@
     id: string
   }
 
+  type StepWithNestedOrderedList = Step & {
+    nestedItems?: string[]
+  }
+
   type StoryArgs = {
     baselineGrid?: boolean
     dark?: boolean
@@ -159,6 +163,37 @@
     {
       content: 'Unmount the device and start the imaging process',
       id: 'write-image'
+    }
+  ]
+
+  const stepsWithNestedOrderedLists: StepWithNestedOrderedList[] = [
+    {
+      content:
+        'Prepare the controller and confirm that operators can reach the endpoint.',
+      id: 'prepare-controller',
+      nestedItems: [
+        'Create a dedicated project for the deployment',
+        'Register credentials for the target cloud',
+        'Confirm SSH access for the operator account'
+      ],
+      title: 'Prepare the controller'
+    },
+    {
+      content:
+        'Deploy the workload charms and verify their initial relation state.',
+      id: 'deploy-workload',
+      nestedItems: [
+        'Deploy the database application',
+        'Deploy the API service',
+        'Relate the API service to the database'
+      ],
+      title: 'Deploy the workload'
+    },
+    {
+      content:
+        'Inspect status output and capture the final endpoint for handover.',
+      id: 'validate-workload',
+      title: 'Validate the workload'
     }
   ]
 
@@ -480,6 +515,38 @@
   {/snippet}
 </Story>
 
+<Story name="Vertical Stepped Nested Ordered">
+  {#snippet template(args)}
+    <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
+      <section class="grid gap-4">
+        <p class={sectionTitleClass}>Vertical stepped nested ordered</p>
+
+        <div class={[demoContainerClass, 'max-w-6xl'].join(' ')}>
+          <ol class="ow-stepped-list">
+            {#each stepsWithNestedOrderedLists as step (step.id)}
+              <li class="ow-stepped-list-item">
+                <h2 class="ow-stepped-list-title ow-heading-2">
+                  {step.title}
+                </h2>
+                <div class="ow-stepped-list-content">
+                  <p>{step.content}</p>
+                  {#if step.nestedItems}
+                    <ol class="ow-list-divided">
+                      {#each step.nestedItems as nestedItem (nestedItem)}
+                        <li class="ow-list-item">{nestedItem}</li>
+                      {/each}
+                    </ol>
+                  {/if}
+                </div>
+              </li>
+            {/each}
+          </ol>
+        </div>
+      </section>
+    </div>
+  {/snippet}
+</Story>
+
 <Story name="Vertical Stepped Without Headings">
   {#snippet template(args)}
     <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
@@ -519,6 +586,40 @@
                     <li class="ow-list-item has-bullet">Prepare inputs</li>
                     <li class="ow-list-item has-bullet">Validate output</li>
                   </ul>
+                </div>
+              </li>
+            {/each}
+          </ol>
+        </div>
+      </section>
+    </div>
+  {/snippet}
+</Story>
+
+<Story name="Horizontal Stepped Nested Ordered">
+  {#snippet template(args)}
+    <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
+      <section class="grid gap-4">
+        <p class={sectionTitleClass}>Horizontal stepped nested ordered</p>
+
+        <div class={[demoContainerClass, 'max-w-6xl'].join(' ')}>
+          <ol
+            class="ow-stepped-list-detailed [&>.ow-stepped-list-item::after]:hidden"
+          >
+            {#each stepsWithNestedOrderedLists as step (step.id)}
+              <li class="ow-stepped-list-item">
+                <h3 class="ow-stepped-list-title ow-heading-4">
+                  {step.title}
+                </h3>
+                <div class="ow-stepped-list-content">
+                  <p>{step.content}</p>
+                  {#if step.nestedItems}
+                    <ol class="ow-list-divided">
+                      {#each step.nestedItems as nestedItem (nestedItem)}
+                        <li class="ow-list-item">{nestedItem}</li>
+                      {/each}
+                    </ol>
+                  {/if}
                 </div>
               </li>
             {/each}
