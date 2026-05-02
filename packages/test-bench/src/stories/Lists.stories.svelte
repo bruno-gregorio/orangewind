@@ -41,6 +41,11 @@
     id: string
   }
 
+  type StoryArgs = {
+    baselineGrid?: boolean
+    dark?: boolean
+  }
+
   type TieredItem = {
     copy: string
     id: string
@@ -99,6 +104,21 @@
     'Press centre',
     'Contact',
     'Security'
+  ]
+
+  const nestedCommissioningItems = [
+    {
+      id: 'verify-bmc',
+      label: 'Verify BMC credentials before enlistment'
+    },
+    {
+      id: 'storage-layouts',
+      label: 'Apply storage layouts per hardware profile'
+    },
+    {
+      id: 'kernel-parameters',
+      label: 'Confirm kernel parameters for the target image'
+    }
   ]
 
   const steps: Step[] = [
@@ -163,6 +183,20 @@
   const expandedTreeNodeIds = new SvelteSet(['source', 'stories'])
   let activeTreeNodeId = $state('lists-story')
 
+  function getStoryPageClass(args?: StoryArgs) {
+    return [
+      'grid min-h-screen p-10',
+      args?.dark && 'bg-zinc-950 text-white',
+      args?.baselineGrid && 'ow-baseline-grid'
+    ]
+      .filter(Boolean)
+      .join(' ')
+  }
+
+  function getDemoContainerClass(maxWidth = 'max-w-5xl') {
+    return [demoContainerClass, maxWidth].join(' ')
+  }
+
   function getListItemClass(state?: FeatureItem['state']) {
     return [
       'ow-list-item',
@@ -209,43 +243,24 @@
   }
 </script>
 
-<Story
-  name="Lists"
-  args={{
-    dark: false,
-    baselineGrid: false
-  }}
->
+<Story name="Bulleted Divider">
   {#snippet template(args)}
-    <div
-      use:darkMode={args?.dark ?? false}
-      class={[
-        'grid min-h-screen gap-14 p-10',
-        args?.dark && 'bg-zinc-950 text-white',
-        args?.baselineGrid && 'ow-baseline-grid'
-      ]
-        .filter(Boolean)
-        .join(' ')}
-    >
+    <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
       <section class="grid gap-4">
         <p class={sectionTitleClass}>Bulleted with horizontal divider</p>
 
-        <div class={[demoContainerClass, 'max-w-5xl'].join(' ')}>
+        <div class={getDemoContainerClass()}>
           <ul class="ow-list-divided">
             {#each horizontalItems as item (item.id)}
               <li class="ow-list-item has-bullet">
                 {item.label}
                 {#if item.id === 'commissioning'}
                   <ul class="ow-list-divided">
-                    <li class="ow-list-item has-bullet">
-                      Verify BMC credentials before enlistment
-                    </li>
-                    <li class="ow-list-item has-bullet">
-                      Apply storage layouts per hardware profile
-                    </li>
-                    <li class="ow-list-item has-bullet">
-                      Confirm kernel parameters for the target image
-                    </li>
+                    {#each nestedCommissioningItems as nestedItem (nestedItem.id)}
+                      <li class="ow-list-item has-bullet">
+                        {nestedItem.label}
+                      </li>
+                    {/each}
                   </ul>
                 {/if}
               </li>
@@ -253,7 +268,13 @@
           </ul>
         </div>
       </section>
+    </div>
+  {/snippet}
+</Story>
 
+<Story name="Bulletless Divider">
+  {#snippet template(args)}
+    <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
       <section class="grid gap-4">
         <p class={sectionTitleClass}>Bulletless with horizontal divider</p>
 
@@ -264,15 +285,11 @@
                 {item.label}
                 {#if item.id === 'commissioning'}
                   <ul class="ow-list-divided">
-                    <li class="ow-list-item">
-                      Verify BMC credentials before enlistment
-                    </li>
-                    <li class="ow-list-item">
-                      Apply storage layouts per hardware profile
-                    </li>
-                    <li class="ow-list-item">
-                      Confirm kernel parameters for the target image
-                    </li>
+                    {#each nestedCommissioningItems as nestedItem (nestedItem.id)}
+                      <li class="ow-list-item">
+                        {nestedItem.label}
+                      </li>
+                    {/each}
                   </ul>
                 {/if}
               </li>
@@ -280,7 +297,13 @@
           </ul>
         </div>
       </section>
+    </div>
+  {/snippet}
+</Story>
 
+<Story name="Ordered Divider">
+  {#snippet template(args)}
+    <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
       <section class="grid gap-4">
         <p class={sectionTitleClass}>Ordered lists with horizontal divider</p>
 
@@ -293,7 +316,13 @@
           </ol>
         </div>
       </section>
+    </div>
+  {/snippet}
+</Story>
 
+<Story name="Ticked Divider">
+  {#snippet template(args)}
+    <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
       <section class="grid gap-4">
         <p class={sectionTitleClass}>Ticked with horizontal divider</p>
 
@@ -305,7 +334,13 @@
           </ul>
         </div>
       </section>
+    </div>
+  {/snippet}
+</Story>
 
+<Story name="Basic">
+  {#snippet template(args)}
+    <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
       <section class="grid gap-4">
         <p class={sectionTitleClass}>Basic</p>
 
@@ -317,7 +352,13 @@
           </ul>
         </div>
       </section>
+    </div>
+  {/snippet}
+</Story>
 
+<Story name="Nested Count">
+  {#snippet template(args)}
+    <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
       <section class="grid gap-4">
         <p class={sectionTitleClass}>Nested Count</p>
 
@@ -335,7 +376,13 @@
           </ol>
         </div>
       </section>
+    </div>
+  {/snippet}
+</Story>
 
+<Story name="Status">
+  {#snippet template(args)}
+    <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
       <section class="grid gap-4">
         <p class={sectionTitleClass}>Status</p>
 
@@ -347,7 +394,13 @@
           </ul>
         </div>
       </section>
+    </div>
+  {/snippet}
+</Story>
 
+<Story name="Inline">
+  {#snippet template(args)}
+    <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
       <section class="grid gap-4">
         <p class={sectionTitleClass}>Inline</p>
 
@@ -359,7 +412,13 @@
           </ul>
         </div>
       </section>
+    </div>
+  {/snippet}
+</Story>
 
+<Story name="Middot">
+  {#snippet template(args)}
+    <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
       <section class="grid gap-4">
         <p class={sectionTitleClass}>Middot</p>
 
@@ -375,7 +434,13 @@
           </ul>
         </div>
       </section>
+    </div>
+  {/snippet}
+</Story>
 
+<Story name="Inline Stretched">
+  {#snippet template(args)}
+    <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
       <section class="grid gap-4">
         <p class={sectionTitleClass}>Inline stretched</p>
 
@@ -388,7 +453,13 @@
           </ul>
         </div>
       </section>
+    </div>
+  {/snippet}
+</Story>
 
+<Story name="Vertical Stepped">
+  {#snippet template(args)}
+    <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
       <section class="grid gap-4">
         <p class={sectionTitleClass}>Vertical stepped</p>
 
@@ -405,7 +476,13 @@
           </ol>
         </div>
       </section>
+    </div>
+  {/snippet}
+</Story>
 
+<Story name="Vertical Stepped Without Headings">
+  {#snippet template(args)}
+    <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
       <section class="grid gap-4">
         <p class={sectionTitleClass}>Vertical stepped without headings</p>
 
@@ -419,7 +496,13 @@
           </ol>
         </div>
       </section>
+    </div>
+  {/snippet}
+</Story>
 
+<Story name="Horizontal Stepped">
+  {#snippet template(args)}
+    <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
       <section class="grid gap-4">
         <p class={sectionTitleClass}>Horizontal stepped</p>
 
@@ -442,7 +525,13 @@
           </ol>
         </div>
       </section>
+    </div>
+  {/snippet}
+</Story>
 
+<Story name="Split">
+  {#snippet template(args)}
+    <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
       <section class="grid gap-4">
         <p class={sectionTitleClass}>Split</p>
 
@@ -454,7 +543,13 @@
           </ul>
         </div>
       </section>
+    </div>
+  {/snippet}
+</Story>
 
+<Story name="Horizontal Section">
+  {#snippet template(args)}
+    <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
       <section class="grid gap-4">
         <p class={sectionTitleClass}>Horizontal section</p>
 
@@ -468,7 +563,13 @@
           </div>
         </div>
       </section>
+    </div>
+  {/snippet}
+</Story>
 
+<Story name="Horizontal Section 25-75">
+  {#snippet template(args)}
+    <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
       <section class="grid gap-4">
         <p class={sectionTitleClass}>25/75 Horizontal section</p>
 
@@ -485,7 +586,13 @@
           </div>
         </div>
       </section>
+    </div>
+  {/snippet}
+</Story>
 
+<Story name="List Tree">
+  {#snippet template(args)}
+    <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
       <section class="grid gap-4">
         <p class={sectionTitleClass}>List tree</p>
 
@@ -598,7 +705,13 @@
           </ul>
         </div>
       </section>
+    </div>
+  {/snippet}
+</Story>
 
+<Story name="Rich Horizontal List">
+  {#snippet template(args)}
+    <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
       <section class="grid gap-4">
         <p class={sectionTitleClass}>Rich horizontal list</p>
 
@@ -622,7 +735,13 @@
           </div>
         </div>
       </section>
+    </div>
+  {/snippet}
+</Story>
 
+<Story name="Tiered List">
+  {#snippet template(args)}
+    <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
       <section class="grid gap-4">
         <p class={sectionTitleClass}>Tiered list</p>
 
@@ -649,7 +768,13 @@
           </div>
         </div>
       </section>
+    </div>
+  {/snippet}
+</Story>
 
+<Story name="Base Lists">
+  {#snippet template(args)}
+    <div use:darkMode={args?.dark ?? false} class={getStoryPageClass(args)}>
       <section class="grid gap-4">
         <p class={sectionTitleClass}>Base lists</p>
 
