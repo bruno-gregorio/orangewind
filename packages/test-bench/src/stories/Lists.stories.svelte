@@ -36,6 +36,11 @@
     title: string
   }
 
+  type StepWithoutHeading = {
+    content: string
+    id: string
+  }
+
   type TieredItem = {
     copy: string
     id: string
@@ -114,6 +119,26 @@
         'Relate the applications, wait for hooks to settle and check workload status.',
       id: 'relate-apps',
       title: 'Relate applications'
+    }
+  ]
+
+  const stepsWithoutHeadings: StepWithoutHeading[] = [
+    {
+      content: 'Download the Ubuntu image for the target device',
+      id: 'download-image'
+    },
+    {
+      content: 'Insert the removable media into the workstation',
+      id: 'insert-media'
+    },
+    {
+      content:
+        'Identify the device address before writing the image to the disk',
+      id: 'identify-device'
+    },
+    {
+      content: 'Unmount the device and start the imaging process',
+      id: 'write-image'
     }
   ]
 
@@ -208,7 +233,22 @@
         <div class={[demoContainerClass, 'max-w-5xl'].join(' ')}>
           <ul class="ow-list-divided">
             {#each horizontalItems as item (item.id)}
-              <li class="ow-list-item has-bullet">{item.label}</li>
+              <li class="ow-list-item has-bullet">
+                {item.label}
+                {#if item.id === 'commissioning'}
+                  <ul class="ow-list-divided">
+                    <li class="ow-list-item has-bullet">
+                      Verify BMC credentials before enlistment
+                    </li>
+                    <li class="ow-list-item has-bullet">
+                      Apply storage layouts per hardware profile
+                    </li>
+                    <li class="ow-list-item has-bullet">
+                      Confirm kernel parameters for the target image
+                    </li>
+                  </ul>
+                {/if}
+              </li>
             {/each}
           </ul>
         </div>
@@ -220,7 +260,22 @@
         <div class={[demoContainerClass, 'max-w-5xl'].join(' ')}>
           <ul class="ow-list-divided">
             {#each horizontalItems as item (item.id)}
-              <li class="ow-list-item">{item.label}</li>
+              <li class="ow-list-item">
+                {item.label}
+                {#if item.id === 'commissioning'}
+                  <ul class="ow-list-divided">
+                    <li class="ow-list-item">
+                      Verify BMC credentials before enlistment
+                    </li>
+                    <li class="ow-list-item">
+                      Apply storage layouts per hardware profile
+                    </li>
+                    <li class="ow-list-item">
+                      Confirm kernel parameters for the target image
+                    </li>
+                  </ul>
+                {/if}
+              </li>
             {/each}
           </ul>
         </div>
@@ -341,10 +396,24 @@
           <ol class="ow-stepped-list">
             {#each steps as step (step.id)}
               <li class="ow-stepped-list-item">
-                <h3 class="ow-stepped-list-title ow-heading-3">
+                <h2 class="ow-stepped-list-title ow-heading-2">
                   {step.title}
-                </h3>
+                </h2>
                 <p class="ow-stepped-list-content">{step.content}</p>
+              </li>
+            {/each}
+          </ol>
+        </div>
+      </section>
+
+      <section class="grid gap-4">
+        <p class={sectionTitleClass}>Vertical stepped without headings</p>
+
+        <div class={[demoContainerClass, 'max-w-6xl'].join(' ')}>
+          <ol class="ow-stepped-list">
+            {#each stepsWithoutHeadings as step (step.id)}
+              <li class="ow-stepped-list-item">
+                <p class="ow-stepped-list-title">{step.content}</p>
               </li>
             {/each}
           </ol>
