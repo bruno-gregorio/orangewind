@@ -31,7 +31,7 @@
   const sectionTitleClass =
     'text-sm font-semibold uppercase tracking-wider opacity-50'
   const demoContainerClass =
-    'grid aspect-square w-full max-w-md content-start rounded-2xl border border-black/10 bg-white/80 p-6 shadow-sm dark:border-white/10 dark:bg-white/5'
+    'ow-card mb-0 grid aspect-square w-full max-w-md content-start'
 
   const docsTrail: BreadcrumbItem[] = [
     { path: '/overview', label: 'Overview' },

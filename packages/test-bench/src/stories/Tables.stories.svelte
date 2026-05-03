@@ -62,8 +62,7 @@
 
   const sectionTitleClass =
     'text-sm font-semibold uppercase tracking-wider opacity-50'
-  const demoContainerClass =
-    'grid gap-6 rounded-lg border border-black/10 bg-white/80 p-6 shadow-sm dark:border-white/10 dark:bg-white/5'
+  const demoContainerClass = 'ow-card mb-0 grid gap-6'
   const statusLabelClasses: Record<StatusTone, string> = {
     caution: 'ow-status-label-caution',
     information: 'ow-status-label-information',

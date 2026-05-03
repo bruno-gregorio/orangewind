@@ -38,8 +38,7 @@
 
   const sectionTitleClass =
     'text-sm font-semibold uppercase tracking-wider opacity-50'
-  const demoContainerClass =
-    'rounded-2xl border border-black/10 bg-white/80 p-6 shadow-sm dark:border-white/10 dark:bg-white/5'
+  const demoContainerClass = 'ow-card mb-0'
 
   const navigationTabs: NavigationTab[] = [
     {

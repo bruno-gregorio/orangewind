@@ -43,12 +43,15 @@
         <p class="text-sm font-semibold uppercase tracking-wider opacity-50">
           Base Notifications
         </p>
-        
+
         <div class="ow-notification-information">
           <i class="ow-icon-information"></i>
           <div class="ow-notification-content">
             <h3 class="ow-notification-title">Information</h3>
-            <p class="ow-notification-message">This is an informational message. It provides context or non-critical details.</p>
+            <p class="ow-notification-message">
+              This is an informational message. It provides context or
+              non-critical details.
+            </p>
           </div>
         </div>
 
@@ -56,7 +59,9 @@
           <i class="ow-icon-success"></i>
           <div class="ow-notification-content">
             <h3 class="ow-notification-title">Success</h3>
-            <p class="ow-notification-message">The action was completed successfully.</p>
+            <p class="ow-notification-message">
+              The action was completed successfully.
+            </p>
           </div>
         </div>
 
@@ -64,7 +69,9 @@
           <i class="ow-icon-warning"></i>
           <div class="ow-notification-content">
             <h3 class="ow-notification-title">Caution</h3>
-            <p class="ow-notification-message">Please be careful before proceeding with this action.</p>
+            <p class="ow-notification-message">
+              Please be careful before proceeding with this action.
+            </p>
           </div>
         </div>
 
@@ -72,7 +79,9 @@
           <i class="ow-icon-error"></i>
           <div class="ow-notification-content">
             <h3 class="ow-notification-title">Error</h3>
-            <p class="ow-notification-message">An error occurred while processing your request.</p>
+            <p class="ow-notification-message">
+              An error occurred while processing your request.
+            </p>
           </div>
         </div>
       </section>
@@ -86,9 +95,15 @@
           <i class="ow-icon-information"></i>
           <div class="ow-notification-content">
             <h3 class="ow-notification-title">Dismissible</h3>
-            <p class="ow-notification-message">You can close this notification using the button on the right.</p>
+            <p class="ow-notification-message">
+              You can close this notification using the button on the right.
+            </p>
           </div>
-          <button class="ow-notification-close" aria-label="Close" title="Close">
+          <button
+            class="ow-notification-close"
+            aria-label="Close"
+            title="Close"
+          >
             <i class="ow-icon-close"></i>
           </button>
         </div>
@@ -103,7 +118,9 @@
           <i class="ow-icon-success"></i>
           <div class="ow-notification-content">
             <h3 class="ow-notification-title">Task Complete</h3>
-            <p class="ow-notification-message">Your deployment has finished successfully.</p>
+            <p class="ow-notification-message">
+              Your deployment has finished successfully.
+            </p>
           </div>
           <div class="ow-notification-meta">
             <span class="ow-notification-timestamp">Today at 14:00</span>
@@ -120,29 +137,44 @@
           Borderless Variants
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white dark:bg-[#222] p-6 border border-gray-200 dark:border-gray-800 rounded-lg">
+        <div class="ow-card mb-0 grid grid-cols-1 gap-6 md:grid-cols-2">
           <div class="space-y-4">
             <h4 class="font-medium">Embedded Context</h4>
-            <p class="text-sm opacity-80">Borderless notifications are designed to flow seamlessly inside other contained sections like cards or panels, without double-bordering.</p>
-            
-            <div class="ow-notification-information ow-notification-borderless pb-0 mb-0">
+            <p class="text-sm opacity-80">
+              Borderless notifications are designed to flow seamlessly inside
+              other contained sections like cards or panels, without
+              double-bordering.
+            </p>
+
+            <div
+              class="ow-notification-information ow-notification-borderless pb-0 mb-0"
+            >
               <i class="ow-icon-information"></i>
               <div class="ow-notification-content">
                 <h3 class="ow-notification-title">System Update</h3>
-                <p class="ow-notification-message">A new background update is available. It will be installed on next reboot.</p>
+                <p class="ow-notification-message">
+                  A new background update is available. It will be installed on
+                  next reboot.
+                </p>
               </div>
             </div>
           </div>
-          
+
           <div class="space-y-4">
             <h4 class="font-medium">Form Feedback</h4>
-            <p class="text-sm opacity-80">They also work well inline above forms or input groups.</p>
-            
-            <div class="ow-notification-negative ow-notification-borderless pb-0 mb-0">
+            <p class="text-sm opacity-80">
+              They also work well inline above forms or input groups.
+            </p>
+
+            <div
+              class="ow-notification-negative ow-notification-borderless pb-0 mb-0"
+            >
               <i class="ow-icon-error"></i>
               <div class="ow-notification-content">
                 <h3 class="ow-notification-title">Validation Error</h3>
-                <p class="ow-notification-message">The email address provided is already in use.</p>
+                <p class="ow-notification-message">
+                  The email address provided is already in use.
+                </p>
               </div>
             </div>
           </div>
@@ -158,14 +190,19 @@
           <i class="ow-icon-error"></i>
           <div class="ow-notification-content">
             <h3 class="ow-notification-title">Network Error.</h3>
-            <p class="ow-notification-message">Failed to connect to the database.</p>
+            <p class="ow-notification-message">
+              Failed to connect to the database.
+            </p>
           </div>
-          <button class="ow-notification-close" aria-label="Close" title="Close">
+          <button
+            class="ow-notification-close"
+            aria-label="Close"
+            title="Close"
+          >
             <i class="ow-icon-close"></i>
           </button>
         </div>
       </section>
-      
     </div>
   {/snippet}
 </Story>

@@ -35,8 +35,7 @@
 
   const sectionTitleClass =
     'text-sm font-semibold uppercase tracking-wider opacity-50'
-  const demoContainerClass =
-    'rounded-2xl border border-black/10 bg-white/80 p-6 shadow-sm dark:border-white/10 dark:bg-white/5'
+  const demoContainerClass = 'ow-card mb-0'
 
   const tooltipExamples: TooltipExample[] = [
     {
@@ -277,7 +276,7 @@
         <p class={sectionTitleClass}>Tailwind Theme Overrides</p>
 
         <div class="grid gap-6 xl:grid-cols-2">
-          <div class="space-y-4 rounded-2xl bg-[#111] p-6 text-[#fff]">
+          <div class="ow-card mb-0 space-y-4 bg-[#111] text-[#fff]">
             <p class="max-w-xl text-sm leading-6 text-white/75">
               This trigger lives inside a dark surface, so the tooltip is forced
               to the light palette with Tailwind-driven CSS variables on the
@@ -300,7 +299,7 @@
             </button>
           </div>
 
-          <div class="space-y-4 rounded-2xl bg-white p-6 text-[#111] shadow-sm">
+          <div class="ow-card mb-0 space-y-4 bg-white text-[#111]">
             <p class="max-w-xl text-sm leading-6 text-black/65">
               This trigger keeps the dark tooltip treatment only in Storybook
               dark mode, using Tailwind's <code>dark:</code> variant to force the
