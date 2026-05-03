@@ -26,6 +26,7 @@
 @import './components/lists.css';
 @import './components/tables.css';
 @import './components/matrix.css';
+@import './components/card.css';
 @theme {
   /* Breakpoints */
   --breakpoint-sm: 28.75rem; /* 460px — $breakpoint-x-small */

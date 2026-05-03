@@ -1,0 +1,159 @@
+/* Card — https://vanillaframework.io/docs/patterns/card */
+
+@theme {
+  --color-ow-card-bg: var(--color-ow-x-light);
+  --color-ow-card-border: var(--color-ow-border-default);
+  --color-ow-card-border-low: color-mix(
+    in srgb,
+    var(--color-ow-x-dark) 10%,
+    transparent
+  );
+  --color-ow-card-muted-bg: var(--color-ow-x-light);
+  --color-ow-card-overlay-bg: var(--color-ow-light);
+  --color-ow-card-shadow-soft: color-mix(
+    in srgb,
+    var(--color-ow-x-dark) 15%,
+    transparent
+  );
+  --color-ow-card-shadow: color-mix(
+    in srgb,
+    var(--color-ow-x-dark) 20%,
+    transparent
+  );
+  --color-ow-card-shadow-ring: transparent;
+  --color-ow-card-text: var(--color-ow-text-default);
+  --ow-card-baseline-unit: 0.5rem;
+  --ow-card-block-spacing: 1.5rem;
+  --ow-card-image-spacing: 0.5rem;
+  --ow-card-padding: 1rem;
+  --ow-card-text-end-spacing: 0.125rem;
+  --ow-card-thumbnail-size: 2rem;
+  --shadow-ow-card:
+    0 0 0 1px var(--color-ow-card-shadow-ring),
+    0 1px 1px 0 var(--color-ow-card-shadow-soft),
+    0 2px 2px -1px var(--color-ow-card-shadow-soft),
+    0 0 3px 0 var(--color-ow-card-shadow);
+}
+
+@layer components {
+  .ow-card,
+  .ow-card-highlighted,
+  .ow-card-muted,
+  .ow-card-overlay {
+    background-color: var(--color-ow-card-bg);
+    color: var(--color-ow-card-text);
+    margin-bottom: var(--ow-card-block-spacing);
+    overflow: auto;
+    padding: var(--ow-card-padding);
+    width: 100%;
+
+    @variant dark {
+      --color-ow-card-bg: color-mix(
+        in oklch,
+        var(--color-ow-dark),
+        var(--color-ow-x-light) 12%
+      );
+      --color-ow-card-border: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 20%,
+        transparent
+      );
+      --color-ow-card-border-low: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 10%,
+        transparent
+      );
+      --color-ow-card-muted-bg: color-mix(
+        in oklch,
+        var(--color-ow-dark),
+        var(--color-ow-x-light) 12%
+      );
+      --color-ow-card-overlay-bg: color-mix(
+        in oklch,
+        var(--color-ow-dark),
+        var(--color-ow-x-light) 15%
+      );
+      --color-ow-card-shadow-ring: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 20%,
+        transparent
+      );
+      --color-ow-card-shadow-soft: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 18%,
+        transparent
+      );
+      --color-ow-card-shadow: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 26%,
+        transparent
+      );
+      --shadow-ow-card:
+        0 0 0 1px var(--color-ow-card-shadow-ring),
+        0 1px 1px 0 var(--color-ow-card-shadow-soft),
+        0 2px 2px -1px var(--color-ow-card-shadow-soft),
+        0 0 4px 0 var(--color-ow-card-shadow);
+      --color-ow-card-text: var(--color-ow-x-light);
+    }
+  }
+
+  .ow-card {
+    border: 1px solid var(--color-ow-card-border);
+    padding: calc(var(--ow-card-padding) - 1px);
+  }
+
+  .ow-card-highlighted,
+  .ow-card-muted {
+    box-shadow: var(--shadow-ow-card);
+  }
+
+  .ow-card-muted {
+    background-color: var(--color-ow-card-muted-bg);
+  }
+
+  .ow-card-overlay {
+    background-color: var(--color-ow-card-overlay-bg);
+  }
+
+  .ow-card-image {
+    display: block;
+    height: auto;
+    margin-bottom: var(--ow-card-image-spacing);
+    width: 100%;
+  }
+
+  .ow-card-header {
+    border-bottom: 1px solid var(--color-ow-card-border-low);
+    padding-bottom: var(--ow-card-padding);
+
+    > .ow-link-soft {
+      display: inline-block;
+      overflow: auto;
+    }
+  }
+
+  .ow-card-inner {
+    overflow: auto;
+    padding: var(--ow-card-padding);
+  }
+
+  .ow-card-content {
+    margin-bottom: var(--ow-card-text-end-spacing);
+  }
+
+  .ow-card-thumbnail {
+    max-height: var(--ow-card-thumbnail-size);
+  }
+
+  :where([class^='ow-card'], [class*=' ow-card']) {
+    > :where(p:not([class*='ow-heading-']), h5, h6) {
+      &:first-child {
+        margin-top: calc(-1 * var(--ow-card-baseline-unit));
+      }
+
+      &:last-child {
+        margin-bottom: var(--ow-card-text-end-spacing);
+      }
+    }
+  }
+}
