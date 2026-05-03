@@ -36,7 +36,8 @@
 
     &.is-detached {
       display: block;
-      position: absolute;
+      position: fixed;
+      z-index: var(--ow-tooltip-layer);
 
       > .ow-tooltip-message:first-of-type {
         display: inline-flex;

@@ -42,8 +42,8 @@
   .ow-card-overlay {
     background-color: var(--color-ow-card-bg);
     color: var(--color-ow-card-text);
+    display: flow-root;
     margin-bottom: var(--ow-card-block-spacing);
-    overflow: auto;
     padding: var(--ow-card-padding);
     width: 100%;
 
@@ -133,7 +133,7 @@
   }
 
   .ow-card-inner {
-    overflow: auto;
+    display: flow-root;
     padding: var(--ow-card-padding);
   }
 

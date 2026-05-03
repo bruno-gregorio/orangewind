@@ -80,7 +80,6 @@
     }
   ]
 
-  let detachedSurface = $state<HTMLDivElement | null>(null)
   let detachedDefaultTrigger = $state<HTMLButtonElement | null>(null)
   let detachedCenteredTrigger = $state<HTMLButtonElement | null>(null)
   let detachedDefaultTooltip = $state<HTMLDivElement | null>(null)
@@ -105,22 +104,20 @@
   }
 
   function positionDetachedTooltip(key: DetachedTooltipKey) {
-    const surface = detachedSurface
     const { trigger, tooltip, align } = getDetachedParts(key)
 
-    if (surface === null || trigger === null || tooltip === null) {
+    if (trigger === null || tooltip === null) {
       return
     }
 
-    const surfaceRect = surface.getBoundingClientRect()
     const triggerRect = trigger.getBoundingClientRect()
     const left =
       align === 'center'
-        ? triggerRect.left - surfaceRect.left + triggerRect.width / 2
-        : triggerRect.left - surfaceRect.left + 16
+        ? triggerRect.left + triggerRect.width / 2
+        : triggerRect.left + 16
 
     tooltip.style.left = `${left}px`
-    tooltip.style.top = `${triggerRect.bottom - surfaceRect.top}px`
+    tooltip.style.top = `${triggerRect.bottom}px`
   }
 
   async function setDetachedTooltip(
@@ -216,10 +213,9 @@
         <p class={sectionTitleClass}>Detached</p>
 
         <div
-          bind:this={detachedSurface}
           class={[
             demoContainerClass,
-            'relative flex min-h-56 flex-wrap items-start gap-6 overflow-visible'
+            'relative flex h-24 max-w-3xl flex-wrap items-start gap-6 overflow-auto'
           ].join(' ')}
         >
           <button
