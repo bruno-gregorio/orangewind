@@ -1,0 +1,125 @@
+/* Matrix — https://vanillaframework.io/docs/patterns/matrix */
+
+@theme {
+  --color-ow-matrix-border: var(--color-ow-border-default);
+  --color-ow-matrix-text: var(--color-ow-text-default);
+  --ow-matrix-baseline-unit: 0.5rem;
+  --ow-matrix-block-spacing: 1.5rem;
+  --ow-matrix-desc-spacing: 0.125rem;
+  --ow-matrix-heading-nudge: 0.45rem;
+  --ow-matrix-img-size: 2rem;
+  --ow-matrix-item-padding-block: 1rem;
+  --ow-matrix-item-padding-inline: 1rem;
+  --ow-matrix-line-thickness: 1px;
+  --ow-matrix-text-max-width: 40em;
+}
+
+@layer components {
+  .ow-matrix {
+    color: var(--color-ow-matrix-text);
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-bottom: var(--ow-matrix-block-spacing);
+    margin-left: 0;
+    padding-left: 0;
+
+    @variant dark {
+      --color-ow-matrix-border: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 20%,
+        transparent
+      );
+      --color-ow-matrix-text: var(--color-ow-x-light);
+    }
+  }
+
+  .ow-matrix-item {
+    border-top: var(--ow-matrix-line-thickness) solid
+      var(--color-ow-matrix-border);
+    display: flex;
+    flex: 0 0 100%;
+    flex-direction: column;
+    padding-bottom: var(--ow-matrix-item-padding-block);
+    padding-top: calc(
+      var(--ow-matrix-item-padding-block) - var(--ow-matrix-line-thickness)
+    );
+
+    &:first-child {
+      border-top: 0;
+    }
+
+    &:empty {
+      display: none;
+    }
+
+    @media (width >= theme(--breakpoint-md)) {
+      flex-basis: 33.333%;
+      max-width: 33.333%;
+
+      &:nth-child(2),
+      &:nth-child(3) {
+        border-top: 0;
+      }
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      padding-left: var(--ow-matrix-item-padding-inline);
+      padding-right: var(--ow-matrix-item-padding-inline);
+
+      &:empty {
+        display: block;
+      }
+
+      &:nth-child(3n + 1) {
+        padding-left: 0;
+      }
+
+      &:nth-child(3n + 3) {
+        padding-right: 0;
+      }
+
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3) {
+        border-top: 0;
+      }
+    }
+  }
+
+  .ow-matrix-img {
+    align-self: flex-start;
+    flex-shrink: 0;
+    height: auto;
+    margin-top: 0;
+    width: var(--ow-matrix-img-size);
+  }
+
+  .ow-matrix-content {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding-right: var(--ow-matrix-item-padding-inline);
+  }
+
+  .ow-matrix-title {
+    font-size: var(--text-lg);
+    font-weight: 275;
+    line-height: var(--text-lg--line-height);
+    margin-bottom: calc(
+      var(--ow-matrix-block-spacing) - var(--ow-matrix-heading-nudge)
+    );
+    margin-top: 0;
+    max-width: var(--ow-matrix-text-max-width);
+    padding-top: var(--ow-matrix-heading-nudge);
+  }
+
+  .ow-matrix-desc {
+    margin-bottom: var(--ow-matrix-desc-spacing);
+    margin-top: calc(-1 * var(--ow-matrix-baseline-unit));
+
+    > :last-child {
+      margin: 0;
+    }
+  }
+}
