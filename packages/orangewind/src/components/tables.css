@@ -1,0 +1,300 @@
+/* Tables — https://vanillaframework.io/docs/base/tables */
+
+@theme {
+  --color-ow-table-border: var(--color-ow-border-default);
+  --color-ow-table-border-low: color-mix(
+    in srgb,
+    var(--color-ow-x-dark) 10%,
+    transparent
+  );
+  --color-ow-table-heading: var(--color-ow-text-default);
+  --color-ow-table-sort-hover: var(--color-ow-link);
+  --color-ow-table-text: var(--color-ow-text-default);
+  --ow-table-block-spacing: 1.5rem;
+  --ow-table-card-gap: 1.5rem;
+  --ow-table-cell-padding-block: 0.5rem;
+  --ow-table-cell-padding-inline: 0.5rem;
+  --ow-table-header-padding-block-end: 0.75rem;
+  --ow-table-header-padding-block-start: 0.75rem;
+  --ow-table-icon-gap: 0.5rem;
+  --ow-table-icon-size: 1rem;
+  --ow-table-mobile-card-min: 12rem;
+  --ow-table-mobile-card-padding-inline: 1rem;
+  --ow-table-sort-button-padding-inline: 0.25rem;
+  --ow-table-sort-icon-gap: 0.25rem;
+  --ow-table-sort-icon-size: 1rem;
+}
+
+@layer base {
+  table {
+    border: 0;
+    border-collapse: collapse;
+    caption-side: bottom;
+    color: var(--color-ow-table-text);
+    line-height: var(--text-base--line-height);
+    margin-bottom: var(--ow-table-block-spacing);
+    overflow-x: auto;
+    table-layout: fixed;
+    width: 100%;
+
+    @variant dark {
+      --color-ow-table-border: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 20%,
+        transparent
+      );
+      --color-ow-table-border-low: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 16%,
+        transparent
+      );
+      --color-ow-table-heading: var(--color-ow-x-light);
+      --color-ow-table-sort-hover: color-mix(
+        in oklch,
+        var(--color-ow-link),
+        var(--color-ow-x-light) 35%
+      );
+      --color-ow-table-text: var(--color-ow-x-light);
+    }
+  }
+
+  td,
+  th {
+    font-weight: var(--font-weight-regular);
+    overflow: hidden;
+    padding-bottom: var(--ow-table-cell-padding-block);
+    padding-left: var(--ow-table-cell-padding-inline);
+    padding-right: var(--ow-table-cell-padding-inline);
+    padding-top: calc(var(--ow-table-cell-padding-block) - 1px);
+    text-align: left;
+    text-overflow: ellipsis;
+    vertical-align: top;
+
+    &.has-overflow {
+      overflow: visible;
+    }
+  }
+
+  thead {
+    th {
+      color: var(--color-ow-table-heading);
+      font-size: var(--text-xs);
+      line-height: var(--text-xs--line-height);
+      padding-bottom: var(--ow-table-header-padding-block-end);
+      padding-top: var(--ow-table-header-padding-block-start);
+      text-transform: uppercase;
+    }
+
+    tr {
+      border-bottom: 1px solid var(--color-ow-table-border);
+      vertical-align: top;
+    }
+  }
+
+  tbody tr:not(:first-child),
+  tfoot tr {
+    border-top: 1px solid var(--color-ow-table-border-low);
+  }
+
+  caption {
+    padding-bottom: var(--ow-table-cell-padding-block);
+    padding-top: var(--ow-table-cell-padding-block);
+  }
+}
+
+@layer components {
+  .ow-table-cell-icon-placeholder {
+    padding-left: calc(
+      var(--ow-table-cell-padding-inline) + var(--ow-table-icon-size) +
+        var(--ow-table-icon-gap)
+    );
+
+    :where([class^='ow-icon-'], [class*=' ow-icon-']):first-child {
+      margin-left: calc(
+        -1 * (var(--ow-table-icon-size) + var(--ow-table-icon-gap))
+      );
+      margin-right: var(--ow-table-icon-gap);
+    }
+  }
+
+  table th[aria-sort] {
+    cursor: pointer;
+    outline-color: var(--color-ow-focus);
+    white-space: nowrap;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-ow-table-sort-hover);
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &[aria-sort='ascending']::after,
+    &[aria-sort='descending']::after {
+      background-color: currentColor;
+      block-size: var(--ow-table-sort-icon-size);
+      content: '';
+      display: inline-block;
+      inline-size: var(--ow-table-sort-icon-size);
+      margin-left: var(--ow-table-sort-icon-gap);
+      mask-image: var(--icon-ow-chevron);
+      mask-position: center;
+      mask-repeat: no-repeat;
+      mask-size: 100%;
+      vertical-align: -0.125rem;
+    }
+
+    &[aria-sort='ascending']::after {
+      transform: rotate(180deg);
+    }
+
+    .ow-table-sort-button {
+      background: inherit;
+      border: none;
+      color: inherit;
+      cursor: inherit;
+      display: inline-block;
+      font: inherit;
+      margin: -0.125rem calc(-1 * var(--ow-table-sort-button-padding-inline));
+      max-width: 100%;
+      outline-color: inherit;
+      overflow: inherit;
+      padding: 0.125rem var(--ow-table-sort-button-padding-inline);
+      text-align: inherit;
+      text-decoration: inherit;
+      text-indent: inherit;
+      text-overflow: inherit;
+      text-transform: inherit;
+      text-wrap: inherit;
+      vertical-align: inherit;
+      white-space: inherit;
+    }
+  }
+
+  .ow-table-expanding {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+
+    thead,
+    tbody {
+      margin: 0;
+    }
+
+    tr {
+      display: flex;
+      flex-flow: row wrap;
+      margin: 0;
+      width: 100%;
+    }
+
+    th,
+    td {
+      align-items: flex-start;
+      display: block;
+      flex-basis: 0;
+      flex-grow: 1;
+      margin: 0;
+      text-overflow: ellipsis;
+
+      &[aria-hidden='true'] {
+        display: none;
+      }
+
+      &.ow-table-expanding-panel {
+        flex-basis: 100%;
+        max-width: 100%;
+
+        &[aria-hidden='true'] {
+          display: none;
+        }
+
+        .row,
+        .grid-row {
+          max-width: 100%;
+          padding: 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .ow-table-mobile-card {
+    td::before,
+    tbody th::before {
+      color: var(--color-ow-table-heading);
+      font-size: var(--text-xs);
+      line-height: var(--text-xs--line-height);
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    @media (width < theme(--breakpoint-lg)) {
+      @supports (display: grid) {
+        thead {
+          display: none;
+        }
+
+        tbody {
+          display: grid;
+          gap: 0 var(--ow-table-card-gap);
+          grid-template-columns: repeat(
+            auto-fit,
+            minmax(var(--ow-table-mobile-card-min), 1fr)
+          );
+          grid-template-rows: auto;
+          width: 100%;
+        }
+
+        tbody tr {
+          border: 1px solid var(--color-ow-table-border);
+          display: block;
+          margin-bottom: var(--ow-table-block-spacing);
+          padding: 0 var(--ow-table-mobile-card-padding-inline);
+        }
+
+        td,
+        tbody th {
+          display: block;
+          min-width: 100%;
+          overflow: hidden;
+          padding-left: 0;
+          padding-right: 0;
+          position: relative;
+          text-align: left !important;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 100%;
+          word-break: break-word;
+
+          &.has-overflow {
+            overflow: visible;
+          }
+
+          &[data-heading]::before {
+            content: attr(data-heading);
+            display: block;
+            margin-bottom: 0.25rem;
+            overflow: hidden;
+            padding-left: 0;
+            padding-right: 0;
+            text-overflow: ellipsis;
+            width: 100%;
+          }
+
+          &:not(:first-child)::after {
+            background-color: var(--color-ow-table-border-low);
+            content: '';
+            height: 1px;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+          }
+        }
+      }
+    }
+  }
+}
