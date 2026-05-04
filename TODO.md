@@ -85,7 +85,7 @@ _Larger data presentation blocks that nest multiple basic elements together._
 - [x] [Matrix](https://vanillaframework.io/docs/patterns/matrix)
 - [x] [Card](https://vanillaframework.io/docs/patterns/card) (Requires Typography, Links, Buttons)
 - [x] [Media Object](https://vanillaframework.io/docs/patterns/media-object) / [Image Pattern](https://vanillaframework.io/docs/patterns/images)
-- [ ] [Quotes](https://vanillaframework.io/docs/patterns/pull-quote) & Pull Quotes
+- [x] [Quotes](https://vanillaframework.io/docs/patterns/pull-quote) & Pull Quotes
 
 ---
 
