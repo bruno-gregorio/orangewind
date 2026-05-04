@@ -28,10 +28,72 @@
 
   /* Vanilla Framework — Text */
   --color-ow-text-default: var(--color-ow-dark);
-  --color-ow-text-muted: color-mix(in srgb, var(--color-ow-x-dark) 60%, transparent);
+  --color-ow-text-muted: color-mix(
+    in srgb,
+    var(--color-ow-x-dark) 60%,
+    transparent
+  );
 
   /* Vanilla Framework — Border */
-  --color-ow-border-default: color-mix(in srgb, var(--color-ow-x-dark) 20%, transparent);
+  --color-ow-border-default: color-mix(
+    in srgb,
+    var(--color-ow-x-dark) 20%,
+    transparent
+  );
+
+  /* Vanilla Framework — Surfaces */
+  --color-ow-surface-border: var(--color-ow-border-default);
+  --color-ow-surface-border-low: color-mix(
+    in srgb,
+    var(--color-ow-x-dark) 10%,
+    transparent
+  );
+  --color-ow-surface-border-low-dark: color-mix(
+    in srgb,
+    var(--color-ow-x-light) 10%,
+    transparent
+  );
+  --color-ow-surface-border-dark: color-mix(
+    in srgb,
+    var(--color-ow-x-light) 20%,
+    transparent
+  );
+  --color-ow-surface-shadow-ring: transparent;
+  --color-ow-surface-shadow-ring-dark: color-mix(
+    in srgb,
+    var(--color-ow-x-light) 20%,
+    transparent
+  );
+  --color-ow-surface-shadow-soft: color-mix(
+    in srgb,
+    var(--color-ow-x-dark) 15%,
+    transparent
+  );
+  --color-ow-surface-shadow-soft-dark: color-mix(
+    in srgb,
+    var(--color-ow-x-light) 18%,
+    transparent
+  );
+  --color-ow-surface-shadow: color-mix(
+    in srgb,
+    var(--color-ow-x-dark) 20%,
+    transparent
+  );
+  --color-ow-surface-shadow-dark: color-mix(
+    in srgb,
+    var(--color-ow-x-light) 26%,
+    transparent
+  );
+  --shadow-ow-surface:
+    0 0 0 1px var(--color-ow-surface-shadow-ring),
+    0 1px 1px 0 var(--color-ow-surface-shadow-soft),
+    0 2px 2px -1px var(--color-ow-surface-shadow-soft),
+    0 0 3px 0 var(--color-ow-surface-shadow);
+  --shadow-ow-surface-dark:
+    0 0 0 1px var(--color-ow-surface-shadow-ring-dark),
+    0 1px 1px 0 var(--color-ow-surface-shadow-soft-dark),
+    0 2px 2px -1px var(--color-ow-surface-shadow-soft-dark),
+    0 0 4px 0 var(--color-ow-surface-shadow-dark);
 
   /* Vanilla Framework — Background */
   --color-ow-background-default: var(--color-ow-light);
@@ -43,7 +105,21 @@
     --color-ow-background-default: var(--color-ow-dark);
     --color-ow-background-alt: var(--color-ow-mid-dark);
     --color-ow-text-default: var(--color-ow-x-light);
-    --color-ow-text-muted: color-mix(in srgb, var(--color-ow-x-light) 60%, transparent);
-    --color-ow-border-default: color-mix(in srgb, var(--color-ow-x-light) 20%, transparent);
+    --color-ow-text-muted: color-mix(
+      in srgb,
+      var(--color-ow-x-light) 60%,
+      transparent
+    );
+    --color-ow-border-default: color-mix(
+      in srgb,
+      var(--color-ow-x-light) 20%,
+      transparent
+    );
+    --color-ow-surface-border: var(--color-ow-surface-border-dark);
+    --color-ow-surface-border-low: var(--color-ow-surface-border-low-dark);
+    --color-ow-surface-shadow-ring: var(--color-ow-surface-shadow-ring-dark);
+    --color-ow-surface-shadow-soft: var(--color-ow-surface-shadow-soft-dark);
+    --color-ow-surface-shadow: var(--color-ow-surface-shadow-dark);
+    --shadow-ow-surface: var(--shadow-ow-surface-dark);
   }
 }

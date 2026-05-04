@@ -2,25 +2,13 @@
 
 @theme {
   --color-ow-card-bg: var(--color-ow-x-light);
-  --color-ow-card-border: var(--color-ow-border-default);
-  --color-ow-card-border-low: color-mix(
-    in srgb,
-    var(--color-ow-x-dark) 10%,
-    transparent
-  );
+  --color-ow-card-border: var(--color-ow-surface-border);
+  --color-ow-card-border-low: var(--color-ow-surface-border-low);
   --color-ow-card-muted-bg: var(--color-ow-x-light);
   --color-ow-card-overlay-bg: var(--color-ow-light);
-  --color-ow-card-shadow-soft: color-mix(
-    in srgb,
-    var(--color-ow-x-dark) 15%,
-    transparent
-  );
-  --color-ow-card-shadow: color-mix(
-    in srgb,
-    var(--color-ow-x-dark) 20%,
-    transparent
-  );
-  --color-ow-card-shadow-ring: transparent;
+  --color-ow-card-shadow-soft: var(--color-ow-surface-shadow-soft);
+  --color-ow-card-shadow: var(--color-ow-surface-shadow);
+  --color-ow-card-shadow-ring: var(--color-ow-surface-shadow-ring);
   --color-ow-card-text: var(--color-ow-text-default);
   --ow-card-baseline-unit: 0.5rem;
   --ow-card-block-spacing: 1.5rem;
@@ -28,11 +16,7 @@
   --ow-card-padding: 1rem;
   --ow-card-text-end-spacing: 0.125rem;
   --ow-card-thumbnail-size: 2rem;
-  --shadow-ow-card:
-    0 0 0 1px var(--color-ow-card-shadow-ring),
-    0 1px 1px 0 var(--color-ow-card-shadow-soft),
-    0 2px 2px -1px var(--color-ow-card-shadow-soft),
-    0 0 3px 0 var(--color-ow-card-shadow);
+  --shadow-ow-card: var(--shadow-ow-surface);
 }
 
 @layer components {
@@ -53,16 +37,6 @@
         var(--color-ow-dark),
         var(--color-ow-x-light) 12%
       );
-      --color-ow-card-border: color-mix(
-        in srgb,
-        var(--color-ow-x-light) 20%,
-        transparent
-      );
-      --color-ow-card-border-low: color-mix(
-        in srgb,
-        var(--color-ow-x-light) 10%,
-        transparent
-      );
       --color-ow-card-muted-bg: color-mix(
         in oklch,
         var(--color-ow-dark),
@@ -73,27 +47,13 @@
         var(--color-ow-dark),
         var(--color-ow-x-light) 15%
       );
-      --color-ow-card-shadow-ring: color-mix(
-        in srgb,
-        var(--color-ow-x-light) 20%,
-        transparent
-      );
-      --color-ow-card-shadow-soft: color-mix(
-        in srgb,
-        var(--color-ow-x-light) 18%,
-        transparent
-      );
-      --color-ow-card-shadow: color-mix(
-        in srgb,
-        var(--color-ow-x-light) 26%,
-        transparent
-      );
-      --shadow-ow-card:
-        0 0 0 1px var(--color-ow-card-shadow-ring),
-        0 1px 1px 0 var(--color-ow-card-shadow-soft),
-        0 2px 2px -1px var(--color-ow-card-shadow-soft),
-        0 0 4px 0 var(--color-ow-card-shadow);
+      --color-ow-card-border: var(--color-ow-surface-border-dark);
+      --color-ow-card-border-low: var(--color-ow-surface-border-low-dark);
+      --color-ow-card-shadow-ring: var(--color-ow-surface-shadow-ring-dark);
+      --color-ow-card-shadow-soft: var(--color-ow-surface-shadow-soft-dark);
+      --color-ow-card-shadow: var(--color-ow-surface-shadow-dark);
       --color-ow-card-text: var(--color-ow-x-light);
+      --shadow-ow-card: var(--shadow-ow-surface-dark);
     }
   }
 
