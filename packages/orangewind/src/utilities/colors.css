@@ -40,6 +40,8 @@
     var(--color-ow-x-dark) 20%,
     transparent
   );
+  --color-ow-border-high-contrast: var(--color-ow-mid-dark);
+  --color-ow-border-high-contrast-dark: var(--color-ow-mid-light);
 
   /* Vanilla Framework — Surfaces */
   --color-ow-surface-border: var(--color-ow-border-default);
@@ -115,6 +117,7 @@
       var(--color-ow-x-light) 20%,
       transparent
     );
+    --color-ow-border-high-contrast: var(--color-ow-border-high-contrast-dark);
     --color-ow-surface-border: var(--color-ow-surface-border-dark);
     --color-ow-surface-border-low: var(--color-ow-surface-border-low-dark);
     --color-ow-surface-shadow-ring: var(--color-ow-surface-shadow-ring-dark);

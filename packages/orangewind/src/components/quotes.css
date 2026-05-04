@@ -1,0 +1,187 @@
+/* Quotes - https://vanillaframework.io/docs/patterns/pull-quote */
+
+@theme {
+  --color-ow-quote-border: var(--color-ow-border-high-contrast);
+  --color-ow-quote-mark: var(--color-ow-text-muted);
+  --color-ow-quote-text: var(--color-ow-text-default);
+  --ow-pull-quote-citation-spacing: 0.5rem;
+  --ow-pull-quote-close-mark-offset: 0.55em;
+  --ow-pull-quote-image-height: 2rem;
+  --ow-pull-quote-image-spacing-block-end: 0.5rem;
+  --ow-pull-quote-image-spacing-block-start: 1rem;
+  --ow-pull-quote-mark-offset: 0.75em;
+  --ow-pull-quote-mark-size: 2em;
+  --ow-pull-quote-mark-size-small: 1.5em;
+  --ow-pull-quote-mark-width: 0.5em;
+  --ow-pull-quote-open-mark-top: 0.5rem;
+  --ow-pull-quote-open-mark-top-mobile: 0.75rem;
+  --ow-quote-block-spacing: 1.5rem;
+  --ow-quote-border-width: 0.125rem;
+  --ow-quote-heading-spacing: 1.05rem;
+  --ow-quote-heading-nudge: 0.45rem;
+  --ow-quote-inline-padding: 1.5rem;
+  --ow-quote-text-max-width: 40em;
+  --ow-quote-text-nudge: 0.375rem;
+  --ow-quote-text-spacing: 1.125rem;
+}
+
+@layer base {
+  blockquote {
+    border-left: var(--ow-quote-border-width) solid var(--color-ow-quote-border);
+    color: var(--color-ow-quote-text);
+    display: grid;
+    gap: var(--ow-quote-text-spacing);
+    margin: 0;
+    overflow: auto;
+    padding-bottom: var(--ow-pull-quote-citation-spacing);
+    padding-left: var(--ow-quote-inline-padding);
+
+    @variant dark {
+      --color-ow-quote-border: var(--color-ow-border-high-contrast-dark);
+      --color-ow-quote-mark: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 60%,
+        transparent
+      );
+      --color-ow-quote-text: var(--color-ow-x-light);
+    }
+
+    > p {
+      margin: 0;
+      max-width: var(--ow-quote-text-max-width);
+      padding-top: var(--ow-quote-text-nudge);
+    }
+
+    > cite {
+      display: block;
+      font-style: normal;
+    }
+  }
+}
+
+@layer components {
+  .ow-pull-quote,
+  .ow-pull-quote-small,
+  .ow-pull-quote-large {
+    --ow-pull-quote-font-size: var(--text-lg);
+    --ow-pull-quote-font-weight: 275;
+    --ow-pull-quote-inline-padding: 2rem;
+    --ow-pull-quote-line-height: var(--text-lg--line-height);
+    --ow-pull-quote-content-gap: var(--ow-quote-heading-spacing);
+    --ow-pull-quote-paragraph-gap: var(--ow-quote-heading-spacing);
+    --ow-pull-quote-paragraph-offset: calc(
+      var(--ow-pull-quote-paragraph-gap) - var(--ow-pull-quote-content-gap)
+    );
+    --ow-pull-quote-quote-top: var(--ow-quote-heading-nudge);
+
+    border: 0;
+    color: var(--color-ow-quote-text);
+    display: grid;
+    gap: var(--ow-pull-quote-content-gap);
+    margin: 0;
+    overflow: visible;
+    padding: var(--ow-quote-block-spacing) var(--ow-pull-quote-inline-padding);
+    position: relative;
+
+    @variant dark {
+      --color-ow-quote-border: var(--color-ow-border-high-contrast-dark);
+      --color-ow-quote-mark: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 60%,
+        transparent
+      );
+      --color-ow-quote-text: var(--color-ow-x-light);
+    }
+
+    &.has-image {
+      --ow-pull-quote-content-gap: var(--ow-pull-quote-image-spacing-block-end);
+
+      padding-top: var(--ow-pull-quote-image-spacing-block-start);
+    }
+
+    .ow-pull-quote-citation {
+      display: block;
+      font-size: var(--text-base);
+      font-style: italic;
+      font-weight: var(--font-weight-regular);
+      line-height: var(--text-base--line-height);
+      max-width: var(--ow-quote-text-max-width);
+    }
+  }
+
+  .ow-pull-quote-small {
+    --ow-pull-quote-font-size: var(--text-base);
+    --ow-pull-quote-font-weight: var(--font-weight-regular);
+    --ow-pull-quote-inline-padding: 1.5rem;
+    --ow-pull-quote-line-height: var(--text-base--line-height);
+    --ow-pull-quote-mark-size: var(--ow-pull-quote-mark-size-small);
+    --ow-pull-quote-content-gap: var(--ow-pull-quote-citation-spacing);
+    --ow-pull-quote-paragraph-gap: var(--ow-pull-quote-citation-spacing);
+    --ow-pull-quote-quote-top: var(--ow-quote-text-nudge);
+  }
+
+  .ow-pull-quote-large {
+    --ow-pull-quote-font-weight: 550;
+    --ow-pull-quote-inline-padding: 2.5rem;
+  }
+
+  .ow-pull-quote-image {
+    display: block;
+    height: var(--ow-pull-quote-image-height);
+    width: auto;
+  }
+
+  .ow-pull-quote-quote {
+    font-size: var(--ow-pull-quote-font-size);
+    font-style: normal;
+    font-weight: var(--ow-pull-quote-font-weight);
+    line-height: var(--ow-pull-quote-line-height);
+    margin: 0;
+    max-width: var(--ow-quote-text-max-width);
+    padding-top: var(--ow-pull-quote-quote-top);
+    position: relative;
+
+    &:first-of-type::before,
+    &:last-of-type::after {
+      color: var(--color-ow-quote-mark);
+      display: inline-block;
+      font-size: var(--ow-pull-quote-mark-size);
+      position: absolute;
+      width: var(--ow-pull-quote-mark-width);
+    }
+
+    &:first-of-type::before {
+      content: '\201C';
+      left: calc(-1 * var(--ow-pull-quote-mark-offset));
+      text-align: right;
+      top: var(--ow-pull-quote-open-mark-top);
+    }
+
+    & + .ow-pull-quote-quote {
+      padding-top: calc(
+        var(--ow-pull-quote-quote-top) + var(--ow-pull-quote-paragraph-offset)
+      );
+    }
+
+    &:last-of-type::after {
+      bottom: var(--ow-pull-quote-close-mark-offset);
+      content: '\201E';
+      translate: 0.25em 0;
+    }
+  }
+
+  .ow-pull-quote-large .ow-pull-quote-quote {
+    &:first-of-type::before,
+    &:last-of-type::after {
+      max-width: 1em;
+    }
+  }
+
+  :is(.ow-pull-quote, .ow-pull-quote-large) .ow-pull-quote-quote {
+    &:first-of-type::before {
+      @media (width < theme(--breakpoint-lg)) {
+        top: var(--ow-pull-quote-open-mark-top-mobile);
+      }
+    }
+  }
+}
