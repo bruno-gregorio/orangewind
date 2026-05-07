@@ -1,0 +1,203 @@
+/* Strip and Section — https://vanillaframework.io/docs/patterns/strip */
+/* Section — https://vanillaframework.io/docs/patterns/section */
+
+@theme {
+  --color-ow-strip-accent-bg: var(--color-ow-dark);
+  --color-ow-strip-bg: transparent;
+  --color-ow-strip-border: var(--color-ow-border-default);
+  --color-ow-strip-highlighted-bg: var(--color-ow-light);
+  --color-ow-strip-light-bg: var(--color-ow-light);
+  --color-ow-strip-paper-bg: var(--color-ow-paper);
+  --color-ow-strip-paper-highlighted-bg: color-mix(
+    in srgb,
+    var(--color-ow-paper),
+    var(--color-ow-x-dark) 3%
+  );
+  --color-ow-strip-text: var(--color-ow-text-default);
+  --ow-section-hero-padding-top: 1rem;
+  --ow-section-padding-deep: 4rem;
+  --ow-section-padding-default: 2rem;
+  --ow-section-padding-shallow: 1.5rem;
+  --ow-strip-padding-deep: 4rem;
+  --ow-strip-padding-default: 2rem;
+  --ow-strip-padding-shallow: 1.5rem;
+}
+
+@layer components {
+  .ow-strip,
+  .ow-strip-highlighted,
+  .ow-strip-light,
+  .ow-strip-dark,
+  .ow-strip-paper,
+  .ow-strip-accent,
+  .ow-strip-image {
+    background-color: var(--color-ow-strip-bg);
+    clear: both;
+    color: var(--color-ow-strip-text);
+    padding-bottom: var(--ow-strip-padding-default);
+    padding-top: var(--ow-strip-padding-default);
+    position: relative;
+    width: 100%;
+
+    @variant dark {
+      --color-ow-strip-border: var(--color-ow-surface-border-dark);
+      --color-ow-strip-highlighted-bg: color-mix(
+        in oklch,
+        var(--color-ow-dark),
+        var(--color-ow-x-light) 10%
+      );
+      --color-ow-strip-text: var(--color-ow-x-light);
+    }
+
+    &.is-shallow {
+      padding-bottom: var(--ow-strip-padding-shallow);
+      padding-top: var(--ow-strip-padding-shallow);
+    }
+
+    &.is-deep {
+      padding-bottom: var(--ow-strip-padding-deep);
+      padding-top: var(--ow-strip-padding-deep);
+    }
+
+    &.is-bordered::after {
+      background-color: var(--color-ow-strip-border);
+      bottom: 0;
+      content: '';
+      height: 1px;
+      left: 0;
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  .ow-strip {
+    &.is-light {
+      --color-ow-strip-bg: var(--color-ow-x-light);
+      --color-ow-strip-text: var(--color-ow-dark);
+    }
+
+    &.is-dark {
+      --color-ow-strip-bg: var(--color-ow-dark);
+      --color-ow-strip-border: var(--color-ow-surface-border-dark);
+      --color-ow-strip-text: var(--color-ow-x-light);
+    }
+  }
+
+  .ow-strip-highlighted {
+    --color-ow-strip-bg: var(--color-ow-strip-highlighted-bg);
+  }
+
+  .ow-strip-light {
+    --color-ow-strip-bg: var(--color-ow-strip-light-bg);
+    --color-ow-strip-text: var(--color-ow-dark);
+  }
+
+  .ow-strip-dark,
+  .ow-strip-accent {
+    --color-ow-strip-bg: var(--color-ow-strip-accent-bg);
+    --color-ow-strip-border: var(--color-ow-surface-border-dark);
+    --color-ow-strip-text: var(--color-ow-x-light);
+  }
+
+  .ow-strip.is-paper,
+  .ow-strip-paper {
+    --color-ow-background-alt: var(--color-ow-strip-paper-highlighted-bg);
+    --color-ow-background-default: var(--color-ow-strip-paper-bg);
+    --color-ow-border-default: color-mix(
+      in srgb,
+      var(--color-ow-x-dark) 20%,
+      transparent
+    );
+    --color-ow-strip-border: var(--color-ow-border-default);
+    --color-ow-strip-bg: var(--color-ow-strip-paper-bg);
+    --color-ow-strip-text: var(--color-ow-dark);
+    --color-ow-surface-border: var(--color-ow-border-default);
+    --color-ow-surface-border-low: color-mix(
+      in srgb,
+      var(--color-ow-x-dark) 10%,
+      transparent
+    );
+    --color-ow-text-default: var(--color-ow-dark);
+    --color-ow-text-muted: color-mix(
+      in srgb,
+      var(--color-ow-x-dark) 60%,
+      transparent
+    );
+
+    @variant dark {
+      --color-ow-background-alt: var(--color-ow-strip-paper-highlighted-bg);
+      --color-ow-background-default: var(--color-ow-strip-paper-bg);
+      --color-ow-border-default: color-mix(
+        in srgb,
+        var(--color-ow-x-dark) 20%,
+        transparent
+      );
+      --color-ow-strip-border: var(--color-ow-border-default);
+      --color-ow-strip-bg: var(--color-ow-strip-paper-bg);
+      --color-ow-strip-text: var(--color-ow-dark);
+      --color-ow-surface-border: var(--color-ow-border-default);
+      --color-ow-surface-border-low: color-mix(
+        in srgb,
+        var(--color-ow-x-dark) 10%,
+        transparent
+      );
+      --color-ow-text-default: var(--color-ow-dark);
+      --color-ow-text-muted: color-mix(
+        in srgb,
+        var(--color-ow-x-dark) 60%,
+        transparent
+      );
+    }
+
+    &.is-highlighted {
+      --color-ow-strip-bg: var(--color-ow-strip-paper-highlighted-bg);
+    }
+  }
+
+  .ow-strip-image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .ow-section,
+  .ow-section-hero,
+  .ow-section-deep,
+  .ow-section-shallow {
+    padding-bottom: var(--ow-section-padding-default);
+  }
+
+  .ow-section-deep {
+    padding-bottom: var(--ow-section-padding-deep);
+  }
+
+  .ow-section-shallow {
+    padding-bottom: var(--ow-section-padding-shallow);
+  }
+
+  .ow-section-hero {
+    padding-top: var(--ow-section-hero-padding-top);
+  }
+
+  @media (width >= theme(--breakpoint-lg)) {
+    .ow-strip,
+    .ow-strip-highlighted,
+    .ow-strip-light,
+    .ow-strip-dark,
+    .ow-strip-paper,
+    .ow-strip-accent,
+    .ow-strip-image {
+      --ow-strip-padding-deep: 8rem;
+      --ow-strip-padding-default: 4rem;
+    }
+
+    .ow-section,
+    .ow-section-hero,
+    .ow-section-deep,
+    .ow-section-shallow {
+      --ow-section-hero-padding-top: 1.5rem;
+      --ow-section-padding-deep: 8rem;
+      --ow-section-padding-default: 4rem;
+    }
+  }
+}
