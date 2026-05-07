@@ -93,7 +93,7 @@ _Larger data presentation blocks that nest multiple basic elements together._
 
 _Full-width or macro-layout elements that frame content from previous phases._
 
-- [ ] [Strip](https://vanillaframework.io/docs/patterns/strip) & [Section Pattern](https://vanillaframework.io/docs/patterns/section)
+- [x] [Strip](https://vanillaframework.io/docs/patterns/strip) & [Section Pattern](https://vanillaframework.io/docs/patterns/section)
       _Note: These establish the light/dark thematic wrappers for everything inside them._
 - [ ] Divided Section (Requires Strip, Divider)
 - [ ] [Modal](https://vanillaframework.io/docs/patterns/modal) (Requires Buttons, Forms, Typography)
