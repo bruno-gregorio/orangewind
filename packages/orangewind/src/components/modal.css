@@ -1,0 +1,138 @@
+/* Modal — https://vanillaframework.io/docs/patterns/modal */
+
+@theme {
+  --color-ow-modal-bg: var(--color-ow-x-light);
+  --color-ow-modal-border: var(--color-ow-surface-border-low);
+  --color-ow-modal-overlay: color-mix(
+    in srgb,
+    var(--color-ow-x-dark) 85%,
+    transparent
+  );
+  --color-ow-modal-shadow: var(--color-ow-surface-shadow);
+  --color-ow-modal-shadow-ring: var(--color-ow-surface-shadow-ring);
+  --color-ow-modal-shadow-soft: var(--color-ow-surface-shadow-soft);
+  --color-ow-modal-text: var(--color-ow-text-default);
+  --ow-modal-dialog-max-width: 40rem;
+  --ow-modal-gutter: 1rem;
+  --ow-modal-padding-block: 1rem;
+  --ow-modal-padding-inline: 1.5rem;
+  --shadow-ow-modal: var(--shadow-ow-surface);
+}
+
+@layer components {
+  .ow-modal {
+    align-items: center;
+    background-color: var(--color-ow-modal-overlay);
+    display: flex;
+    inset: 0;
+    justify-content: center;
+    padding: var(--ow-modal-gutter);
+    position: fixed;
+    z-index: 150;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  .ow-modal-dialog {
+    background-color: var(--color-ow-modal-bg);
+    box-shadow: var(--shadow-ow-modal);
+    color: var(--color-ow-modal-text);
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    max-width: var(--ow-modal-dialog-max-width);
+    overflow: hidden;
+    width: 100%;
+
+    @variant dark {
+      --color-ow-modal-bg: color-mix(
+        in oklch,
+        var(--color-ow-dark),
+        var(--color-ow-x-light) 12%
+      );
+      --color-ow-modal-border: var(--color-ow-surface-border-low-dark);
+      --color-ow-modal-shadow: var(--color-ow-surface-shadow-dark);
+      --color-ow-modal-shadow-ring: var(--color-ow-surface-shadow-ring-dark);
+      --color-ow-modal-shadow-soft: var(--color-ow-surface-shadow-soft-dark);
+      --color-ow-modal-text: var(--color-ow-x-light);
+      --shadow-ow-modal: var(--shadow-ow-surface-dark);
+    }
+
+    &.is-wide {
+      --ow-modal-dialog-max-width: 60rem;
+    }
+
+    &.is-narrow {
+      --ow-modal-dialog-max-width: 28rem;
+    }
+  }
+
+  .ow-modal-header {
+    align-items: center;
+    border-bottom: 1px solid var(--color-ow-modal-border);
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: var(--ow-modal-padding-block) var(--ow-modal-padding-inline);
+  }
+
+  .ow-modal-title {
+    flex: 1;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.75rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .ow-modal-close {
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    color: var(--color-ow-modal-text);
+    cursor: pointer;
+    display: inline-flex;
+    flex-shrink: 0;
+    height: 2rem;
+    justify-content: center;
+    padding: 0;
+    width: 2rem;
+
+    &:hover {
+      background-color: color-mix(
+        in srgb,
+        currentColor 8%,
+        transparent
+      );
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--color-ow-focus);
+      outline-offset: -3px;
+    }
+  }
+
+  .ow-modal-body {
+    overflow: auto;
+    padding: var(--ow-modal-padding-block) var(--ow-modal-padding-inline);
+
+    > :first-child {
+      margin-top: 0;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .ow-modal-footer {
+    border-top: 1px solid var(--color-ow-modal-border);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    padding: var(--ow-modal-padding-block) var(--ow-modal-padding-inline);
+  }
+}
