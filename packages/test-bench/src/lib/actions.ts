@@ -1,5 +1,6 @@
 export function darkMode(node: Element, dark: boolean) {
-  const apply = (d: boolean) => document.documentElement.classList.toggle('dark', d)
+  const apply = (d: boolean) =>
+    document.documentElement.classList.toggle('dark', d)
   apply(dark)
   return {
     update: apply,
@@ -7,7 +8,7 @@ export function darkMode(node: Element, dark: boolean) {
   }
 }
 
-export function rangeProgress(node: HTMLInputElement, value?: any) {
+export function rangeProgress(node: HTMLInputElement) {
   const update = () => {
     const min = Number(node.min || 0)
     const max = Number(node.max || 100)
@@ -18,9 +19,7 @@ export function rangeProgress(node: HTMLInputElement, value?: any) {
   node.addEventListener('input', update)
   update()
   return {
-    update(newValue?: any) {
-      update()
-    },
+    update,
     destroy: () => node.removeEventListener('input', update)
   }
 }

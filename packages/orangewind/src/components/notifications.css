@@ -5,13 +5,13 @@
   --color-ow-notification-text-muted: var(--color-ow-text-muted);
   --color-ow-notification-link: var(--color-ow-link);
   --color-ow-notification-link-visited: var(--color-ow-link-visited);
-  
+
   --color-ow-notification-bar-info: var(--color-ow-information);
   --color-ow-notification-bar-positive: var(--color-ow-positive);
   --color-ow-notification-bar-caution: var(--color-ow-caution);
   --color-ow-notification-bar-negative: var(--color-ow-negative);
-  
-  --ow-notification-icon-top: 0.25rem; 
+
+  --ow-notification-icon-top: 0.25rem;
 }
 
 @layer components {
@@ -27,16 +27,25 @@
     align-items: start;
     background-color: var(--color-ow-notification-bg);
     border: 1px solid var(--color-ow-notification-border);
-    border-left: 0.25rem solid var(--color-ow-notification-bar, var(--color-ow-notification-bar-info));
+    border-left: 0.25rem solid
+      var(--color-ow-notification-bar, var(--color-ow-notification-bar-info));
     color: var(--color-ow-notification-text);
     padding: calc(1rem - 1px) 1.5rem calc(1rem - 1px) calc(1rem - 0.25rem);
     width: 100%;
 
     @variant dark {
-      --color-ow-notification-bg: color-mix(in oklch, var(--color-ow-dark), var(--color-ow-x-light) 12%);
+      --color-ow-notification-bg: color-mix(
+        in oklch,
+        var(--color-ow-dark),
+        var(--color-ow-x-light) 12%
+      );
       --color-ow-notification-border: var(--color-ow-mid);
       --color-ow-notification-text: var(--color-ow-x-light);
-      --color-ow-notification-text-muted: color-mix(in srgb, var(--color-ow-x-light) 80%, transparent);
+      --color-ow-notification-text-muted: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 80%,
+        transparent
+      );
       --color-ow-background-default: var(--color-ow-x-light);
     }
 
@@ -126,7 +135,7 @@
       &:visited {
         color: var(--color-ow-notification-link-visited);
       }
-      
+
       &:hover {
         text-decoration: underline;
         text-decoration-thickness: 1px;

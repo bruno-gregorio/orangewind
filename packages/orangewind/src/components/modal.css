@@ -101,11 +101,7 @@
     width: 2rem;
 
     &:hover {
-      background-color: color-mix(
-        in srgb,
-        currentColor 8%,
-        transparent
-      );
+      background-color: color-mix(in srgb, currentColor 8%, transparent);
     }
 
     &:focus-visible {

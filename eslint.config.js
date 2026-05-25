@@ -2,6 +2,7 @@ import neostandard from 'neostandard'
 import tseslint from 'typescript-eslint'
 import svelte from 'eslint-plugin-svelte'
 import prettier from 'eslint-config-prettier'
+import globals from 'globals'
 
 export default [
   // Base StandardJS rules via neostandard
@@ -17,6 +18,9 @@ export default [
     languageOptions: {
       parserOptions: {
         parser: tseslint.parser
+      },
+      globals: {
+        ...globals.browser
       }
     }
   },
@@ -28,7 +32,8 @@ export default [
       '**/dist/**',
       '**/.svelte-kit/**',
       '**/build/**',
-      '**/storybook-static/**'
+      '**/storybook-static/**',
+      'vanilla-framework/**'
     ]
   },
 

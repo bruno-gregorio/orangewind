@@ -15,7 +15,11 @@
   --color-ow-btn-bg: var(--color-ow-x-light);
   --color-ow-btn-text: var(--color-ow-dark);
   --color-ow-btn-border: var(--color-ow-mid-dark);
-  --color-ow-btn-hover-bg: color-mix(in oklch, var(--color-ow-x-light), black 8%);
+  --color-ow-btn-hover-bg: color-mix(
+    in oklch,
+    var(--color-ow-x-light),
+    black 8%
+  );
   --color-ow-btn-active-bg: color-mix(
     in oklch,
     var(--color-ow-x-light),
@@ -65,7 +69,9 @@
     padding: calc(0.375rem - 1px) 1rem;
     text-align: center;
     text-decoration: none;
-    transition: background-color 0.1s ease-in, border-color 0.1s ease-in;
+    transition:
+      background-color 0.1s ease-in,
+      border-color 0.1s ease-in;
 
     p > & {
       vertical-align: middle;
@@ -81,7 +87,12 @@
   .ow-btn-positive,
   .ow-btn-negative,
   .ow-btn-base {
-    &:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']) {
+    &:is(
+      :active,
+      [aria-pressed='true'],
+      [aria-selected='true'],
+      [aria-expanded='true']
+    ) {
       transition-duration: 0s;
     }
 
@@ -104,8 +115,16 @@
       --color-ow-btn-bg: color-mix(in oklch, var(--color-ow-x-dark), white 15%);
       --color-ow-btn-text: var(--color-ow-x-light);
       --color-ow-btn-border: var(--color-ow-mid);
-      --color-ow-btn-hover-bg: color-mix(in oklch, var(--color-ow-x-dark), white 25%);
-      --color-ow-btn-active-bg: color-mix(in oklch, var(--color-ow-x-dark), white 35%);
+      --color-ow-btn-hover-bg: color-mix(
+        in oklch,
+        var(--color-ow-x-dark),
+        white 25%
+      );
+      --color-ow-btn-active-bg: color-mix(
+        in oklch,
+        var(--color-ow-x-dark),
+        white 35%
+      );
     }
 
     &:visited {
@@ -117,7 +136,12 @@
       border-color: var(--color-ow-btn-border);
     }
 
-    &:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']) {
+    &:is(
+      :active,
+      [aria-pressed='true'],
+      [aria-selected='true'],
+      [aria-expanded='true']
+    ) {
       background-color: var(--color-ow-btn-active-bg);
       border-color: var(--color-ow-btn-border);
     }
@@ -134,8 +158,16 @@
     color: var(--color-ow-x-light);
 
     @variant dark {
-      --color-ow-btn-positive-hover-bg: color-mix(in oklch, var(--color-ow-positive), white 12%);
-      --color-ow-btn-positive-active-bg: color-mix(in oklch, var(--color-ow-positive), white 22%);
+      --color-ow-btn-positive-hover-bg: color-mix(
+        in oklch,
+        var(--color-ow-positive),
+        white 12%
+      );
+      --color-ow-btn-positive-active-bg: color-mix(
+        in oklch,
+        var(--color-ow-positive),
+        white 22%
+      );
     }
 
     &:visited {
@@ -147,7 +179,12 @@
       border-color: var(--color-ow-btn-positive-hover-bg);
     }
 
-    &:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']) {
+    &:is(
+      :active,
+      [aria-pressed='true'],
+      [aria-selected='true'],
+      [aria-expanded='true']
+    ) {
       background-color: var(--color-ow-btn-positive-active-bg);
       border-color: var(--color-ow-btn-positive-active-bg);
     }
@@ -164,8 +201,16 @@
     color: var(--color-ow-x-light);
 
     @variant dark {
-      --color-ow-btn-negative-hover-bg: color-mix(in oklch, var(--color-ow-negative), white 12%);
-      --color-ow-btn-negative-active-bg: color-mix(in oklch, var(--color-ow-negative), white 22%);
+      --color-ow-btn-negative-hover-bg: color-mix(
+        in oklch,
+        var(--color-ow-negative),
+        white 12%
+      );
+      --color-ow-btn-negative-active-bg: color-mix(
+        in oklch,
+        var(--color-ow-negative),
+        white 22%
+      );
     }
 
     &:visited {
@@ -177,7 +222,12 @@
       border-color: var(--color-ow-btn-negative-hover-bg);
     }
 
-    &:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']) {
+    &:is(
+      :active,
+      [aria-pressed='true'],
+      [aria-selected='true'],
+      [aria-expanded='true']
+    ) {
       background-color: var(--color-ow-btn-negative-active-bg);
       border-color: var(--color-ow-btn-negative-active-bg);
     }
@@ -195,8 +245,16 @@
 
     @variant dark {
       --color-ow-btn-text: var(--color-ow-x-light);
-      --color-ow-btn-hover-bg: color-mix(in oklch, var(--color-ow-x-dark), white 25%);
-      --color-ow-btn-active-bg: color-mix(in oklch, var(--color-ow-x-dark), white 35%);
+      --color-ow-btn-hover-bg: color-mix(
+        in oklch,
+        var(--color-ow-x-dark),
+        white 25%
+      );
+      --color-ow-btn-active-bg: color-mix(
+        in oklch,
+        var(--color-ow-x-dark),
+        white 35%
+      );
     }
 
     &:visited {
@@ -208,7 +266,12 @@
       border-color: transparent;
     }
 
-    &:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']) {
+    &:is(
+      :active,
+      [aria-pressed='true'],
+      [aria-selected='true'],
+      [aria-expanded='true']
+    ) {
       background-color: var(--color-ow-btn-active-bg);
       border-color: transparent;
     }
@@ -273,58 +336,38 @@
   .ow-btn-round {
     opacity: 0.99; /* GPU Compositing */
     border: none;
-  
+
     --r: 1.35em;
-    --t: 1; 
+    --t: 1;
     --i: 1px; /* Global Anti-Aliasing Inset */
-    
+
     --_r: min(var(--r), 50%);
     --_o: calc(var(--_r) * (1 - var(--t)));
-    
+
     /* Outer Bounds (Right/Bottom) */
     --_max-x: calc(100% - var(--i));
     --_max-y: calc(100% - var(--i));
-    
+
     /* Inner Bounds (Left/Top) */
     --_r-i: calc(var(--_r) + var(--i));
     --_o-i: calc(var(--_o) + var(--i));
-    
+
     clip-path: shape(
-      /* Midpoint Anchor shifted down by inset */
-      from 50% var(--i), 
-      
-      /* Top Edge */
-      line to calc(var(--_max-x) - var(--_r)) var(--i), 
-      
-      /* Top-Right Curve */
-      curve to var(--_max-x) var(--_r-i) 
-        with calc(var(--_max-x) - var(--_o)) var(--i) 
-        / var(--_max-x) var(--_o-i), 
-      
-      /* Right Edge */
-      line to var(--_max-x) calc(var(--_max-y) - var(--_r)), 
-      
-      /* Bottom-Right Curve */
-      curve to calc(var(--_max-x) - var(--_r)) var(--_max-y) 
-        with var(--_max-x) calc(var(--_max-y) - var(--_o)) 
-        / calc(var(--_max-x) - var(--_o)) var(--_max-y), 
-      
-      /* Bottom Edge */
-      line to var(--_r-i) var(--_max-y), 
-      
-      /* Bottom-Left Curve */
-      curve to var(--i) calc(var(--_max-y) - var(--_r)) 
-        with var(--_o-i) var(--_max-y) 
-        / var(--i) calc(var(--_max-y) - var(--_o)), 
-      
-      /* Left Edge */
-      line to var(--i) var(--_r-i), 
-      
-      /* Top-Left Curve */
-      curve to var(--_r-i) var(--i) 
-        with var(--i) var(--_o-i) 
-        / var(--_o-i) var(--i),
-      
+      /* Midpoint Anchor shifted down by inset */ from 50% var(--i),
+      /* Top Edge */ line to calc(var(--_max-x) - var(--_r)) var(--i),
+      /* Top-Right Curve */ curve to var(--_max-x) var(--_r-i) with
+        calc(var(--_max-x) - var(--_o)) var(--i) / var(--_max-x) var(--_o-i),
+      /* Right Edge */ line to var(--_max-x) calc(var(--_max-y) - var(--_r)),
+      /* Bottom-Right Curve */ curve to calc(var(--_max-x) - var(--_r))
+        var(--_max-y) with var(--_max-x) calc(var(--_max-y) - var(--_o)) /
+        calc(var(--_max-x) - var(--_o)) var(--_max-y),
+      /* Bottom Edge */ line to var(--_r-i) var(--_max-y),
+      /* Bottom-Left Curve */ curve to var(--i) calc(var(--_max-y) - var(--_r))
+        with var(--_o-i) var(--_max-y) / var(--i)
+        calc(var(--_max-y) - var(--_o)),
+      /* Left Edge */ line to var(--i) var(--_r-i),
+      /* Top-Left Curve */ curve to var(--_r-i) var(--i) with var(--i)
+        var(--_o-i) / var(--_o-i) var(--i),
       close
     );
   }

@@ -4,3 +4,4 @@ build
 .svelte-kit
 storybook-static
 bun.lock
+vanilla-framework

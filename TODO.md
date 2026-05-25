@@ -55,7 +55,7 @@ _Interactive elements that require Phase 1 rules and Buttons to be complete._
 - [x] [Search Box](https://vanillaframework.io/docs/patterns/search-box)
       _Dependency for: Global Navigation, Search and Filter._
 - [-] [Search and Filter](https://vanillaframework.io/docs/patterns/search-and-filter)
-      _Requires: Chip, Search Box._
+  _Requires: Chip, Search Box._
 
 ---
 

@@ -37,8 +37,15 @@
 </script>
 
 <Story name="Buttons">
-  {#snippet template({ dark, baselineGrid, positiveColor, negativeColor, rounded })}
-    {@const btnClass = (base: string) => [base, rounded && 'ow-btn-round'].filter(Boolean).join(' ')}
+  {#snippet template({
+    dark,
+    baselineGrid,
+    positiveColor,
+    negativeColor,
+    rounded
+  })}
+    {@const btnClass = (base: string) =>
+      [base, rounded && 'ow-btn-round'].filter(Boolean).join(' ')}
     <div
       use:darkMode={dark}
       class={[
@@ -135,8 +142,12 @@
           <span class={dark ? 'text-white text-sm' : 'text-sm'}>
             Action required:
           </span>
-          <button class={btnClass('ow-btn is-inline is-small')}>Acknowledge</button>
-          <button class={btnClass('ow-btn-negative is-inline is-small')}>Dismiss</button>
+          <button class={btnClass('ow-btn is-inline is-small')}
+            >Acknowledge</button
+          >
+          <button class={btnClass('ow-btn-negative is-inline is-small')}
+            >Dismiss</button
+          >
         </div>
       </section>
     </div>

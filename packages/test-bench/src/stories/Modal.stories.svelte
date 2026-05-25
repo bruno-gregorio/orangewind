@@ -167,7 +167,9 @@
           aria-labelledby="modal-default-title"
         >
           <header class="ow-modal-header">
-            <h2 class="ow-modal-title" id="modal-default-title">Confirm action</h2>
+            <h2 class="ow-modal-title" id="modal-default-title">
+              Confirm action
+            </h2>
             <button
               type="button"
               class="ow-modal-close"
@@ -327,7 +329,9 @@
           aria-labelledby="modal-scroll-title"
         >
           <header class="ow-modal-header">
-            <h2 class="ow-modal-title" id="modal-scroll-title">Release notes</h2>
+            <h2 class="ow-modal-title" id="modal-scroll-title">
+              Release notes
+            </h2>
             <button
               type="button"
               class="ow-modal-close"

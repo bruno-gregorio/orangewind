@@ -38,7 +38,12 @@
       z-index: 1; /* Keep focus outline above pseudo-element dividers */
     }
 
-    &:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']) {
+    &:is(
+      :active,
+      [aria-pressed='true'],
+      [aria-selected='true'],
+      [aria-expanded='true']
+    ) {
       transition-duration: 0s;
     }
 
@@ -57,12 +62,24 @@
     color: var(--color-ow-btn-text);
 
     @variant dark {
-      --color-ow-segmented-control-border: color-mix(in srgb, var(--color-ow-x-light) 25%, transparent);
+      --color-ow-segmented-control-border: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 25%,
+        transparent
+      );
       --color-ow-btn-bg: color-mix(in oklch, var(--color-ow-x-dark), white 15%);
       --color-ow-btn-text: var(--color-ow-x-light);
       --color-ow-btn-border: var(--color-ow-mid);
-      --color-ow-btn-hover-bg: color-mix(in oklch, var(--color-ow-x-dark), white 25%);
-      --color-ow-btn-active-bg: color-mix(in oklch, var(--color-ow-x-dark), white 35%);
+      --color-ow-btn-hover-bg: color-mix(
+        in oklch,
+        var(--color-ow-x-dark),
+        white 25%
+      );
+      --color-ow-btn-active-bg: color-mix(
+        in oklch,
+        var(--color-ow-x-dark),
+        white 35%
+      );
     }
 
     &:visited {
@@ -74,7 +91,12 @@
       border-color: var(--color-ow-btn-border);
     }
 
-    &:is(:active, [aria-pressed='true'], [aria-selected='true'], [aria-expanded='true']) {
+    &:is(
+      :active,
+      [aria-pressed='true'],
+      [aria-selected='true'],
+      [aria-expanded='true']
+    ) {
       background-color: var(--color-ow-btn-active-bg);
       border-color: var(--color-ow-btn-border);
     }

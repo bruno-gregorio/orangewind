@@ -175,8 +175,7 @@
                       <div class="ow-stepped-list-title">
                         <h3 class="ow-heading-5">{step.title}</h3>
                         <div class="ow-stepped-list-content grid gap-3 pt-2">
-                          <pre class="ow-code-snippet"><code
-                              >{step.code}</code
+                          <pre class="ow-code-snippet"><code>{step.code}</code
                             ></pre>
                           {#if step.description}
                             <p>{step.description}</p>
@@ -253,15 +252,15 @@
             <hr class="ow-rule-muted" />
             <div class={`pt-4 ${gridLayoutClass}`}>
               <div>
-                <h2 class="ow-heading-2">Bring up a host with three commands</h2>
+                <h2 class="ow-heading-2">
+                  Bring up a host with three commands
+                </h2>
               </div>
               <div>
                 <ul class="ow-divided-block ow-list">
                   {#each codeOnlyItems as command, index (command)}
                     <li class="ow-divided-heading ow-list-item">
-                      <pre class="ow-code-snippet"><code
-                          >{command}</code
-                        ></pre>
+                      <pre class="ow-code-snippet"><code>{command}</code></pre>
                     </li>
                     {#if index < codeOnlyItems.length - 1}
                       <hr class="ow-rule-muted" />

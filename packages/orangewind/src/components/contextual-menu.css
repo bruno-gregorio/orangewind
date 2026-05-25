@@ -47,7 +47,9 @@
         var(--color-ow-dark),
         var(--color-ow-x-light) 12%
       );
-      --color-ow-contextual-menu-border: var(--color-ow-surface-border-low-dark);
+      --color-ow-contextual-menu-border: var(
+        --color-ow-surface-border-low-dark
+      );
       --color-ow-contextual-menu-hover-bg: color-mix(
         in srgb,
         var(--color-ow-x-light) 8%,

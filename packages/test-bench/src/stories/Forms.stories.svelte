@@ -22,7 +22,7 @@
 </script>
 
 <script lang="ts">
-  let showPassword = $state(false);
+  let showPassword = $state(false)
 </script>
 
 <Story name="Forms">
@@ -38,7 +38,9 @@
         .join(' ')}
     >
       <section>
-        <p class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4">
+        <p
+          class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4"
+        >
           Base Inputs
         </p>
         <div class="ow-form ow-form-stacked">
@@ -48,12 +50,23 @@
 
           <div class="ow-form-password-toggle">
             <label for="input-password" class="is-required">Password</label>
-            <button class="ow-btn-base has-icon" onclick={() => showPassword = !showPassword}>
-              <span class="ow-form-password-toggle-label">{showPassword ? 'Hide' : 'Show'}</span>
+            <button
+              class="ow-btn-base has-icon"
+              onclick={() => {
+                showPassword = !showPassword
+              }}
+            >
+              <span class="ow-form-password-toggle-label"
+                >{showPassword ? 'Hide' : 'Show'}</span
+              >
               <i class={showPassword ? 'ow-icon-hide' : 'ow-icon-show'}></i>
             </button>
           </div>
-          <input type={showPassword ? 'text' : 'password'} id="input-password" placeholder="Enter password..." />
+          <input
+            type={showPassword ? 'text' : 'password'}
+            id="input-password"
+            placeholder="Enter password..."
+          />
 
           <label for="input-search">Search</label>
           <input type="search" id="input-search" placeholder="Search..." />
@@ -62,15 +75,27 @@
           <input type="date" id="input-date" />
 
           <label for="input-disabled">Disabled Input</label>
-          <input type="text" id="input-disabled" disabled value="This is disabled" />
+          <input
+            type="text"
+            id="input-disabled"
+            disabled
+            value="This is disabled"
+          />
 
           <label for="input-readonly">Readonly Input</label>
-          <input type="text" id="input-readonly" readonly value="This is readonly" />
+          <input
+            type="text"
+            id="input-readonly"
+            readonly
+            value="This is readonly"
+          />
         </div>
       </section>
 
       <section>
-        <p class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4">
+        <p
+          class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4"
+        >
           Select and Textarea
         </p>
         <div class="ow-form ow-form-stacked">
@@ -83,12 +108,15 @@
           </select>
 
           <label for="textarea-box">Textarea</label>
-          <textarea id="textarea-box" placeholder="Enter multi-line text..."></textarea>
+          <textarea id="textarea-box" placeholder="Enter multi-line text..."
+          ></textarea>
         </div>
       </section>
 
       <section>
-        <p class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4">
+        <p
+          class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4"
+        >
           Checkboxes & Radios
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -97,30 +125,65 @@
             <div class="ow-form">
               <div class="ow-checkbox">
                 <input type="checkbox" id="check-1" class="ow-checkbox-input" />
-                <label for="check-1" class="ow-checkbox-label">Checkbox 1</label>
-                <p class="ow-form-help-text is-tick-element">Optional description for this checkbox.</p>
+                <label for="check-1" class="ow-checkbox-label">Checkbox 1</label
+                >
+                <p class="ow-form-help-text is-tick-element">
+                  Optional description for this checkbox.
+                </p>
               </div>
               <div class="ow-checkbox">
-                <input type="checkbox" id="check-2" class="ow-checkbox-input" checked />
-                <label for="check-2" class="ow-checkbox-label">Checkbox 2 (Checked)</label>
+                <input
+                  type="checkbox"
+                  id="check-2"
+                  class="ow-checkbox-input"
+                  checked
+                />
+                <label for="check-2" class="ow-checkbox-label"
+                  >Checkbox 2 (Checked)</label
+                >
               </div>
               <div class="ow-checkbox">
-                <input type="checkbox" id="check-3" class="ow-checkbox-input" disabled />
-                <label for="check-3" class="ow-checkbox-label">Checkbox Disabled</label>
+                <input
+                  type="checkbox"
+                  id="check-3"
+                  class="ow-checkbox-input"
+                  disabled
+                />
+                <label for="check-3" class="ow-checkbox-label"
+                  >Checkbox Disabled</label
+                >
               </div>
               <div class="ow-checkbox">
-                <input type="checkbox" id="check-indeterminate" class="ow-checkbox-input" indeterminate={true} />
-                <label for="check-indeterminate" class="ow-checkbox-label">Checkbox Indeterminate</label>
+                <input
+                  type="checkbox"
+                  id="check-indeterminate"
+                  class="ow-checkbox-input"
+                  indeterminate={true}
+                />
+                <label for="check-indeterminate" class="ow-checkbox-label"
+                  >Checkbox Indeterminate</label
+                >
               </div>
             </div>
-            
+
             <div class="ow-form mt-4">
               <div class="ow-radio">
-                <input type="radio" name="radio-stacked" id="rad-1" class="ow-radio-input" />
+                <input
+                  type="radio"
+                  name="radio-stacked"
+                  id="rad-1"
+                  class="ow-radio-input"
+                />
                 <label for="rad-1" class="ow-radio-label">Radio Option A</label>
               </div>
               <div class="ow-radio">
-                <input type="radio" name="radio-stacked" id="rad-2" class="ow-radio-input" checked />
+                <input
+                  type="radio"
+                  name="radio-stacked"
+                  id="rad-2"
+                  class="ow-radio-input"
+                  checked
+                />
                 <label for="rad-2" class="ow-radio-label">Radio Option B</label>
               </div>
             </div>
@@ -130,23 +193,49 @@
             <h3 class="mb-2 font-medium">Inline</h3>
             <div class="ow-form">
               <div class="ow-checkbox ow-checkbox-inline">
-                <input type="checkbox" id="check-inline-1" class="ow-checkbox-input" />
-                <label for="check-inline-1" class="ow-checkbox-label is-required">Inline 1</label>
+                <input
+                  type="checkbox"
+                  id="check-inline-1"
+                  class="ow-checkbox-input"
+                />
+                <label
+                  for="check-inline-1"
+                  class="ow-checkbox-label is-required">Inline 1</label
+                >
               </div>
               <div class="ow-checkbox ow-checkbox-inline">
-                <input type="checkbox" id="check-inline-2" class="ow-checkbox-input" />
-                <label for="check-inline-2" class="ow-checkbox-label">Inline 2</label>
+                <input
+                  type="checkbox"
+                  id="check-inline-2"
+                  class="ow-checkbox-input"
+                />
+                <label for="check-inline-2" class="ow-checkbox-label"
+                  >Inline 2</label
+                >
               </div>
             </div>
-            
+
             <div class="ow-form mt-4">
               <div class="ow-radio ow-radio-inline">
-                <input type="radio" name="radio-inline" id="rad-inline-1" class="ow-radio-input" />
-                <label for="rad-inline-1" class="ow-radio-label is-required">Inline A</label>
+                <input
+                  type="radio"
+                  name="radio-inline"
+                  id="rad-inline-1"
+                  class="ow-radio-input"
+                />
+                <label for="rad-inline-1" class="ow-radio-label is-required"
+                  >Inline A</label
+                >
               </div>
               <div class="ow-radio ow-radio-inline">
-                <input type="radio" name="radio-inline" id="rad-inline-2" class="ow-radio-input" />
-                <label for="rad-inline-2" class="ow-radio-label">Inline B</label>
+                <input
+                  type="radio"
+                  name="radio-inline"
+                  id="rad-inline-2"
+                  class="ow-radio-input"
+                />
+                <label for="rad-inline-2" class="ow-radio-label">Inline B</label
+                >
               </div>
             </div>
           </div>
@@ -154,52 +243,98 @@
       </section>
 
       <section>
-        <p class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4">
+        <p
+          class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4"
+        >
           Heading Variants
         </p>
         <div class="space-y-4">
           <h2 class="text-2xl font-bold leading-tight">
             <div class="ow-checkbox ow-checkbox-heading">
-              <input type="checkbox" id="check-heading-1" class="ow-checkbox-input" checked />
-              <label for="check-heading-1" class="ow-checkbox-label">Checkbox in Heading</label>
+              <input
+                type="checkbox"
+                id="check-heading-1"
+                class="ow-checkbox-input"
+                checked
+              />
+              <label for="check-heading-1" class="ow-checkbox-label"
+                >Checkbox in Heading</label
+              >
             </div>
           </h2>
           <h3 class="text-xl font-bold leading-tight">
             <div class="ow-radio ow-radio-heading">
-              <input type="radio" name="radio-heading" id="rad-heading-1" class="ow-radio-input" />
-              <label for="rad-heading-1" class="ow-radio-label">Radio in Heading</label>
+              <input
+                type="radio"
+                name="radio-heading"
+                id="rad-heading-1"
+                class="ow-radio-input"
+              />
+              <label for="rad-heading-1" class="ow-radio-label"
+                >Radio in Heading</label
+              >
             </div>
           </h3>
         </div>
       </section>
 
       <section>
-        <p class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4">
+        <p
+          class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4"
+        >
           Validation Forms
         </p>
         <div class="ow-form ow-form-stacked">
           <label for="val-error">Error State</label>
-          <input type="text" id="val-error" class="ow-input-error" value="Invalid data" />
-          <span class="ow-form-message ow-form-message-error">This field is required and has an error.</span>
+          <input
+            type="text"
+            id="val-error"
+            class="ow-input-error"
+            value="Invalid data"
+          />
+          <span class="ow-form-message ow-form-message-error"
+            >This field is required and has an error.</span
+          >
 
           <label for="val-caution">Caution State</label>
-          <input type="text" id="val-caution" class="ow-input-caution" value="Maybe not optimal?" />
-          <span class="ow-form-message ow-form-message-caution">This value is not recommended.</span>
+          <input
+            type="text"
+            id="val-caution"
+            class="ow-input-caution"
+            value="Maybe not optimal?"
+          />
+          <span class="ow-form-message ow-form-message-caution"
+            >This value is not recommended.</span
+          >
 
           <label for="val-success">Success State</label>
-          <input type="text" id="val-success" class="ow-input-success" value="Looks perfect" />
-          <span class="ow-form-message ow-form-message-success">The username is available!</span>
+          <input
+            type="text"
+            id="val-success"
+            class="ow-input-success"
+            value="Looks perfect"
+          />
+          <span class="ow-form-message ow-form-message-success"
+            >The username is available!</span
+          >
         </div>
       </section>
 
       <section>
-        <p class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4">
+        <p
+          class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4"
+        >
           Inline Form Layout
         </p>
         <div class="ow-form ow-form-inline">
           <div class="ow-form-group">
             <label for="inline-search">Search query</label>
-            <input type="search" id="inline-search" placeholder="E.g. Ubuntu" style="width: auto" />
+            <input
+              type="search"
+              id="inline-search"
+              placeholder="E.g. Ubuntu"
+              style="width: auto"
+            />
           </div>
           <div class="ow-form-group">
             <label for="inline-category">Category</label>
@@ -214,20 +349,43 @@
       </section>
 
       <section>
-        <p class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4">
+        <p
+          class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4"
+        >
           Range Input
         </p>
         <div class="ow-form ow-form-stacked">
           <label for="range-enabled">Volume</label>
-          <input type="range" id="range-enabled" min="0" max="100" value="50" step="1" aria-label="Volume" use:rangeProgress />
+          <input
+            type="range"
+            id="range-enabled"
+            min="0"
+            max="100"
+            value="50"
+            step="1"
+            aria-label="Volume"
+            use:rangeProgress
+          />
 
           <label for="range-disabled">Disabled Range</label>
-          <input type="range" id="range-disabled" min="0" max="100" value="30" step="1" disabled aria-label="Disabled Range" use:rangeProgress />
+          <input
+            type="range"
+            id="range-disabled"
+            min="0"
+            max="100"
+            value="30"
+            step="1"
+            disabled
+            aria-label="Disabled Range"
+            use:rangeProgress
+          />
         </div>
       </section>
 
       <section>
-        <p class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4">
+        <p
+          class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4"
+        >
           Multiple Select
         </p>
         <div class="ow-form ow-form-stacked">
@@ -244,12 +402,20 @@
       </section>
 
       <section>
-        <p class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4">
+        <p
+          class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4"
+        >
           Datalist
         </p>
         <div class="ow-form ow-form-stacked">
           <label for="ice-cream-choice">Choose a flavor</label>
-          <input type="text" list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" placeholder="Start typing..." />
+          <input
+            type="text"
+            list="ice-cream-flavors"
+            id="ice-cream-choice"
+            name="ice-cream-choice"
+            placeholder="Start typing..."
+          />
           <datalist id="ice-cream-flavors">
             <option value="Vanilla">Vanilla</option>
             <option value="Chocolate">Chocolate</option>
@@ -261,7 +427,9 @@
       </section>
 
       <section>
-        <p class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4">
+        <p
+          class="text-sm font-semibold uppercase tracking-wider opacity-50 mb-4"
+        >
           File Input
         </p>
         <div class="ow-form ow-form-stacked">

@@ -28,7 +28,8 @@
 
 <Story name="Status Label">
   {#snippet template({ dark, baselineGrid, rounded })}
-    {@const labelClass = (base: string) => [base, rounded && 'ow-btn-round'].filter(Boolean).join(' ')}
+    {@const labelClass = (base: string) =>
+      [base, rounded && 'ow-btn-round'].filter(Boolean).join(' ')}
     <div
       use:darkMode={dark}
       class={[
@@ -52,7 +53,9 @@
           <span class={labelClass('ow-status-label')}>Default</span>
           <span class={labelClass('ow-status-label-positive')}>Positive</span>
           <span class={labelClass('ow-status-label-caution')}>Caution</span>
-          <span class={labelClass('ow-status-label-information')}>Information</span>
+          <span class={labelClass('ow-status-label-information')}
+            >Information</span
+          >
           <span class={labelClass('ow-status-label-negative')}>Negative</span>
         </div>
       </section>
@@ -68,10 +71,18 @@
         </p>
         <div class="flex flex-wrap gap-4 items-center">
           <a href="#link" class={labelClass('ow-status-label')}>Default Link</a>
-          <a href="#link" class={labelClass('ow-status-label-positive')}>Positive Link</a>
-          <a href="#link" class={labelClass('ow-status-label-caution')}>Caution Link</a>
-          <a href="#link" class={labelClass('ow-status-label-information')}>Information Link</a>
-          <a href="#link" class={labelClass('ow-status-label-negative')}>Negative Link</a>
+          <a href="#link" class={labelClass('ow-status-label-positive')}
+            >Positive Link</a
+          >
+          <a href="#link" class={labelClass('ow-status-label-caution')}
+            >Caution Link</a
+          >
+          <a href="#link" class={labelClass('ow-status-label-information')}
+            >Information Link</a
+          >
+          <a href="#link" class={labelClass('ow-status-label-negative')}
+            >Negative Link</a
+          >
         </div>
       </section>
     </div>
