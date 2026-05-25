@@ -1,0 +1,132 @@
+/* Contextual Menu — https://vanillaframework.io/docs/patterns/contextual-menu */
+
+@theme {
+  --color-ow-contextual-menu-bg: var(--color-ow-x-light);
+  --color-ow-contextual-menu-border: var(--color-ow-surface-border-low);
+  --color-ow-contextual-menu-hover-bg: color-mix(
+    in srgb,
+    var(--color-ow-x-dark) 5%,
+    transparent
+  );
+  --color-ow-contextual-menu-active-bg: color-mix(
+    in srgb,
+    var(--color-ow-x-dark) 10%,
+    transparent
+  );
+  --color-ow-contextual-menu-text: var(--color-ow-text-default);
+  --ow-contextual-menu-max-width: 21rem;
+  --ow-contextual-menu-min-width: 10rem;
+  --ow-contextual-menu-padding-block: 0.25rem;
+  --ow-contextual-menu-padding-inline: 1rem;
+  --shadow-ow-contextual-menu: var(--shadow-ow-surface);
+}
+
+@layer components {
+  .ow-contextual-menu,
+  .ow-contextual-menu-left,
+  .ow-contextual-menu-center {
+    display: inline-block;
+    position: relative;
+  }
+
+  .ow-contextual-menu-dropdown {
+    background-color: var(--color-ow-contextual-menu-bg);
+    box-shadow: var(--shadow-ow-contextual-menu);
+    color: var(--color-ow-contextual-menu-text);
+    display: none;
+    max-width: var(--ow-contextual-menu-max-width);
+    min-width: var(--ow-contextual-menu-min-width);
+    position: absolute;
+    right: 0;
+    width: fit-content;
+    z-index: 9;
+
+    @variant dark {
+      --color-ow-contextual-menu-bg: color-mix(
+        in oklch,
+        var(--color-ow-dark),
+        var(--color-ow-x-light) 12%
+      );
+      --color-ow-contextual-menu-border: var(--color-ow-surface-border-low-dark);
+      --color-ow-contextual-menu-hover-bg: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 8%,
+        transparent
+      );
+      --color-ow-contextual-menu-active-bg: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 14%,
+        transparent
+      );
+      --color-ow-contextual-menu-text: var(--color-ow-x-light);
+      --shadow-ow-contextual-menu: var(--shadow-ow-surface-dark);
+    }
+
+    &[aria-hidden='false'] {
+      display: block;
+    }
+
+    .ow-contextual-menu-left & {
+      left: 0;
+      right: auto;
+    }
+
+    .ow-contextual-menu-center & {
+      left: 50%;
+      right: auto;
+      transform: translateX(-50%);
+    }
+  }
+
+  .ow-contextual-menu-group {
+    display: block;
+
+    & + & {
+      border-top: 1px solid var(--color-ow-contextual-menu-border);
+    }
+  }
+
+  .ow-contextual-menu-link {
+    background-color: transparent;
+    border: 0;
+    color: var(--color-ow-contextual-menu-text);
+    cursor: pointer;
+    display: block;
+    overflow: hidden;
+    padding: var(--ow-contextual-menu-padding-block)
+      var(--ow-contextual-menu-padding-inline);
+    text-align: left;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+
+    &:visited {
+      color: var(--color-ow-contextual-menu-text);
+    }
+
+    &:hover {
+      background-color: var(--color-ow-contextual-menu-hover-bg);
+      text-decoration: none;
+    }
+
+    &:active {
+      background-color: var(--color-ow-contextual-menu-active-bg);
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--color-ow-focus);
+      outline-offset: -3px;
+    }
+  }
+
+  .ow-contextual-menu-toggle {
+    &[aria-expanded='true'] .ow-contextual-menu-indicator {
+      transform: rotate(180deg);
+    }
+  }
+
+  .ow-contextual-menu-indicator {
+    transition: transform 0.1s ease-in;
+  }
+}
