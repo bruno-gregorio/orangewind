@@ -1,0 +1,43 @@
+/* Divided Section — https://vanillaframework.io/docs/patterns/divided-section */
+
+@theme {
+  --ow-divided-heading-font-weight: var(--font-weight-bold);
+  --ow-divided-rule-spacing: 1rem;
+}
+
+@layer components {
+  .ow-divided-block {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    > .ow-divided-heading {
+      padding-bottom: 0;
+
+      &:not(:last-child) {
+        padding-bottom: var(--ow-list-divided-item-padding-block-end);
+      }
+    }
+
+    > .ow-rule-muted {
+      margin-bottom: var(--ow-divided-rule-spacing);
+      margin-top: 0;
+    }
+  }
+
+  .ow-divided-heading {
+    &.has-bullet::before,
+    &.is-ticked::before,
+    &::marker {
+      font-weight: var(--ow-divided-heading-font-weight);
+    }
+
+    .ow-stepped-list-title::before {
+      font-weight: var(--ow-divided-heading-font-weight);
+    }
+  }
+
+  .ow-divided-block .ow-stepped-list-title::before {
+    font-weight: var(--ow-divided-heading-font-weight);
+  }
+}
