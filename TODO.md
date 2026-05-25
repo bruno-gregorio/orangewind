@@ -96,7 +96,7 @@ _Full-width or macro-layout elements that frame content from previous phases._
 - [x] [Strip](https://vanillaframework.io/docs/patterns/strip) & [Section Pattern](https://vanillaframework.io/docs/patterns/section)
       _Note: These establish the light/dark thematic wrappers for everything inside them._
 - [x] Divided Section (Requires Strip, Divider)
-- [ ] [Modal](https://vanillaframework.io/docs/patterns/modal) (Requires Buttons, Forms, Typography)
+- [x] [Modal](https://vanillaframework.io/docs/patterns/modal) (Requires Buttons, Forms, Typography)
 - [ ] [Contextual Menu](https://vanillaframework.io/docs/patterns/contextual-menu) (Requires Buttons, Lists, Links)
 - [ ] [In-Page Navigation](https://vanillaframework.io/docs/patterns/in-page-navigation) & [Table of Contents](https://vanillaframework.io/docs/patterns/table-of-contents)
 - [ ] Feature Blocks: [Pricing Block](https://vanillaframework.io/docs/patterns/pricing-block), [Resources Block](https://vanillaframework.io/docs/patterns/resources), [Logo Section](https://vanillaframework.io/docs/patterns/logo-section) & [Linked Logo Section](https://vanillaframework.io/docs/patterns/linked-logo-section), [CTA](https://vanillaframework.io/docs/patterns/cta-section), [Data Spotlight](https://vanillaframework.io/docs/patterns/data-spotlight), [Newsletter Signup](https://vanillaframework.io/docs/patterns/newsletter-signup)
