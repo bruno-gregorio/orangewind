@@ -95,7 +95,7 @@ _Full-width or macro-layout elements that frame content from previous phases._
 
 - [x] [Strip](https://vanillaframework.io/docs/patterns/strip) & [Section Pattern](https://vanillaframework.io/docs/patterns/section)
       _Note: These establish the light/dark thematic wrappers for everything inside them._
-- [ ] Divided Section (Requires Strip, Divider)
+- [x] Divided Section (Requires Strip, Divider)
 - [ ] [Modal](https://vanillaframework.io/docs/patterns/modal) (Requires Buttons, Forms, Typography)
 - [ ] [Contextual Menu](https://vanillaframework.io/docs/patterns/contextual-menu) (Requires Buttons, Lists, Links)
 - [ ] [In-Page Navigation](https://vanillaframework.io/docs/patterns/in-page-navigation) & [Table of Contents](https://vanillaframework.io/docs/patterns/table-of-contents)
