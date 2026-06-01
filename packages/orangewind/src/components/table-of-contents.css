@@ -1,0 +1,80 @@
+/* Table of Contents — https://vanillaframework.io/docs/patterns/table-of-contents */
+
+@theme {
+  --color-ow-toc-border: var(--color-ow-surface-border-low);
+  --color-ow-toc-text: var(--color-ow-text-default);
+  --color-ow-toc-link: var(--color-ow-link);
+  --color-ow-toc-link-visited: var(--color-ow-link);
+  --ow-toc-section-padding-bottom: 1rem;
+  --ow-toc-link-padding-block: 0.25rem;
+  --ow-toc-nested-indent: 1rem;
+}
+
+@layer components {
+  .ow-toc {
+    color: var(--color-ow-toc-text);
+
+    @variant dark {
+      --color-ow-toc-border: var(--color-ow-surface-border-low-dark);
+      --color-ow-toc-text: var(--color-ow-x-light);
+    }
+  }
+
+  .ow-toc-section {
+    padding-bottom: var(--ow-toc-section-padding-bottom);
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--color-ow-toc-border);
+    }
+  }
+
+  .ow-toc-header {
+    border-top: 0;
+    display: block;
+    font-variant-caps: all-small-caps;
+    font-variant-numeric: oldstyle-nums;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.05em;
+    padding-top: 0.375rem;
+  }
+
+  .ow-toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .ow-toc-list {
+      margin-left: var(--ow-toc-nested-indent);
+    }
+  }
+
+  .ow-toc-item {
+    margin: 0;
+    padding: 0;
+  }
+
+  .ow-toc-link {
+    color: var(--color-ow-toc-link);
+    display: block;
+    padding-bottom: var(--ow-toc-link-padding-block);
+    padding-top: var(--ow-toc-link-padding-block);
+    text-decoration: none;
+
+    &:visited {
+      color: var(--color-ow-toc-link-visited);
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &.ow-is-active {
+      font-weight: var(--font-weight-bold);
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--color-ow-focus);
+      outline-offset: -3px;
+    }
+  }
+}

@@ -1,0 +1,385 @@
+/* In-Page Navigation — https://vanillaframework.io/docs/patterns/in-page-navigation */
+
+@theme {
+  --color-ow-in-page-nav-bg: var(--color-ow-background-default);
+  --color-ow-in-page-nav-bg-alt: var(--color-ow-background-alt);
+  --color-ow-in-page-nav-border: var(--color-ow-surface-border-low);
+  --color-ow-in-page-nav-text-default: var(--color-ow-text-default);
+  --color-ow-in-page-nav-text-muted: var(--color-ow-text-muted);
+  --color-ow-in-page-nav-active-bar: var(--color-ow-text-default);
+  --ow-in-page-nav-border-width: 0.1875rem;
+  --ow-in-page-nav-padding-left: 1rem;
+  --ow-in-page-nav-padding-left-md: 1.5rem;
+  --ow-in-page-nav-link-padding-block: 0.25rem;
+  --ow-in-page-nav-heading-padding-top: 0.25rem;
+  --ow-in-page-nav-heading-padding-bottom: 0.5rem;
+  --ow-in-page-nav-list-spacing: 4rem;
+  --ow-in-page-nav-list-spacing-collapsed: 1.5rem;
+  --ow-in-page-nav-toggle-padding-block: 1rem;
+  --ow-in-page-nav-toggle-padding-inline: 1.5rem;
+  --ow-in-page-nav-toggle-padding-small: 1rem;
+  --ow-in-page-nav-link-line-clamp: 2;
+}
+
+@layer components {
+  /*
+    .ow-in-page-nav is the named container — its sole role is to host
+    container-type so descendants can switch between sidebar and
+    collapsible layouts. All visual / positioning behavior lives on
+    .ow-in-page-nav-container (a descendant) so @container rules can
+    target it.
+  */
+  .ow-in-page-nav {
+    color: var(--color-ow-in-page-nav-text-muted);
+    container-name: ow-in-page-nav;
+    container-type: inline-size;
+
+    @variant dark {
+      --color-ow-in-page-nav-bg: color-mix(
+        in oklch,
+        var(--color-ow-dark),
+        var(--color-ow-x-light) 8%
+      );
+      --color-ow-in-page-nav-bg-alt: color-mix(
+        in oklch,
+        var(--color-ow-dark),
+        var(--color-ow-x-light) 16%
+      );
+      --color-ow-in-page-nav-border: var(--color-ow-surface-border-low-dark);
+      --color-ow-in-page-nav-text-default: var(--color-ow-x-light);
+      --color-ow-in-page-nav-text-muted: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 60%,
+        transparent
+      );
+      --color-ow-in-page-nav-active-bar: var(--color-ow-x-light);
+    }
+  }
+
+  .ow-in-page-nav-container {
+    margin-bottom: var(--ow-in-page-nav-list-spacing);
+  }
+
+  .ow-in-page-nav-container > .ow-in-page-nav-list {
+    position: relative;
+
+    &::before {
+      background-color: var(--color-ow-in-page-nav-border);
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: var(--ow-in-page-nav-border-width);
+    }
+  }
+
+  .ow-in-page-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &:last-of-type::after {
+      content: none;
+    }
+  }
+
+  .ow-in-page-nav-heading {
+    display: block;
+    font-size: var(--text-base);
+    font-variant-caps: all-small-caps;
+    font-variant-numeric: oldstyle-nums;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.05em;
+    line-height: var(--text-base--line-height);
+    margin: 0;
+    max-width: none;
+    padding: var(--ow-in-page-nav-heading-padding-top) 0
+      var(--ow-in-page-nav-heading-padding-bottom);
+  }
+
+  .ow-in-page-nav-item {
+    margin: 0;
+    padding: 0;
+  }
+
+  .ow-in-page-nav-link {
+    color: var(--color-ow-in-page-nav-text-muted);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--ow-in-page-nav-link-line-clamp);
+    line-clamp: var(--ow-in-page-nav-link-line-clamp);
+    overflow: hidden;
+    padding-bottom: var(--ow-in-page-nav-link-padding-block);
+    padding-left: var(--ow-in-page-nav-padding-left);
+    padding-right: 0;
+    padding-top: var(--ow-in-page-nav-link-padding-block);
+    text-decoration: none;
+    text-overflow: ellipsis;
+
+    @container ow-in-page-nav (width >= 22rem) {
+      padding-left: var(--ow-in-page-nav-padding-left-md);
+    }
+
+    &:visited {
+      color: var(--color-ow-in-page-nav-text-muted);
+    }
+
+    &:hover {
+      color: var(--color-ow-in-page-nav-text-default);
+      text-decoration: none;
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--color-ow-focus);
+      outline-offset: -3px;
+    }
+
+    &.ow-is-active,
+    &[aria-current='true'] {
+      color: var(--color-ow-in-page-nav-text-default);
+      cursor: default;
+      position: relative;
+
+      &::before {
+        background-color: var(--color-ow-in-page-nav-active-bar);
+        bottom: 0;
+        content: '';
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: var(--ow-in-page-nav-border-width);
+      }
+    }
+
+    &:focus::before {
+      display: none;
+    }
+
+    &:focus:not(:focus-visible)::before {
+      display: block;
+    }
+  }
+
+  /* Nested 2nd level indentation (sidebar layout) */
+  .ow-in-page-nav-item .ow-in-page-nav-list .ow-in-page-nav-link {
+    padding-left: calc(2 * var(--ow-in-page-nav-padding-left));
+
+    @container ow-in-page-nav (width >= 22rem) {
+      padding-left: calc(2 * var(--ow-in-page-nav-padding-left-md));
+    }
+  }
+
+  .ow-in-page-nav-dropdown-toggle {
+    background-color: var(--color-ow-in-page-nav-bg);
+    border: 0;
+    color: var(--color-ow-in-page-nav-text-default);
+    cursor: pointer;
+    display: none;
+    line-height: 1rem;
+    margin: 0;
+    padding: var(--ow-in-page-nav-toggle-padding-block)
+      var(--ow-in-page-nav-toggle-padding-inline);
+
+    &:hover {
+      background-color: var(--color-ow-in-page-nav-bg);
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--color-ow-focus);
+      outline-offset: -3px;
+    }
+  }
+
+  .ow-in-page-nav-dropdown-toggle-icon {
+    height: 1rem;
+    width: 1rem;
+  }
+
+  /*
+    Wide container — switch to horizontal scroller with dropdown toggle.
+    Mirrors Vanilla's small/medium screen layout, but driven by the
+    nav's own width via the parent ow-in-page-nav container query.
+    Sticky behavior is intentionally NOT built in (in either mode);
+    apply Tailwind utilities like `sticky top-0` on the wrapping
+    element when you need it.
+  */
+  @container ow-in-page-nav (width >= 22rem) {
+    .ow-in-page-nav-container {
+      background-color: var(--color-ow-in-page-nav-bg);
+      margin-bottom: var(--ow-in-page-nav-list-spacing-collapsed);
+      position: relative;
+    }
+
+    .ow-in-page-nav-container > .ow-in-page-nav-list {
+      background-color: var(--color-ow-in-page-nav-bg);
+      padding-left: 1rem;
+
+      &::before {
+        left: 1rem;
+      }
+
+      > .ow-in-page-nav-item {
+        scroll-margin-left: 1rem;
+      }
+    }
+
+    .ow-in-page-nav-heading {
+      display: none;
+    }
+
+    .ow-in-page-nav-link {
+      display: inline-block;
+      line-height: 1.5rem;
+      max-width: 33.33cqw;
+      overflow: hidden;
+      padding: 0.75rem 1rem;
+      text-overflow: ellipsis;
+      vertical-align: middle;
+
+      &.ow-is-active,
+      &[aria-current='true'] {
+        &::before {
+          height: 50%;
+          top: 25%;
+        }
+      }
+    }
+
+    .ow-in-page-nav.ow-is-expanded
+      .ow-in-page-nav-item
+      .ow-in-page-nav-list
+      .ow-in-page-nav-link {
+      padding-left: calc(2 * var(--ow-in-page-nav-padding-left));
+
+      @container ow-in-page-nav (width >= 22rem) {
+        padding-left: calc(2 * var(--ow-in-page-nav-padding-left-md));
+      }
+    }
+
+    .ow-in-page-nav-container {
+      align-items: center;
+      display: grid;
+      grid-template-columns: 1fr auto;
+
+      &::after {
+        background-color: var(--color-ow-in-page-nav-border);
+        bottom: 0;
+        content: '';
+        height: 1px;
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%);
+        width: 100%;
+      }
+    }
+
+    .ow-in-page-nav-dropdown-toggle {
+      display: block;
+      grid-column: 2;
+      justify-self: end;
+    }
+
+    /* Collapsed (default) — horizontal scroll */
+    .ow-in-page-nav:not(.ow-is-expanded) .ow-in-page-nav-container {
+      .ow-in-page-nav-list {
+        grid-column: 1;
+        margin-bottom: 0;
+        min-width: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        white-space: nowrap;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        &::before {
+          content: none;
+        }
+
+        .ow-in-page-nav-item {
+          display: inline-block;
+        }
+      }
+
+      .ow-in-page-nav-item .ow-in-page-nav-list {
+        display: none;
+      }
+    }
+
+    /* Expanded — dropdown list */
+    .ow-in-page-nav.ow-is-expanded .ow-in-page-nav-container {
+      align-items: start;
+      background-color: var(--color-ow-in-page-nav-bg-alt);
+      display: grid;
+      grid-template-columns: 1fr auto;
+
+      > .ow-in-page-nav-list {
+        background-color: var(--color-ow-in-page-nav-bg-alt);
+        grid-column: 1 / 2;
+        grid-row: 2;
+        margin-bottom: 1rem;
+      }
+
+      .ow-in-page-nav-item .ow-in-page-nav-list {
+        display: block;
+      }
+
+      .ow-in-page-nav-heading {
+        display: block;
+        grid-column: 1 / 2;
+        grid-row: 1;
+        padding: 0.75rem 1rem;
+      }
+
+      &:not(:has(> .ow-in-page-nav-heading)) > .ow-in-page-nav-list {
+        grid-row: 1;
+        margin-top: 0.75rem;
+      }
+
+      .ow-in-page-nav-dropdown-toggle {
+        background-color: var(--color-ow-in-page-nav-bg-alt);
+        display: block;
+        grid-column: 2 / 3;
+        grid-row: 1;
+        justify-self: end;
+      }
+    }
+
+    .ow-in-page-nav.ow-is-expanded .ow-in-page-nav-link {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: var(--ow-in-page-nav-link-line-clamp);
+      line-clamp: var(--ow-in-page-nav-link-line-clamp);
+      max-width: unset;
+      overflow: hidden;
+      padding-bottom: var(--ow-in-page-nav-link-padding-block);
+      padding-left: var(--ow-in-page-nav-padding-left);
+      padding-right: 1rem;
+      padding-top: var(--ow-in-page-nav-link-padding-block);
+      text-overflow: ellipsis;
+
+      &.ow-is-active,
+      &[aria-current='true'] {
+        &::before {
+          height: auto;
+          top: 0;
+        }
+      }
+    }
+  }
+
+  /* Narrow wide-container — tighter toggle padding */
+  @container ow-in-page-nav (22rem <= width < 30rem) {
+    .ow-in-page-nav-link {
+      max-width: 50cqw;
+    }
+
+    .ow-in-page-nav-dropdown-toggle {
+      padding: var(--ow-in-page-nav-toggle-padding-small);
+    }
+  }
+}
