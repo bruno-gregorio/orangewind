@@ -2,6 +2,7 @@
   "name": "orangewind",
   "module": "index.ts",
   "type": "module",
+  "license": "LGPL-3.0",
   "browser": "./src/index.css",
   "devDependencies": {
     "@types/bun": "latest",
