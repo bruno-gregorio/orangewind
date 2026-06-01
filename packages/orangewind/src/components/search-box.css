@@ -24,9 +24,6 @@
 
     .ow-search-box-reset,
     .ow-search-box-button {
-      background-color: transparent;
-      border-width: 0;
-      color: inherit;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -35,12 +32,6 @@
       padding: 1px 0.5rem;
       position: relative;
       transition: background-color 0.1s ease-in;
-
-      &:hover,
-      &:active,
-      &:focus {
-        background-color: transparent;
-      }
 
       &:focus-visible {
         outline: 3px solid var(--color-ow-focus);

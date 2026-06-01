@@ -64,7 +64,6 @@
     }
 
     .ow-image-container-img {
-      display: block;
       margin: auto;
       max-width: 100%;
     }
@@ -314,11 +313,5 @@
 
   .ow-media-container {
     padding-top: var(--ow-image-media-spacing);
-
-    img,
-    video,
-    iframe {
-      display: block;
-    }
   }
 }

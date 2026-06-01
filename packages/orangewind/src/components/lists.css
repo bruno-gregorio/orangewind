@@ -32,33 +32,19 @@
   ul {
     margin-bottom: var(--ow-list-block-spacing);
     margin-left: var(--ow-list-base-indent);
-    margin-top: 0;
     padding-left: var(--ow-list-base-indent);
 
     nav & {
-      list-style: none;
       list-style-image: none;
     }
   }
 
-  li {
-    margin: 0;
-    padding: 0;
-  }
-
   li > :is(ol, ul) {
     margin-bottom: 0;
-    padding-top: 0;
-  }
-
-  li > :is(ol, ul) > li:last-of-type {
-    padding-bottom: 0;
   }
 
   dl {
     margin-bottom: var(--ow-list-block-spacing);
-    margin-top: 0;
-    padding: 0;
   }
 
   dd,
@@ -110,7 +96,6 @@
   .ow-stepped-list-detailed,
   .ow-list-tree,
   .ow-list-tree .ow-list-tree {
-    list-style: none;
     margin-left: 0;
     padding-left: 0;
   }
@@ -136,7 +121,6 @@
   .ow-list-divided {
     .ow-list-item {
       box-shadow: inset 0 1px 0 0 var(--color-ow-list-border);
-      margin: 0;
       padding-bottom: var(--ow-list-divided-item-padding-block-end);
       padding-top: var(--ow-list-divided-item-padding-block-start);
 
@@ -216,7 +200,6 @@
 
   ol:is(.ow-list-divided, .ow-list-horizontal-section) {
     counter-reset: ow-list-divided-counter;
-    list-style: none;
 
     > .ow-list-item {
       counter-increment: ow-list-divided-counter;
@@ -285,7 +268,6 @@
 
   .ow-inline-list-item {
     display: inline;
-    list-style: none;
     margin-right: var(--ow-list-inline-gap);
 
     &:last-of-type,
@@ -318,7 +300,6 @@
 
     .ow-inline-list-item {
       flex: 1 auto;
-      list-style: none;
       margin-right: 0;
     }
   }
@@ -362,7 +343,6 @@
     width: 100%;
 
     > .ow-list-item {
-      margin: 0;
       padding-bottom: var(--ow-list-divided-item-padding-block-end);
       padding-top: var(--ow-list-divided-item-padding-block-start);
       position: relative;
@@ -474,7 +454,6 @@
       var(--ow-list-step-counter-size) + var(--ow-list-step-gap)
     );
 
-    list-style: none;
     margin-left: 0;
     padding-left: var(--ow-list-step-title-offset);
     position: relative;
@@ -560,7 +539,6 @@
   }
 
   .ow-list-tree {
-    list-style-type: none;
     margin-left: 0.25rem;
     padding-left: 0.5rem;
 
@@ -602,14 +580,8 @@
   }
 
   .ow-list-tree-toggle {
-    background: transparent;
-    border: 0;
-    border-radius: 0;
-    font-family: inherit;
-    font-size: inherit;
     font-weight: var(--font-weight-regular);
-    line-height: inherit;
-    margin: 0 0 0 calc(-1 * var(--ow-list-tree-indent));
+    margin-left: calc(-1 * var(--ow-list-tree-indent));
     padding: 0 var(--ow-list-tree-toggle-padding) 0 var(--ow-list-tree-indent);
     position: relative;
     text-align: left;
@@ -639,11 +611,6 @@
     &:focus-visible {
       outline: 3px solid var(--color-ow-focus);
       outline-offset: 2px;
-    }
-
-    &[aria-expanded='true'],
-    &:hover {
-      background: transparent;
     }
   }
 }

@@ -5,7 +5,6 @@
     background-color: var(--ow-rule-bg, var(--color-ow-border-default));
     border: 0;
     height: 1px;
-    margin-top: 0;
     margin-bottom: calc(0.5rem - 1px);
     position: relative;
     width: 100%;

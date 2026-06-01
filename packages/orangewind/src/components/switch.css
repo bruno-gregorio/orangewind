@@ -24,7 +24,6 @@
     opacity: 0 !important;
     width: 0;
     height: 0;
-    margin: 0;
 
     &:checked + .ow-switch-slider {
       background-color: var(--color-ow-link);

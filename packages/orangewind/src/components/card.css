@@ -76,7 +76,6 @@
   }
 
   .ow-card-image {
-    display: block;
     height: auto;
     margin-bottom: var(--ow-card-image-spacing);
     width: 100%;

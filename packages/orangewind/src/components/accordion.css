@@ -51,45 +51,25 @@
     }
 
     .ow-accordion-list {
-      list-style: none;
       margin: 0 0 var(--ow-accordion-list-spacing);
       padding: 0;
     }
 
     .ow-accordion-group {
-      margin: 0;
-
       & + & {
         border-top: 1px solid var(--color-ow-accordion-border);
       }
     }
 
     .ow-accordion-heading {
-      margin: 0;
       max-width: none;
-      padding-top: 0;
-
-      > .ow-accordion-tab {
-        font-family: inherit;
-        font-size: inherit;
-        font-weight: inherit;
-        line-height: inherit;
-      }
     }
 
     .ow-accordion-tab {
       appearance: none;
       background-color: inherit;
-      border: 0;
-      border-radius: 0;
-      color: inherit;
       cursor: pointer;
       display: inline-block;
-      font-family: inherit;
-      font-size: inherit;
-      font-weight: inherit;
-      line-height: inherit;
-      margin-bottom: 0;
       padding-bottom: var(--ow-accordion-tab-padding-bottom);
       padding-left: var(--ow-accordion-tab-padding-inline);
       padding-right: var(--ow-accordion-tab-padding-inline);
@@ -149,7 +129,6 @@
     }
 
     .ow-accordion-panel {
-      margin: 0;
       overflow: auto;
       padding-left: var(--ow-accordion-panel-indent);
       transition:
@@ -169,10 +148,6 @@
         opacity: 1;
         transform: translate3d(0, 0, 0);
         visibility: visible;
-      }
-
-      > :first-child {
-        margin-top: 0;
       }
 
       > :last-child {

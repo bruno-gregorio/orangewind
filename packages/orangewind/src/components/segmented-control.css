@@ -11,7 +11,6 @@
 
   .ow-segmented-control-button {
     /* Base Button Styles */
-    border-style: solid;
     border-width: 1px;
     cursor: pointer;
     display: inline-flex;
@@ -107,8 +106,6 @@
     }
 
     /* Segmented Control Layout Overrides */
-    border-radius: 0;
-    margin-right: 0;
     overflow: hidden;
     position: relative;
     text-overflow: ellipsis;

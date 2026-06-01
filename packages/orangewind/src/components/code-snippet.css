@@ -129,7 +129,6 @@
   samp {
     background-color: var(--color-ow-code-background);
     box-decoration-break: slice;
-    color: inherit;
     line-height: calc(
       var(--text-base--line-height) - var(--ow-code-inline-padding)
     );
@@ -158,8 +157,7 @@
   pre {
     background-color: var(--color-ow-code-background);
     color: var(--color-ow-code-text);
-    display: block;
-    margin: 0 0 1.5rem;
+    margin-bottom: 1.5rem;
     overflow: auto;
     padding: var(--ow-code-block-padding-block)
       var(--ow-code-block-padding-inline);
@@ -280,7 +278,6 @@
       font-size: var(--text-base);
       font-weight: 550;
       line-height: var(--text-base--line-height);
-      margin: 0;
       overflow: hidden;
       padding-block: var(--ow-code-header-spacing);
       text-overflow: ellipsis;
@@ -299,7 +296,6 @@
       align-items: center;
       display: inline-flex;
       gap: var(--ow-code-copy-gap);
-      margin: 0;
       white-space: nowrap;
 
       [class^='ow-icon-'] {
@@ -320,7 +316,6 @@
       background-color: transparent;
       border: 0;
       color: var(--color-ow-code-text);
-      margin: 0;
       min-width: min-content;
       padding-bottom: var(--ow-code-header-spacing);
       padding-left: var(--ow-code-block-padding-inline);
@@ -357,8 +352,6 @@
     }
 
     iframe {
-      display: block;
-      margin: 0;
       width: calc(100% - 1px);
     }
   }

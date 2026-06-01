@@ -152,11 +152,9 @@
     font-variant-numeric: oldstyle-nums;
     letter-spacing: 0.05em;
     display: block;
-    margin-top: 0;
   }
 
   .ow-muted-heading {
-    border-top: 0;
     display: block;
     font-variant-caps: all-small-caps;
     font-variant-numeric: oldstyle-nums;

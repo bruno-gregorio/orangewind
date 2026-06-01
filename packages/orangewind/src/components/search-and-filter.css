@@ -90,7 +90,6 @@
       align-content: flex-start;
       align-items: center;
       background-color: inherit;
-      box-sizing: border-box;
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
@@ -219,7 +218,6 @@
 
     .ow-search-and-filter-clear {
       align-items: center;
-      background-color: transparent;
       color: var(--color-ow-search-filter-icon);
       cursor: pointer;
       display: inline-flex;
@@ -247,7 +245,6 @@
       display: inline-flex;
       flex: 1 1 12rem;
       height: var(--ow-search-filter-input-height);
-      margin: 0;
       min-width: 6rem;
       position: relative;
     }
@@ -263,12 +260,10 @@
     }
 
     .ow-search-and-filter-search-button {
-      border: 0;
       clip: rect(0, 0, 0, 0);
       clip-path: inset(50%);
       height: 1px;
       overflow: hidden;
-      padding: 0;
       position: absolute;
       white-space: nowrap;
       width: 1px;
@@ -292,7 +287,6 @@
       border-bottom: 0;
       box-shadow: none;
       flex: 1 1 auto;
-      margin-bottom: 0;
       min-width: 6rem;
       padding-right: calc(var(--ow-search-filter-action-width) - 0.5rem);
       position: relative;
@@ -306,7 +300,6 @@
 
   .ow-filter-panel-section {
     border-bottom: 1px solid var(--color-ow-border-default);
-    margin: 0;
     padding: 0.75rem 1.5rem 1.5rem;
 
     &:last-child {

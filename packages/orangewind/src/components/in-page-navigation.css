@@ -75,7 +75,6 @@
   }
 
   .ow-in-page-nav-list {
-    list-style: none;
     margin: 0;
     padding: 0;
 
@@ -85,22 +84,15 @@
   }
 
   .ow-in-page-nav-heading {
-    display: block;
     font-size: var(--text-base);
     font-variant-caps: all-small-caps;
     font-variant-numeric: oldstyle-nums;
     font-weight: var(--font-weight-bold);
     letter-spacing: 0.05em;
     line-height: var(--text-base--line-height);
-    margin: 0;
     max-width: none;
     padding: var(--ow-in-page-nav-heading-padding-top) 0
       var(--ow-in-page-nav-heading-padding-bottom);
-  }
-
-  .ow-in-page-nav-item {
-    margin: 0;
-    padding: 0;
   }
 
   .ow-in-page-nav-link {
@@ -172,12 +164,10 @@
 
   .ow-in-page-nav-dropdown-toggle {
     background-color: var(--color-ow-in-page-nav-bg);
-    border: 0;
     color: var(--color-ow-in-page-nav-text-default);
     cursor: pointer;
     display: none;
     line-height: 1rem;
-    margin: 0;
     padding: var(--ow-in-page-nav-toggle-padding-block)
       var(--ow-in-page-nav-toggle-padding-inline);
 

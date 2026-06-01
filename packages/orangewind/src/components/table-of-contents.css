@@ -29,7 +29,6 @@
   }
 
   .ow-toc-header {
-    border-top: 0;
     display: block;
     font-variant-caps: all-small-caps;
     font-variant-numeric: oldstyle-nums;
@@ -39,18 +38,12 @@
   }
 
   .ow-toc-list {
-    list-style: none;
     margin: 0;
     padding: 0;
 
     .ow-toc-list {
       margin-left: var(--ow-toc-nested-indent);
     }
-  }
-
-  .ow-toc-item {
-    margin: 0;
-    padding: 0;
   }
 
   .ow-toc-link {

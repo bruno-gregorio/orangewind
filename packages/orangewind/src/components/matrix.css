@@ -19,7 +19,6 @@
     color: var(--color-ow-matrix-text);
     display: flex;
     flex-wrap: wrap;
-    list-style: none;
     margin-bottom: var(--ow-matrix-block-spacing);
     margin-left: 0;
     padding-left: 0;
@@ -91,7 +90,6 @@
     align-self: flex-start;
     flex-shrink: 0;
     height: auto;
-    margin-top: 0;
     width: var(--ow-matrix-img-size);
   }
 
@@ -109,7 +107,6 @@
     margin-bottom: calc(
       var(--ow-matrix-block-spacing) - var(--ow-matrix-heading-nudge)
     );
-    margin-top: 0;
     max-width: var(--ow-matrix-text-max-width);
     padding-top: var(--ow-matrix-heading-nudge);
   }
