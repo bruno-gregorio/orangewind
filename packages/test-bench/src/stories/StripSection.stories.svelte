@@ -53,7 +53,7 @@
       title: 'Default strip'
     },
     {
-      className: 'ow-strip is-light',
+      className: 'ow-strip ow-is-light',
       copy: 'A themed wrapper that carries the default light surface for content groups.',
       id: 'light',
       titleClass: 'ow-heading-2',
@@ -74,7 +74,7 @@
       title: 'Dark strip'
     },
     {
-      className: 'ow-strip-paper is-highlighted',
+      className: 'ow-strip-paper ow-is-highlighted',
       copy: 'Paper keeps a softer editorial surface while still supporting a highlighted state.',
       id: 'paper',
       titleClass: 'ow-heading-2',
@@ -152,7 +152,7 @@
             class="grid overflow-hidden border border-black/10 dark:border-white/20"
           >
             {#each stripExamples as strip (strip.id)}
-              <section class={`${strip.className} is-bordered`}>
+              <section class={`${strip.className} ow-is-bordered`}>
                 <div class="mx-auto grid max-w-5xl gap-3 px-6 lg:grid-cols-3">
                   <h2 class={getTitleClass(strip.titleClass)}>
                     {strip.title}
@@ -170,7 +170,7 @@
           <div
             class="grid overflow-hidden border border-black/10 dark:border-white/20"
           >
-            <section class="ow-strip-highlighted is-shallow is-bordered">
+            <section class="ow-strip-highlighted ow-is-shallow ow-is-bordered">
               <div class="mx-auto grid max-w-5xl gap-3 px-6 lg:grid-cols-3">
                 <h2 class={getTitleClass()}>Shallow strip</h2>
                 <p class="max-w-2xl pt-1.5">
@@ -180,7 +180,7 @@
               </div>
             </section>
 
-            <section class="ow-strip is-light is-deep">
+            <section class="ow-strip ow-is-light ow-is-deep">
               <div class="mx-auto grid max-w-5xl gap-3 px-6 lg:grid-cols-3">
                 <h2 class={getTitleClass()}>
                   The fastest way to go from development to production in IoT
@@ -206,7 +206,10 @@
         <section class="grid gap-4">
           <p class={sectionTitleClass}>Image strip</p>
 
-          <section class="ow-strip-image is-deep text-white" style={imageStyle}>
+          <section
+            class="ow-strip-image ow-is-deep text-white"
+            style={imageStyle}
+          >
             <div class="mx-auto grid max-w-5xl gap-3 px-6 lg:grid-cols-3">
               <h2 class={getTitleClass()}>Image backed strip</h2>
               <div class="grid gap-4 lg:col-span-2">

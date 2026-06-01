@@ -81,7 +81,7 @@
         <p class="text-sm font-semibold uppercase tracking-wider opacity-50">
           Dense Segmented Control
         </p>
-        <div class="ow-segmented-control is-dense">
+        <div class="ow-segmented-control ow-is-dense">
           <div class="ow-segmented-control-list" role="tablist">
             <button
               class="ow-segmented-control-button"

@@ -135,7 +135,7 @@ kernel  6.8.0-52-generic`
               <div class="ow-code-snippet-actions">
                 <button
                   type="button"
-                  class="ow-code-snippet-copy ow-btn-base is-small"
+                  class="ow-code-snippet-copy ow-btn-base ow-is-small"
                   onclick={copyInstallCommand}
                   aria-live="polite"
                 >
@@ -169,13 +169,13 @@ kernel  6.8.0-52-generic`
             </div>
 
             <div class="ow-code-snippet">
-              <pre class="ow-code-snippet-block-icon is-windows-prompt"><code
+              <pre class="ow-code-snippet-block-icon ow-is-windows-prompt"><code
                   >multipass version</code
                 ></pre>
             </div>
 
             <div class="ow-code-snippet">
-              <pre class="ow-code-snippet-block-icon is-url"><code
+              <pre class="ow-code-snippet-block-icon ow-is-url"><code
                   >https://ubuntu.com/server/docs</code
                 ></pre>
             </div>
@@ -240,7 +240,7 @@ kernel  6.8.0-52-generic`
           </div>
 
           <div class="ow-code-snippet">
-            <div class="ow-code-snippet-header is-stacked">
+            <div class="ow-code-snippet-header ow-is-stacked">
               <h5 class="ow-code-snippet-title">
                 Installing Thunderbird as a snap on different tracks via the
                 command line
@@ -275,7 +275,7 @@ kernel  6.8.0-52-generic`
           </div>
 
           <div class="ow-code-snippet">
-            <pre class="ow-code-snippet-block is-wrapped"><code
+            <pre class="ow-code-snippet-block ow-is-wrapped"><code
                 >{longCommand}</code
               ></pre>
           </div>
@@ -315,7 +315,7 @@ kernel  6.8.0-52-generic`
         <p class={sectionTitleClass}>Bordered</p>
 
         <div class={[demoContainerClass, 'max-w-4xl'].join(' ')}>
-          <div class="ow-code-snippet is-bordered">
+          <div class="ow-code-snippet ow-is-bordered">
             <div class="ow-code-snippet-header">
               <h5 class="ow-code-snippet-title">Rendered result</h5>
             </div>

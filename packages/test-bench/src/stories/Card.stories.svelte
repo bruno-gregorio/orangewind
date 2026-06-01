@@ -126,7 +126,7 @@
 
                 {#if card.action}
                   <a
-                    class="ow-btn is-small justify-self-start"
+                    class="ow-btn ow-is-small justify-self-start"
                     href={`#${card.id}`}
                     onclick={preventDefault}
                   >
@@ -245,7 +245,7 @@
                   maintenance for teams that need stable workstations.
                 </p>
                 <a
-                  class="ow-btn is-small justify-self-start"
+                  class="ow-btn ow-is-small justify-self-start"
                   href="#web-browsing"
                   onclick={preventDefault}
                 >

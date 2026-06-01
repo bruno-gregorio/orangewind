@@ -121,7 +121,7 @@
           <p class={sectionTitleClass}>Image and multiple paragraphs</p>
 
           <div class={demoContainerClass}>
-            <blockquote class="ow-pull-quote has-image">
+            <blockquote class="ow-pull-quote ow-has-image">
               <img
                 class="ow-pull-quote-image"
                 src={quoteLogo}

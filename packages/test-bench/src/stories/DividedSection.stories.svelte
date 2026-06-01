@@ -161,7 +161,7 @@
               <div class="grid gap-4">
                 <ul class="ow-list">
                   {#each descriptionItems as item (item)}
-                    <li class="ow-list-item is-ticked">{item}</li>
+                    <li class="ow-list-item ow-is-ticked">{item}</li>
                   {/each}
                 </ul>
                 <p class="ow-section-shallow">
@@ -205,7 +205,7 @@
               <div>
                 <ul class="ow-divided-block ow-list">
                   {#each bulletedItems as item, index (item.id)}
-                    <li class="ow-divided-heading ow-list-item has-bullet">
+                    <li class="ow-divided-heading ow-list-item ow-has-bullet">
                       <h3 class="ow-heading-5">{item.title}</h3>
                       <p>{item.content}</p>
                     </li>
@@ -231,7 +231,7 @@
               <div>
                 <ul class="ow-divided-block ow-list">
                   {#each statusItems as item, index (item.id)}
-                    <li class="ow-divided-heading ow-list-item is-ticked">
+                    <li class="ow-divided-heading ow-list-item ow-is-ticked">
                       <h3 class="ow-heading-5">{item.title}</h3>
                       <p>{item.content}</p>
                     </li>
@@ -284,7 +284,7 @@
               <div>
                 <ul class="ow-divided-block ow-list">
                   {#each bulletedItems.slice(0, 2) as item, index (item.id)}
-                    <li class="ow-divided-heading ow-list-item has-bullet">
+                    <li class="ow-divided-heading ow-list-item ow-has-bullet">
                       <h3 class="ow-heading-5">{item.title}</h3>
                       <p>{item.content}</p>
                     </li>

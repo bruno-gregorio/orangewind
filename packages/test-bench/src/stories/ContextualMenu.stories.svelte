@@ -245,7 +245,7 @@
           <span class="ow-contextual-menu-left" data-ow-contextual-menu>
             <button
               type="button"
-              class="ow-btn-positive ow-contextual-menu-toggle has-icon"
+              class="ow-btn-positive ow-contextual-menu-toggle ow-has-icon"
               aria-controls="menu-indicator"
               aria-expanded={openMenus.indicator}
               aria-haspopup="true"

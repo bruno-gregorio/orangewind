@@ -246,7 +246,7 @@
 
           <div
             bind:this={detachedDefaultTooltip}
-            class="ow-tooltip is-detached"
+            class="ow-tooltip ow-is-detached"
             id="detached-tooltip-default"
             hidden={!detachedDefaultOpen}
           >
@@ -257,7 +257,7 @@
 
           <div
             bind:this={detachedCenteredTooltip}
-            class="ow-tooltip-btm-center is-detached"
+            class="ow-tooltip-btm-center ow-is-detached"
             id="detached-tooltip-centered"
             hidden={!detachedCenteredOpen}
           >

@@ -215,7 +215,7 @@
         onkeydown={event => event.key === 'Escape' && close('narrow')}
       >
         <div
-          class="ow-modal-dialog is-narrow"
+          class="ow-modal-dialog ow-is-narrow"
           role="dialog"
           aria-modal="true"
           aria-labelledby="modal-narrow-title"
@@ -257,7 +257,7 @@
         onkeydown={event => event.key === 'Escape' && close('wide')}
       >
         <div
-          class="ow-modal-dialog is-wide"
+          class="ow-modal-dialog ow-is-wide"
           role="dialog"
           aria-modal="true"
           aria-labelledby="modal-wide-title"
@@ -283,13 +283,13 @@
               with the canary region.
             </p>
             <ul class="ow-list">
-              <li class="ow-list-item is-ticked">
+              <li class="ow-list-item ow-is-ticked">
                 Canary: 2 nodes across one availability zone
               </li>
-              <li class="ow-list-item is-ticked">
+              <li class="ow-list-item ow-is-ticked">
                 Production: 18 nodes across three regions
               </li>
-              <li class="ow-list-item is-ticked">
+              <li class="ow-list-item ow-is-ticked">
                 Edge: 4 nodes across the perimeter network
               </li>
             </ul>

@@ -67,19 +67,19 @@
           Readonly Chips
         </p>
         <div>
-          <span class="ow-chip is-readonly"
+          <span class="ow-chip ow-is-readonly"
             ><span class="ow-chip-value">Default chip</span></span
           >
-          <span class="ow-chip-positive is-readonly"
+          <span class="ow-chip-positive ow-is-readonly"
             ><span class="ow-chip-value">Positive</span></span
           >
-          <span class="ow-chip-negative is-readonly"
+          <span class="ow-chip-negative ow-is-readonly"
             ><span class="ow-chip-value">Negative</span></span
           >
-          <span class="ow-chip-caution is-readonly"
+          <span class="ow-chip-caution ow-is-readonly"
             ><span class="ow-chip-value">Caution</span></span
           >
-          <span class="ow-chip-information is-readonly"
+          <span class="ow-chip-information ow-is-readonly"
             ><span class="ow-chip-value">Information</span></span
           >
         </div>

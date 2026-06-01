@@ -51,7 +51,7 @@
           The highlight rule (<code>ow-rule-highlight</code>) features a thicker
           colored bar sitting directly on top of the base line.
           {#if args.isAccent}
-            Combining it with <code>is-accent</code> creates a colorful bar using
+            Combining it with <code>ow-is-accent</code> creates a colorful bar using
             the brand's accent color.
           {/if}
         {/if}
@@ -63,7 +63,7 @@
           class:ow-rule={args.type === 'standard'}
           class:ow-rule-muted={args.type === 'muted'}
           class:ow-rule-highlight={args.type === 'highlight'}
-          class:is-accent={args.type === 'highlight' && args.isAccent}
+          class:ow-is-accent={args.type === 'highlight' && args.isAccent}
         />
         <p>Section 2: Content that is structurally separate from section 1.</p>
       </div>

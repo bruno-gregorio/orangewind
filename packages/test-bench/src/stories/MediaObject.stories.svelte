@@ -107,7 +107,7 @@
   }
 
   function getMediaObjectImageClass(round = false) {
-    return ['ow-media-object-image', round && 'is-round']
+    return ['ow-media-object-image', round && 'ow-is-round']
       .filter(Boolean)
       .join(' ')
   }

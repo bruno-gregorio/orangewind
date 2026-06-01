@@ -89,7 +89,7 @@
           </div>
 
           <div class="ow-heading-icon">
-            <div class="ow-heading-icon-header is-stacked">
+            <div class="ow-heading-icon-header ow-is-stacked">
               <img
                 class="ow-heading-icon-img"
                 src="https://assets.ubuntu.com/v1/425efe3a-lxd.svg"

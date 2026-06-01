@@ -307,8 +307,8 @@
 
         <div class={[demoContainerClass, 'max-w-2xl'].join(' ')}>
           <p class="text-sm text-black/65 dark:text-white/65">
-            Use `has-tick-elements` on the panel when the content is a stack of
-            checkboxes or radios.
+            Use `ow-has-tick-elements` on the panel when the content is a stack
+            of checkboxes or radios.
           </p>
 
           <aside class="ow-accordion">
@@ -336,7 +336,7 @@
                   </svelte:element>
 
                   <section
-                    class="ow-accordion-panel has-tick-elements"
+                    class="ow-accordion-panel ow-has-tick-elements"
                     id={getPanelId(item.id)}
                     aria-hidden={itemIsOpen ? 'false' : 'true'}
                     aria-labelledby={getTabId(item.id)}

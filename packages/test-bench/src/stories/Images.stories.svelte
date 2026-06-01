@@ -93,7 +93,7 @@
 
           <div class={demoContainerClass}>
             <div class="grid gap-6 md:grid-cols-3">
-              <div class="ow-image-container is-highlighted">
+              <div class="ow-image-container ow-is-highlighted">
                 <img
                   class="ow-image-container-img"
                   src={productImage}
@@ -140,7 +140,7 @@
               {#each aspectExamples as example (example.id)}
                 <div class="grid gap-2">
                   <span class="text-sm font-semibold">{example.label}</span>
-                  <div class={`${example.className} is-highlighted`}>
+                  <div class={`${example.className} ow-is-highlighted`}>
                     <img
                       class="ow-image-container-img"
                       src={productImage}
@@ -161,7 +161,7 @@
 
           <div class={demoContainerClass}>
             <div class="grid gap-6 lg:grid-cols-2">
-              <div class="ow-image-container-16-9 is-cover">
+              <div class="ow-image-container-16-9 ow-is-cover">
                 <img
                   class="ow-image-container-img"
                   src={landscapeImage}
@@ -172,7 +172,7 @@
                 />
               </div>
 
-              <div class="ow-image-container is-cover h-72">
+              <div class="ow-image-container ow-is-cover h-72">
                 <img
                   class="ow-image-container-img"
                   src={landscapeImage}
@@ -184,7 +184,7 @@
               </div>
 
               <div
-                class="ow-image-container-square-on-small ow-image-container-16-9-on-medium ow-image-container-cinematic-on-large is-highlighted lg:col-span-2"
+                class="ow-image-container-square-on-small ow-image-container-16-9-on-medium ow-image-container-cinematic-on-large ow-is-highlighted lg:col-span-2"
               >
                 <div class="lazyloaded">
                   <img

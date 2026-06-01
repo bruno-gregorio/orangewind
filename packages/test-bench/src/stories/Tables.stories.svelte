@@ -414,8 +414,8 @@
                   >
                     {machine.storage}
                   </td>
-                  <td class="has-overflow" data-heading="Actions">
-                    <button class="ow-btn is-small" type="button">
+                  <td class="ow-has-overflow" data-heading="Actions">
+                    <button class="ow-btn ow-is-small" type="button">
                       Deploy
                     </button>
                   </td>
@@ -455,7 +455,7 @@
                   <td aria-label="Last seen">{machine.lastSeen}</td>
                   <td class="text-right">
                     <button
-                      class="ow-btn is-dense"
+                      class="ow-btn ow-is-dense"
                       type="button"
                       aria-controls={`${machine.id}-panel`}
                       aria-expanded={isMachineExpanded(machine.id)}

@@ -88,10 +88,14 @@
           Dense
         </p>
         <div class="flex flex-wrap gap-2 items-center">
-          <button class={btnClass('ow-btn is-dense')}>Default</button>
-          <button class={btnClass('ow-btn-positive is-dense')}>Positive</button>
-          <button class={btnClass('ow-btn-negative is-dense')}>Negative</button>
-          <button class={btnClass('ow-btn-base is-dense')}>Base</button>
+          <button class={btnClass('ow-btn ow-is-dense')}>Default</button>
+          <button class={btnClass('ow-btn-positive ow-is-dense')}
+            >Positive</button
+          >
+          <button class={btnClass('ow-btn-negative ow-is-dense')}
+            >Negative</button
+          >
+          <button class={btnClass('ow-btn-base ow-is-dense')}>Base</button>
         </div>
       </section>
 
@@ -105,10 +109,14 @@
           Small
         </p>
         <div class="flex flex-wrap gap-2 items-center">
-          <button class={btnClass('ow-btn is-small')}>Default</button>
-          <button class={btnClass('ow-btn-positive is-small')}>Positive</button>
-          <button class={btnClass('ow-btn-negative is-small')}>Negative</button>
-          <button class={btnClass('ow-btn-base is-small')}>Base</button>
+          <button class={btnClass('ow-btn ow-is-small')}>Default</button>
+          <button class={btnClass('ow-btn-positive ow-is-small')}
+            >Positive</button
+          >
+          <button class={btnClass('ow-btn-negative ow-is-small')}
+            >Negative</button
+          >
+          <button class={btnClass('ow-btn-base ow-is-small')}>Base</button>
         </div>
       </section>
 
@@ -142,10 +150,10 @@
           <span class={dark ? 'text-white text-sm' : 'text-sm'}>
             Action required:
           </span>
-          <button class={btnClass('ow-btn is-inline is-small')}
+          <button class={btnClass('ow-btn ow-is-inline ow-is-small')}
             >Acknowledge</button
           >
-          <button class={btnClass('ow-btn-negative is-inline is-small')}
+          <button class={btnClass('ow-btn-negative ow-is-inline ow-is-small')}
             >Dismiss</button
           >
         </div>

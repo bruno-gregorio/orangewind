@@ -359,7 +359,7 @@
                     <span
                       class={[
                         getPaginationControlClass(item.direction),
-                        'is-disabled'
+                        'ow-is-disabled'
                       ].join(' ')}
                       aria-disabled="true"
                     >
@@ -415,7 +415,7 @@
                     <span
                       class={[
                         getPaginationControlClass(item.direction),
-                        'is-disabled'
+                        'ow-is-disabled'
                       ].join(' ')}
                       aria-disabled="true"
                     >
@@ -471,7 +471,7 @@
                     <span
                       class={[
                         getPaginationControlClass(item.direction),
-                        'is-disabled'
+                        'ow-is-disabled'
                       ].join(' ')}
                       aria-disabled="true"
                     >

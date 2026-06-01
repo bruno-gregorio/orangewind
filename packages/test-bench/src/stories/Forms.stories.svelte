@@ -49,9 +49,9 @@
           <p class="ow-form-help-text">Please enter your full name.</p>
 
           <div class="ow-form-password-toggle">
-            <label for="input-password" class="is-required">Password</label>
+            <label for="input-password" class="ow-is-required">Password</label>
             <button
-              class="ow-btn-base has-icon"
+              class="ow-btn-base ow-has-icon"
               onclick={() => {
                 showPassword = !showPassword
               }}
@@ -127,7 +127,7 @@
                 <input type="checkbox" id="check-1" class="ow-checkbox-input" />
                 <label for="check-1" class="ow-checkbox-label">Checkbox 1</label
                 >
-                <p class="ow-form-help-text is-tick-element">
+                <p class="ow-form-help-text ow-is-tick-element">
                   Optional description for this checkbox.
                 </p>
               </div>
@@ -200,7 +200,7 @@
                 />
                 <label
                   for="check-inline-1"
-                  class="ow-checkbox-label is-required">Inline 1</label
+                  class="ow-checkbox-label ow-is-required">Inline 1</label
                 >
               </div>
               <div class="ow-checkbox ow-checkbox-inline">
@@ -223,7 +223,7 @@
                   id="rad-inline-1"
                   class="ow-radio-input"
                 />
-                <label for="rad-inline-1" class="ow-radio-label is-required"
+                <label for="rad-inline-1" class="ow-radio-label ow-is-required"
                   >Inline A</label
                 >
               </div>

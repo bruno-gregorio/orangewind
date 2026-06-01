@@ -234,22 +234,25 @@
   function getListItemClass(state?: FeatureItem['state']) {
     return [
       'ow-list-item',
-      state === 'bullet' && 'has-bullet',
-      state === 'crossed' && 'is-crossed',
-      state === 'ticked' && 'is-ticked'
+      state === 'bullet' && 'ow-has-bullet',
+      state === 'crossed' && 'ow-is-crossed',
+      state === 'ticked' && 'ow-is-ticked'
     ]
       .filter(Boolean)
       .join(' ')
   }
 
   function getTreeToggleClass(nodeId: string) {
-    return ['ow-list-tree-toggle', activeTreeNodeId === nodeId && 'is-active']
+    return [
+      'ow-list-tree-toggle',
+      activeTreeNodeId === nodeId && 'ow-is-active'
+    ]
       .filter(Boolean)
       .join(' ')
   }
 
   function getTreeLinkClass(nodeId: string) {
-    return ['ow-list-tree-link', activeTreeNodeId === nodeId && 'is-active']
+    return ['ow-list-tree-link', activeTreeNodeId === nodeId && 'ow-is-active']
       .filter(Boolean)
       .join(' ')
   }
@@ -286,12 +289,12 @@
         <div class={getDemoContainerClass()}>
           <ul class="ow-list-divided">
             {#each horizontalItems as item (item.id)}
-              <li class="ow-list-item has-bullet">
+              <li class="ow-list-item ow-has-bullet">
                 {item.label}
                 {#if item.id === 'commissioning'}
                   <ul class="ow-list-divided">
                     {#each nestedCommissioningItems as nestedItem (nestedItem.id)}
-                      <li class="ow-list-item has-bullet">
+                      <li class="ow-list-item ow-has-bullet">
                         {nestedItem.label}
                       </li>
                     {/each}
@@ -582,8 +585,8 @@
                 <div class="ow-stepped-list-content">
                   <p>{step.content}</p>
                   <ul class="ow-list-divided">
-                    <li class="ow-list-item has-bullet">Prepare inputs</li>
-                    <li class="ow-list-item has-bullet">Validate output</li>
+                    <li class="ow-list-item ow-has-bullet">Prepare inputs</li>
+                    <li class="ow-list-item ow-has-bullet">Validate output</li>
                   </ul>
                 </div>
               </li>
@@ -634,7 +637,7 @@
         <p class={sectionTitleClass}>Split</p>
 
         <div class={[demoContainerClass, 'max-w-5xl'].join(' ')}>
-          <ul class="ow-list is-split">
+          <ul class="ow-list ow-is-split">
             {#each horizontalItems.concat(listItems) as item (item.id)}
               <li class={getListItemClass(item.state)}>{item.label}</li>
             {/each}
