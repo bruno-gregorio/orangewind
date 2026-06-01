@@ -34,7 +34,7 @@
       }
     }
 
-    &.is-detached {
+    &.ow-is-detached {
       display: block;
       position: fixed;
       z-index: var(--ow-tooltip-layer);

@@ -100,7 +100,7 @@
       text-decoration: none;
     }
 
-    &:is(:disabled, .is-disabled) {
+    &:is(:disabled, .ow-is-disabled) {
       cursor: not-allowed;
       opacity: 0.5;
     }
@@ -146,7 +146,7 @@
       border-color: var(--color-ow-btn-border);
     }
 
-    &:is(:disabled, .is-disabled):is(:active, :hover) {
+    &:is(:disabled, .ow-is-disabled):is(:active, :hover) {
       background-color: var(--color-ow-btn-bg);
       border-color: var(--color-ow-btn-border);
     }
@@ -189,7 +189,7 @@
       border-color: var(--color-ow-btn-positive-active-bg);
     }
 
-    &:is(:disabled, .is-disabled):is(:active, :hover) {
+    &:is(:disabled, .ow-is-disabled):is(:active, :hover) {
       background-color: var(--color-ow-positive);
       border-color: var(--color-ow-positive);
     }
@@ -232,7 +232,7 @@
       border-color: var(--color-ow-btn-negative-active-bg);
     }
 
-    &:is(:disabled, .is-disabled):is(:active, :hover) {
+    &:is(:disabled, .ow-is-disabled):is(:active, :hover) {
       background-color: var(--color-ow-negative);
       border-color: var(--color-ow-negative);
     }
@@ -276,7 +276,7 @@
       border-color: transparent;
     }
 
-    &:is(:disabled, .is-disabled):is(:active, :hover) {
+    &:is(:disabled, .ow-is-disabled):is(:active, :hover) {
       background-color: transparent;
       border-color: transparent;
     }
@@ -307,26 +307,26 @@
   .ow-btn-positive,
   .ow-btn-negative,
   .ow-btn-base {
-    &.is-dense {
+    &.ow-is-dense {
       padding-bottom: calc(0.125rem - 1px);
       padding-top: calc(0.125rem - 1px);
     }
 
-    &.is-small {
+    &.ow-is-small {
       font-size: 0.875rem;
       line-height: 1.25rem;
       padding: calc(0.25rem - 1px) 0.75rem;
 
-      &.has-icon {
+      &.ow-has-icon {
         gap: 0.25rem;
       }
     }
 
-    &.is-processing {
+    &.ow-is-processing {
       opacity: 1 !important;
     }
 
-    &.has-icon {
+    &.ow-has-icon {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;

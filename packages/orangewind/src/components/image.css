@@ -43,11 +43,11 @@
       );
     }
 
-    &.is-highlighted {
+    &.ow-is-highlighted {
       background-color: var(--color-ow-image-bg);
     }
 
-    &.is-cover {
+    &.ow-is-cover {
       overflow: hidden;
 
       .ow-image-container-img {
@@ -94,7 +94,7 @@
       width: auto;
     }
 
-    &.is-cover {
+    &.ow-is-cover {
       .ow-image-container-img {
         height: 100%;
         max-height: none;
@@ -150,7 +150,7 @@
         width: auto;
       }
 
-      &.is-cover {
+      &.ow-is-cover {
         .ow-image-container-img {
           height: 100%;
           max-height: none;
@@ -207,7 +207,7 @@
         width: auto;
       }
 
-      &.is-cover {
+      &.ow-is-cover {
         .ow-image-container-img {
           height: 100%;
           max-height: none;
@@ -264,7 +264,7 @@
         width: auto;
       }
 
-      &.is-cover {
+      &.ow-is-cover {
         .ow-image-container-img {
           height: 100%;
           max-height: none;

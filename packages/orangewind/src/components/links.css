@@ -48,7 +48,7 @@
       color: var(--color-ow-link);
     }
 
-    &.is-selected {
+    &.ow-is-selected {
       font-weight: var(--font-weight-bold, 700);
     }
 

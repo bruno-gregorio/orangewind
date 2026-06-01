@@ -26,8 +26,8 @@
   }
 
   .ow-divided-heading {
-    &.has-bullet::before,
-    &.is-ticked::before,
+    &.ow-has-bullet::before,
+    &.ow-is-ticked::before,
     &::marker {
       font-weight: var(--ow-divided-heading-font-weight);
     }

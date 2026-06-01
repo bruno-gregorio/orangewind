@@ -259,7 +259,7 @@
     max-width: 40rem;
     font-weight: 400;
 
-    &.is-required::after {
+    &.ow-is-required::after {
       content: '*';
       padding-left: 0.25rem;
       color: var(--color-ow-negative);
@@ -267,7 +267,7 @@
   }
 
   [disabled],
-  .is-disabled {
+  .ow-is-disabled {
     cursor: not-allowed !important;
     opacity: 0.33 !important;
   }
@@ -581,11 +581,11 @@
       );
     }
 
-    .is-dense + & {
+    .ow-is-dense + & {
       padding-top: 0.25rem;
     }
 
-    &.is-tick-element {
+    &.ow-is-tick-element {
       padding-left: 2rem;
     }
   }

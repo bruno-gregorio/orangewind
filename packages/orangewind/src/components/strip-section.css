@@ -49,17 +49,17 @@
       --color-ow-strip-text: var(--color-ow-x-light);
     }
 
-    &.is-shallow {
+    &.ow-is-shallow {
       padding-bottom: var(--ow-strip-padding-shallow);
       padding-top: var(--ow-strip-padding-shallow);
     }
 
-    &.is-deep {
+    &.ow-is-deep {
       padding-bottom: var(--ow-strip-padding-deep);
       padding-top: var(--ow-strip-padding-deep);
     }
 
-    &.is-bordered::after {
+    &.ow-is-bordered::after {
       background-color: var(--color-ow-strip-border);
       bottom: 0;
       content: '';
@@ -71,12 +71,12 @@
   }
 
   .ow-strip {
-    &.is-light {
+    &.ow-is-light {
       --color-ow-strip-bg: var(--color-ow-x-light);
       --color-ow-strip-text: var(--color-ow-dark);
     }
 
-    &.is-dark {
+    &.ow-is-dark {
       --color-ow-strip-bg: var(--color-ow-dark);
       --color-ow-strip-border: var(--color-ow-surface-border-dark);
       --color-ow-strip-text: var(--color-ow-x-light);
@@ -99,7 +99,7 @@
     --color-ow-strip-text: var(--color-ow-x-light);
   }
 
-  .ow-strip.is-paper,
+  .ow-strip.ow-is-paper,
   .ow-strip-paper {
     --color-ow-background-alt: var(--color-ow-strip-paper-highlighted-bg);
     --color-ow-background-default: var(--color-ow-strip-paper-bg);
@@ -149,7 +149,7 @@
       );
     }
 
-    &.is-highlighted {
+    &.ow-is-highlighted {
       --color-ow-strip-bg: var(--color-ow-strip-paper-highlighted-bg);
     }
   }

@@ -134,7 +134,7 @@
       color: var(--color-ow-pagination-text);
     }
 
-    &:is(:active, .is-active, [aria-current='page']) {
+    &:is(:active, .ow-is-active, [aria-current='page']) {
       transition-duration: 0s;
     }
 
@@ -147,17 +147,17 @@
       border-color: var(--color-ow-pagination-border);
     }
 
-    &:is(:active, .is-active, [aria-current='page']) {
+    &:is(:active, .ow-is-active, [aria-current='page']) {
       background-color: var(--color-ow-pagination-active-bg);
       color: var(--color-ow-pagination-active-text);
       text-decoration: none;
     }
 
-    &:is(:disabled, .is-disabled) {
+    &:is(:disabled, .ow-is-disabled) {
       cursor: not-allowed;
     }
 
-    &:is(:disabled, .is-disabled):is(:active, :hover) {
+    &:is(:disabled, .ow-is-disabled):is(:active, :hover) {
       background-color: var(--color-ow-pagination-bg);
       border-color: var(--color-ow-pagination-border);
     }

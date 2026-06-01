@@ -70,7 +70,7 @@
     text-overflow: ellipsis;
     vertical-align: top;
 
-    &.has-overflow {
+    &.ow-has-overflow {
       overflow: visible;
     }
   }
@@ -269,7 +269,7 @@
           width: 100%;
           word-break: break-word;
 
-          &.has-overflow {
+          &.ow-has-overflow {
             overflow: visible;
           }
 

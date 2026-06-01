@@ -60,11 +60,11 @@
       --shadow-ow-modal: var(--shadow-ow-surface-dark);
     }
 
-    &.is-wide {
+    &.ow-is-wide {
       --ow-modal-dialog-max-width: 60rem;
     }
 
-    &.is-narrow {
+    &.ow-is-narrow {
       --ow-modal-dialog-max-width: 28rem;
     }
   }

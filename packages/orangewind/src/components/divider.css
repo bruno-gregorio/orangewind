@@ -35,11 +35,11 @@
     width: auto;
   }
 
-  .ow-rule-highlight.is-accent::before {
+  .ow-rule-highlight.ow-is-accent::before {
     background-color: var(--color-ow-accent);
   }
 
-  .ow-rule.is-fixed-width {
+  .ow-rule.ow-is-fixed-width {
     margin-left: auto;
     margin-right: auto;
     max-width: 73.5rem; /* ~1176px */

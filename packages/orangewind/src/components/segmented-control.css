@@ -51,7 +51,7 @@
       text-decoration: none;
     }
 
-    &:is(:disabled, .is-disabled) {
+    &:is(:disabled, .ow-is-disabled) {
       cursor: not-allowed;
       opacity: 0.5;
     }
@@ -101,7 +101,7 @@
       border-color: var(--color-ow-btn-border);
     }
 
-    &:is(:disabled, .is-disabled):is(:active, :hover) {
+    &:is(:disabled, .ow-is-disabled):is(:active, :hover) {
       background-color: var(--color-ow-btn-bg);
       border-color: var(--color-ow-btn-border);
     }
@@ -136,7 +136,7 @@
   /* Modifiers */
   .ow-segmented-control,
   .ow-segmented-control-list {
-    &.is-dense .ow-segmented-control-button {
+    &.ow-is-dense .ow-segmented-control-button {
       padding-bottom: calc(0.125rem - 1px);
       padding-top: calc(0.125rem - 1px);
     }

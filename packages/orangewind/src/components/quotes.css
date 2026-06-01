@@ -93,7 +93,7 @@
       --color-ow-quote-text: var(--color-ow-x-light);
     }
 
-    &.has-image {
+    &.ow-has-image {
       --ow-pull-quote-content-gap: var(--ow-pull-quote-image-spacing-block-end);
 
       padding-top: var(--ow-pull-quote-image-spacing-block-start);

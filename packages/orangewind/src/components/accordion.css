@@ -179,7 +179,7 @@
         margin-bottom: 0;
       }
 
-      &.has-tick-elements {
+      &.ow-has-tick-elements {
         padding-left: var(--ow-accordion-tick-panel-indent);
       }
     }

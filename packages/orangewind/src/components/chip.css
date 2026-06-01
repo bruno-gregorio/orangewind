@@ -173,16 +173,16 @@
       }
     }
 
-    &.is-dense {
+    &.ow-is-dense {
       padding: 0 0.5rem;
     }
 
-    &.inline {
+    &.ow-is-inline {
       margin: 0;
       vertical-align: baseline;
     }
 
-    &.is-readonly {
+    &.ow-is-readonly {
       border-color: transparent !important;
     }
   }
@@ -385,7 +385,7 @@
       border-color: var(--ow-chip-border);
     }
 
-    &:is(:active, [aria-pressed='true'], .is-selected) {
+    &:is(:active, [aria-pressed='true'], .ow-is-selected) {
       background-color: var(--ow-chip-active-bg);
       border-color: var(--ow-chip-border);
     }

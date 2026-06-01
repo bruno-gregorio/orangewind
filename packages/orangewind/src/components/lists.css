@@ -160,7 +160,7 @@
     }
   }
 
-  .ow-list-item:is(.is-ticked, .is-crossed, .has-bullet),
+  .ow-list-item:is(.ow-is-ticked, .ow-is-crossed, .ow-has-bullet),
   ol:is(.ow-list-divided, .ow-list-horizontal-section) > .ow-list-item {
     padding-left: var(--ow-list-prefix-offset);
     position: relative;
@@ -170,7 +170,7 @@
     }
   }
 
-  .ow-list-item:is(.is-ticked, .is-crossed, .has-bullet)::before,
+  .ow-list-item:is(.ow-is-ticked, .ow-is-crossed, .ow-has-bullet)::before,
   ol:is(.ow-list-divided, .ow-list-horizontal-section) > .ow-list-item::before {
     color: var(--color-ow-list-icon);
     display: inline-block;
@@ -180,8 +180,8 @@
     width: var(--ow-list-prefix-width);
   }
 
-  .ow-list-item.is-ticked::before,
-  .ow-list-item.is-crossed::before {
+  .ow-list-item.ow-is-ticked::before,
+  .ow-list-item.ow-is-crossed::before {
     background-color: currentColor;
     content: '';
     height: var(--ow-list-icon-size);
@@ -191,26 +191,26 @@
     top: var(--ow-list-divided-item-padding-block-start);
   }
 
-  .ow-list-item.is-ticked::before {
+  .ow-list-item.ow-is-ticked::before {
     mask-image: var(--icon-ow-list-success-grey);
   }
 
-  .ow-list-item.is-crossed::before {
+  .ow-list-item.ow-is-crossed::before {
     mask-image: var(--icon-ow-list-error-grey);
   }
 
-  .ow-list-item.has-bullet::before {
+  .ow-list-item.ow-has-bullet::before {
     content: '\2022';
     top: var(--ow-list-item-padding-block);
   }
 
   :is(.ow-list-divided, .ow-list-horizontal-section)
-    .ow-list-item:is(.is-ticked, .is-crossed)::before {
+    .ow-list-item:is(.ow-is-ticked, .ow-is-crossed)::before {
     top: 0.75rem;
   }
 
   :is(.ow-list-divided, .ow-list-horizontal-section)
-    .ow-list-item.has-bullet::before {
+    .ow-list-item.ow-has-bullet::before {
     top: var(--ow-list-divided-item-padding-block-start);
   }
 
@@ -330,7 +330,7 @@
     .ow-inline-list,
     .ow-inline-list-middot,
     .ow-inline-list-stretch
-  ).is-split {
+  ).ow-is-split {
     @media (width >= theme(--breakpoint-md)) {
       column-gap: var(--ow-list-prefix-offset);
       columns: 2;
@@ -596,7 +596,7 @@
       text-decoration: underline;
     }
 
-    &.is-active {
+    &.ow-is-active {
       color: var(--color-ow-list-tree-active);
     }
   }
