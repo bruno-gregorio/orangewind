@@ -22,7 +22,7 @@
 </script>
 
 <script lang="ts">
-  /* global HTMLDivElement, HTMLSpanElement, SubmitEvent, ResizeObserver */
+  /* global HTMLDivElement, HTMLSpanElement, SubmitEvent, MouseEvent, ResizeObserver */
   import { tick } from 'svelte'
 
   type Chip = {
@@ -91,7 +91,7 @@
   let overflowHiddenCount = $state(0)
   let overflowHiddenIndexes = $state<number[]>([])
   let overflowContainer = $state<HTMLDivElement | null>(null)
-  let promptExpanded = $state(true)
+  let promptExpanded = $state(false)
   let selectedChips = $state([...initialSelectedChips])
   let overflowChips = $state([...initialOverflowChips])
   let promptChips = $state<Chip[]>([])
@@ -121,7 +121,6 @@
 
     promptChips = [{ value }, ...promptChips]
     promptValue = ''
-    promptExpanded = false
   }
 
   function preventSubmit(event: SubmitEvent) {
@@ -133,19 +132,16 @@
     addPromptChip()
   }
 
+  // Select via mousedown + preventDefault so the input keeps focus and the
+  // panel is not torn down by the blur handler before the chip is added.
+  function selectPrompt(event: MouseEvent) {
+    event.preventDefault()
+    addPromptChip()
+  }
+
   function clearPrompt() {
     promptValue = ''
     promptExpanded = false
-  }
-
-  function syncPromptExpanded() {
-    promptExpanded = promptValue.trim() !== ''
-  }
-
-  function handlePromptBlur() {
-    if (promptValue.trim() === '') {
-      promptExpanded = false
-    }
   }
 
   function removeSelectedChip(index: number) {
@@ -308,7 +304,6 @@
     <button type="submit" class="ow-search-and-filter-search-button">
       Search
     </button>
-    <i class="ow-icon-search ow-search-and-filter-search-icon">Search</i>
   </form>
 {/snippet}
 
@@ -347,10 +342,7 @@
             })}
           </div>
 
-          <div
-            class="ow-search-and-filter-panel"
-            aria-hidden={!defaultExpanded}
-          >
+          <div class="ow-search-and-filter-panel" tabindex="-1">
             {@render filterPanel(false)}
           </div>
         </div>
@@ -381,7 +373,7 @@
             })}
           </div>
 
-          <div class="ow-search-and-filter-panel" aria-hidden={!chipsExpanded}>
+          <div class="ow-search-and-filter-panel" tabindex="-1">
             {@render filterPanel(false)}
           </div>
         </div>
@@ -397,7 +389,6 @@
             aria-expanded={overflowExpanded}
             data-active="true"
             data-empty={overflowChips.length === 0}
-            data-overflow-layout="true"
           >
             {#each overflowChips as chip, chipIndex (chipKey(chip, chipIndex))}
               {@render dismissibleChip(
@@ -424,10 +415,7 @@
             })}
           </div>
 
-          <div
-            class="ow-search-and-filter-panel"
-            aria-hidden={!overflowExpanded}
-          >
+          <div class="ow-search-and-filter-panel" tabindex="-1">
             {@render filterPanel(true)}
           </div>
         </div>
@@ -437,17 +425,6 @@
         <p class={sectionTitleClass}>Search prompt</p>
 
         <div class="ow-search-and-filter">
-          {#if promptValue !== ''}
-            <button
-              type="button"
-              class="ow-search-and-filter-clear"
-              aria-label="Clear search"
-              onclick={clearPrompt}
-            >
-              <i class="ow-icon-close"></i>
-            </button>
-          {/if}
-
           <div
             class="ow-search-and-filter-search-container"
             aria-expanded={promptExpanded}
@@ -477,21 +454,31 @@
                 placeholder={searchAndFilterLabel}
                 autocomplete="off"
                 bind:value={promptValue}
-                onfocus={syncPromptExpanded}
-                oninput={syncPromptExpanded}
-                onblur={handlePromptBlur}
+                onfocus={() => (promptExpanded = true)}
+                onblur={() => (promptExpanded = false)}
               />
               <button type="submit" class="ow-search-and-filter-search-button">
                 Search
               </button>
             </form>
+
+            {#if promptValue !== ''}
+              <button
+                type="button"
+                class="ow-search-and-filter-clear"
+                aria-label="Clear search"
+                onmousedown={clearPrompt}
+              >
+                <i class="ow-icon-close"></i>
+              </button>
+            {/if}
           </div>
 
-          <div class="ow-search-and-filter-panel" aria-hidden={!promptExpanded}>
+          <div class="ow-search-and-filter-panel" tabindex="-1">
             <button
               type="button"
               class="ow-search-and-filter-search-prompt"
-              onclick={addPromptChip}
+              onmousedown={selectPrompt}
             >
               Search for
               <span class="ow-search-and-filter-search-query">

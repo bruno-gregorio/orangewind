@@ -1,8 +1,8 @@
 /* Search and Filter — https://vanillaframework.io/docs/patterns/search-and-filter */
 
 @theme {
-  --color-ow-search-filter-bg: var(--color-ow-light);
-  --color-ow-search-filter-border: var(--color-ow-mid-dark);
+  --color-ow-search-filter-bg: var(--color-ow-form-bg);
+  --color-ow-search-filter-border: var(--color-ow-form-border);
   --color-ow-search-filter-hover-bg: var(--color-ow-paper);
   --color-ow-search-filter-active-bg: var(--color-ow-mid-x-light);
   --color-ow-search-filter-text: var(--color-ow-text-default);
@@ -15,8 +15,7 @@
     transparent
   );
   --ow-search-filter-input-height: calc(1.5rem + 1rem + 2px);
-  --ow-search-filter-action-width: 3rem;
-  --ow-search-filter-count-width: 3rem;
+  --ow-search-filter-actions-width: 2.5rem;
 }
 
 @layer components {
@@ -24,6 +23,7 @@
     background-color: var(--color-ow-search-filter-bg);
     border-bottom: 2px solid var(--color-ow-search-filter-border);
     color: var(--color-ow-search-filter-text);
+    /* containing block for the dropdown panel and the right-pinned overlays */
     position: relative;
 
     @variant dark {
@@ -67,17 +67,6 @@
     }
 
     :is(
-      .ow-chip,
-      .ow-chip-positive,
-      .ow-chip-caution,
-      .ow-chip-negative,
-      .ow-chip-information,
-      .ow-chip-branded
-    ) {
-      margin-bottom: 0;
-    }
-
-    :is(
       .ow-search-and-filter-selected-count,
       .ow-search-and-filter-clear,
       .ow-filter-panel-section-counter
@@ -87,17 +76,18 @@
     }
 
     .ow-search-and-filter-search-container {
-      align-content: flex-start;
+      /* chips + the growing input share one wrapping flex row; the right-edge
+         actions are absolute overlays, so they never consume row width and the
+         input is free to fill the whole field */
       align-items: center;
       background-color: inherit;
+      column-gap: 0.5rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
       min-height: var(--ow-search-filter-input-height);
       overflow: hidden;
-      padding-right: 0;
-      padding-top: 0.2rem;
       position: relative;
+      row-gap: 0.25rem;
 
       &:has(
         :is(
@@ -112,27 +102,17 @@
         padding-left: 0.5rem;
       }
 
-      &:has(.ow-search-and-filter-selected-count) {
-        padding-right: calc(var(--ow-search-filter-count-width) + 0.25rem);
-      }
-
+      /* collapsed: clamp to a single input row and clip the wrapped chips */
       &[data-empty='false'][aria-expanded='false'] {
         max-height: var(--ow-search-filter-input-height);
         overflow: clip;
         overflow-clip-margin: 0;
       }
 
-      &[data-overflow-layout] {
-        :is(
-          .ow-chip,
-          .ow-chip-positive,
-          .ow-chip-caution,
-          .ow-chip-negative,
-          .ow-chip-information,
-          .ow-chip-branded
-        ) {
-          margin-top: 0.25rem;
-        }
+      /* in the collapsed overflow row the input box has wrapped away, so the
+         chip line hugs the top edge — give it a little breathing room */
+      &[aria-expanded='false']:has(.ow-search-and-filter-selected-count) {
+        padding-top: 0.25rem;
       }
 
       &[aria-expanded='false'] {
@@ -159,39 +139,52 @@
         .ow-chip-branded
       ) {
         flex-shrink: 0;
+        margin: 0;
       }
 
+      /* "+N" overlay floating over the trailing edge of the collapsed row;
+         a field-coloured background lets it cover any chip it overlaps */
       .ow-search-and-filter-selected-count {
         align-items: center;
+        background-color: inherit;
+        bottom: 0;
         color: var(--color-ow-search-filter-link);
         cursor: pointer;
         display: inline-flex;
-        font-size: 0.875rem;
+        font-size: var(--text-sm);
         justify-content: flex-end;
-        line-height: 1.25rem;
-        min-width: var(--ow-search-filter-count-width);
+        line-height: var(--text-sm--line-height);
+        min-width: var(--ow-search-filter-actions-width);
+        padding-left: 0.5rem;
         position: absolute;
-        right: 0.25rem;
-        top: 50%;
-        transform: translateY(-50%);
+        right: 0.5rem;
+        top: 0;
         z-index: 1;
       }
     }
 
+    /* dropdown overlay: hidden until the field is focused — driven purely by
+       CSS through :focus-within, which also keeps it open while a control
+       inside the panel (e.g. a filter chip) is being interacted with */
     .ow-search-and-filter-panel {
       background-color: var(--color-ow-search-filter-bg);
       box-shadow: 0 0.75rem 2rem var(--color-ow-search-filter-shadow);
-      left: 0;
-      opacity: 1;
+      inset-inline: 0;
+      opacity: 0;
+      pointer-events: none;
       position: absolute;
-      right: 0;
-      transition: opacity 0.1s ease-in;
+      transition:
+        opacity 0.1s ease-in,
+        visibility 0s linear 0.1s;
+      visibility: hidden;
       z-index: 30;
+    }
 
-      &[aria-hidden='true'] {
-        opacity: 0;
-        pointer-events: none;
-      }
+    &:focus-within .ow-search-and-filter-panel {
+      opacity: 1;
+      pointer-events: auto;
+      transition: opacity 0.1s ease-in;
+      visibility: visible;
     }
 
     .ow-search-and-filter-search-prompt {
@@ -216,49 +209,57 @@
       }
     }
 
-    .ow-search-and-filter-clear {
-      align-items: center;
-      color: var(--color-ow-search-filter-icon);
-      cursor: pointer;
-      display: inline-flex;
-      height: calc(var(--ow-search-filter-input-height) - 0.5rem);
-      justify-content: center;
-      position: absolute;
-      right: 0.25rem;
-      top: 0.25rem;
-      width: calc(var(--ow-search-filter-action-width) - 0.5rem);
-      z-index: 40;
-
-      &:hover,
-      &:active {
-        background-color: var(--color-ow-search-filter-active-bg);
-      }
-    }
-
     .ow-search-and-filter-search-query {
       color: var(--color-ow-search-filter-text);
       font-weight: 500;
     }
 
+    /* the box grows to fill the row; with the actions absolute, nothing stops
+       the input short, so its background and focus outline span the field */
     .ow-search-and-filter-box {
       align-items: center;
-      display: inline-flex;
+      display: flex;
       flex: 1 1 12rem;
-      height: var(--ow-search-filter-input-height);
+      min-height: var(--ow-search-filter-input-height);
       min-width: 6rem;
-      position: relative;
     }
 
-    .ow-search-and-filter-search-icon {
+    .ow-search-and-filter-input {
+      border-bottom: 0;
+      box-shadow: none;
+      flex: 1 1 auto;
+      min-width: 6rem;
+      /* keep text and placeholder clear of the right-edge actions overlay */
+      padding-right: var(--ow-search-filter-actions-width);
+      width: 100%;
+
+      &::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+      }
+    }
+
+    /* clear button overlays the trailing edge of the input (search-prompt) */
+    .ow-search-and-filter-clear {
+      align-items: center;
+      bottom: 0;
       color: var(--color-ow-search-filter-icon);
-      pointer-events: none;
+      cursor: pointer;
+      display: inline-flex;
+      justify-content: center;
       position: absolute;
-      right: 0.75rem;
-      top: 50%;
-      transform: translateY(-50%);
+      right: 0.25rem;
+      top: 0;
+      width: var(--ow-search-filter-actions-width);
       z-index: 1;
+
+      &:hover,
+      &:active {
+        color: var(--color-ow-search-filter-text);
+      }
     }
 
+    /* visually hidden until focused; the absolute positioning here is the
+       accessible off-screen idiom, not visual layout placement */
     .ow-search-and-filter-search-button {
       clip: rect(0, 0, 0, 0);
       clip-path: inset(50%);
@@ -269,31 +270,36 @@
       width: 1px;
 
       &:focus-visible {
-        background-color: var(--color-ow-search-filter-bg);
-        border: 1px solid var(--color-ow-search-filter-border);
         clip: auto;
         clip-path: none;
         height: auto;
         line-height: 1.25rem;
+        overflow: visible;
         padding: calc(0.25rem - 1px) 0.75rem;
-        right: 0.25rem;
-        top: 0.25rem;
+        position: static;
         width: auto;
-        z-index: 50;
       }
     }
 
-    .ow-search-and-filter-input {
-      border-bottom: 0;
-      box-shadow: none;
-      flex: 1 1 auto;
-      min-width: 6rem;
-      padding-right: calc(var(--ow-search-filter-action-width) - 0.5rem);
-      position: relative;
-      width: 100%;
+    /* Below md the field is too narrow to fit chips alongside the input on one
+       row, so collapsing would clip the input out of sight. Keep the field
+       fully expanded instead: chips wrap and the input always stays visible. */
+    @media (width < theme(--breakpoint-md)) {
+      .ow-search-and-filter-search-container {
+        &[data-empty='false'][aria-expanded='false'] {
+          max-height: none;
+          overflow: visible;
+          padding-top: 0;
+        }
 
-      &::-webkit-search-cancel-button {
-        -webkit-appearance: none;
+        &[aria-expanded='false'] [data-overflow-hidden='true'] {
+          pointer-events: auto;
+          visibility: visible;
+        }
+
+        .ow-search-and-filter-selected-count {
+          display: none;
+        }
       }
     }
   }
@@ -326,9 +332,9 @@
 
     .ow-filter-panel-section-heading {
       color: var(--color-ow-search-filter-muted);
-      font-size: 0.875rem;
+      font-size: var(--text-sm);
       font-weight: 500;
-      line-height: 1.25rem;
+      line-height: var(--text-sm--line-height);
       padding-bottom: 0.75rem;
     }
 
@@ -336,7 +342,10 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      overflow: hidden;
+      /* scroll rather than clip when the chips overflow the collapsed height
+         (sections with many chips were getting cut off on narrow widths) */
+      overflow: auto;
+      /* reserve room for the counter overlay anchored bottom-right */
       padding-right: 2rem;
       position: relative;
 
