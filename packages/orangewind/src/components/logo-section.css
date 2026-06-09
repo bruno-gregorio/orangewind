@@ -1,0 +1,97 @@
+/* Logo section — https://vanillaframework.io/docs/patterns/logo-section */
+/* Linked logo section — https://vanillaframework.io/docs/patterns/linked-logo-section */
+
+@theme {
+  --ow-logo-section-item-gap: 2rem;
+  --ow-logo-section-item-size: 6.5rem;
+  --ow-logo-section-item-size-small: 4.5rem;
+  --ow-logo-section-offset: 1rem;
+  --ow-logo-section-offset-small: 0.5rem;
+}
+
+@layer components {
+  .ow-logo-section-title {
+    display: block;
+    font-variant-caps: all-small-caps;
+    font-variant-numeric: oldstyle-nums;
+    letter-spacing: 0.05em;
+  }
+
+  .ow-logo-section {
+    .ow-logo-section-items {
+      /* Remove whitespace gaps between rows of inline-block logos. */
+      line-height: 0;
+      padding-bottom: var(--ow-logo-section-offset-small);
+      padding-top: var(--ow-logo-section-offset-small);
+
+      @media (width >= theme(--breakpoint-md)) {
+        padding-bottom: var(--ow-logo-section-offset);
+        padding-top: var(--ow-logo-section-offset);
+      }
+    }
+
+    .ow-logo-section-item {
+      display: inline-block;
+      margin: 0;
+      margin-bottom: calc(-1 * var(--ow-logo-section-offset-small));
+      margin-right: var(--ow-logo-section-item-gap);
+      margin-top: calc(-1 * var(--ow-logo-section-offset-small));
+
+      @media (width >= theme(--breakpoint-md)) {
+        margin-bottom: calc(-1 * var(--ow-logo-section-offset));
+        margin-top: calc(-1 * var(--ow-logo-section-offset));
+      }
+    }
+
+    .ow-logo-section-logo {
+      display: block;
+      height: var(--ow-logo-section-item-size-small);
+      max-width: none; /* prevent logos from squishing on small screens */
+      width: auto;
+
+      @media (width >= theme(--breakpoint-md)) {
+        height: var(--ow-logo-section-item-size);
+      }
+    }
+  }
+
+  /* Linked logo section: each logo is wrapped in an anchor. */
+  a.ow-logo-section-item {
+    transition: opacity 0.1s ease-in;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--color-ow-focus);
+      outline-offset: 2px;
+    }
+  }
+
+  /* Fallback for logos that aren't optically aligned by a design team. */
+  .ow-logo-section.ow-has-misaligned-images {
+    .ow-logo-section-items {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      padding-bottom: 0;
+      padding-top: 0;
+    }
+
+    .ow-logo-section-item {
+      margin-bottom: 0.5rem;
+      margin-top: 0;
+      width: var(--ow-logo-section-item-size-small);
+
+      @media (width >= theme(--breakpoint-md)) {
+        width: var(--ow-logo-section-item-size);
+      }
+    }
+
+    .ow-logo-section-logo {
+      height: auto;
+      width: 100%;
+    }
+  }
+}

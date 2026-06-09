@@ -1,0 +1,66 @@
+/* Pricing block — https://vanillaframework.io/docs/patterns/pricing-block */
+
+@theme {
+  --color-ow-pricing-block-text: var(--color-ow-text-default);
+  --ow-pricing-block-block-spacing: 1.5rem;
+  --ow-pricing-block-gap: 1.5rem;
+  --ow-pricing-block-section-spacing: 1rem;
+}
+
+@layer components {
+  .ow-pricing-block,
+  .ow-pricing-block-50-50,
+  .ow-pricing-block-25-75 {
+    color: var(--color-ow-pricing-block-text);
+    display: grid;
+    gap: var(--ow-pricing-block-gap);
+    grid-template-columns: minmax(0, 1fr);
+    margin-bottom: var(--ow-pricing-block-block-spacing);
+  }
+
+  .ow-pricing-block-tier {
+    display: flex;
+    flex-direction: column;
+
+    /* Let a nested card fill the tier so sibling tiers stay equal height. */
+    > :where(.ow-card, .ow-card-highlighted, .ow-card-muted, .ow-card-overlay) {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      margin-bottom: 0;
+    }
+  }
+
+  .ow-pricing-block-section + .ow-pricing-block-section {
+    padding-top: var(--ow-pricing-block-section-spacing);
+  }
+
+  /* Pins a trailing call to action to the bottom of an equal-height tier. */
+  .ow-pricing-block-cta {
+    margin-top: auto;
+    padding-top: var(--ow-pricing-block-section-spacing);
+  }
+
+  @media (width >= theme(--breakpoint-md)) {
+    .ow-pricing-block,
+    .ow-pricing-block-50-50,
+    .ow-pricing-block-25-75 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (width >= theme(--breakpoint-lg)) {
+    .ow-pricing-block {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .ow-pricing-block-25-75 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+
+      /* Offset the first of three tiers so they occupy the right 75%. */
+      .ow-pricing-block-tier:first-child {
+        grid-column-start: 2;
+      }
+    }
+  }
+}

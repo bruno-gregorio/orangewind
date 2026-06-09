@@ -1,0 +1,90 @@
+/* Resources block — https://vanillaframework.io/docs/patterns/resources */
+
+@theme {
+  --color-ow-resources-block-meta: var(--color-ow-text-muted);
+  --color-ow-resources-block-text: var(--color-ow-text-default);
+  --ow-resources-block-content-gap: 0.5rem;
+  --ow-resources-block-gap: 1.5rem;
+  --ow-resources-block-image-spacing: 1rem;
+}
+
+@layer components {
+  .ow-resources-block {
+    color: var(--color-ow-resources-block-text);
+    display: grid;
+    gap: var(--ow-resources-block-gap);
+    grid-template-columns: minmax(0, 1fr);
+    margin-bottom: var(--ow-resources-block-gap);
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .ow-resources-block-item {
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+
+    /* When the whole resource is a link, underline its title on hover. */
+    &:where(a) {
+      text-decoration: none;
+
+      &:hover .ow-resources-block-title {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.075em;
+      }
+
+      &:focus-visible {
+        outline: 3px solid var(--color-ow-focus);
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  .ow-resources-block-image {
+    display: block;
+    margin-bottom: var(--ow-resources-block-image-spacing);
+    width: 100%;
+  }
+
+  .ow-resources-block-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ow-resources-block-content-gap);
+    min-width: 0;
+  }
+
+  .ow-resources-block-meta {
+    color: var(--color-ow-resources-block-meta);
+    display: block;
+    font-variant-caps: all-small-caps;
+    font-variant-numeric: oldstyle-nums;
+    letter-spacing: 0.05em;
+  }
+
+  .ow-resources-block-title {
+    font-size: var(--text-base);
+    font-weight: 550;
+    line-height: var(--text-base--line-height);
+    margin: 0;
+  }
+
+  .ow-resources-block-excerpt {
+    color: var(--color-ow-resources-block-meta);
+    margin: 0;
+    max-width: 40em;
+  }
+
+  @media (width >= theme(--breakpoint-md)) {
+    .ow-resources-block {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (width >= theme(--breakpoint-lg)) {
+    .ow-resources-block {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}
