@@ -1,0 +1,25 @@
+/* Newsletter signup — https://vanillaframework.io/docs/patterns/newsletter-signup */
+
+@theme {
+  --ow-newsletter-signup-stacked-spacing: 2rem;
+}
+
+@layer components {
+  /* The grid-level layouts drop their bottom padding while columns sit side by
+     side and restore it once they stack on narrower screens. */
+  .ow-newsletter-signup-2-col {
+    padding-bottom: 0;
+
+    @media (width < theme(--breakpoint-md)) {
+      padding-bottom: var(--ow-newsletter-signup-stacked-spacing);
+    }
+  }
+
+  .ow-newsletter-signup-4-col {
+    padding-bottom: 0;
+
+    @media (width < theme(--breakpoint-lg)) {
+      padding-bottom: var(--ow-newsletter-signup-stacked-spacing);
+    }
+  }
+}

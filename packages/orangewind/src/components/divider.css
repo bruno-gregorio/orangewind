@@ -23,18 +23,15 @@
     opacity: 0.5; /* Muted appearance for contexts needing lower contrast */
   }
 
-  .ow-rule-highlight::before {
+  /* The highlight bar is rendered on the element itself rather than a
+     ::before, so it works on a void <hr> (a pseudo-element bar collapses on
+     <hr>, leaving only the 1px base line). */
+  .ow-rule-highlight {
     background-color: var(--ow-rule-highlight-bg, var(--color-ow-text-default));
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
     height: 0.1875rem; /* bar-thickness: 3px */
-    width: auto;
   }
 
-  .ow-rule-highlight.ow-is-accent::before {
+  .ow-rule-highlight.ow-is-accent {
     background-color: var(--color-ow-accent);
   }
 

@@ -1,0 +1,50 @@
+/* Data spotlight — https://vanillaframework.io/docs/patterns/data-spotlight */
+
+@theme {
+  --ow-data-spotlight-gutter: 1.5rem;
+  --ow-data-spotlight-block-gap: 1rem;
+  /* Row gap within a block. Tighter than the gap between blocks so the
+     number, title and text sit as a close group, matching Vanilla's docs. */
+  --ow-data-spotlight-row-gap: 0.5rem;
+}
+
+@layer components {
+  .ow-data-spotlight-row {
+    display: grid;
+    gap: var(--ow-data-spotlight-block-gap) var(--ow-data-spotlight-gutter);
+    grid-template-columns: minmax(0, 1fr);
+
+    /* Each block becomes a subgrid so the statistic, headline, description and
+       link rows line up across every column — an equal-height row. A subgrid
+       inherits the parent's row gap by default; we override it with the tighter
+       row gap so spacing within a block is controlled here rather than picking
+       up the wider between-block gap. */
+    > .ow-data-spotlight-block,
+    > .ow-data-spotlight-title-col {
+      display: grid;
+      grid-row: span 100;
+      grid-template-rows: subgrid;
+      row-gap: var(--ow-data-spotlight-row-gap);
+    }
+  }
+
+  .ow-data-spotlight-block {
+    .ow-rule-highlight {
+      margin: 0;
+    }
+
+    /* The statistic leads the block with no extra spacing of its own. */
+    .ow-data-spotlight-stat {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  /* On wide screens the inline title sits beside the blocks without taking
+     vertical space from the equal-height row. */
+  @media (width >= theme(--breakpoint-md)) {
+    .ow-data-spotlight-title {
+      height: 0;
+    }
+  }
+}

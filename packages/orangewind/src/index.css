@@ -36,6 +36,12 @@
 @import './components/contextual-menu.css';
 @import './components/in-page-navigation.css';
 @import './components/table-of-contents.css';
+@import './components/pricing-block.css';
+@import './components/resources-block.css';
+@import './components/logo-section.css';
+@import './components/cta-block.css';
+@import './components/data-spotlight.css';
+@import './components/newsletter-signup.css';
 @theme {
   /* Breakpoints */
   --breakpoint-sm: 28.75rem; /* 460px — $breakpoint-x-small */

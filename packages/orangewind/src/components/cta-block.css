@@ -1,0 +1,26 @@
+/* CTA block — https://vanillaframework.io/docs/patterns/cta-section */
+
+@theme {
+  --color-ow-cta-block-border: var(--color-ow-surface-border-low);
+  --ow-cta-block-gap: 0.5rem 1rem;
+  --ow-cta-block-spacing: 1.5rem;
+}
+
+@layer components {
+  .ow-cta-block {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--ow-cta-block-gap);
+    padding-bottom: var(--ow-cta-block-spacing);
+
+    @variant dark {
+      --color-ow-cta-block-border: var(--color-ow-surface-border-low-dark);
+    }
+
+    &.ow-has-border {
+      border-top: 1px solid var(--color-ow-cta-block-border);
+      padding-top: 0.5rem;
+    }
+  }
+}

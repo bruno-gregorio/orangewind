@@ -393,8 +393,26 @@
     display: flex;
     flex-direction: column;
 
-    & > label:not(:first-child) {
+    /* Separate each row from the one above it. A control that follows its
+       label stays tight to it (the label supplies the small gap), so inputs,
+       selects and textareas are excluded — only row-starting elements (labels,
+       tick groups, paragraphs) pick up the spacing. The submit action is set
+       off a little further below. */
+    & > *:not(:first-child):not(input):not(select):not(textarea):not(button) {
       padding-top: 1rem;
+    }
+
+    /* A button can't carry its own top spacing — padding would just enlarge the
+       control — so set it off from the row above via that row's padding-bottom. */
+    & > *:has(+ button) {
+      padding-bottom: 1.5rem;
+    }
+
+    /* This row spacing is the single source of vertical rhythm in a stacked
+       form, so drop the tick groups' own bottom spacing to keep gaps even. */
+    & > .ow-checkbox,
+    & > .ow-radio {
+      padding-bottom: 0;
     }
 
     .ow-form-group {

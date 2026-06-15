@@ -1,0 +1,58 @@
+/* Pricing block — https://vanillaframework.io/docs/patterns/pricing-block */
+
+@theme {
+  --ow-pricing-block-gutter: 1.5rem;
+  --ow-pricing-block-row-gap: 1rem;
+  --ow-pricing-block-tier-spacing: 1.5rem;
+}
+
+@layer components {
+  .ow-pricing-block,
+  .ow-pricing-block-25-75,
+  .ow-pricing-block-50-50 {
+    display: grid;
+    gap: var(--ow-pricing-block-row-gap) var(--ow-pricing-block-gutter);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: auto;
+
+    /* Each tier is a subgrid so its sections line up row-by-row across cards */
+    > .ow-pricing-block-tier {
+      display: grid;
+      grid-column: span 4;
+      grid-row: span 100;
+      grid-template-rows: subgrid;
+      padding-bottom: var(--ow-pricing-block-tier-spacing);
+    }
+
+    @media (width >= theme(--breakpoint-md)) {
+      > .ow-pricing-block-tier {
+        grid-column: span 2;
+      }
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+
+      > .ow-pricing-block-tier {
+        grid-column: span 2;
+      }
+    }
+  }
+
+  .ow-pricing-block-25-75 {
+    @media (width >= theme(--breakpoint-lg)) {
+      /* Shift the first card to the right so three cards sit centred */
+      > .ow-pricing-block-tier:first-child {
+        grid-column: 3 / span 2;
+      }
+    }
+  }
+
+  .ow-pricing-block-50-50 {
+    @media (width >= theme(--breakpoint-lg)) {
+      > .ow-pricing-block-tier {
+        grid-column: span 4;
+      }
+    }
+  }
+}

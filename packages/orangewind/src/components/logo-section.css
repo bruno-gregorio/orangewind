@@ -1,0 +1,38 @@
+/* Logo section — https://vanillaframework.io/docs/patterns/logo-section */
+/* Linked logo section — https://vanillaframework.io/docs/patterns/linked-logo-section */
+
+@theme {
+  --ow-logo-section-item-size: 6.5rem;
+  --ow-logo-section-item-size-small: 4.5rem;
+  --ow-logo-section-row-gap: 1rem;
+  --ow-logo-section-item-gap: 2rem;
+}
+
+@layer components {
+  .ow-logo-section {
+    .ow-logo-section-items {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--ow-logo-section-row-gap) var(--ow-logo-section-item-gap);
+    }
+
+    .ow-logo-section-logo {
+      display: block;
+      height: var(--ow-logo-section-item-size-small);
+      max-width: none; /* prevent logos from squishing on small screens */
+      width: auto;
+
+      @media (width >= theme(--breakpoint-md)) {
+        height: var(--ow-logo-section-item-size);
+      }
+    }
+  }
+
+  /* Deprecated standalone title, kept for legacy markup */
+  .ow-logo-section-title {
+    display: block;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.05em;
+  }
+}
