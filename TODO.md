@@ -99,7 +99,7 @@ _Full-width or macro-layout elements that frame content from previous phases._
 - [x] [Contextual Menu](https://vanillaframework.io/docs/patterns/contextual-menu) (Requires Buttons, Lists, Links)
 - [x] [In-Page Navigation](https://vanillaframework.io/docs/patterns/in-page-navigation) & [Table of Contents](https://vanillaframework.io/docs/patterns/table-of-contents)
 - [x] Feature Blocks: [Pricing Block](https://vanillaframework.io/docs/patterns/pricing-block), [Resources Block](https://vanillaframework.io/docs/patterns/resources), [Logo Section](https://vanillaframework.io/docs/patterns/logo-section) & [Linked Logo Section](https://vanillaframework.io/docs/patterns/linked-logo-section), [CTA](https://vanillaframework.io/docs/patterns/cta-section), [Data Spotlight](https://vanillaframework.io/docs/patterns/data-spotlight), [Newsletter Signup](https://vanillaframework.io/docs/patterns/newsletter-signup)
-- [ ] [Blog Pattern](https://vanillaframework.io/docs/patterns/blog) & [Article](https://vanillaframework.io/docs/patterns/article-block)
+- [x] [Blog Pattern](https://vanillaframework.io/docs/patterns/blog) & [Article](https://vanillaframework.io/docs/patterns/article-block)
 - [ ] [Hero](https://vanillaframework.io/docs/patterns/hero), [Tab Section](https://vanillaframework.io/docs/patterns/tab-section), [Text Spotlight](https://vanillaframework.io/docs/patterns/text-spotlight), [Equal Height Row](https://vanillaframework.io/docs/patterns/equal-height-row)
 
 ---
