@@ -108,7 +108,7 @@ _Full-width or macro-layout elements that frame content from previous phases._
 
 _The highest level wrappers. These define the entire shell of the page._
 
-- [ ] [Navigation](https://vanillaframework.io/docs/patterns/navigation)
+- [x] [Navigation](https://vanillaframework.io/docs/patterns/navigation)
       _Note: The global header. Requires Icons, Links, Forms (Search), Buttons, and responsive toggles._
 - [ ] [Application Layout](https://vanillaframework.io/docs/layouts/application) & [Application Panels](https://vanillaframework.io/docs/layouts/application#panels)
       _Note: Standard app shell with side-nav and drawers._
