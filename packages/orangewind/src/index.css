@@ -44,6 +44,7 @@
 @import './components/newsletter-signup.css';
 @import './components/blog.css';
 @import './components/equal-height-row.css';
+@import './components/navigation.css';
 @theme {
   /* Breakpoints */
   --breakpoint-sm: 28.75rem; /* 460px — $breakpoint-x-small */

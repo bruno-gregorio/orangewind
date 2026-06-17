@@ -1,0 +1,633 @@
+/* Navigation — https://vanillaframework.io/docs/patterns/navigation */
+
+@theme {
+  --color-ow-navigation-bg: var(--color-ow-x-light);
+  --color-ow-navigation-bg-alt: var(--color-ow-light);
+  --color-ow-navigation-text: var(--color-ow-text-default);
+  --color-ow-navigation-text-muted: var(--color-ow-text-muted);
+  --color-ow-navigation-hover-bg: color-mix(
+    in srgb,
+    var(--color-ow-x-dark) 5%,
+    transparent
+  );
+  --color-ow-navigation-active-bg: color-mix(
+    in srgb,
+    var(--color-ow-x-dark) 10%,
+    transparent
+  );
+  --color-ow-navigation-separator: var(--color-ow-surface-border-low);
+  --color-ow-navigation-overlay: color-mix(
+    in srgb,
+    var(--color-ow-x-dark) 50%,
+    transparent
+  );
+  --color-ow-navigation-logo-tag: var(--color-ow-brand);
+  --shadow-ow-navigation-dropdown: var(--shadow-ow-surface);
+
+  --icon-ow-navigation-search: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.964 1a5.964 5.964 0 014.709 9.623l4.303 4.305-1.06 1.06-4.306-4.305A5.964 5.964 0 116.963 1zm0 1.5a4.464 4.464 0 100 8.927 4.464 4.464 0 000-8.927z' fill='black' fill-rule='nonzero'/%3E%3C/svg%3E");
+  --icon-ow-navigation-close: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' fill-rule='nonzero' d='M13.041 1.898l1.06 1.06L9.062 8l5.04 5.042-1.06 1.06L8 9.062 2.96 14.1l-1.06-1.06L6.938 8 1.9 2.96l1.06-1.06 5.04 5.04z'/%3E%3C/svg%3E");
+
+  --ow-navigation-max-width: 80rem;
+  --ow-navigation-padding-block: 0.75rem;
+  --ow-navigation-padding-inline: 1rem;
+  --ow-navigation-logo-padding: 1.6rem;
+  --ow-navigation-item-max-width: 20em;
+  --ow-navigation-dropdown-min-width: 13rem;
+}
+
+@layer components {
+  .ow-navigation,
+  .ow-navigation-reduced {
+    background-color: var(--color-ow-navigation-bg);
+    color: var(--color-ow-navigation-text);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
+
+    @variant dark {
+      --color-ow-navigation-bg: var(--color-ow-dark);
+      --color-ow-navigation-bg-alt: color-mix(
+        in oklch,
+        var(--color-ow-dark),
+        var(--color-ow-x-light) 8%
+      );
+      --color-ow-navigation-text: var(--color-ow-x-light);
+      --color-ow-navigation-text-muted: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 60%,
+        transparent
+      );
+      --color-ow-navigation-hover-bg: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 8%,
+        transparent
+      );
+      --color-ow-navigation-active-bg: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 14%,
+        transparent
+      );
+      --color-ow-navigation-separator: var(--color-ow-surface-border-low-dark);
+      --shadow-ow-navigation-dropdown: var(--shadow-ow-surface-dark);
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      flex-direction: row;
+    }
+
+    /* Sticky to the top of the viewport when scrolling. */
+    &.ow-is-sticky {
+      position: sticky;
+      top: 0;
+      z-index: 98;
+    }
+  }
+
+  /* The reduced (secondary) navigation sits above the main bar. */
+  .ow-navigation-reduced {
+    --color-ow-navigation-bg: var(--color-ow-navigation-bg-alt);
+    --ow-navigation-padding-block: 0.5rem;
+
+    color: var(--color-ow-navigation-text-muted);
+    z-index: 99;
+
+    .ow-navigation-link,
+    .ow-navigation-logo-title {
+      color: var(--color-ow-navigation-text-muted);
+    }
+
+    /* The orange logo tag is hidden in the reduced navigation. */
+    .ow-navigation-logo-tag {
+      display: none;
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      .ow-navigation-link,
+      .ow-navigation-logo-title {
+        font-size: 0.875rem;
+      }
+
+      .ow-navigation-tagged-logo .ow-navigation-link {
+        padding-left: 0;
+      }
+    }
+  }
+
+  /* Rows wrap the banner and the navigation list. */
+  .ow-navigation-row,
+  .ow-navigation-row-full-width {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    padding-right: 0;
+
+    @media (width >= theme(--breakpoint-lg)) {
+      flex-direction: row;
+    }
+  }
+
+  /* Constrained row centred within the grid max-width. */
+  .ow-navigation-row {
+    margin-inline: auto;
+    max-width: var(--ow-navigation-max-width);
+    width: 100%;
+  }
+
+  .ow-navigation-row-full-width {
+    width: 100%;
+  }
+
+  /* Banner holds the logo and the mobile toggles. */
+  .ow-navigation-banner {
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: space-between;
+    padding-left: var(--ow-navigation-padding-inline);
+
+    @media (width >= theme(--breakpoint-md)) {
+      padding-left: 1.5rem;
+    }
+  }
+
+  /* Tagged logo (Ubuntu-style mark + title). */
+  .ow-navigation-tagged-logo {
+    display: flex;
+
+    @media (width >= theme(--breakpoint-lg)) {
+      min-width: var(--ow-navigation-dropdown-min-width);
+    }
+
+    /* The link is a flex row: the orange tag stretches to fill the bar
+       height, the title sits centred beside it. No padding reservation or
+       absolute positioning, so the two can never overlap. */
+    .ow-navigation-link {
+      display: flex;
+      gap: 0.75rem;
+      padding-left: 0;
+      padding-right: var(--ow-navigation-padding-inline);
+
+      &::before {
+        content: none;
+      }
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+
+    .ow-navigation-logo-tag {
+      align-items: flex-end;
+      align-self: stretch;
+      background-color: var(--color-ow-navigation-logo-tag);
+      color: var(--color-ow-x-light);
+      display: flex;
+      flex: 0 0 auto;
+      justify-content: center;
+      padding-bottom: 0.25rem;
+      width: 1.375rem;
+    }
+
+    .ow-navigation-logo-icon {
+      height: 1rem;
+      width: 1rem;
+    }
+
+    .ow-navigation-logo-title {
+      align-self: center;
+      color: var(--color-ow-navigation-text);
+      font-size: 1.3rem;
+      font-weight: 300;
+      line-height: 1rem;
+    }
+  }
+
+  /* Plain image logo. */
+  .ow-navigation-image {
+    align-self: center;
+    max-height: 2rem;
+    min-height: 1.5rem;
+  }
+
+  /* The collapsible navigation region. */
+  .ow-navigation-nav {
+    display: none;
+    flex-direction: column;
+
+    @media (width >= theme(--breakpoint-lg)) {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+
+  /* A list of navigation items. */
+  .ow-navigation-items {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+    @media (width >= theme(--breakpoint-lg)) {
+      display: flex;
+      flex-wrap: wrap;
+      position: static;
+    }
+
+    /* Separator above each list on mobile. */
+    &::before {
+      background: var(--color-ow-navigation-separator);
+      content: '';
+      height: 1px;
+      left: calc(var(--ow-navigation-padding-inline) + 1.5rem);
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      @media (width >= theme(--breakpoint-lg)) {
+        content: none;
+      }
+    }
+
+    &:first-child::before {
+      content: none;
+    }
+  }
+
+  /* The banner's item list holds the mobile toggles: visible on small
+     screens, hidden once the inline navigation takes over. */
+  .ow-navigation-banner .ow-navigation-items {
+    display: flex;
+    flex-wrap: wrap;
+
+    &::before {
+      content: none;
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      display: none;
+    }
+  }
+
+  .ow-navigation-item,
+  .ow-navigation-item-dropdown-toggle {
+    position: relative;
+
+    @media (width >= theme(--breakpoint-lg)) {
+      max-width: var(--ow-navigation-item-max-width);
+    }
+
+    /* Push an item (and everything after it) to the right edge. */
+    &.ow-is-right-shifted {
+      margin-left: auto;
+    }
+  }
+
+  /* Push a whole list (and everything after it) to the right edge. */
+  .ow-navigation-items.ow-is-right-shifted {
+    @media (width >= theme(--breakpoint-lg)) {
+      margin-left: auto;
+    }
+  }
+
+  /* Highlight bar for the selected item. */
+  .ow-navigation-item.ow-is-selected > .ow-navigation-link,
+  .ow-navigation-item-dropdown-toggle.ow-is-selected > .ow-navigation-link {
+    background-color: var(--color-ow-navigation-hover-bg);
+    box-shadow: inset 3px 0 0 0 var(--color-ow-navigation-text);
+
+    @media (width >= theme(--breakpoint-lg)) {
+      box-shadow: inset 0 -3px 0 0 var(--color-ow-navigation-text);
+    }
+  }
+
+  /* Shared link styles. */
+  .ow-navigation-link,
+  .ow-navigation-toggle-open,
+  .ow-navigation-toggle-close,
+  .ow-navigation-toggle-search {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    color: var(--color-ow-navigation-text);
+    cursor: pointer;
+    display: block;
+    font-weight: 400;
+    overflow: hidden;
+    padding: var(--ow-navigation-padding-block)
+      calc(
+        var(--ow-navigation-padding-inline) + var(--ow-navigation-logo-padding)
+      );
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    transition:
+      background-color var(--ow-duration-snap) ease-in,
+      color var(--ow-duration-snap) ease-in;
+    white-space: nowrap;
+    width: 100%;
+
+    &:link,
+    &:visited,
+    &:focus,
+    &:hover {
+      color: var(--color-ow-navigation-text);
+      text-decoration: none;
+    }
+
+    &:hover {
+      background-color: var(--color-ow-navigation-hover-bg);
+    }
+
+    &[aria-pressed='true'],
+    &:active {
+      background-color: var(--color-ow-navigation-active-bg);
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--color-ow-focus);
+      outline-offset: -3px;
+    }
+
+    @media (width >= theme(--breakpoint-md)) {
+      padding-left: calc(1.5rem + var(--ow-navigation-logo-padding));
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      padding-block: var(--ow-navigation-padding-block);
+      padding-inline: var(--ow-navigation-padding-inline);
+    }
+  }
+
+  /* Separator above stacked links on mobile. */
+  .ow-navigation-link::before {
+    background: var(--color-ow-navigation-separator);
+    content: '';
+    height: 1px;
+    left: calc(var(--ow-navigation-padding-inline) + 1.5rem);
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    @media (width >= theme(--breakpoint-lg)) {
+      content: none;
+    }
+  }
+
+  /* Mobile-only toggles. */
+  .ow-navigation-toggle-open,
+  .ow-navigation-toggle-close,
+  .ow-navigation-toggle-search {
+    margin: 0 0 auto 0;
+    width: auto;
+  }
+
+  .ow-navigation-toggle-close {
+    display: none;
+  }
+
+  .ow-navigation-toggle-open,
+  .ow-navigation-toggle-search {
+    display: block;
+
+    @media (width >= theme(--breakpoint-lg)) {
+      display: none;
+    }
+  }
+
+  /* Dropdown toggle chevron. */
+  .ow-navigation-item-dropdown-toggle {
+    > .ow-navigation-link {
+      padding-right: 2.5rem;
+
+      &::after {
+        background-color: currentColor;
+        content: '';
+        height: 1rem;
+        mask-image: var(--icon-ow-chevron);
+        mask-position: center;
+        mask-repeat: no-repeat;
+        mask-size: contain;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%) rotate(-90deg);
+        transition: transform var(--ow-duration-snap) ease-in;
+        width: 1rem;
+
+        @media (width >= theme(--breakpoint-lg)) {
+          transform: translateY(-50%);
+        }
+      }
+    }
+
+    &.ow-is-active {
+      background-color: var(--color-ow-navigation-active-bg);
+
+      > .ow-navigation-link::after {
+        transform: translateY(-50%);
+
+        @media (width >= theme(--breakpoint-lg)) {
+          transform: translateY(-50%) rotate(180deg);
+        }
+      }
+
+      > .ow-navigation-dropdown,
+      > .ow-navigation-dropdown-right {
+        display: block;
+      }
+    }
+  }
+
+  /* Dropdown panels. */
+  .ow-navigation-dropdown,
+  .ow-navigation-dropdown-right {
+    background-color: var(--color-ow-navigation-bg);
+    display: none;
+    list-style: none;
+    margin: 0;
+    min-width: 100%;
+    padding: 0;
+    z-index: 5;
+
+    @media (width >= theme(--breakpoint-lg)) {
+      box-shadow: var(--shadow-ow-navigation-dropdown);
+      position: absolute;
+      top: 100%;
+    }
+  }
+
+  .ow-navigation-dropdown-right {
+    @media (width >= theme(--breakpoint-lg)) {
+      right: 0;
+    }
+  }
+
+  .ow-navigation-dropdown-item {
+    color: var(--color-ow-navigation-text);
+    display: block;
+    padding: var(--ow-navigation-padding-block)
+      calc(var(--ow-navigation-padding-inline) + 1.5rem);
+    position: relative;
+    text-decoration: none;
+    white-space: nowrap;
+
+    &:link,
+    &:visited {
+      color: var(--color-ow-navigation-text);
+    }
+
+    &:hover {
+      background-color: var(--color-ow-navigation-hover-bg);
+      text-decoration: none;
+    }
+
+    &:active {
+      background-color: var(--color-ow-navigation-active-bg);
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--color-ow-focus);
+      outline-offset: -3px;
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      padding-left: var(--ow-navigation-padding-inline);
+    }
+  }
+
+  /* Search toggle and expanding search box. */
+  .ow-navigation-link-search-toggle {
+    display: block;
+    /* Reserve room on the right so the label clears the search icon. */
+    padding-right: 2.5rem;
+
+    &::after {
+      background-color: currentColor;
+      content: '';
+      height: 1rem;
+      mask-image: var(--icon-ow-navigation-search);
+      mask-position: center;
+      mask-repeat: no-repeat;
+      mask-size: contain;
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1rem;
+    }
+  }
+
+  .ow-navigation-search {
+    display: none;
+    padding-top: var(--ow-navigation-padding-block);
+
+    .ow-search-box {
+      max-width: none;
+      width: 100%;
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      align-items: center;
+      flex-grow: 1;
+      padding: 0;
+    }
+  }
+
+  /* Overlay shown behind the expanded search on large screens. */
+  .ow-navigation-search-overlay {
+    display: none;
+
+    @media (width >= theme(--breakpoint-lg)) {
+      background-color: var(--color-ow-navigation-overlay);
+      display: block;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      position: fixed;
+      transition: opacity var(--ow-duration-snap) ease-in;
+      width: 100%;
+      z-index: 59;
+    }
+  }
+
+  /* Hide the inline search toggle on mobile (a dedicated toggle is shown). */
+  .ow-navigation-nav .ow-navigation-link-search-toggle {
+    display: none;
+
+    @media (width >= theme(--breakpoint-lg)) {
+      display: block;
+    }
+  }
+
+  /* Expanded mobile menu. */
+  .ow-navigation.ow-has-menu-open,
+  .ow-navigation-reduced.ow-has-menu-open {
+    .ow-navigation-nav {
+      display: flex;
+    }
+
+    .ow-navigation-items {
+      display: block;
+
+      @media (width >= theme(--breakpoint-lg)) {
+        display: flex;
+      }
+    }
+
+    .ow-navigation-toggle-open {
+      display: none;
+    }
+
+    .ow-navigation-toggle-close {
+      display: block;
+
+      @media (width >= theme(--breakpoint-lg)) {
+        display: none;
+      }
+    }
+
+    .ow-navigation-search {
+      display: none;
+    }
+  }
+
+  /* Expanded search. */
+  .ow-navigation.ow-has-search-open,
+  .ow-navigation-reduced.ow-has-search-open {
+    .ow-navigation-nav {
+      display: flex;
+      position: relative;
+      z-index: 60;
+    }
+
+    .ow-navigation-nav .ow-navigation-items {
+      display: none;
+    }
+
+    .ow-navigation-search {
+      background-color: var(--color-ow-navigation-bg);
+      display: flex;
+      position: absolute;
+      width: 100%;
+
+      @media (width >= theme(--breakpoint-lg)) {
+        background-color: transparent;
+        position: relative;
+      }
+    }
+
+    .ow-navigation-search-overlay {
+      opacity: 0.5;
+      pointer-events: all;
+    }
+
+    .ow-navigation-link-search-toggle::after {
+      mask-image: var(--icon-ow-navigation-close);
+    }
+  }
+}
