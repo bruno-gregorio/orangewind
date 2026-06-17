@@ -1,0 +1,249 @@
+/* Brochure site grid — https://vanillaframework.io/docs/layouts/brochure
+
+   The brochure layout is a sequence of sections built on a small set of split
+   grids whose column widths are always multiples of 25% of the available
+   space (the "25% rule"). Each `.ow-row-*` is a self-contained, centred grid
+   container: 4 tracks on small screens, 6 on medium and 12 on large, matching
+   Vanilla's legacy 4/6/12 grid. Children are `.ow-col` elements that span the
+   full row by default — so they stack on small screens — and are reassigned to
+   their fractional widths once there is room. */
+
+@theme {
+  --ow-row-max-width: 80rem;
+  /* Gutters (column gap) and outer padding both widen past the medium
+     breakpoint, mirroring Vanilla's small/default grid spacing. */
+  --ow-row-gutter-small: 1.5rem;
+  --ow-row-gutter: 2rem;
+  --ow-row-padding-small: 1rem;
+  --ow-row-padding: 1.5rem;
+}
+
+@layer components {
+  /* Shared container: turns every split into the same responsive grid and
+     makes each column span the whole row, so on small screens the columns drop
+     into a single stacked sequence. The per-split rules below only override the
+     spans at the medium and large breakpoints. */
+  .ow-row-50-50,
+  .ow-row-25-75,
+  .ow-row-75-25,
+  .ow-row-25-25-50,
+  .ow-row-25-25-25-25,
+  .ow-row-50-50-on-medium,
+  .ow-row-50-50-on-large,
+  .ow-row-25-75-on-medium,
+  .ow-row-25-75-on-large,
+  .ow-row-75-25-on-medium,
+  .ow-row-75-25-on-large {
+    column-gap: var(--ow-row-gutter-small);
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: auto;
+    margin-inline: auto;
+    max-width: var(--ow-row-max-width);
+    padding-inline: var(--ow-row-padding-small);
+    width: 100%;
+
+    > .ow-col {
+      grid-column-end: span 4;
+    }
+
+    @media (width >= theme(--breakpoint-md)) {
+      column-gap: var(--ow-row-gutter);
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      padding-inline: var(--ow-row-padding);
+
+      > .ow-col {
+        grid-column-end: span 6;
+      }
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+
+      > .ow-col {
+        grid-column-end: span 12;
+      }
+    }
+  }
+
+  /* 50/50 split: equal halves on medium (3/3) and large (6/6). */
+  .ow-row-50-50 > .ow-col {
+    @media (width >= theme(--breakpoint-md)) {
+      grid-column-end: span 3;
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      grid-column-end: span 6;
+    }
+  }
+
+  /* 25/75 split: a narrow first column (a heading or structural white space)
+     beside a wide content column. Medium relaxes to 33/66 (2/4). A lone column
+     fills the width on medium and offsets into the 75% area on large. */
+  .ow-row-25-75 > .ow-col {
+    @media (width >= theme(--breakpoint-md)) {
+      &:nth-of-type(1) {
+        grid-column-end: span 2;
+      }
+
+      &:nth-of-type(2) {
+        grid-column-end: span 4;
+      }
+
+      &:only-of-type {
+        grid-column-end: span 6;
+      }
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      &:nth-of-type(1) {
+        grid-column-end: span 3;
+      }
+
+      &:nth-of-type(2) {
+        grid-column-end: span 9;
+      }
+
+      &:only-of-type {
+        grid-column: 4 / span 9;
+      }
+    }
+  }
+
+  /* 75/25 split: the mirror of 25/75, with the wide column first. */
+  .ow-row-75-25 > .ow-col {
+    @media (width >= theme(--breakpoint-md)) {
+      &:nth-of-type(1) {
+        grid-column-end: span 4;
+      }
+
+      &:nth-of-type(2) {
+        grid-column-end: span 2;
+      }
+
+      &:only-of-type {
+        grid-column-end: span 6;
+      }
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      &:nth-of-type(1) {
+        grid-column-end: span 9;
+      }
+
+      &:nth-of-type(2) {
+        grid-column-end: span 3;
+      }
+    }
+  }
+
+  /* 25/25/50 split: a 50/50 with the left half subdivided. The third column
+     drops to its own full-width row on medium (3/3 then 6). */
+  .ow-row-25-25-50 > .ow-col {
+    @media (width >= theme(--breakpoint-md)) {
+      &:nth-of-type(-n + 2) {
+        grid-column-end: span 3;
+      }
+
+      &:nth-of-type(3) {
+        grid-column-end: span 6;
+      }
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      &:nth-of-type(1),
+      &:nth-of-type(2) {
+        grid-column-end: span 3;
+      }
+
+      &:nth-of-type(3) {
+        grid-column-end: span 6;
+      }
+    }
+  }
+
+  /* 25/25/25/25 split: four equal columns, pairing into 50/50 rows on medium. */
+  .ow-row-25-25-25-25 > .ow-col {
+    @media (width >= theme(--breakpoint-md)) {
+      grid-column-end: span 3;
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      grid-column-end: span 3;
+    }
+  }
+
+  /* Single-breakpoint variants: apply the split only on medium, or only on
+     large, leaving the columns full-width (stacked) at every other size. */
+  .ow-row-50-50-on-medium > .ow-col {
+    @media (width >= theme(--breakpoint-md)) and (width < theme(--breakpoint-lg)) {
+      grid-column-end: span 3;
+    }
+  }
+
+  .ow-row-50-50-on-large > .ow-col {
+    @media (width >= theme(--breakpoint-lg)) {
+      grid-column-end: span 6;
+    }
+  }
+
+  .ow-row-25-75-on-medium > .ow-col {
+    @media (width >= theme(--breakpoint-md)) and (width < theme(--breakpoint-lg)) {
+      &:nth-of-type(1) {
+        grid-column-end: span 2;
+      }
+
+      &:nth-of-type(2) {
+        grid-column-end: span 4;
+      }
+
+      &:only-of-type {
+        grid-column-end: span 6;
+      }
+    }
+  }
+
+  .ow-row-25-75-on-large > .ow-col {
+    @media (width >= theme(--breakpoint-lg)) {
+      &:nth-of-type(1) {
+        grid-column-end: span 3;
+      }
+
+      &:nth-of-type(2) {
+        grid-column-end: span 9;
+      }
+
+      &:only-of-type {
+        grid-column: 4 / span 9;
+      }
+    }
+  }
+
+  .ow-row-75-25-on-medium > .ow-col {
+    @media (width >= theme(--breakpoint-md)) and (width < theme(--breakpoint-lg)) {
+      &:nth-of-type(1) {
+        grid-column-end: span 4;
+      }
+
+      &:nth-of-type(2) {
+        grid-column-end: span 2;
+      }
+
+      &:only-of-type {
+        grid-column-end: span 6;
+      }
+    }
+  }
+
+  .ow-row-75-25-on-large > .ow-col {
+    @media (width >= theme(--breakpoint-lg)) {
+      &:nth-of-type(1) {
+        grid-column-end: span 9;
+      }
+
+      &:nth-of-type(2) {
+        grid-column-end: span 3;
+      }
+    }
+  }
+}
