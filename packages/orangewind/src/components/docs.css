@@ -1,0 +1,110 @@
+/* Documentation layout — https://vanillaframework.io/docs/layouts/documentation */
+
+@theme {
+  /* Fixed width shared by the side navigation and the metadata column. */
+  --ow-docs-sidebar-width: 15rem;
+}
+
+@layer components {
+  /* Named grid areas, shared by the root layout and any nested subgrid so a
+     container deeper in the tree can align itself with the main grid. The
+     areas are inert until one of the ancestors below turns on `display: grid`,
+     so on small screens the slots simply stack in source order. */
+  .ow-docs,
+  .ow-docs-subgrid {
+    /* Site global navigation header. */
+    .ow-docs-header {
+      grid-area: header;
+    }
+
+    /* Left-hand side navigation. */
+    .ow-docs-sidebar {
+      grid-area: sidebar;
+    }
+
+    /* Main content title; sits above the metadata on medium screens. */
+    .ow-docs-title {
+      grid-area: title;
+    }
+
+    /* Metadata (table of contents, etc): between the title and the content on
+       medium screens, in the right column on large screens. */
+    .ow-docs-meta {
+      grid-area: meta;
+    }
+
+    /* Main content. */
+    .ow-docs-main {
+      grid-area: main;
+    }
+
+    /* Site global footer. */
+    .ow-docs-footer {
+      grid-area: footer;
+    }
+  }
+
+  /* Two-column layout: the side navigation pins to the left while the title,
+     metadata and content stack in a single column beside it. */
+  @media (width >= theme(--breakpoint-lg)) {
+    .ow-docs {
+      display: grid;
+      gap: 0;
+      grid-template-areas:
+        'header  header'
+        'sidebar title'
+        'sidebar meta'
+        'sidebar main'
+        'footer  footer';
+      grid-template-columns: var(--ow-docs-sidebar-width) minmax(0, 1fr);
+      /* The main row stretches so the content fills any leftover height. */
+      grid-template-rows: auto auto auto 1fr auto;
+      width: 100%;
+    }
+
+    .ow-docs-subgrid {
+      display: grid;
+      grid-template-areas: 'sidebar main meta';
+      grid-template-columns:
+        var(--ow-docs-sidebar-width) minmax(0, 1fr)
+        min-content;
+      width: 100%;
+    }
+  }
+
+  /* Three-column layout, unlocked once there is room for the 12-column grid
+     plus the side navigation: the metadata moves into its own right column. */
+  @media (width >= calc(theme(--breakpoint-lg) + 15rem)) {
+    .ow-docs {
+      grid-template-areas:
+        'header  header header'
+        'sidebar title  meta'
+        'sidebar main   meta'
+        'footer  footer footer';
+      grid-template-columns: var(--ow-docs-sidebar-width) minmax(0, 1fr) var(
+          --ow-docs-sidebar-width
+        );
+      grid-template-rows: auto auto 1fr auto;
+
+      /* Let the title/content wrapper dissolve into the grid so its children
+         land directly in the named areas. */
+      .ow-docs-content {
+        display: contents;
+      }
+    }
+
+    .ow-docs-subgrid {
+      grid-template-columns: var(--ow-docs-sidebar-width) minmax(0, 1fr) var(
+          --ow-docs-sidebar-width
+        );
+    }
+
+    /* Keep the metadata (table of contents) in view while the content scrolls. */
+    .ow-docs-sticky-container {
+      max-height: 100dvh;
+      overflow-y: auto;
+      position: sticky;
+      top: 0;
+    }
+  }
+}
