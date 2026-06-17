@@ -1,0 +1,147 @@
+/* Equal height row — https://vanillaframework.io/docs/patterns/equal-height-row */
+
+@theme {
+  --color-ow-equal-height-row-border: var(--color-ow-surface-border-low);
+  --ow-equal-height-row-gutter: 1.5rem;
+  --ow-equal-height-row-col-spacing: 0.5rem;
+  --ow-equal-height-row-max-width: 80rem;
+  /* Column track template applied on large screens. Each column spans a
+     quarter of these tracks, so the default of eight tracks yields four
+     columns; override with `repeat(6, minmax(0, 1fr))` when the row is nested
+     inside a 25/75 split to get three columns. */
+  --ow-equal-height-row-template-large: repeat(8, minmax(0, 1fr));
+}
+
+@layer components {
+  /* The row is its own grid (4 tracks small/medium, expanding on large). Each
+     column is a row-subgrid so its items share track heights across columns —
+     this is what keeps content aligned in an "equal height" row. */
+  .ow-equal-height-row,
+  .ow-equal-height-row-wrap {
+    column-gap: var(--ow-equal-height-row-gutter);
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: auto;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--ow-equal-height-row-max-width);
+    position: relative;
+
+    @variant dark {
+      --color-ow-equal-height-row-border: var(
+        --color-ow-surface-border-low-dark
+      );
+    }
+
+    > .ow-equal-height-row-col {
+      border-top: 1px solid var(--color-ow-equal-height-row-border);
+      display: grid;
+      grid-column: span 4;
+      grid-row: span 4;
+      grid-template-rows: subgrid;
+      margin-bottom: var(--ow-equal-height-row-col-spacing);
+      position: relative;
+
+      &.ow-is-borderless {
+        border-top: 0;
+      }
+    }
+
+    /* Cross-column dividers. Only two pseudo-elements are available, so the
+       three modifiers share ::before and ::after: divider-3 falls back to
+       whichever pseudo-element divider-1/divider-2 left free. The line is a
+       full-width grid item pinned to the top of its row track (the boundary
+       between two rows) and is hidden until columns sit side by side. */
+    &.ow-has-divider-1::before,
+    &.ow-has-divider-2::after,
+    &.ow-has-divider-3:not(.ow-has-divider-1)::before,
+    &.ow-has-divider-3:not(.ow-has-divider-2)::after {
+      align-self: start;
+      background-color: var(--color-ow-equal-height-row-border);
+      content: '';
+      display: none;
+      grid-column: 1 / -1;
+      height: 1px;
+    }
+
+    &.ow-has-divider-1::before {
+      grid-row: 2;
+    }
+
+    &.ow-has-divider-2::after {
+      grid-row: 3;
+    }
+
+    &.ow-has-divider-3:not(.ow-has-divider-1)::before,
+    &.ow-has-divider-3:not(.ow-has-divider-2)::after,
+    &.ow-has-divider-3:not(.ow-has-divider-1):not(.ow-has-divider-2)::before {
+      grid-row: 4;
+    }
+
+    /* With only the third divider set, the freed ::after would double the line;
+       suppress it so a single divider renders. */
+    &.ow-has-divider-3:not(.ow-has-divider-1):not(.ow-has-divider-2)::after {
+      display: none;
+    }
+  }
+
+  @media (width >= theme(--breakpoint-md)) {
+    .ow-equal-height-row,
+    .ow-equal-height-row-wrap {
+      --ow-equal-height-row-gutter: 2rem;
+    }
+  }
+
+  /* Medium screens: columns still span the full width and stack, but their
+     items flow into a column subgrid so the first item sits to the left of the
+     rest. The wrap variant instead fits two columns per row. */
+  @media (width >= theme(--breakpoint-md)) and (width < theme(--breakpoint-lg)) {
+    .ow-equal-height-row > .ow-equal-height-row-col {
+      grid-template-columns: subgrid;
+
+      > .ow-equal-height-row-item {
+        grid-column: span 2;
+
+        /* Large enough to keep the remaining items from being stretched. */
+        &:first-child {
+          grid-row: span 100;
+        }
+      }
+    }
+
+    .ow-equal-height-row-wrap > .ow-equal-height-row-col {
+      grid-column: span 2;
+      grid-template-columns: none;
+
+      > .ow-equal-height-row-item {
+        grid-column: auto;
+
+        &:first-child {
+          grid-row: auto;
+        }
+      }
+    }
+  }
+
+  /* Large screens: columns line up side by side and shed the small-screen top
+     border and spacing; the row-level dividers take over. */
+  @media (width >= theme(--breakpoint-lg)) {
+    .ow-equal-height-row,
+    .ow-equal-height-row-wrap {
+      grid-template-columns: var(--ow-equal-height-row-template-large);
+
+      > .ow-equal-height-row-col {
+        border-top: 0;
+        grid-column: span 2;
+        margin-bottom: 0;
+      }
+
+      &.ow-has-divider-1::before,
+      &.ow-has-divider-2::after,
+      &.ow-has-divider-3:not(.ow-has-divider-1)::before,
+      &.ow-has-divider-3:not(.ow-has-divider-2)::after {
+        display: block;
+      }
+    }
+  }
+}
