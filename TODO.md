@@ -114,7 +114,7 @@ _The highest level wrappers. These define the entire shell of the page._
       _Note: Standard app shell with side-nav and drawers._
 - [x] [Docs Layout](https://vanillaframework.io/docs/layouts/documentation)
       _Note: Three-column layout for documentation pages._
-- [ ] [Brochure Site](https://vanillaframework.io/docs/layouts/brochure)
+- [x] [Brochure Site](https://vanillaframework.io/docs/layouts/brochure)
       _Note: Layout pattern for marketing or informational websites._
 - [ ] [Suru](https://vanillaframework.io/docs/patterns/suru) (Canonical's signature background visual element)
 - [ ] Layout tweaks: [Fluid Breakout](https://vanillaframework.io/docs/layouts/fluid-breakout), [Grid 8](https://vanillaframework.io/docs/patterns/grid)
