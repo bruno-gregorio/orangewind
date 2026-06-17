@@ -1,0 +1,117 @@
+/* Blog & Article block —
+   https://vanillaframework.io/docs/patterns/blog
+   https://vanillaframework.io/docs/patterns/article-block */
+
+@theme {
+  /* Matches the paragraph bottom spacing (sp-after − nudge). Using row-gap
+     instead of margin-bottom keeps the logic of conditionally spacing items
+     simple: only contentful items need to opt back in. */
+  --ow-article-block-row-gap: 1.125rem;
+  /* Small vertical spacing unit ($spv--small) reused below the cover image. */
+  --ow-article-block-image-spacing: 0.5rem;
+}
+
+@layer components {
+  /* The articles container dissolves into its parent grid so every article
+     block becomes a direct grid child and can align via row subgrid. */
+  .ow-blog-articles {
+    display: contents;
+  }
+
+  .ow-article-block {
+    display: grid;
+    /* image, title, description, metadata */
+    grid-row: span 4;
+    grid-template-rows: subgrid;
+    margin-bottom: calc(
+      var(--ow-article-block-image-spacing) + var(--ow-article-block-row-gap)
+    );
+    row-gap: var(--ow-article-block-row-gap);
+
+    /* The wrapping section already supplies bottom padding, so the last row of
+       items collapses its bottom margin to avoid duplicating spacing. */
+
+    /* Small screens — one column, only the last item collapses. */
+    @media (width < theme(--breakpoint-md)) {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    /* Medium screens — two columns, the last two items collapse. */
+    @media (width >= theme(--breakpoint-md)) and (width < theme(--breakpoint-lg)) {
+      &:nth-last-child(-n + 2) {
+        margin-bottom: 0;
+      }
+    }
+
+    /* Large screens — single row, every item collapses. */
+    @media (width >= theme(--breakpoint-lg)) {
+      margin-bottom: 0;
+    }
+  }
+
+  /* Items always render (to keep subgrid alignment for dynamic content), so by
+     default they carry no box and no spacing. Contentful items opt back in. */
+  .ow-article-block-item {
+    display: contents;
+
+    &:not(:last-child) {
+      /* Empty items pull their following contents up by cancelling the gap. */
+      margin-bottom: calc(-1 * var(--ow-article-block-row-gap));
+    }
+
+    /* Only contentful items get article block spacing. */
+    &:has(.ow-article-block-title:not(:empty)),
+    &:has(.ow-article-block-description:not(:empty)),
+    &:has(.ow-article-author:not(:empty)),
+    &:has(.ow-article-time:not(:empty)) {
+      display: grid;
+      font-size: var(--text-base);
+      line-height: var(--text-base--line-height);
+      /* Cancel the gap-cancellation above now that the item has content. */
+      margin-bottom: 0;
+      padding-top: 0.375rem;
+    }
+
+    /* Spacing is owned by the item, never by its descendants. */
+    & * {
+      margin-bottom: 0;
+      margin-top: 0;
+      padding-bottom: 0;
+      padding-top: 0;
+    }
+  }
+
+  .ow-article-block-title {
+    font-size: var(--text-base);
+    line-height: var(--text-base--line-height);
+  }
+
+  /* The cover image is an exception: it gets small bottom spacing rather than
+     paragraph spacing. The effective margin is the gap minus the desired space
+     below the image. */
+  .ow-article-block-item:has(.ow-article-block-image) {
+    display: grid;
+    margin-bottom: calc(
+      -1 *
+        (
+          var(--ow-article-block-row-gap) -
+            var(--ow-article-block-image-spacing)
+        )
+    );
+  }
+
+  /* Render a middot between consecutive non-empty metadata items. The items are
+     always-present wrappers, so :has() targets only those with real content. */
+  .ow-article-block-metadata-item:has(> *:not(:empty)) {
+    display: inline;
+    list-style: none;
+    margin-right: 0.25rem;
+
+    & ~ &::before {
+      content: '\2022';
+      position: relative;
+    }
+  }
+}
