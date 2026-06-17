@@ -1,0 +1,84 @@
+/* Application panels — https://vanillaframework.io/docs/layouts/application#panels */
+
+@theme {
+  --color-ow-panel-bg: var(--color-ow-background-default);
+  --color-ow-panel-text: var(--color-ow-text-default);
+
+  --ow-panel-padding-inline: 1rem;
+  --ow-panel-padding-block: 1.5rem;
+  --ow-panel-title-padding-block: 1rem;
+  --ow-panel-logo-size: 1.5rem;
+  --ow-panel-logo-icon-size: 1rem;
+}
+
+@layer components {
+  /* A panel is the only direct child of a layout area, supplying its
+     background, spacing and the header/content split. */
+  .ow-panel {
+    background-color: var(--color-ow-panel-bg);
+    color: var(--color-ow-panel-text);
+    max-width: 100%;
+    /* Fill the whole area even when content is short. */
+    min-height: 100%;
+  }
+
+  .ow-panel-header {
+    display: flex;
+    padding-inline: var(--ow-panel-padding-inline);
+
+    @media (width >= theme(--breakpoint-md)) {
+      padding-inline: 1.5rem;
+    }
+
+    /* Keep the header in view while the content scrolls underneath. */
+    &.ow-is-sticky {
+      background-color: var(--color-ow-panel-bg);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+  }
+
+  .ow-panel-content {
+    overflow: hidden;
+    padding-block: var(--ow-panel-padding-block);
+  }
+
+  /* Logo block, sized so the icon lines up with the collapsed side-nav
+     icons. The negative inline offset is (icon - logo) / 2. */
+  .ow-panel-logo {
+    align-items: center;
+    display: flex;
+    gap: 0.5rem;
+    margin-left: calc(
+      (var(--ow-panel-logo-icon-size) - var(--ow-panel-logo-size)) / 2
+    );
+    padding-block: 1.25rem;
+
+    .ow-panel-logo-icon {
+      height: var(--ow-panel-logo-size);
+    }
+
+    .ow-panel-logo-name {
+      height: var(--ow-panel-logo-icon-size);
+    }
+  }
+
+  /* Structural only: vertical rhythm for the header. Compose with an
+     .ow-heading-* utility for the type scale (preflight already zeroes the
+     element's margin). */
+  .ow-panel-title {
+    padding-block: var(--ow-panel-title-padding-block);
+  }
+
+  /* Action area pushed to the trailing edge of the header. */
+  .ow-panel-controls {
+    margin-left: auto;
+    padding-top: 1rem;
+  }
+
+  .ow-panel-toggle {
+    cursor: pointer;
+    display: block;
+  }
+}

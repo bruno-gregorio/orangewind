@@ -1,0 +1,238 @@
+/* Application layout — https://vanillaframework.io/docs/layouts/application */
+
+@theme {
+  /* Max width of the pinned aside panel. */
+  --ow-application-aside-max-width: 50vw;
+  /* Side navigation widths in its collapsed and expanded states. */
+  --ow-application-side-nav-width-collapsed: 4rem;
+  --ow-application-side-nav-width-expanded: 15rem;
+  /* Default aside widths, derived from 4/8/12 column containers. */
+  --ow-application-aside-width: 33.5rem;
+  --ow-application-aside-width-narrow: 21.65rem;
+  --ow-application-aside-width-wide: 80rem;
+
+  --color-ow-application-border: var(--color-ow-border-default);
+  --shadow-ow-application-panel: 0 0 2rem 0
+    color-mix(in srgb, var(--color-ow-x-dark) 20%, transparent);
+  /* Same geometry as the panel shadow but transparent, so toggling it can
+     be animated rather than popping in and out. */
+  --shadow-ow-application-panel-hidden: 0 0 0 0 transparent;
+}
+
+@layer components {
+  /* CSS grid shell that fills the viewport. Areas are placed by name so the
+     navigation can move between the `navbar` and `nav` slots responsively. */
+  .ow-application {
+    display: grid;
+    grid-template-areas:
+      'nav navbar navbar'
+      'nav main   aside'
+      'nav status status';
+    grid-template-columns: min-content minmax(0, 1fr) minmax(0, min-content);
+    grid-template-rows: min-content 1fr min-content;
+    height: 100dvh;
+    /* Panels transformed off-screen must not make the layout scroll. */
+    overflow: hidden;
+    width: 100vw;
+
+    /* Main content area. */
+    .ow-application-main {
+      grid-area: main;
+      overflow-y: auto;
+    }
+
+    /* Status bar spanning main + aside, kept above the content. */
+    .ow-application-status {
+      border-top: 1px solid var(--color-ow-application-border);
+      grid-area: status;
+      z-index: 102;
+    }
+
+    /* Aside, rendered as a right-hand overlay by default. */
+    .ow-application-aside {
+      box-shadow: var(--shadow-ow-application-panel);
+      grid-area: main;
+      justify-self: right;
+      overflow-y: auto;
+      transition:
+        transform var(--ow-duration-snap) ease-in-out,
+        box-shadow var(--ow-duration-snap) ease-in-out,
+        visibility var(--ow-duration-snap) ease-in-out;
+      width: 100%;
+      /* Below the side nav, above everything else. */
+      z-index: 101;
+
+      @media (width >= theme(--breakpoint-sm)) {
+        max-width: 100%;
+        width: var(--ow-application-aside-width);
+
+        &.ow-is-wide {
+          width: var(--ow-application-aside-width-wide);
+        }
+
+        &.ow-is-narrow {
+          width: var(--ow-application-aside-width-narrow);
+        }
+      }
+
+      &.ow-is-collapsed {
+        box-shadow: var(--shadow-ow-application-panel-hidden);
+        transform: translateX(100%);
+        visibility: hidden;
+      }
+
+      /* Pinning turns the overlay into a split panel beside the main area. */
+      @media (width >= theme(--breakpoint-md)) {
+        &.ow-is-pinned {
+          border-left: 1px solid var(--color-ow-application-border);
+          box-shadow: none;
+          grid-area: aside;
+          justify-self: auto;
+          max-width: var(--ow-application-aside-max-width);
+        }
+
+        &.ow-is-pinned.ow-is-collapsed {
+          display: none;
+        }
+      }
+    }
+  }
+
+  /* Top bar shown only on small screens to toggle the drawer. Kept flat (not
+     nested under .ow-application) so the breakpoint rules below can override
+     its grid placement at equal specificity. */
+  .ow-application-navigation-bar {
+    grid-area: navbar;
+  }
+
+  /* Navigation drawer area. Off-canvas overlay on the smallest screens. */
+  .ow-application-navigation {
+    bottom: 0;
+    box-shadow: var(--shadow-ow-application-panel);
+    height: 100dvh;
+    left: 0;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    transform: translateX(0);
+    transition:
+      transform var(--ow-duration-fast) ease-in-out,
+      box-shadow var(--ow-duration-fast) ease-in-out;
+    width: 100%;
+    /* Consistent with the side navigation, above the global nav. */
+    z-index: 103;
+
+    @media (width >= theme(--breakpoint-sm)) {
+      width: auto;
+    }
+
+    &.ow-is-collapsed {
+      box-shadow: var(--shadow-ow-application-panel-hidden);
+      transform: translateX(-100%);
+    }
+
+    /* A collapsed drawer slides back in when something inside it is focused. */
+    &.ow-is-collapsed:focus-within {
+      box-shadow: var(--shadow-ow-application-panel);
+      transform: none;
+    }
+  }
+
+  .ow-application-navigation-drawer {
+    height: 100dvh;
+    width: auto;
+
+    @media (width >= theme(--breakpoint-sm)) {
+      width: var(--ow-application-side-nav-width-expanded);
+    }
+  }
+
+  /* Collapsed mode: the drawer becomes a slim vertical bar that expands on
+     hover, focus or when pinned. */
+  @media (width >= theme(--breakpoint-md)) {
+    .ow-application-navigation-bar {
+      /* Re-purpose the bar as a grid spacer for the collapsed drawer. */
+      grid-area: nav;
+      overflow: hidden;
+      visibility: hidden;
+      width: var(--ow-application-side-nav-width-collapsed);
+    }
+
+    .ow-application-navigation {
+      box-shadow: var(--shadow-ow-application-panel-hidden);
+      overflow: hidden;
+      transform: translateX(0);
+      transition:
+        width var(--ow-duration-fast) ease-in-out,
+        box-shadow var(--ow-duration-fast) ease-in-out;
+      width: var(--ow-application-side-nav-width-collapsed);
+
+      &.ow-is-collapsed {
+        transform: translateX(0);
+        width: var(--ow-application-side-nav-width-collapsed);
+      }
+
+      &:hover,
+      &:focus-within,
+      &.ow-is-pinned {
+        overflow-y: auto;
+        width: var(--ow-application-side-nav-width-expanded);
+      }
+
+      &:hover {
+        box-shadow: var(--shadow-ow-application-panel);
+      }
+
+      &.ow-is-pinned {
+        box-shadow: var(--shadow-ow-application-panel-hidden);
+        grid-area: nav;
+        position: static;
+      }
+    }
+  }
+
+  /* Expanded mode: the drawer is permanently visible; pin/collapse no-op. */
+  @media (width >= theme(--breakpoint-lg)) {
+    .ow-application-navigation-bar {
+      display: none;
+    }
+
+    .ow-application-navigation {
+      box-shadow: none;
+      grid-area: nav;
+      overflow-y: auto;
+      position: static;
+      width: var(--ow-application-side-nav-width-expanded);
+
+      &:hover {
+        box-shadow: none;
+      }
+
+      &.ow-is-collapsed {
+        transform: translateX(0);
+        width: var(--ow-application-side-nav-width-expanded);
+      }
+    }
+  }
+
+  /* Elements that fade out while the drawer is collapsed, and reappear when it
+     expands (hover/focus/pin) or once the layout is in expanded mode. */
+  .ow-application-navigation .ow-is-fading-when-collapsed {
+    @media (width >= theme(--breakpoint-md)) {
+      opacity: 0;
+      transition: opacity var(--ow-duration-snap) ease-in-out;
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      opacity: 1;
+    }
+  }
+
+  .ow-application-navigation.ow-is-pinned .ow-is-fading-when-collapsed,
+  .ow-application-navigation:focus-within .ow-is-fading-when-collapsed,
+  .ow-application-navigation:hover .ow-is-fading-when-collapsed {
+    @media (width >= theme(--breakpoint-md)) {
+      opacity: 1;
+    }
+  }
+}
