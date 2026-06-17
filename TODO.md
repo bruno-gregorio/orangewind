@@ -112,7 +112,7 @@ _The highest level wrappers. These define the entire shell of the page._
       _Note: The global header. Requires Icons, Links, Forms (Search), Buttons, and responsive toggles._
 - [x] [Application Layout](https://vanillaframework.io/docs/layouts/application) & [Application Panels](https://vanillaframework.io/docs/layouts/application#panels)
       _Note: Standard app shell with side-nav and drawers._
-- [ ] [Docs Layout](https://vanillaframework.io/docs/layouts/documentation)
+- [x] [Docs Layout](https://vanillaframework.io/docs/layouts/documentation)
       _Note: Three-column layout for documentation pages._
 - [ ] [Brochure Site](https://vanillaframework.io/docs/layouts/brochure)
       _Note: Layout pattern for marketing or informational websites._
