@@ -49,6 +49,7 @@
 @import './components/application.css';
 @import './components/docs.css';
 @import './components/brochure.css';
+@import './components/suru.css';
 @theme {
   /* Breakpoints */
   --breakpoint-sm: 28.75rem; /* 460px — $breakpoint-x-small */

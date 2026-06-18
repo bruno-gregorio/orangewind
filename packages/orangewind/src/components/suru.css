@@ -1,0 +1,157 @@
+/* Suru — https://vanillaframework.io/docs/patterns/suru */
+
+@theme {
+  /* New suru backgrounds have no white (light) version, they need paper */
+  --color-ow-suru-bg: var(--color-ow-paper);
+  --ow-suru-max-width: 80rem;
+  --ow-suru-min-height: 24rem;
+  --ow-suru-padding-top: 1rem;
+  --ow-suru-corner-padding-bottom: 2rem;
+  --ow-suru-divider-padding-bottom: 4rem;
+
+  /* Light theme background images (hosted on Canonical's asset server) */
+  --ow-suru-25-75: url('https://assets.ubuntu.com/v1/505636a6-0000_suru-main-25x75-light.png');
+  --ow-suru-50-50: url('https://assets.ubuntu.com/v1/e66e280b-0001_suru-main-50x50-light.png');
+  --ow-suru-fan-top: url('https://assets.ubuntu.com/v1/ed94a429-0000_suru-corner-fan--top-right-light.jpg');
+  --ow-suru-fan-bottom: url('https://assets.ubuntu.com/v1/2adade55-suru-corner-fan--bottom-0000_light.jpg');
+  --ow-suru-pyramid-left: url('https://assets.ubuntu.com/v1/8846d6a5-suru-pyramid-top-corner_0000_light.jpg');
+  --ow-suru-pyramid-right: url('https://assets.ubuntu.com/v1/5d9f8cd3-suru-pyramid-top-right-corner_0000_light.jpg');
+  --ow-suru-divider: url('https://assets.ubuntu.com/v1/9e25feb2-suru-triangle-from-left-edge--_0000_light.jpg');
+}
+
+@layer components {
+  .ow-suru,
+  .ow-suru-25-75,
+  .ow-suru-50-50,
+  .ow-suru-fan-top,
+  .ow-suru-fan-bottom,
+  .ow-suru-pyramid-left,
+  .ow-suru-pyramid-right,
+  .ow-suru-divider {
+    /* Hero padding top, matching the section hero pattern */
+    background-color: var(--color-ow-suru-bg);
+    color: var(--color-ow-text-default);
+    padding-top: var(--ow-suru-padding-top);
+
+    @variant dark {
+      --color-ow-suru-bg: var(--color-ow-background-default);
+      --ow-suru-25-75: url('https://assets.ubuntu.com/v1/7ccd4f39-0003_suru-main-25x75-dark.png');
+      --ow-suru-50-50: url('https://assets.ubuntu.com/v1/70c2bbcd-0002_suru-main-50x50-dark.png');
+      --ow-suru-fan-top: url('https://assets.ubuntu.com/v1/fd6ef995-0001_suru-corner-fan--top-right-dark.jpg');
+      --ow-suru-fan-bottom: url('https://assets.ubuntu.com/v1/725af649-suru-corner-fan--bottom-0001_dark.jpg');
+      --ow-suru-pyramid-left: url('https://assets.ubuntu.com/v1/86ed5771-suru-pyramid-top-corner_0001_dark.jpg');
+      --ow-suru-pyramid-right: url('https://assets.ubuntu.com/v1/9f740811-suru-pyramid-top-right-corner_0001_dark.jpg');
+      --ow-suru-divider: url('https://assets.ubuntu.com/v1/9c0bee5c-suru-triangle-from-left-edge--_0001_dark.jpg');
+    }
+  }
+
+  /* Main suru — visual separation drawn into a centered ::after band.
+     The 25/75 image is the default; --50-50 swaps it for the even split. */
+  .ow-suru,
+  .ow-suru-25-75,
+  .ow-suru-50-50 {
+    /* Drop hero padding when used standalone with no children */
+    &:empty,
+    &:-moz-only-whitespace {
+      padding-top: 0;
+    }
+
+    &::after {
+      /* aspect ratio derived from the source image dimensions */
+      aspect-ratio: calc(2600 / 471);
+      background-image: var(--ow-suru-25-75);
+      background-size: contain;
+      content: '';
+      display: block;
+      margin-inline: auto;
+      max-width: var(--ow-suru-max-width);
+    }
+  }
+
+  .ow-suru-50-50::after {
+    background-image: var(--ow-suru-50-50);
+  }
+
+  /* Corner suru — fan / pyramid backgrounds, large screens only */
+  .ow-suru-fan-top,
+  .ow-suru-fan-bottom,
+  .ow-suru-pyramid-left,
+  .ow-suru-pyramid-right {
+    padding-bottom: var(--ow-suru-corner-padding-bottom);
+  }
+
+  /* Divider suru — triangle from the left edge, large screens only */
+  .ow-suru-divider {
+    padding-bottom: var(--ow-suru-divider-padding-bottom);
+    position: relative;
+  }
+
+  @media (width >= theme(--breakpoint-lg)) {
+    .ow-suru,
+    .ow-suru-25-75,
+    .ow-suru-50-50,
+    .ow-suru-fan-top,
+    .ow-suru-fan-bottom,
+    .ow-suru-pyramid-left,
+    .ow-suru-pyramid-right,
+    .ow-suru-divider {
+      --ow-suru-padding-top: 1.5rem;
+    }
+
+    /* Corner backgrounds would overlap content on small screens,
+       so they only appear from the large breakpoint up */
+    .ow-suru-fan-top,
+    .ow-suru-fan-bottom,
+    .ow-suru-pyramid-left,
+    .ow-suru-pyramid-right {
+      --ow-suru-corner-padding-bottom: 4rem;
+      background-repeat: no-repeat;
+      min-height: var(--ow-suru-min-height);
+    }
+
+    .ow-suru-fan-top,
+    .ow-suru-fan-bottom {
+      /* size based on image dimensions (2048x1542) scaled by 0.25 */
+      background-image: var(--ow-suru-fan-top);
+      background-position: top right;
+      background-size: 32rem 24.09rem;
+    }
+
+    .ow-suru-fan-bottom {
+      background-image: var(--ow-suru-fan-bottom);
+      background-position: bottom right;
+    }
+
+    .ow-suru-pyramid-left,
+    .ow-suru-pyramid-right {
+      /* size based on image dimensions (1380x1035) scaled by 0.25 */
+      background-image: var(--ow-suru-pyramid-left);
+      background-position: top left;
+      background-size: 22.125rem 16.1718rem;
+    }
+
+    .ow-suru-pyramid-right {
+      background-image: var(--ow-suru-pyramid-right);
+      background-position: top right;
+    }
+
+    .ow-suru-divider {
+      --ow-suru-divider-padding-bottom: 16rem;
+
+      &::after {
+        /* size based on image dimensions (2560x474) scaled by 0.5;
+           bottom centers the 13.75rem band within the deep padding */
+        background-image: var(--ow-suru-divider);
+        background-position: bottom left;
+        background-repeat: no-repeat;
+        background-size: 80rem 14.8125rem;
+        bottom: 1.125rem;
+        content: '';
+        display: block;
+        height: 13.75rem;
+        position: absolute;
+        width: 100%;
+      }
+    }
+  }
+}
