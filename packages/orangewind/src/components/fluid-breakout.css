@@ -1,0 +1,202 @@
+/* Fluid breakout layout — https://vanillaframework.io/docs/layouts/fluid-breakout
+
+   Lets content bleed past the 12-column grid's margins when that grid would
+   otherwise force heavy truncation — wide tables, detailed charts, dense card
+   walls. Below the large breakpoint the wrapper is a single padded column. At
+   and above it, it becomes three columns: a centre area capped at the grid's
+   max-width with a flexible aside on either side. Once the viewport is wider
+   than all three columns combined, the outer padding drops to zero and the
+   centre column's left edge lines up with the regular grid.
+
+   Outer padding reuses the shared grid margins (see grid.css) so the two
+   layouts align on smaller screens. */
+
+@theme {
+  --ow-fluid-breakout-max-width: 80rem;
+  /* Minimum width of each side aside, and minimum width of a card/item in the
+     auto-filled main area. */
+  --ow-fluid-breakout-aside-width: 14rem;
+  --ow-fluid-breakout-main-child-width: 13rem;
+  /* Gap between the auto-filled columns of the main area. */
+  --ow-fluid-breakout-gap: 1rem;
+}
+
+/* The viewport width at which all three columns fit and the centre column can
+   align with the 12-column grid: max-width (80rem) + one aside (14rem) = 94rem.
+   Spelled as a literal in the media queries below because media query
+   conditions cannot read custom properties. */
+
+@layer components {
+  .ow-fluid-breakout {
+    display: block;
+    padding-inline: var(--ow-grid-margin-small);
+
+    /* From the medium breakpoint up the padding matches the regular grid. */
+    @media (width >= theme(--breakpoint-md)) {
+      padding-inline: var(--ow-grid-margin);
+    }
+
+    /* Three-column layout: a flexible aside, the capped centre area, another
+       flexible aside. The whole block is centred and capped at the combined
+       width so the asides shrink symmetrically before the centre does. */
+    @media (width >= theme(--breakpoint-lg)) {
+      display: grid;
+      grid-template-columns:
+        minmax(var(--ow-fluid-breakout-aside-width), 1fr)
+        minmax(0, var(--ow-fluid-breakout-max-width))
+        minmax(var(--ow-fluid-breakout-aside-width), 1fr);
+      grid-template-rows: auto;
+      margin-inline: auto;
+      max-width: calc(
+        2 * var(--ow-fluid-breakout-aside-width) +
+          var(--ow-fluid-breakout-max-width)
+      );
+    }
+
+    /* Wide enough for all three columns: drop the outer padding so the centre
+       column aligns flush with the regular grid. */
+    @media (width >= 94rem) {
+      padding-inline: 0;
+    }
+  }
+
+  /* Main area: an auto-filled grid of equal cards/items that wrap freely. It
+     occupies the full width below the large breakpoint, then spans the centre
+     column plus one aside. */
+  .ow-fluid-breakout-main {
+    column-gap: var(--ow-fluid-breakout-gap);
+    display: grid;
+    grid-row: 2;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(var(--ow-fluid-breakout-main-child-width), 1fr)
+    );
+    width: 100%;
+
+    @media (width >= theme(--breakpoint-lg)) {
+      grid-column: auto / span 2;
+
+      /* Without an aside, start from the centre column instead of the edge. */
+      &.no-aside {
+        grid-column: 2 / span 2;
+      }
+    }
+
+    /* Span the whole layout, both asides included. */
+    &.is-full-width {
+      @media (width >= theme(--breakpoint-lg)) {
+        grid-column: 1 / span 3;
+      }
+    }
+
+    @media (width >= 94rem) {
+      padding-inline: var(--ow-grid-margin);
+    }
+
+    /* A nested grid row fills the main area rather than re-applying grid
+       margins or its own width cap. */
+    .ow-grid-row {
+      max-width: 100%;
+      padding-inline: 0;
+    }
+  }
+
+  /* Once the layout is at full width, items flow naturally instead of being
+     pinned to grid tracks. */
+  .ow-fluid-breakout-item {
+    @media (width >= 94rem) {
+      grid-column: auto / auto;
+      width: initial;
+    }
+  }
+
+  /* Asides occupy one outer column and share the main area's row, growing
+     downward as needed. Markup order decides which side an aside lands on. */
+  .ow-fluid-breakout-aside,
+  .ow-fluid-breakout-aside-right {
+    grid-column-end: span 1;
+    grid-column-start: auto;
+    grid-row: 2 / 100;
+
+    @media (width >= 94rem) {
+      align-items: start;
+    }
+  }
+
+  .ow-fluid-breakout-aside {
+    @media (width >= theme(--breakpoint-lg)) {
+      padding-right: var(--ow-grid-margin);
+    }
+
+    @media (width >= 94rem) {
+      padding-left: var(--ow-grid-margin);
+      padding-right: 0;
+    }
+  }
+
+  .ow-fluid-breakout-aside-right {
+    @media (width >= theme(--breakpoint-lg)) {
+      padding-left: var(--ow-grid-margin);
+      padding-right: 0;
+    }
+
+    @media (width >= 94rem) {
+      padding-left: 0;
+      padding-right: var(--ow-grid-margin);
+    }
+  }
+
+  /* Optional toolbar above the aside/main area, itself mirroring the 3-column
+     structure so its content lines up with the layout below it. The spacing to
+     the content below crosses the block/grid switch, so a bottom margin is the
+     simplest way to express it at every breakpoint. */
+  .ow-fluid-breakout-toolbar {
+    margin-block-end: 1rem;
+
+    @media (width >= theme(--breakpoint-lg)) {
+      display: grid;
+      grid-column: 1 / -1;
+      grid-template-columns:
+        minmax(var(--ow-fluid-breakout-aside-width), 1fr)
+        minmax(0, var(--ow-fluid-breakout-max-width))
+        minmax(var(--ow-fluid-breakout-aside-width), 1fr);
+      grid-template-rows: auto;
+      margin-inline: auto;
+      max-width: calc(
+        2 * var(--ow-fluid-breakout-aside-width) +
+          var(--ow-fluid-breakout-max-width)
+      );
+    }
+
+    @media (width >= 94rem) {
+      margin-inline: var(--ow-grid-margin);
+    }
+  }
+
+  /* Toolbar contents sit in the centre and right columns, split into two: the
+     second half right-aligns on large screens, stacking below on narrow ones. */
+  .ow-fluid-breakout-toolbar-items {
+    display: grid;
+    grid-column: 2 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    @media (width < theme(--breakpoint-md)) {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      width: var(--ow-fluid-breakout-main-child-width);
+    }
+  }
+
+  .ow-fluid-breakout-toolbar-item {
+    align-items: center;
+    display: flex;
+    grid-column-end: span 1;
+
+    &:nth-child(2) {
+      justify-content: flex-end;
+
+      @media (width < theme(--breakpoint-md)) {
+        justify-content: flex-start;
+      }
+    }
+  }
+}

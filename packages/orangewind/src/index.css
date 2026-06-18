@@ -49,6 +49,8 @@
 @import './components/application.css';
 @import './components/docs.css';
 @import './components/brochure.css';
+@import './components/grid.css';
+@import './components/fluid-breakout.css';
 @import './components/suru.css';
 @theme {
   /* Breakpoints */
