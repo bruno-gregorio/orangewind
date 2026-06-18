@@ -29,7 +29,13 @@
   }
 </script>
 
-<aside class="ow-docs-sidebar border-r border-ow-surface-border">
+<!-- The sidebar uses the default surface — the side navigation's own tone. The
+     sticky nav is shorter than the column, so the cell carries that same surface
+     explicitly; otherwise the empty space below the nav would expose the page
+     colour and split the column into two shades. -->
+<aside
+  class="ow-docs-sidebar border-r border-ow-surface-border bg-ow-background-default"
+>
   <div class="ow-side-navigation ow-side-navigation-accordion ow-is-sticky">
     <nav aria-label="Documentation">
       <ul class="ow-side-navigation-list">

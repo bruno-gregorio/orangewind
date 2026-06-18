@@ -19,7 +19,7 @@
   <title>{title} · {site.name} {site.tagline}</title>
 </svelte:head>
 
-<div class="ow-docs bg-ow-background-default text-ow-text-default min-h-screen">
+<div class="ow-docs text-ow-text-default min-h-screen bg-white dark:bg-black">
   <Navigation />
   <SideNav />
 

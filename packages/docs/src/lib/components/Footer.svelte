@@ -3,7 +3,9 @@
   import { site, externalLinks } from '$lib/site'
 </script>
 
-<footer class="ow-docs-footer ow-strip-highlighted ow-is-shallow px-6">
+<footer
+  class="ow-docs-footer ow-strip ow-is-shallow border-t border-ow-surface-border bg-ow-background-alt px-6"
+>
   <div class="flex flex-wrap items-center justify-between gap-4">
     <p class="mb-0 text-sm opacity-75">
       © {site.name}. A Tailwind CSS reimplementation of Canonical's Vanilla

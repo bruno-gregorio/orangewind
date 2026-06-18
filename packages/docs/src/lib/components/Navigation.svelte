@@ -8,7 +8,9 @@
     page.url.pathname === href || page.url.pathname.startsWith(`${href}/`)
 </script>
 
-<header class="ow-docs-header ow-navigation-reduced">
+<header
+  class="ow-docs-header ow-navigation-reduced border-b border-ow-surface-border bg-ow-background-alt"
+>
   <div class="ow-navigation-row">
     <div class="ow-navigation-banner">
       <div class="ow-navigation-tagged-logo">
