@@ -48,6 +48,7 @@
 @import './components/navigation.css';
 @import './components/application-panels.css';
 @import './components/application.css';
+@import './components/side-navigation.css';
 @import './components/docs.css';
 @import './components/brochure.css';
 @import './components/grid.css';

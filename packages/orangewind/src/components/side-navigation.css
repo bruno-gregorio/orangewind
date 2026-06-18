@@ -1,0 +1,693 @@
+/* Side navigation — https://vanillaframework.io/docs/patterns/side-navigation */
+
+@theme {
+  --color-ow-side-navigation-bg: var(--color-ow-background-default);
+  --color-ow-side-navigation-text: var(--color-ow-text-default);
+  --color-ow-side-navigation-text-muted: var(--color-ow-text-muted);
+  --color-ow-side-navigation-border: var(--color-ow-surface-border-low);
+  --color-ow-side-navigation-border-strong: var(
+    --color-ow-border-high-contrast
+  );
+  --color-ow-side-navigation-hover-bg: color-mix(
+    in srgb,
+    var(--color-ow-x-dark) 5%,
+    transparent
+  );
+  --color-ow-side-navigation-active-bg: color-mix(
+    in srgb,
+    var(--color-ow-x-dark) 10%,
+    transparent
+  );
+  --color-ow-side-navigation-overlay: color-mix(
+    in srgb,
+    var(--color-ow-x-dark) 50%,
+    transparent
+  );
+  --color-ow-side-navigation-highlight: var(--color-ow-text-default);
+
+  --shadow-ow-side-navigation-drawer: var(--shadow-ow-surface);
+
+  /* Grid margin that drives the horizontal indentation rhythm. It grows at
+     the medium breakpoint to match Vanilla's responsive grid margins. */
+  --ow-side-navigation-margin: 1rem;
+  --ow-side-navigation-icon-width: 1rem;
+  /* Icon width plus the spacing on either side of an accordion chevron. */
+  --ow-side-navigation-accordion-offset: 3rem;
+  --ow-side-navigation-text-padding-block: 0.25rem;
+  --ow-side-navigation-text-padding-right: 1rem;
+  --ow-side-navigation-list-spacing: 1.5rem;
+  --ow-side-navigation-drawer-max-width: 20rem;
+  --ow-side-navigation-highlight-width: 3px;
+  --ow-side-navigation-transition-duration: 0.165s;
+}
+
+@keyframes ow-side-navigation-expand {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes ow-side-navigation-collapse {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@layer components {
+  .ow-side-navigation {
+    background-color: var(--color-ow-side-navigation-bg);
+    color: var(--color-ow-side-navigation-text);
+
+    @variant dark {
+      --color-ow-side-navigation-hover-bg: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 8%,
+        transparent
+      );
+      --color-ow-side-navigation-active-bg: color-mix(
+        in srgb,
+        var(--color-ow-x-light) 14%,
+        transparent
+      );
+      --color-ow-side-navigation-border: var(
+        --color-ow-surface-border-low-dark
+      );
+    }
+
+    /* Wider grid margin once there is room for it. */
+    @media (width >= theme(--breakpoint-md)) {
+      --ow-side-navigation-margin: 1.5rem;
+    }
+
+    /* RESPONSIVE DRAWER --------------------------------------------------- */
+
+    /* Below the large breakpoint the drawer is an off-canvas panel that
+       slides in from the left. */
+    .ow-side-navigation-drawer {
+      background-color: var(--color-ow-side-navigation-bg);
+      bottom: 0;
+      color: var(--color-ow-side-navigation-text);
+      left: 0;
+      overflow: auto;
+      position: fixed;
+      top: 0;
+      transform: translateX(-100%);
+      width: 100%;
+      z-index: 102;
+
+      @media (width >= theme(--breakpoint-sm)) {
+        max-width: var(--ow-side-navigation-drawer-max-width);
+      }
+    }
+
+    .ow-side-navigation-overlay {
+      background-color: var(--color-ow-side-navigation-overlay);
+      bottom: 0;
+      left: 0;
+      opacity: 0;
+      pointer-events: none;
+      position: fixed;
+      right: 0;
+      top: 0;
+      transition: opacity var(--ow-side-navigation-transition-duration) ease-in;
+      z-index: 101;
+    }
+
+    /* Drawer open on small screens. */
+    &.ow-is-drawer-expanded {
+      .ow-side-navigation-drawer {
+        box-shadow: var(--shadow-ow-side-navigation-drawer);
+
+        @media (width < theme(--breakpoint-lg)) {
+          animation: ow-side-navigation-expand
+            var(--ow-side-navigation-transition-duration);
+          transform: translateX(0);
+        }
+      }
+
+      .ow-side-navigation-overlay {
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+
+    /* Drawer closing on small screens (plays the collapse animation). */
+    &.ow-is-drawer-collapsed .ow-side-navigation-drawer {
+      @media (width < theme(--breakpoint-lg)) {
+        animation: ow-side-navigation-collapse
+          var(--ow-side-navigation-transition-duration);
+      }
+    }
+
+    /* Drawer hidden entirely on small screens, shown again on large. */
+    &.ow-is-drawer-hidden .ow-side-navigation-drawer {
+      display: none;
+
+      @media (width >= theme(--breakpoint-lg)) {
+        display: block;
+      }
+    }
+
+    .ow-side-navigation-drawer-header {
+      background-color: var(--color-ow-side-navigation-bg);
+      border-bottom: 1px solid var(--color-ow-side-navigation-border);
+      padding-bottom: calc(0.5rem - 1px);
+      padding-left: 0.25rem;
+      padding-top: 0.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    /* Toggle buttons share a base, then differ in chevron direction. */
+    .ow-side-navigation-toggle,
+    .ow-side-navigation-toggle-in-drawer {
+      align-items: center;
+      appearance: none;
+      cursor: pointer;
+      display: inline-flex;
+      font-size: inherit;
+      line-height: 1.5rem;
+      padding: calc(0.4rem - 1px) 1rem;
+
+      &::before {
+        background-color: currentColor;
+        block-size: var(--ow-side-navigation-icon-width);
+        content: '';
+        flex-shrink: 0;
+        inline-size: var(--ow-side-navigation-icon-width);
+        margin-left: -0.5rem;
+        margin-right: 0.5rem;
+        mask-image: var(--icon-ow-chevron);
+        mask-position: center;
+        mask-repeat: no-repeat;
+        mask-size: contain;
+      }
+    }
+
+    .ow-side-navigation-toggle {
+      background-color: var(--color-ow-side-navigation-bg);
+      border: 1px solid var(--color-ow-side-navigation-border-strong);
+      border-radius: 0.125rem;
+      color: var(--color-ow-side-navigation-text);
+
+      &::before {
+        transform: rotate(-90deg);
+      }
+
+      &:hover {
+        background-color: var(--color-ow-side-navigation-hover-bg);
+      }
+    }
+
+    .ow-side-navigation-toggle-in-drawer {
+      background-color: transparent;
+      border: 1px solid var(--color-ow-side-navigation-border-strong);
+      border-radius: 0.125rem;
+      color: var(--color-ow-side-navigation-text-muted);
+
+      &::before {
+        transform: rotate(90deg);
+      }
+
+      &:hover {
+        background-color: var(--color-ow-side-navigation-hover-bg);
+        color: var(--color-ow-side-navigation-text);
+      }
+    }
+
+    /* At the large breakpoint the navigation becomes a static column and the
+       small-screen drawer chrome disappears. */
+    @media (width >= theme(--breakpoint-lg)) {
+      .ow-side-navigation-toggle,
+      .ow-side-navigation-toggle-in-drawer,
+      .ow-side-navigation-drawer-header {
+        display: none;
+      }
+
+      .ow-side-navigation-overlay {
+        display: none;
+      }
+
+      .ow-side-navigation-drawer {
+        box-shadow: none;
+        display: block;
+        max-width: none;
+        overflow: visible;
+        position: static;
+        transform: translateX(0);
+      }
+
+      &.ow-is-sticky {
+        max-height: 100dvh;
+        overflow-y: auto;
+        position: sticky;
+        top: 0;
+      }
+    }
+
+    /* LINKS LIST ---------------------------------------------------------- */
+
+    .ow-side-navigation-list {
+      color: var(--color-ow-side-navigation-text-muted);
+      list-style: none;
+      margin: 0 0 var(--ow-side-navigation-list-spacing);
+      padding: 0;
+      position: relative;
+
+      /* A divider sitting in the middle of the gap between two groups. */
+      &::after {
+        background-color: var(--color-ow-side-navigation-border);
+        bottom: calc(-0.5 * var(--ow-side-navigation-list-spacing));
+        content: '';
+        height: 1px;
+        left: var(--ow-side-navigation-margin);
+        position: absolute;
+        right: 0;
+      }
+
+      &:last-of-type::after {
+        content: none;
+      }
+
+      /* Accordion sub-lists animate open and closed. */
+      &[aria-expanded] {
+        transition:
+          transform var(--ow-side-navigation-transition-duration),
+          opacity var(--ow-side-navigation-transition-duration);
+      }
+
+      &[aria-expanded='false'] {
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translate3d(0, -0.5rem, 0);
+        visibility: hidden;
+      }
+
+      &[aria-expanded='true'] {
+        height: auto;
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        visibility: visible;
+      }
+    }
+
+    .ow-side-navigation-item {
+      position: relative;
+    }
+
+    /* Shared text box for every item flavour (link, plain text, heading,
+       accordion button). Indentation is driven by two custom properties so
+       variants and nesting only need to override the numbers. */
+    .ow-side-navigation-heading,
+    .ow-side-navigation-text,
+    .ow-side-navigation-link,
+    .ow-side-navigation-accordion-button {
+      --ow-side-navigation-indent-steps: 1;
+      --ow-side-navigation-indent-offset: 0px;
+
+      display: flex;
+      padding-bottom: var(--ow-side-navigation-text-padding-block);
+      padding-left: calc(
+        var(--ow-side-navigation-indent-steps) *
+          var(--ow-side-navigation-margin) +
+          var(--ow-side-navigation-indent-offset)
+      );
+      padding-right: var(--ow-side-navigation-text-padding-right);
+      padding-top: var(--ow-side-navigation-text-padding-block);
+    }
+
+    .ow-side-navigation-heading {
+      color: var(--color-ow-side-navigation-text);
+      font-size: var(--text-base);
+      font-weight: 550;
+      margin: 0;
+      max-width: none;
+    }
+
+    .ow-side-navigation-heading-linked {
+      color: var(--color-ow-side-navigation-text);
+      font-size: var(--text-base);
+      font-weight: 550;
+      margin: 0;
+      max-width: none;
+      /* Padding comes from the nested link instead. */
+      padding: 0;
+    }
+
+    /* Title items and linked headings read as full-strength text. */
+    .ow-side-navigation-item-title > .ow-side-navigation-text,
+    .ow-side-navigation-item-title > .ow-side-navigation-link,
+    .ow-side-navigation-heading-linked > .ow-side-navigation-link {
+      color: var(--color-ow-side-navigation-text);
+      font-weight: 550;
+    }
+
+    .ow-side-navigation-link {
+      position: relative;
+      text-decoration: none;
+
+      &,
+      &:visited {
+        color: var(--color-ow-side-navigation-text-muted);
+      }
+
+      &:hover {
+        background-color: var(--color-ow-side-navigation-hover-bg);
+        color: var(--color-ow-side-navigation-text);
+        text-decoration: none;
+      }
+
+      &:active,
+      &.ow-is-active,
+      &[aria-current='page'],
+      &[aria-current='true'] {
+        background-color: var(--color-ow-side-navigation-active-bg);
+        color: var(--color-ow-side-navigation-text);
+        cursor: default;
+      }
+
+      /* Highlight bar on the active item. */
+      &.ow-is-active::before,
+      &[aria-current='page']::before,
+      &[aria-current='true']::before {
+        background-color: var(--color-ow-side-navigation-highlight);
+        bottom: 0;
+        content: '';
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: var(--ow-side-navigation-highlight-width);
+      }
+
+      &:focus-visible {
+        outline: 3px solid var(--color-ow-focus);
+        outline-offset: -3px;
+      }
+
+      /* Keep the bar visible for active links that take focus without a
+         visible focus ring. */
+      &:focus:not(:focus-visible)::before {
+        display: block;
+      }
+    }
+
+    /* Accordion toggle button reset + chevron. */
+    .ow-side-navigation-accordion-button {
+      appearance: none;
+      background-color: inherit;
+      border: 0;
+      border-radius: 0;
+      color: inherit;
+      cursor: pointer;
+      font-size: inherit;
+      justify-content: flex-start;
+      text-align: left;
+      width: 100%;
+
+      &::before {
+        align-self: center;
+        background-color: currentColor;
+        block-size: var(--ow-side-navigation-icon-width);
+        content: '';
+        flex-shrink: 0;
+        inline-size: var(--ow-side-navigation-icon-width);
+        margin-left: calc(
+          -1 *
+            (
+              var(--ow-side-navigation-text-padding-right) +
+                var(--ow-side-navigation-icon-width)
+            )
+        );
+        margin-right: var(--ow-side-navigation-text-padding-right);
+        mask-image: var(--icon-ow-chevron);
+        mask-position: center;
+        mask-repeat: no-repeat;
+        mask-size: contain;
+        transition: transform var(--ow-side-navigation-transition-duration);
+      }
+
+      &:hover {
+        background-color: var(--color-ow-side-navigation-hover-bg);
+        color: var(--color-ow-side-navigation-text);
+      }
+
+      &[aria-expanded='false']::before {
+        transform: rotate(-90deg);
+      }
+    }
+
+    /* Right-aligned status (icon, chip…). */
+    .ow-side-navigation-status {
+      margin-left: auto;
+      padding-left: 0.5rem;
+    }
+
+    /* NESTED LEVELS (default variant) ------------------------------------- */
+
+    .ow-side-navigation-item .ow-side-navigation-item {
+      .ow-side-navigation-heading,
+      .ow-side-navigation-text,
+      .ow-side-navigation-link,
+      .ow-side-navigation-accordion-button {
+        --ow-side-navigation-indent-steps: 2;
+      }
+
+      .ow-side-navigation-item {
+        .ow-side-navigation-heading,
+        .ow-side-navigation-text,
+        .ow-side-navigation-link,
+        .ow-side-navigation-accordion-button {
+          --ow-side-navigation-indent-steps: 3;
+        }
+
+        .ow-side-navigation-item {
+          .ow-side-navigation-heading,
+          .ow-side-navigation-text,
+          .ow-side-navigation-link,
+          .ow-side-navigation-accordion-button {
+            --ow-side-navigation-indent-steps: 4;
+          }
+        }
+      }
+    }
+
+    /* ICONS VARIANT ------------------------------------------------------- */
+
+    &.ow-side-navigation-icons {
+      .ow-side-navigation-heading,
+      .ow-side-navigation-text,
+      .ow-side-navigation-link,
+      .ow-side-navigation-accordion-button {
+        --ow-side-navigation-indent-steps: 2;
+        --ow-side-navigation-indent-offset: var(
+          --ow-side-navigation-icon-width
+        );
+        position: relative;
+      }
+
+      .ow-side-navigation-item .ow-side-navigation-item {
+        .ow-side-navigation-heading,
+        .ow-side-navigation-text,
+        .ow-side-navigation-link,
+        .ow-side-navigation-accordion-button {
+          --ow-side-navigation-indent-steps: 3;
+        }
+
+        .ow-side-navigation-item {
+          .ow-side-navigation-heading,
+          .ow-side-navigation-text,
+          .ow-side-navigation-link,
+          .ow-side-navigation-accordion-button {
+            --ow-side-navigation-indent-steps: 4;
+          }
+
+          .ow-side-navigation-item {
+            .ow-side-navigation-heading,
+            .ow-side-navigation-text,
+            .ow-side-navigation-link,
+            .ow-side-navigation-accordion-button {
+              --ow-side-navigation-indent-steps: 5;
+            }
+          }
+        }
+      }
+
+      .ow-side-navigation-list::after {
+        left: calc(
+          2 * var(--ow-side-navigation-margin) +
+            var(--ow-side-navigation-icon-width)
+        );
+      }
+
+      .ow-side-navigation-icon {
+        left: var(--ow-side-navigation-margin);
+        position: absolute;
+        top: 0.5rem;
+      }
+    }
+
+    /* ACCORDION VARIANT --------------------------------------------------- */
+
+    &.ow-side-navigation-accordion {
+      .ow-side-navigation-heading,
+      .ow-side-navigation-text,
+      .ow-side-navigation-link,
+      .ow-side-navigation-accordion-button {
+        --ow-side-navigation-indent-steps: 0;
+        --ow-side-navigation-indent-offset: var(
+          --ow-side-navigation-accordion-offset
+        );
+      }
+
+      .ow-side-navigation-item .ow-side-navigation-item {
+        .ow-side-navigation-heading,
+        .ow-side-navigation-text,
+        .ow-side-navigation-link,
+        .ow-side-navigation-accordion-button {
+          --ow-side-navigation-indent-steps: 1;
+        }
+
+        .ow-side-navigation-item {
+          .ow-side-navigation-heading,
+          .ow-side-navigation-text,
+          .ow-side-navigation-link,
+          .ow-side-navigation-accordion-button {
+            --ow-side-navigation-indent-steps: 2;
+          }
+
+          .ow-side-navigation-item {
+            .ow-side-navigation-heading,
+            .ow-side-navigation-text,
+            .ow-side-navigation-link,
+            .ow-side-navigation-accordion-button {
+              --ow-side-navigation-indent-steps: 3;
+            }
+          }
+        }
+      }
+
+      .ow-side-navigation-list::after {
+        left: calc(2 * var(--ow-side-navigation-margin));
+      }
+    }
+
+    /* Parent of an active item, highlighted when the navigation is collapsed
+       inside an application layout. */
+    .ow-side-navigation-item.ow-has-active-child > .ow-side-navigation-link {
+      background-color: var(--color-ow-side-navigation-hover-bg);
+      color: var(--color-ow-side-navigation-text);
+    }
+
+    /* RAW HTML VARIANT ---------------------------------------------------- */
+    /* External services emit plain markup, so map bare elements onto the
+       same styles the explicit classes provide. */
+
+    &.ow-side-navigation-raw-html {
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: var(--color-ow-side-navigation-text);
+        display: block;
+        font-size: var(--text-base);
+        font-weight: 550;
+        margin: 0;
+        max-width: none;
+        padding-bottom: var(--ow-side-navigation-text-padding-block);
+        padding-left: var(--ow-side-navigation-margin);
+        padding-right: var(--ow-side-navigation-text-padding-right);
+        padding-top: var(--ow-side-navigation-text-padding-block);
+      }
+
+      ul {
+        color: var(--color-ow-side-navigation-text-muted);
+        list-style: none;
+        margin: 0 0 var(--ow-side-navigation-list-spacing);
+        padding: 0;
+        position: relative;
+
+        &::after {
+          background-color: var(--color-ow-side-navigation-border);
+          bottom: calc(-0.5 * var(--ow-side-navigation-list-spacing));
+          content: '';
+          height: 1px;
+          left: var(--ow-side-navigation-margin);
+          position: absolute;
+          right: 0;
+        }
+
+        &:last-of-type::after {
+          content: none;
+        }
+      }
+
+      li > span,
+      li > strong,
+      li > a {
+        display: block;
+        padding-bottom: var(--ow-side-navigation-text-padding-block);
+        padding-left: var(--ow-side-navigation-margin);
+        padding-right: var(--ow-side-navigation-text-padding-right);
+        padding-top: var(--ow-side-navigation-text-padding-block);
+      }
+
+      li > a {
+        position: relative;
+        text-decoration: none;
+
+        &,
+        &:visited {
+          color: var(--color-ow-side-navigation-text-muted);
+        }
+
+        &:hover {
+          background-color: var(--color-ow-side-navigation-hover-bg);
+          color: var(--color-ow-side-navigation-text);
+        }
+
+        &:active,
+        &.ow-is-active,
+        &[aria-current='page'],
+        &[aria-current='true'] {
+          background-color: var(--color-ow-side-navigation-active-bg);
+          color: var(--color-ow-side-navigation-text);
+        }
+
+        &.ow-is-active::before,
+        &[aria-current='page']::before,
+        &[aria-current='true']::before {
+          background-color: var(--color-ow-side-navigation-highlight);
+          bottom: 0;
+          content: '';
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: var(--ow-side-navigation-highlight-width);
+        }
+      }
+
+      li li > span,
+      li li > strong,
+      li li > a {
+        padding-left: calc(2 * var(--ow-side-navigation-margin));
+      }
+
+      li li li > span,
+      li li li > strong,
+      li li li > a {
+        padding-left: calc(3 * var(--ow-side-navigation-margin));
+      }
+    }
+  }
+}
