@@ -48,23 +48,33 @@ _Stand up an empty but runnable SvelteKit app wired into the monorepo._
 _The chrome every page shares + the doc-authoring building blocks. All built from existing
 Orangewind components — no new framework CSS._
 
-- [ ] **Global navigation header** using `navigation.css` (logo, links, GitHub link, search slot).
-- [ ] **Three-column docs layout** using `docs.css` (left side-nav, center content, right TOC).
+- [x] **Global navigation header** using `navigation.css` (logo, links, GitHub link, search slot).
+      _Done: `Navigation.svelte`, branding + links from `$lib/site`. Search slot still TODO._
+- [x] **Three-column docs layout** using `docs.css` (left side-nav, center content, right TOC).
+      _Done: `routes/docs/+layout.svelte` wires the six `ow-docs-*` grid slots._
 - [ ] **Side navigation** using `side-navigation.css`: grouped, collapsible component index
       (mirror the phase grouping from `TODO.md`). Highlight the active route. Drawer behaviour
       on mobile (`is-drawer-expanded/collapsed`).
-- [ ] **In-page navigation / Table of Contents** using `in-page-navigation.css` /
-      `table-of-contents.css`: auto-generated from the page's `<h2>`/`<h3>` anchors, with
-      scroll-spy active state.
+      _Partial: `SideNav.svelte` now uses `ow-side-navigation-accordion` — collapsible groups
+      (active group auto-opens) + active highlight + dark-aware theming. Still TODO: mobile drawer._
+- [x] **In-page navigation / Table of Contents** using `table-of-contents.css`:
+      auto-generated from the page's `<h2>`/`<h3>` anchors, with scroll-spy active state.
+      _Done: `Toc.svelte` (client-side; static prerender ships an empty TOC that hydrates)._
 - [ ] **Dark mode** — no toggle. Rely on Tailwind's default `prefers-color-scheme` handling so the
       site follows the OS theme. Just verify both themes render correctly (light/dark) across the
       shell and `<Example>` previews.
-- [ ] **`<Example>` primitive** — the core doc component (mirrors Vanilla's `embedded-example`):
+      _Fixed: added `color-scheme: light dark` (Orangewind never styles the document, so the
+      browser canvas/scrollbars/native controls weren't theming) and moved all chrome onto
+      themed `ow-surface-border` + `ow-side-navigation`. Still wants a final visual pass._
+- [x] **`<Example>` primitive** — the core doc component (mirrors Vanilla's `embedded-example`):
       renders a live preview of the markup **and** the source. Built from `code-snippet.css`
       (copy-to-clipboard button, language label). Decide preview isolation (iframe vs inline).
+      _Done: `Example.svelte`, inline preview + copy button. Syntax highlighting still TODO below._
 - [ ] **Syntax highlighting** for code blocks (recommend `shiki`), themed for light/dark.
 - [ ] **Auto-anchored headings** (slugged `id`s + hover anchor links) feeding the TOC.
-- [ ] **Footer** (license LGPL-3.0, links to repo, version).
+      _Currently `id`s are hand-authored on each `<h2>`; auto-slugging + anchor links still TODO._
+- [x] **Footer** (license LGPL-3.0, links to repo, version).
+      _Done: `Footer.svelte`, links from `$lib/site`._
 
 ---
 
@@ -76,10 +86,13 @@ _Decide how pages are authored and structured._
       components (closest analogue to Vanilla's `index.md` + embedded examples).
 - [ ] Define route structure: `/` (home), `/docs/get-started`, `/docs/markup-patterns`,
       `/docs/ui-patterns`, and `/docs/components/[component]`.
-- [ ] Create a shared `+layout.svelte` for `/docs/*` that mounts the shell from Phase 1 and
+- [x] Create a shared `+layout.svelte` for `/docs/*` that mounts the shell from Phase 1 and
       builds side-nav + TOC from a central manifest.
-- [ ] Create a **component manifest** (single source of truth: slug, title, group, status) that
+      _Done: `routes/docs/+layout.svelte` + a `/docs/components` index page._
+- [x] Create a **component manifest** (single source of truth: slug, title, group, status) that
       drives the side-nav, routing, and "next/prev" pagination (`pagination.css`).
+      _Done: `$lib/manifest.ts` (drives side-nav + title; pagination still TODO). Site links live
+      in `$lib/site.ts`._
 
 ---
 
@@ -105,6 +118,7 @@ _One page per component, grouped to match `TODO.md`. Pull section breakdowns and
 matching `vanilla-framework/templates/docs/patterns/<name>/index.md`._
 
 **Every component page MUST include, in this order:**
+
 1. **A live demonstration of the component** at the top — a rendered, working instance (interactive
    where applicable: a real switch toggles, a modal opens, tabs switch) shown in a realistic
    context, not just static markup. This is the headline showcase of the page.
@@ -115,32 +129,36 @@ The Phase 1 `<Example>` primitive is the vehicle for both the headline demo and 
 previews — it always shows the component **rendered and working**, alongside its source.
 
 ### Foundations & Utilities
+
 - [ ] Typography
 - [ ] Colors / Theme
 - [ ] Animations
 - [ ] Icons (incl. 2025/2026 additions)
 - [ ] Baseline Grid & Font Metrics
-- [ ] Links
+- [x] Links
 - [ ] Divider
 
 ### Basic Elements
-- [ ] Buttons (all variants + `is-inline/dense/small/icon`)
-- [ ] Badge
+
+- [x] Buttons (all variants + `is-inline/dense/small/icon`)
+- [x] Badge
 - [ ] Status Label
-- [ ] Chip
+- [x] Chip
 - [ ] Heading Icon & Muted Heading
 
 ### Forms & Inputs
+
 - [ ] Forms (inputs, textareas, checkboxes, radios, validation)
-- [ ] Switch
+- [x] Switch
 - [ ] Slider
 - [ ] Segmented Control
 - [ ] Search Box
 - [ ] Search and Filter
 
 ### Intermediate Components
-- [ ] Notifications
-- [ ] Tooltips
+
+- [x] Notifications
+- [x] Tooltips
 - [ ] Tabs
 - [ ] Breadcrumbs
 - [ ] Accordion
@@ -148,6 +166,7 @@ previews — it always shows the component **rendered and working**, alongside i
 - [ ] Code Snippet
 
 ### Complex Content Blocks
+
 - [ ] Lists & List Tree (rich / tiered / stepped)
 - [ ] Tables
 - [ ] Matrix
@@ -157,6 +176,7 @@ previews — it always shows the component **rendered and working**, alongside i
 - [ ] Quotes & Pull Quotes
 
 ### Layout Components & Patterns
+
 - [ ] Strip & Section
 - [ ] Divided Section
 - [ ] Modal
@@ -167,6 +187,7 @@ previews — it always shows the component **rendered and working**, alongside i
 - [ ] Hero, Tab Section, Text Spotlight, Equal Height Row
 
 ### Application Scaffolding
+
 - [ ] Navigation
 - [ ] Application Layout & Panels
 - [ ] Side Navigation

@@ -55,6 +55,17 @@ export default [
     }
   },
 
+  // Docs site: routing is driven by the component manifest (string paths, and a
+  // future `[component]` dynamic route), and `<Example>` passes markup strings —
+  // which contain quotes — as props. Both patterns are intentional here.
+  {
+    files: ['packages/docs/**/*.svelte'],
+    rules: {
+      'svelte/no-navigation-without-resolve': 'off',
+      'svelte/no-useless-mustaches': 'off'
+    }
+  },
+
   // Prettier compat — must be last
   prettier
 ]

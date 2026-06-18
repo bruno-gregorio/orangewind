@@ -1,2 +1,21 @@
 @import 'tailwindcss';
 @import 'orangewind/src/index.css';
+
+/* Orangewind only flips its own CSS variables for dark mode; it never styles
+   the document. Opt the whole page into the OS colour scheme so the browser
+   themes the canvas, scrollbars and native form controls to match. */
+:root {
+  color-scheme: light dark;
+}
+
+/* Article rhythm for documentation content. A tight base step between blocks,
+   with extra space before each section heading. Uses margins (not a single
+   grid gap) because the step varies by element — and this is the same shape
+   Markdown/mdsvex output will take. */
+.ow-docs-article > * + * {
+  margin-block-start: 1rem;
+}
+
+.ow-docs-article > :is(h2, h3) {
+  margin-block-start: 2.5rem;
+}
