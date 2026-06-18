@@ -83,6 +83,8 @@ _Larger data presentation blocks that nest multiple basic elements together._
 - [x] [Tables](https://vanillaframework.io/docs/base/tables) (Requires Icons, Buttons, Status Labels, Pagination)
 - [x] [Matrix](https://vanillaframework.io/docs/patterns/matrix)
 - [x] [Card](https://vanillaframework.io/docs/patterns/card) (Requires Typography, Links, Buttons)
+- [ ] [Content Card](https://vanillaframework.io/docs/patterns/content-card) (Requires Card, Image, Links)
+      _Missing: Distinct from Card. Needs `.ow-content-card` with `--cols-2/4/6` layouts, `has-image`/`has-desc` hover states, overlay/main/author links, and 16:9 image wrapper._
 - [x] [Media Object](https://vanillaframework.io/docs/patterns/media-object) / [Image Pattern](https://vanillaframework.io/docs/patterns/images)
 - [x] [Quotes](https://vanillaframework.io/docs/patterns/pull-quote) & Pull Quotes
 
@@ -112,6 +114,8 @@ _The highest level wrappers. These define the entire shell of the page._
       _Note: The global header. Requires Icons, Links, Forms (Search), Buttons, and responsive toggles._
 - [x] [Application Layout](https://vanillaframework.io/docs/layouts/application) & [Application Panels](https://vanillaframework.io/docs/layouts/application#panels)
       _Note: Standard app shell with side-nav and drawers._
+- [ ] [Side Navigation](https://vanillaframework.io/docs/patterns/side-navigation) (Requires Links, Icons, Lists)
+      _Missing: Standalone pattern, separate from the Application Layout side-nav. Needs `--icons`, `--accordion`, `--raw-html` variants plus `is-sticky` and `is-drawer-expanded/collapsed/hidden` drawer states._
 - [x] [Docs Layout](https://vanillaframework.io/docs/layouts/documentation)
       _Note: Three-column layout for documentation pages._
 - [x] [Brochure Site](https://vanillaframework.io/docs/layouts/brochure)
