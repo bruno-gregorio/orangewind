@@ -134,73 +134,78 @@ matching `vanilla-framework/templates/docs/patterns/<name>/index.md`._
 The Phase 1 `<Example>` primitive is the vehicle for both the headline demo and the per-variant
 previews — it always shows the component **rendered and working**, alongside its source.
 
+_All per-component pages below are built and live: each has the mandatory
+headline demo, an intro, and per-variant `<Example>`s. Markup is sourced
+verbatim from the verified Storybook stories / component CSS. The whole set
+prerenders (static build), and `eslint` + `prettier` + `svelte-check` are clean._
+
 ### Foundations & Utilities
 
-- [ ] Typography
-- [ ] Colors / Theme
-- [ ] Animations
-- [ ] Icons (incl. 2025/2026 additions)
-- [ ] Baseline Grid & Font Metrics
+- [x] Typography
+- [x] Colors / Theme
+- [x] Animations
+- [x] Icons (incl. 2025/2026 additions)
+- [x] Baseline Grid & Font Metrics
 - [x] Links
-- [ ] Divider
+- [x] Divider
 
 ### Basic Elements
 
 - [x] Buttons (all variants + `is-inline/dense/small/icon`)
 - [x] Badge
-- [ ] Status Label
+- [x] Status Label
 - [x] Chip
-- [ ] Heading Icon & Muted Heading
+- [x] Heading Icon & Muted Heading
 
 ### Forms & Inputs
 
-- [ ] Forms (inputs, textareas, checkboxes, radios, validation)
+- [x] Forms (inputs, textareas, checkboxes, radios, validation)
 - [x] Switch
-- [ ] Slider
-- [ ] Segmented Control
-- [ ] Search Box
-- [ ] Search and Filter
+- [x] Slider
+- [x] Segmented Control
+- [x] Search Box
+- [x] Search and Filter
 
 ### Intermediate Components
 
 - [x] Notifications
 - [x] Tooltips
-- [ ] Tabs
-- [ ] Breadcrumbs
-- [ ] Accordion
-- [ ] Pagination (incl. article pagination)
-- [ ] Code Snippet
+- [x] Tabs
+- [x] Breadcrumbs
+- [x] Accordion
+- [x] Pagination (incl. article pagination)
+- [x] Code Snippet
 
 ### Complex Content Blocks
 
-- [ ] Lists & List Tree (rich / tiered / stepped)
-- [ ] Tables
-- [ ] Matrix
-- [ ] Card
-- [ ] Content Card
-- [ ] Media Object / Image
-- [ ] Quotes & Pull Quotes
+- [x] Lists & List Tree (rich / tiered / stepped)
+- [x] Tables
+- [x] Matrix
+- [x] Card
+- [x] Content Card
+- [x] Media Object / Image
+- [x] Quotes & Pull Quotes
 
 ### Layout Components & Patterns
 
-- [ ] Strip & Section
-- [ ] Divided Section
-- [ ] Modal
-- [ ] Contextual Menu
-- [ ] In-Page Navigation & Table of Contents
-- [ ] Feature Blocks (Pricing, Resources, Logo Section, CTA, Data Spotlight, Newsletter Signup)
-- [ ] Blog & Article
-- [ ] Hero, Tab Section, Text Spotlight, Equal Height Row
+- [x] Strip & Section
+- [x] Divided Section
+- [x] Modal
+- [x] Contextual Menu
+- [x] In-Page Navigation & Table of Contents
+- [x] Feature Blocks (Pricing, Resources, Logo Section, CTA, Data Spotlight, Newsletter Signup)
+- [x] Blog & Article
+- [x] Hero, Tab Section, Text Spotlight, Equal Height Row
 
 ### Application Scaffolding
 
-- [ ] Navigation
-- [ ] Application Layout & Panels
-- [ ] Side Navigation
-- [ ] Docs Layout
-- [ ] Brochure Site
-- [ ] Suru
-- [ ] Grid 8 & Fluid Breakout
+- [x] Navigation
+- [x] Application Layout & Panels
+- [x] Side Navigation
+- [x] Docs Layout
+- [x] Brochure Site
+- [x] Suru
+- [x] Grid 8 & Fluid Breakout
 
 ---
 

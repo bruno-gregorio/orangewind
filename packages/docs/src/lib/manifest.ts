@@ -2,9 +2,10 @@
 // components. It drives the side navigation, the per-page title shown in the
 // docs layout, and (later) routing and next/prev pagination.
 //
-// Grouping mirrors the phases in DOCS-TODO.md / TODO.md. As each component page
-// is built, flip its `status` from 'todo' to 'ready' so the side navigation
-// turns it into a real link.
+// Grouping mirrors the phases in DOCS-TODO.md / TODO.md. Each entry's `status`
+// gates the side navigation: 'ready' renders a real link, 'todo' renders a
+// muted, non-clickable item. A new component starts as 'todo' (the default) and
+// flips to 'ready' once its page exists.
 
 export type ComponentStatus = 'ready' | 'todo'
 
@@ -32,13 +33,13 @@ export const componentGroups: ComponentGroup[] = [
   {
     heading: 'Foundations & Utilities',
     items: [
-      entry('typography', 'Typography'),
-      entry('colors', 'Colors'),
-      entry('animations', 'Animations'),
-      entry('icons', 'Icons'),
-      entry('baseline-grid', 'Baseline Grid'),
+      entry('typography', 'Typography', 'ready'),
+      entry('colors', 'Colors', 'ready'),
+      entry('animations', 'Animations', 'ready'),
+      entry('icons', 'Icons', 'ready'),
+      entry('baseline-grid', 'Baseline Grid', 'ready'),
       entry('links', 'Links', 'ready'),
-      entry('divider', 'Divider')
+      entry('divider', 'Divider', 'ready')
     ]
   },
   {
@@ -46,20 +47,20 @@ export const componentGroups: ComponentGroup[] = [
     items: [
       entry('buttons', 'Buttons', 'ready'),
       entry('badge', 'Badge', 'ready'),
-      entry('status-label', 'Status Label'),
+      entry('status-label', 'Status Label', 'ready'),
       entry('chip', 'Chip', 'ready'),
-      entry('heading-icon', 'Heading & Muted Heading')
+      entry('heading-icon', 'Heading & Muted Heading', 'ready')
     ]
   },
   {
     heading: 'Forms & Inputs',
     items: [
-      entry('forms', 'Forms'),
+      entry('forms', 'Forms', 'ready'),
       entry('switch', 'Switch', 'ready'),
-      entry('slider', 'Slider'),
-      entry('segmented-control', 'Segmented Control'),
-      entry('search-box', 'Search Box'),
-      entry('search-and-filter', 'Search and Filter')
+      entry('slider', 'Slider', 'ready'),
+      entry('segmented-control', 'Segmented Control', 'ready'),
+      entry('search-box', 'Search Box', 'ready'),
+      entry('search-and-filter', 'Search and Filter', 'ready')
     ]
   },
   {
@@ -67,48 +68,48 @@ export const componentGroups: ComponentGroup[] = [
     items: [
       entry('notifications', 'Notifications', 'ready'),
       entry('tooltips', 'Tooltips', 'ready'),
-      entry('tabs', 'Tabs'),
-      entry('breadcrumbs', 'Breadcrumbs'),
-      entry('accordion', 'Accordion'),
-      entry('pagination', 'Pagination'),
-      entry('code-snippet', 'Code Snippet')
+      entry('tabs', 'Tabs', 'ready'),
+      entry('breadcrumbs', 'Breadcrumbs', 'ready'),
+      entry('accordion', 'Accordion', 'ready'),
+      entry('pagination', 'Pagination', 'ready'),
+      entry('code-snippet', 'Code Snippet', 'ready')
     ]
   },
   {
     heading: 'Complex Content',
     items: [
-      entry('lists', 'Lists & List Tree'),
-      entry('tables', 'Tables'),
-      entry('matrix', 'Matrix'),
-      entry('card', 'Card'),
-      entry('content-card', 'Content Card'),
-      entry('media-object', 'Media Object'),
-      entry('quotes', 'Quotes')
+      entry('lists', 'Lists & List Tree', 'ready'),
+      entry('tables', 'Tables', 'ready'),
+      entry('matrix', 'Matrix', 'ready'),
+      entry('card', 'Card', 'ready'),
+      entry('content-card', 'Content Card', 'ready'),
+      entry('media-object', 'Media Object', 'ready'),
+      entry('quotes', 'Quotes', 'ready')
     ]
   },
   {
     heading: 'Layout Patterns',
     items: [
-      entry('strip', 'Strip & Section'),
-      entry('divided-section', 'Divided Section'),
-      entry('modal', 'Modal'),
-      entry('contextual-menu', 'Contextual Menu'),
-      entry('in-page-navigation', 'In-Page Navigation'),
-      entry('feature-blocks', 'Feature Blocks'),
-      entry('blog', 'Blog & Article'),
-      entry('hero', 'Hero & Sections')
+      entry('strip', 'Strip & Section', 'ready'),
+      entry('divided-section', 'Divided Section', 'ready'),
+      entry('modal', 'Modal', 'ready'),
+      entry('contextual-menu', 'Contextual Menu', 'ready'),
+      entry('in-page-navigation', 'In-Page Navigation', 'ready'),
+      entry('feature-blocks', 'Feature Blocks', 'ready'),
+      entry('blog', 'Blog & Article', 'ready'),
+      entry('hero', 'Hero & Sections', 'ready')
     ]
   },
   {
     heading: 'Application Scaffolding',
     items: [
-      entry('navigation', 'Navigation'),
-      entry('application', 'Application Layout'),
-      entry('side-navigation', 'Side Navigation'),
-      entry('docs-layout', 'Docs Layout'),
-      entry('brochure', 'Brochure Site'),
-      entry('suru', 'Suru'),
-      entry('grid', 'Grid & Fluid Breakout')
+      entry('navigation', 'Navigation', 'ready'),
+      entry('application', 'Application Layout', 'ready'),
+      entry('side-navigation', 'Side Navigation', 'ready'),
+      entry('docs-layout', 'Docs Layout', 'ready'),
+      entry('brochure', 'Brochure Site', 'ready'),
+      entry('suru', 'Suru', 'ready'),
+      entry('grid', 'Grid & Fluid Breakout', 'ready')
     ]
   }
 ]
