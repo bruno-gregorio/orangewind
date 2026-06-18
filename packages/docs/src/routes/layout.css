@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'orangewind/src/index.css';
+@import 'orangewind/src/prism.css';
 
 /* Orangewind only flips its own CSS variables for dark mode; it never styles
    the document. Opt the whole page into the OS colour scheme so the browser

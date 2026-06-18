@@ -4,12 +4,15 @@
   // "embedded example" pattern from the original Vanilla docs. Every component
   // page uses this for its headline demo and per-variant examples.
   import type { Snippet } from 'svelte'
+  import Code from '$lib/components/Code.svelte'
 
   type Props = {
     /** Label shown in the code header (defaults to "Markup"). */
     title?: string
     /** Source shown beneath the preview and copied to the clipboard. */
     code: string
+    /** Prism language id for highlighting the source. Defaults to HTML/markup. */
+    lang?: string
     /**
      * Stack previews vertically instead of laying them out in a row. Use for
      * block-level components (notifications, cards, lists) that want full width.
@@ -19,7 +22,13 @@
     children: Snippet
   }
 
-  const { title, code, block = false, children }: Props = $props()
+  const {
+    title,
+    code,
+    lang = 'markup',
+    block = false,
+    children
+  }: Props = $props()
 
   let copied = $state(false)
 
@@ -59,6 +68,6 @@
         </button>
       </div>
     </div>
-    <pre class="ow-code-snippet-block"><code>{code}</code></pre>
+    <Code {code} {lang} />
   </div>
 </div>

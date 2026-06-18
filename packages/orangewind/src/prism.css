@@ -1,0 +1,127 @@
+/* Prism token theme — https://prismjs.com/
+
+   A re-implementation of Vanilla's `_base_syntax-highlighting.scss`, mapping
+   Prism's token classes onto Orangewind palette variables so highlighting
+   follows the framework's light/dark theming instead of hard-coding colours.
+
+   This is NOT bundled into `index.css`: syntax highlighting is opt-in, so a
+   consumer that uses Prism imports it explicitly alongside the framework:
+     @import 'orangewind/src/index.css';
+     @import 'orangewind/src/prism.css'; */
+
+@theme {
+  --color-ow-syntax-comment: var(--color-ow-text-muted);
+  --color-ow-syntax-punctuation: var(--color-ow-text-default);
+  --color-ow-syntax-property: var(--color-ow-link-visited);
+  --color-ow-syntax-string: var(--color-ow-positive);
+  --color-ow-syntax-operator: var(--color-ow-caution);
+  --color-ow-syntax-keyword: var(--color-ow-link);
+  --color-ow-syntax-function: var(--color-ow-negative);
+}
+
+/* The saturated palette colours are tuned for light surfaces; lighten them on
+   dark surfaces so tokens keep AA contrast. Comment/punctuation already track
+   the text colours, which flip on their own. */
+:root {
+  @variant dark {
+    --color-ow-syntax-property: color-mix(
+      in srgb,
+      var(--color-ow-link-visited),
+      var(--color-ow-x-light) 40%
+    );
+    --color-ow-syntax-string: color-mix(
+      in srgb,
+      var(--color-ow-positive),
+      var(--color-ow-x-light) 35%
+    );
+    --color-ow-syntax-operator: color-mix(
+      in srgb,
+      var(--color-ow-caution),
+      var(--color-ow-x-light) 25%
+    );
+    --color-ow-syntax-keyword: color-mix(
+      in srgb,
+      var(--color-ow-link),
+      var(--color-ow-x-light) 45%
+    );
+    --color-ow-syntax-function: color-mix(
+      in srgb,
+      var(--color-ow-negative),
+      var(--color-ow-x-light) 35%
+    );
+  }
+}
+
+@layer components {
+  .token {
+    &.comment,
+    &.prolog,
+    &.doctype,
+    &.cdata {
+      color: var(--color-ow-syntax-comment);
+    }
+
+    &.punctuation {
+      color: var(--color-ow-syntax-punctuation);
+    }
+
+    &.namespace {
+      opacity: 0.7;
+    }
+
+    &.property,
+    &.tag,
+    &.boolean,
+    &.number,
+    &.constant,
+    &.symbol,
+    &.deleted {
+      color: var(--color-ow-syntax-property);
+    }
+
+    &.selector,
+    &.attr-name,
+    &.string,
+    &.char,
+    &.builtin,
+    &.inserted {
+      color: var(--color-ow-syntax-string);
+    }
+
+    &.operator,
+    &.entity,
+    &.url {
+      color: var(--color-ow-syntax-operator);
+    }
+
+    &.atrule,
+    &.attr-value,
+    &.keyword {
+      color: var(--color-ow-syntax-keyword);
+    }
+
+    &.function,
+    &.class-name {
+      color: var(--color-ow-syntax-function);
+    }
+
+    &.regex,
+    &.important,
+    &.variable {
+      color: var(--color-ow-syntax-function);
+    }
+
+    &.important,
+    &.bold {
+      font-weight: var(--font-weight-bold);
+    }
+
+    &.italic {
+      font-style: italic;
+    }
+
+    &.entity {
+      cursor: help;
+    }
+  }
+}

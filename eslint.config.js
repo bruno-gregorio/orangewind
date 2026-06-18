@@ -66,6 +66,15 @@ export default [
     }
   },
 
+  // Code.svelte renders Prism output for developer-authored snippets (not user
+  // input) via {@html} — the standard, controlled syntax-highlighting pattern.
+  {
+    files: ['packages/docs/src/lib/components/Code.svelte'],
+    rules: {
+      'svelte/no-at-html-tags': 'off'
+    }
+  },
+
   // Prettier compat — must be last
   prettier
 ]

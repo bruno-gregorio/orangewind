@@ -70,7 +70,13 @@ Orangewind components — no new framework CSS._
       renders a live preview of the markup **and** the source. Built from `code-snippet.css`
       (copy-to-clipboard button, language label). Decide preview isolation (iframe vs inline).
       _Done: `Example.svelte`, inline preview + copy button. Syntax highlighting still TODO below._
-- [ ] **Syntax highlighting** for code blocks (recommend `shiki`), themed for light/dark.
+- [x] **Syntax highlighting** for code blocks, themed for light/dark.
+      _Done with **Prism** (as the original Vanilla docs used), tokenised at prerender so the
+      static HTML ships highlighted. Token theme is a faithful port of Vanilla's
+      `_base_syntax-highlighting.scss` onto Orangewind palette variables, shipped as an opt-in
+      `orangewind/src/prism.css` (not bundled in `index.css`). `Code.svelte` is the tokenizer;
+      `<Example>` uses it. Dark mode rides the framework variables (tokens lightened via
+      `color-mix`)._
 - [ ] **Auto-anchored headings** (slugged `id`s + hover anchor links) feeding the TOC.
       _Currently `id`s are hand-authored on each `<h2>`; auto-slugging + anchor links still TODO._
 - [x] **Footer** (license LGPL-3.0, links to repo, version).
