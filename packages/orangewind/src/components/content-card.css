@@ -1,0 +1,581 @@
+/* Content Card — https://vanillaframework.io/docs/patterns/content-card */
+
+@theme {
+  --color-ow-content-card-border: var(--color-ow-surface-border-low);
+  --color-ow-content-card-border-hover: var(--color-ow-border-high-contrast);
+
+  --ow-content-card-height-vertical: 23.75rem; /* 380px */
+  --ow-content-card-height-default: 12rem; /* 192px */
+  --ow-content-card-height-8col: 22rem; /* 352px */
+
+  --ow-content-card-image-width: 17.75rem; /* 284px */
+  /* Horizontal image heights are explicit to preserve the tuned text/image balance at each breakpoint. */
+  --ow-content-card-image-height-horizontal: 9.703125rem; /* 155.25px */
+  --ow-content-card-image-height-horizontal-large: 9.984375rem; /* 159.75px */
+  /* Horizontal card heights are image height plus the vertical spacing budget (--sp-x-large = 2rem). */
+  --ow-content-card-height-horizontal: 11.703125rem; /* 187.25px */
+  --ow-content-card-height-horizontal-large: 11.984375rem; /* 191.75px */
+
+  --ow-content-card-footer-outer-height: 2.25rem; /* sp-x-large + sp-small/2 */
+  --ow-content-card-footer-inner-height: 1.75rem; /* sp-x-large - sp-small/2 */
+
+  --ow-content-card-heading-nudge: -0.45rem;
+  --ow-content-card-chip-margin-right: 1.5625rem; /* 25px */
+  --ow-content-card-author-padding-bottom: 0.5rem;
+  --ow-content-card-image-gap: 0.625rem; /* sp-small + sp-xx-small */
+  --ow-content-card-padding: 1rem;
+  --ow-content-card-spacing-large: 2rem;
+}
+
+@layer components {
+  /* =========================================
+     GRID WRAPPER
+     (Handles spanning and invisible bottom spacing.)
+     ========================================= */
+  .ow-content-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-bottom: var(--ow-content-card-spacing-large);
+    width: 100%;
+  }
+
+  /* 2-column spanning */
+  .ow-content-card-wrapper-2 {
+    grid-column: 1 / -1;
+
+    @media (width >= theme(--breakpoint-md)) and (width < theme(--breakpoint-lg)) {
+      grid-column: span 2;
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      grid-column: span 2;
+    }
+  }
+
+  /* 4-column spanning */
+  .ow-content-card-wrapper-4 {
+    grid-column: 1 / -1;
+
+    @media (width >= theme(--breakpoint-lg)) {
+      grid-column: span 4;
+    }
+  }
+
+  /* 6-column spanning */
+  .ow-content-card-wrapper-6 {
+    grid-column: 1 / -1;
+
+    @media (width >= theme(--breakpoint-lg)) {
+      grid-column: span 6;
+    }
+  }
+
+  /* 8-column spanning (full width) */
+  .ow-content-card-wrapper-8 {
+    grid-column: 1 / -1;
+  }
+
+  /* =========================================
+     CARD COMPONENT
+     ========================================= */
+  .ow-content-card {
+    align-items: flex-start;
+    border: 1px solid var(--color-ow-content-card-border);
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    max-width: 100%;
+    min-height: var(--ow-content-card-height-vertical);
+    overflow: hidden;
+    padding-top: var(--ow-content-card-padding);
+    position: relative;
+    text-decoration: none !important;
+    transition: all 0.4s ease-in-out;
+    width: 100%;
+
+    &:not(.ow-has-image) {
+      height: var(--ow-content-card-height-default);
+      min-height: var(--ow-content-card-height-default);
+    }
+
+    /* Shrink-to-fit for cards without footers on mobile */
+    @media (width < theme(--breakpoint-md)) {
+      &:not(:has(.ow-content-card-footer-outer)) {
+        height: auto;
+        min-height: 0;
+        /* Keeps spacing balanced */
+        padding-bottom: var(--ow-content-card-padding);
+      }
+    }
+
+    /* 2-column modifier internal resets */
+    @media (width >= theme(--breakpoint-md)) and (width < theme(--breakpoint-lg)) {
+      &.ow-content-card-cols-2 .ow-content-card-author-and-date {
+        display: none !important;
+      }
+    }
+
+    /* 4- and 6-column horizontal cards (medium/large screens) */
+    @media (width >= theme(--breakpoint-md)) {
+      &.ow-content-card-cols-4,
+      &.ow-content-card-cols-6 {
+        align-items: flex-start;
+        align-self: stretch;
+        flex: 0 0 auto;
+        flex-direction: row;
+        gap: var(--ow-content-card-padding);
+        height: var(--ow-content-card-height-horizontal);
+        max-width: 100%;
+        min-height: var(--ow-content-card-height-horizontal);
+        padding: var(--ow-content-card-padding) var(--ow-content-card-padding) 0;
+      }
+
+      &.ow-content-card-cols-4:not(.ow-has-image),
+      &.ow-content-card-cols-6:not(.ow-has-image) {
+        height: var(--ow-content-card-height-default);
+        min-height: var(--ow-content-card-height-default);
+      }
+
+      &.ow-content-card-cols-4:not(.ow-has-image) .ow-rule-muted,
+      &.ow-content-card-cols-6:not(.ow-has-image) .ow-rule-muted {
+        margin-left: calc(-1 * var(--ow-content-card-padding));
+        margin-right: calc(-1 * var(--ow-content-card-padding));
+        max-width: none;
+        width: calc(100% + (var(--ow-content-card-padding) * 2));
+      }
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      &.ow-content-card-cols-6 {
+        height: var(--ow-content-card-height-horizontal-large);
+        max-width: 100%;
+        min-height: var(--ow-content-card-height-horizontal-large);
+      }
+
+      /* 8-column: desktop horizontal grid layout */
+      &.ow-content-card-cols-8.ow-has-image {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: var(--ow-content-card-height-8col);
+        padding: 0;
+      }
+    }
+
+    &.ow-has-image {
+      padding-top: 0;
+
+      @media (width >= theme(--breakpoint-md)) {
+        &.ow-content-card-cols-4,
+        &.ow-content-card-cols-6 {
+          padding-top: var(--ow-content-card-padding);
+        }
+      }
+    }
+
+    &:hover,
+    &:focus-within {
+      border-color: var(--color-ow-content-card-border-hover);
+      text-decoration: none;
+    }
+
+    /* Description slides up on hover (all layouts except 8-column) */
+    @media (width >= theme(--breakpoint-lg)) {
+      &.ow-has-desc:not(.ow-content-card-cols-8):hover
+        .ow-content-card-primary-content,
+      &.ow-has-desc:not(.ow-content-card-cols-8):focus-within
+        .ow-content-card-primary-content {
+        opacity: 0;
+        transform: translateY(-150px);
+      }
+
+      &.ow-has-desc:not(.ow-content-card-cols-8):hover
+        .ow-content-card-hover-content,
+      &.ow-has-desc:not(.ow-content-card-cols-8):focus-within
+        .ow-content-card-hover-content {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    &:has(.ow-content-card-main-link:focus-visible) {
+      outline: 3px solid var(--color-ow-focus);
+      outline-offset: 2px;
+    }
+  }
+
+  /* =========================================
+     LINKS
+     ========================================= */
+  .ow-content-card-overlay-link {
+    inset: 0;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .ow-content-card-main-link {
+    -webkit-box-orient: vertical;
+    color: inherit !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    outline: none !important;
+    overflow: hidden;
+    text-decoration: none !important;
+
+    .ow-content-card-cols-6 & {
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+    }
+
+    .ow-content-card-cols-8 & {
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+    }
+
+    @media (width >= theme(--breakpoint-md)) and (width < theme(--breakpoint-lg)) {
+      .ow-content-card-cols-8 & {
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:visited {
+      color: inherit !important;
+      text-decoration: none !important;
+    }
+  }
+
+  .ow-content-card-author-link {
+    pointer-events: auto;
+    position: relative;
+    z-index: 2;
+
+    &:focus-visible {
+      border-radius: 2px;
+      outline: 2px solid var(--color-ow-focus);
+      outline-offset: 2px;
+    }
+  }
+
+  /* =========================================
+     CONTENT
+     ========================================= */
+  .ow-content-card-heading {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    margin-top: 0 !important;
+    max-height: 4.5em;
+    max-width: none;
+    overflow: hidden;
+    padding-top: 0 !important;
+    text-wrap: wrap;
+    width: 100%;
+
+    .ow-content-card-cols-6 & {
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      max-height: 3em;
+    }
+
+    .ow-content-card-cols-8 & {
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      max-height: 4.5em;
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      .ow-content-card-cols-6 & {
+        margin-top: var(--ow-content-card-heading-nudge) !important;
+      }
+    }
+
+    @media (width >= theme(--breakpoint-md)) and (width < theme(--breakpoint-lg)) {
+      .ow-content-card-cols-8 & {
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        max-height: 3em;
+      }
+    }
+  }
+
+  .ow-content-card-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    min-width: 0;
+    width: 100%;
+
+    @media (width >= theme(--breakpoint-lg)) {
+      .ow-content-card-cols-8 & {
+        grid-column: 1;
+      }
+    }
+  }
+
+  .ow-content-card-body {
+    align-items: flex-start;
+    align-self: stretch;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    overflow: hidden;
+    padding: 0 var(--ow-content-card-padding);
+
+    @media (width >= theme(--breakpoint-md)) {
+      .ow-content-card-cols-4 &,
+      .ow-content-card-cols-6 & {
+        padding: 0;
+      }
+    }
+
+    .ow-content-card-cols-8 & {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      padding: 0 var(--ow-content-card-padding);
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      .ow-content-card-cols-8 & {
+        align-self: stretch;
+        padding: var(--ow-content-card-padding) var(--ow-content-card-padding) 0;
+      }
+    }
+  }
+
+  .ow-content-card-primary-content,
+  .ow-content-card-hover-content {
+    display: flex;
+    flex-direction: column;
+    grid-area: 1 / 1 / 2 / 2;
+    transition:
+      transform 0.4s ease-in-out,
+      opacity 0.4s ease-in-out;
+  }
+
+  .ow-content-card-primary-content {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .ow-content-card-hover-content {
+    opacity: 0;
+    transform: translateY(150px);
+
+    .ow-content-card-cols-8 & {
+      flex: 1;
+      min-height: 0;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .ow-content-card-description {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    margin: 0;
+    overflow: hidden;
+
+    .ow-content-card-cols-6 & {
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+    }
+
+    .ow-content-card-cols-8 & {
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+    }
+
+    @media (width < theme(--breakpoint-lg)) {
+      .ow-content-card-cols-8 & {
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        margin-bottom: 1rem;
+      }
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      .ow-content-card-cols-6 & {
+        margin-top: var(--ow-content-card-heading-nudge) !important;
+      }
+    }
+  }
+
+  .ow-content-card-author-and-date {
+    align-items: flex-start;
+    align-self: stretch;
+    display: flex;
+    padding-bottom: var(--ow-content-card-author-padding-bottom);
+
+    > :first-child {
+      margin-bottom: 0 !important;
+    }
+
+    @media (width >= theme(--breakpoint-md)) and (width < theme(--breakpoint-lg)) {
+      .ow-content-card-cols-6 & {
+        display: none;
+      }
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      .ow-content-card-cols-6 & {
+        display: flex;
+      }
+    }
+  }
+
+  /* =========================================
+     FOOTER
+     ========================================= */
+  .ow-content-card-footer-container {
+    /* Structural grouping element. Because the parent
+       (.ow-content-card-content) uses flexbox space-between, this wrapper
+       prevents the rule from floating awkwardly in the middle of the card. */
+
+    .ow-content-card-cols-8 & {
+      width: 100%;
+    }
+  }
+
+  .ow-content-card-footer-outer {
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    min-height: var(--ow-content-card-footer-outer-height);
+    overflow: hidden;
+    padding: 0 var(--ow-content-card-padding) 0.5rem;
+    position: relative;
+
+    @media (width >= theme(--breakpoint-md)) {
+      .ow-content-card-cols-4 &,
+      .ow-content-card-cols-6 & {
+        padding: 0 0 0.5rem 0;
+      }
+    }
+  }
+
+  .ow-content-card-footer-inner {
+    align-items: center;
+    display: flex;
+    gap: 0.5rem;
+    min-height: var(--ow-content-card-footer-inner-height);
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    -ms-overflow-style: none;
+    /* Horizontal scroll forces overflow-y to clip; the vertical padding keeps
+       full-height chips (and their focus rings) from being pinched. */
+    overflow-x: auto;
+    padding-block: 0.125rem;
+    pointer-events: auto;
+    position: relative;
+    scrollbar-width: none;
+    width: 100%;
+    z-index: 2;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    > * {
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .ow-chip-information {
+      margin: 0 var(--ow-content-card-chip-margin-right) 0 0;
+      vertical-align: baseline;
+    }
+
+    .ow-has-icon {
+      align-items: center;
+      display: flex;
+      gap: 0.25rem;
+
+      .ow-content-card-icon[class*='ow-icon-'],
+      .ow-content-card-small {
+        margin: 0;
+      }
+
+      .ow-content-card-small {
+        line-height: normal !important;
+      }
+    }
+  }
+
+  /* =========================================
+     MEDIA
+     ========================================= */
+  .ow-content-card-image {
+    aspect-ratio: 16 / 9;
+    display: block;
+    flex-shrink: 0;
+    height: auto;
+    object-fit: cover;
+    width: 100%;
+
+    @media (width >= theme(--breakpoint-md)) {
+      .ow-content-card-cols-4 &,
+      .ow-content-card-cols-6 & {
+        height: var(--ow-content-card-image-height-horizontal);
+      }
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      .ow-content-card-cols-6 & {
+        height: var(--ow-content-card-image-height-horizontal-large);
+      }
+
+      .ow-content-card-cols-8 & {
+        aspect-ratio: auto;
+        height: 100%;
+      }
+    }
+  }
+
+  .ow-content-card-image-wrapper {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: var(--ow-content-card-image-gap);
+    max-width: 100%;
+    padding-bottom: var(--ow-content-card-padding);
+    width: 100%;
+
+    @media (width >= theme(--breakpoint-md)) {
+      .ow-content-card-cols-4 &,
+      .ow-content-card-cols-6 & {
+        align-self: stretch;
+        flex: 0 0 auto;
+        width: var(--ow-content-card-image-width);
+      }
+    }
+
+    @media (width < theme(--breakpoint-lg)) {
+      .ow-content-card-cols-8 & {
+        padding: 0 0.5rem 1rem 0.5rem;
+      }
+    }
+
+    @media (width >= theme(--breakpoint-lg)) {
+      .ow-content-card-cols-8 & {
+        grid-column: 2;
+        grid-row: 1 / -1;
+        height: 100%;
+        padding: 0.5rem;
+        padding-bottom: 0;
+        width: 100%;
+      }
+    }
+  }
+}

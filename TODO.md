@@ -55,7 +55,7 @@ _Interactive elements that require Phase 1 rules and Buttons to be complete._
 - [x] [Search Box](https://vanillaframework.io/docs/patterns/search-box)
       _Dependency for: Global Navigation, Search and Filter._
 - [x] [Search and Filter](https://vanillaframework.io/docs/patterns/search-and-filter)
-  _Requires: Chip, Search Box._
+      _Requires: Chip, Search Box._
 
 ---
 
@@ -83,8 +83,7 @@ _Larger data presentation blocks that nest multiple basic elements together._
 - [x] [Tables](https://vanillaframework.io/docs/base/tables) (Requires Icons, Buttons, Status Labels, Pagination)
 - [x] [Matrix](https://vanillaframework.io/docs/patterns/matrix)
 - [x] [Card](https://vanillaframework.io/docs/patterns/card) (Requires Typography, Links, Buttons)
-- [ ] [Content Card](https://vanillaframework.io/docs/patterns/content-card) (Requires Card, Image, Links)
-      _Missing: Distinct from Card. Needs `.ow-content-card` with `--cols-2/4/6` layouts, `has-image`/`has-desc` hover states, overlay/main/author links, and 16:9 image wrapper._
+- [x] [Content Card](https://vanillaframework.io/docs/patterns/content-card) (Requires Card, Image, Links)
 - [x] [Media Object](https://vanillaframework.io/docs/patterns/media-object) / [Image Pattern](https://vanillaframework.io/docs/patterns/images)
 - [x] [Quotes](https://vanillaframework.io/docs/patterns/pull-quote) & Pull Quotes
 
