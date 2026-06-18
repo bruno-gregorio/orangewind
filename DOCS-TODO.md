@@ -25,21 +25,21 @@ tasks** — the user does that.
 
 _Stand up an empty but runnable SvelteKit app wired into the monorepo._
 
-- [ ] Create `packages/docs` as a Bun workspace package (it is already globbed by root
+- [x] Create `packages/docs` as a Bun workspace package (it is already globbed by root
       `workspaces: ["packages/*"]`). Add `package.json` (`name: "docs"`, `private: true`,
       `type: "module"`, scripts `dev`/`build`/`preview`/`check`).
-- [ ] Scaffold SvelteKit + Vite + Svelte 5, mirroring `packages/test-bench`
+- [x] Scaffold SvelteKit + Vite + Svelte 5, mirroring `packages/test-bench`
       (`svelte.config.js`, `vite.config.ts`, `tsconfig.json`, `src/app.html`, `src/app.d.ts`).
-- [ ] Add `@tailwindcss/vite` and wire Tailwind v4 (same as test-bench `vite.config.ts`).
-- [ ] Add `orangewind: "workspace:orangewind"` dependency.
-- [ ] Create the global stylesheet: `@import 'tailwindcss'` + `@import 'orangewind/src/index.css'`,
+- [x] Add `@tailwindcss/vite` and wire Tailwind v4 (same as test-bench `vite.config.ts`).
+- [x] Add `orangewind: "workspace:orangewind"` dependency.
+- [x] Create the global stylesheet: `@import 'tailwindcss'` + `@import 'orangewind/src/index.css'`,
       imported from the root `+layout.svelte`. **Do not** add the class-based
       `@custom-variant dark` override that test-bench uses — leaving it out lets Tailwind's default
       `dark` variant (`prefers-color-scheme: dark`) drive theming, so Orangewind's internal
       `@variant dark` rules follow the OS preference automatically.
-- [ ] Choose an adapter: use `@sveltejs/adapter-static` (prerendered static docs site) with
-      `export const prerender = true`. Confirm `bun run --cwd packages/docs dev` serves a blank page.
-- [ ] Verify lint/format pass under the monorepo `eslint`/`prettier` config.
+- [x] Choose an adapter: use `@sveltejs/adapter-static` (prerendered static docs site) with
+      `export const prerender = true`. Confirm `bun run --cwd packages/docs dev` serves a page.
+- [x] Verify lint/format pass under the monorepo `eslint`/`prettier` config.
 
 ---
 
@@ -184,7 +184,5 @@ previews — it always shows the component **rendered and working**, alongside i
 - [ ] Optional: client-side **search** over the component manifest (reuse `search-box.css`).
 - [ ] `404` page using Orangewind components.
 - [ ] Build static output (`adapter-static`) and verify all routes prerender.
-- [ ] Add a root `package.json` script (e.g. `docs`) to run the site, alongside `storybook`.
+- [x] Add a root `package.json` script (e.g. `docs`) to run the site, alongside `storybook`.
 - [ ] README for `packages/docs` (how to run/build, how to add a component page).
-</content>
-</invoke>
