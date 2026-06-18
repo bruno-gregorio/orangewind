@@ -117,4 +117,4 @@ _The highest level wrappers. These define the entire shell of the page._
 - [x] [Brochure Site](https://vanillaframework.io/docs/layouts/brochure)
       _Note: Layout pattern for marketing or informational websites._
 - [x] [Suru](https://vanillaframework.io/docs/patterns/suru) (Canonical's signature background visual element)
-- [ ] Layout tweaks: [Fluid Breakout](https://vanillaframework.io/docs/layouts/fluid-breakout), [Grid 8](https://vanillaframework.io/docs/patterns/grid)
+- [x] Layout tweaks: [Fluid Breakout](https://vanillaframework.io/docs/layouts/fluid-breakout), [Grid 8](https://vanillaframework.io/docs/patterns/grid)
