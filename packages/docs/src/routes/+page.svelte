@@ -37,10 +37,12 @@
   <meta name="description" content={site.description} />
 </svelte:head>
 
+<a href="#main-content" class="ow-docs-skip-link">Skip to main content</a>
+
 <div class="text-ow-text-default min-h-screen bg-white dark:bg-black">
   <Navigation />
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <div class="overflow-hidden">
       <div class="ow-suru-25-75">
         <div class="mx-auto grid max-w-5xl gap-6 px-6">

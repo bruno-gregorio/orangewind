@@ -19,11 +19,15 @@
   <title>{title} · {site.name} {site.tagline}</title>
 </svelte:head>
 
+<a href="#main-content" class="ow-docs-skip-link">Skip to main content</a>
+
 <div class="ow-docs text-ow-text-default min-h-screen bg-white dark:bg-black">
   <Navigation />
   <SideNav />
 
-  <div class="ow-docs-title" id="main-content">
+  <!-- Skip-link target. tabindex=-1 lets keyboard focus land here (on the page
+       heading) without adding it to the tab order. -->
+  <div class="ow-docs-title" id="main-content" tabindex="-1">
     <div class="ow-strip ow-is-shallow px-6 pb-0">
       <h1 class="ow-heading-1 mb-0">{title}</h1>
       <hr class="ow-rule" />

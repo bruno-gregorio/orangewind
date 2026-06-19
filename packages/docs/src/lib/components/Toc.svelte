@@ -12,6 +12,11 @@
   let headings = $state<Heading[]>([])
   let activeId = $state('')
 
+  // Below the three-column breakpoint the TOC stacks above the content as a
+  // collapsible disclosure (starts collapsed to save space). At the breakpoint
+  // it gets its own column and CSS forces it open, ignoring this state.
+  let expanded = $state(false)
+
   $effect(() => {
     // Touch the pathname so the effect re-runs (re-scans) on route changes.
     const _pathname = page.url.pathname
@@ -51,8 +56,22 @@
 {#if headings.length > 0}
   <aside class="ow-toc" aria-label="Table of contents">
     <div class="ow-toc-section">
-      <h2 class="ow-toc-header">On this page</h2>
-      <nav aria-label="On this page">
+      <button
+        type="button"
+        class="ow-toc-header ow-docs-toc-toggle"
+        aria-controls="docs-toc-panel"
+        aria-expanded={expanded}
+        onclick={() => (expanded = !expanded)}
+      >
+        On this page
+      </button>
+      <nav
+        id="docs-toc-panel"
+        class={['ow-docs-toc-panel', expanded && 'is-open']
+          .filter(Boolean)
+          .join(' ')}
+        aria-label="On this page"
+      >
         <ul class="ow-toc-list">
           {#each headings as heading (heading.id)}
             <li>

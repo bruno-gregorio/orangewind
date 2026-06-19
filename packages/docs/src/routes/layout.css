@@ -9,6 +9,79 @@
   color-scheme: light dark;
 }
 
+/* Skip link: hidden off-screen until focused, then it drops into the top-left
+   corner above all chrome so keyboard users can jump straight to the content. */
+.ow-docs-skip-link {
+  background-color: var(--color-ow-background-default);
+  border: 1px solid var(--color-ow-surface-border);
+  border-radius: 0.125rem;
+  color: var(--color-ow-text-default);
+  left: 0.5rem;
+  padding: 0.5rem 1rem;
+  position: fixed;
+  text-decoration: none;
+  top: 0.5rem;
+  transform: translateY(calc(-100% - 0.5rem));
+  transition: transform 0.165s ease-out;
+  z-index: 200;
+}
+
+.ow-docs-skip-link:focus {
+  transform: translateY(0);
+}
+
+.ow-docs-skip-link:focus-visible {
+  outline: 3px solid var(--color-ow-focus);
+  outline-offset: 2px;
+}
+
+/* Skip-link targets are only focused programmatically, so suppress the focus
+   ring they would otherwise draw when landed on. */
+#main-content:focus {
+  outline: none;
+}
+
+/* Search combobox results dropdown. Anchored under the search input (which the
+   `ow-search-box` makes the relative box's full width). */
+.ow-docs-search-results {
+  background-color: var(--color-ow-background-default);
+  border: 1px solid var(--color-ow-surface-border);
+  border-radius: 0.125rem;
+  box-shadow: var(--shadow-ow-surface, 0 6px 16px rgb(0 0 0 / 0.14));
+  left: 0;
+  list-style: none;
+  margin: 0;
+  max-height: 20rem;
+  overflow-y: auto;
+  padding: 0.25rem;
+  position: absolute;
+  right: 0;
+  top: 2.75rem;
+  z-index: 50;
+}
+
+.ow-docs-search-result {
+  align-items: baseline;
+  border-radius: 0.125rem;
+  color: var(--color-ow-text-default);
+  display: flex;
+  gap: 0.75rem;
+  justify-content: space-between;
+  padding: 0.4rem 0.6rem;
+  text-decoration: none;
+}
+
+.ow-docs-search-result:hover,
+.ow-docs-search-result.is-active {
+  background-color: var(--color-ow-background-alt);
+}
+
+.ow-docs-search-result-group {
+  color: var(--color-ow-text-muted);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+}
+
 /* Article rhythm for documentation content. A tight base step between blocks,
    with extra space before each section heading. Uses margins (not a single
    grid gap) because the step varies by element — and this is the same shape
@@ -19,4 +92,60 @@
 
 .ow-docs-article > :is(h2, h3) {
   margin-block-start: 2.5rem;
+}
+
+/* Collapsible table of contents. Below the three-column breakpoint the TOC
+   stacks above the content and its header doubles as a disclosure button. At
+   the breakpoint it gains its own right-hand column, so the toggle goes inert
+   and the panel is always shown regardless of the component's open state. */
+.ow-docs-toc-toggle {
+  align-items: center;
+  appearance: none;
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  gap: 0.5rem;
+  text-align: left;
+  width: 100%;
+}
+
+.ow-docs-toc-toggle::after {
+  background-color: currentColor;
+  block-size: 1rem;
+  content: '';
+  inline-size: 1rem;
+  margin-left: auto;
+  mask-image: var(--icon-ow-chevron);
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  transition: transform 0.165s;
+}
+
+.ow-docs-toc-toggle[aria-expanded='true']::after {
+  transform: rotate(180deg);
+}
+
+/* `:where()` keeps this at single-class specificity so the breakpoint rule
+   below (also single-class, but later in source) can force the panel open. */
+.ow-docs-toc-panel:not(:where(.is-open)) {
+  display: none;
+}
+
+@media (width >= calc(theme(--breakpoint-lg) + 15rem)) {
+  .ow-docs-toc-toggle {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .ow-docs-toc-toggle::after {
+    display: none;
+  }
+
+  .ow-docs-toc-panel {
+    display: block;
+  }
 }

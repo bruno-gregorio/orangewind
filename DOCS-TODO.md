@@ -219,10 +219,10 @@ prerenders (static build), and `eslint` + `prettier` + `svelte-check` are clean.
 
 ## Phase 5: Polish & Ship
 
-- [ ] Responsive pass (mobile drawer nav, collapsing TOC) across `sm/md/lg/xl` breakpoints.
-- [ ] Accessibility pass (landmarks, focus order, skip-link, keyboard nav, contrast in both themes).
-- [ ] Optional: client-side **search** over the component manifest (reuse `search-box.css`).
-- [ ] `404` page using Orangewind components.
-- [ ] Build static output (`adapter-static`) and verify all routes prerender.
+- [x] Responsive pass (mobile drawer nav, collapsing TOC) across `sm/md/lg/xl` breakpoints.
+- [x] Accessibility pass (landmarks, focus order, skip-link, keyboard nav, contrast in both themes).
+- [x] Optional: client-side **search** over the component manifest (reuse `search-box.css`).
+- [x] `404` page using Orangewind components.
+- [x] Build static output (`adapter-static`) and verify all routes prerender.
 - [x] Add a root `package.json` script (e.g. `docs`) to run the site, alongside `storybook`.
-- [ ] README for `packages/docs` (how to run/build, how to add a component page).
+- [x] README for `packages/docs` (how to run/build, how to add a component page).
