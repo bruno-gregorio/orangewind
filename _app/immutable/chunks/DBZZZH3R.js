@@ -1,1 +1,0 @@
-const e="https://github.com/bruno-gregorio/orangewind",n={name:"Orangewind",tagline:"Docs",description:"Canonical's Vanilla Framework, re-implemented as a Tailwind CSS plugin."},a=[{label:"Docs",href:"/docs"},{label:"Components",href:"/docs/components"}],o=[{label:"GitHub",href:e,icon:"github",external:!0}];export{o as e,a as p,e as r,n as s};
