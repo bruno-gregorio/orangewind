@@ -23,6 +23,22 @@ export type ComponentGroup = {
   items: ComponentEntry[]
 }
 
+export type GuideEntry = {
+  /** Full route to the guide page. */
+  path: string
+  /** Human-readable title shown in the nav and as the page heading. */
+  title: string
+}
+
+// The narrative guide pages (Phase 3). These sit above the component reference
+// in the side navigation and walk the reader through installing, authoring and
+// theming Orangewind before they reach the per-component pages.
+export const guides: GuideEntry[] = [
+  { path: '/docs/get-started', title: 'Get started' },
+  { path: '/docs/markup-patterns', title: 'Markup patterns' },
+  { path: '/docs/ui-patterns', title: 'UI patterns' }
+]
+
 const entry = (
   slug: string,
   title: string,
@@ -133,6 +149,8 @@ export const allComponents: ComponentEntry[] = componentGroups.flatMap(
 export function titleForPath(pathname: string): string {
   if (pathname === componentsBasePath) return 'Components'
   if (pathname === '/docs') return 'Documentation'
+  const guide = guides.find(g => g.path === pathname)
+  if (guide) return guide.title
   const match = allComponents.find(c => pathForComponent(c.slug) === pathname)
   return match?.title ?? 'Documentation'
 }

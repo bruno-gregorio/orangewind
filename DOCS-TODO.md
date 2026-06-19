@@ -90,8 +90,10 @@ _Decide how pages are authored and structured._
 
 - [ ] Adopt **mdsvex** so component pages can be Markdown with embedded `<Example>` Svelte
       components (closest analogue to Vanilla's `index.md` + embedded examples).
-- [ ] Define route structure: `/` (home), `/docs/get-started`, `/docs/markup-patterns`,
+- [x] Define route structure: `/` (home), `/docs/get-started`, `/docs/markup-patterns`,
       `/docs/ui-patterns`, and `/docs/components/[component]`.
+      _Done: all routes exist. Component pages are individual static routes rather than a
+      dynamic `[component]` route, driven by the manifest._
 - [x] Create a shared `+layout.svelte` for `/docs/*` that mounts the shell from Phase 1 and
       builds side-nav + TOC from a central manifest.
       _Done: `routes/docs/+layout.svelte` + a `/docs/components` index page._
@@ -104,17 +106,23 @@ _Decide how pages are authored and structured._
 
 ## Phase 3: Guide Pages
 
-- [ ] **Home / landing** page: `hero` + `suru` background, short pitch, what Orangewind is
+- [x] **Home / landing** page: `hero` + `suru` background, short pitch, what Orangewind is
       (Vanilla re-implemented as a Tailwind v4 plugin), quick links.
-- [ ] **Get started / Installation** — _STUB ONLY (skip real install steps until published to
+      _Done: `routes/+page.svelte` — standalone page mounting `Navigation`/`Footer`, an
+      `ow-suru-25-75` hero with CTAs, a "Why Orangewind" feature grid, and quick-link cards._
+- [x] **Get started / Installation** — _STUB ONLY (skip real install steps until published to
       npm)._ Add a notification banner: "Not yet published — install instructions coming soon."
       Leave the npm/import snippet structure ready to fill in later.
-- [ ] **Markup patterns guide**: how to author Orangewind markup — the single-dash kebab-case
+      _Done: `routes/docs/get-started/+page.svelte` — caution banner + placeholder install/import
+      snippets ready to fill in._
+- [x] **Markup patterns guide**: how to author Orangewind markup — the single-dash kebab-case
       class convention, state classes (`is-*`), how component classes nest, common pitfalls
       (e.g. don't combine multiple button classes), and how it composes with raw Tailwind utilities.
-- [ ] **Overall UI patterns guide**: theming via CSS variables/colors, dark mode usage, the
+      _Done: `routes/docs/markup-patterns/+page.svelte`._
+- [x] **Overall UI patterns guide**: theming via CSS variables/colors, dark mode usage, the
       `@variant dark` rule, breakpoints (`sm/md/lg/xl`), spacing philosophy (padding/gap over
       margins), and Tailwind preflight interplay.
+      _Done: `routes/docs/ui-patterns/+page.svelte`._
 
 ---
 

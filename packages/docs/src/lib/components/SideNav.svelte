@@ -4,7 +4,7 @@
   // collapses (compact, and themed for light/dark out of the box). 'ready'
   // entries are links; 'todo' entries render muted so the nav never breaks.
   import { page } from '$app/state'
-  import { componentGroups, pathForComponent } from '$lib/manifest'
+  import { componentGroups, guides, pathForComponent } from '$lib/manifest'
 
   const isActive = (href: string): boolean => page.url.pathname === href
 
@@ -48,6 +48,17 @@
             Introduction
           </a>
         </li>
+        {#each guides as guide (guide.path)}
+          <li class="ow-side-navigation-item">
+            <a
+              class="ow-side-navigation-link"
+              href={guide.path}
+              aria-current={isActive(guide.path) ? 'page' : undefined}
+            >
+              {guide.title}
+            </a>
+          </li>
+        {/each}
         <li class="ow-side-navigation-item">
           <a
             class="ow-side-navigation-link"
