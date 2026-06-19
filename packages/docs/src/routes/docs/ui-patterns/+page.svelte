@@ -90,7 +90,7 @@
 <Code
   lang="css"
   code={`@import 'tailwindcss';
-@import 'orangewind/src/index.css';
+@import 'orangewind';
 
 /* drive dark mode from a class instead of the OS preference */
 @custom-variant dark (&:where(.dark, .dark *));`}

@@ -1,14 +1,52 @@
 {
   "name": "orangewind",
-  "module": "index.ts",
+  "version": "0.1.0",
+  "description": "Canonical's Vanilla Framework re-implemented as a Tailwind CSS v4 plugin.",
+  "license": "LGPL-3.0-only",
+  "author": "Bruno Gregório <accounts@bruno.pw>",
   "type": "module",
-  "license": "LGPL-3.0",
-  "browser": "./src/index.css",
+  "keywords": [
+    "tailwindcss",
+    "tailwind",
+    "tailwind-plugin",
+    "css",
+    "vanilla-framework",
+    "ui",
+    "components",
+    "design-system"
+  ],
+  "homepage": "https://github.com/bruno-gregorio/orangewind#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bruno-gregorio/orangewind.git",
+    "directory": "packages/orangewind"
+  },
+  "bugs": {
+    "url": "https://github.com/bruno-gregorio/orangewind/issues"
+  },
+  "style": "./src/index.css",
+  "exports": {
+    ".": "./src/index.css",
+    "./prism.css": "./src/prism.css",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "tailwindcss": ">=4.0.0"
+  },
   "devDependencies": {
     "@types/bun": "latest",
     "tailwindcss": "^4.1.18"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
   }
 }

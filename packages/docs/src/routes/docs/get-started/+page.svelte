@@ -1,24 +1,7 @@
 <script lang="ts">
-  // Get started / Installation — STUB ONLY (DOCS-TODO Phase 3). Orangewind is
-  // not yet published to npm, so the real install steps are deferred. The
-  // snippet structure below is in place so it can be filled in verbatim once a
-  // package is published; until then a caution banner makes the status clear.
   import Code from '$lib/components/Code.svelte'
   import { withBase } from '$lib/paths'
-  import { repoUrl } from '$lib/site'
 </script>
-
-<div class="ow-notification-caution" role="status">
-  <div class="ow-notification-content">
-    <span class="ow-notification-title">Not yet published</span>
-    <span class="ow-notification-message">
-      Orangewind has not been published to npm yet, so install instructions are
-      coming soon. In the meantime you can build it from the
-      <a href={repoUrl} target="_blank" rel="noopener noreferrer">repository</a
-      >.
-    </span>
-  </div>
-</div>
 
 <p>
   Orangewind is a <a href="https://tailwindcss.com">Tailwind CSS</a> v4 plugin
@@ -31,15 +14,16 @@
 
 <h2 id="install" class="ow-heading-2">Install</h2>
 <p>
-  Once published, Orangewind will be installed alongside Tailwind v4 from npm.
-  The exact package name is not final, so treat this command as a placeholder.
+  Orangewind is published on npm. It requires <strong>Tailwind CSS v4</strong> as
+  a peer dependency, so install both:
 </p>
 <div class="ow-code-snippet ow-is-bordered min-w-0">
   <div class="ow-code-snippet-header">
     <h5 class="ow-code-snippet-title">Terminal</h5>
   </div>
-  <Code lang="bash" code={'# coming soon\nbun add orangewind'} />
+  <Code lang="bash" code={'bun add orangewind tailwindcss'} />
 </div>
+<p>Using npm, pnpm or yarn? Swap in your package manager's add command.</p>
 
 <h2 id="import" class="ow-heading-2">Import the stylesheet</h2>
 <p>
@@ -51,10 +35,7 @@
   <div class="ow-code-snippet-header">
     <h5 class="ow-code-snippet-title">app.css</h5>
   </div>
-  <Code
-    lang="css"
-    code={"@import 'tailwindcss';\n@import 'orangewind/src/index.css';"}
-  />
+  <Code lang="css" code={"@import 'tailwindcss';\n@import 'orangewind';"} />
 </div>
 <p>
   Syntax highlighting for code blocks (used across these docs) is opt-in via a
@@ -64,7 +45,7 @@
   <div class="ow-code-snippet-header">
     <h5 class="ow-code-snippet-title">app.css (optional)</h5>
   </div>
-  <Code lang="css" code={"@import 'orangewind/src/prism.css';"} />
+  <Code lang="css" code={"@import 'orangewind/prism.css';"} />
 </div>
 
 <h2 id="dark-mode" class="ow-heading-2">Dark mode</h2>

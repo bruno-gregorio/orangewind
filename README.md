@@ -1,10 +1,30 @@
 # Orangewind
 
+[![npm](https://img.shields.io/npm/v/orangewind.svg)](https://www.npmjs.com/package/orangewind)
+[![license](https://img.shields.io/npm/l/orangewind.svg)](./LICENSE)
+
 Orangewind is a project that aims to re-implement **Canonical's Vanilla Framework** as a **Tailwind CSS** plugin, while avoiding duplication with Tailwind's existing utility classes.
 
 This project uses [Bun](https://bun.com), a fast all-in-one JavaScript runtime and package manager.
 
-## Installation
+## Using Orangewind
+
+The plugin is published on npm as [`orangewind`](https://www.npmjs.com/package/orangewind). It requires **Tailwind CSS v4** as a peer dependency:
+
+```bash
+bun add orangewind tailwindcss
+```
+
+Then import it from your global stylesheet — Tailwind first, Orangewind second:
+
+```css
+@import 'tailwindcss';
+@import 'orangewind';
+```
+
+See the [`orangewind` package README](packages/orangewind/README.md) for full usage (dark mode, optional syntax highlighting) and the docs site (`packages/docs`) for the component reference.
+
+## Local development
 
 To install dependencies for the monorepo, run:
 
