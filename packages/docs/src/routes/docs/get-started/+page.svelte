@@ -4,6 +4,7 @@
   // snippet structure below is in place so it can be filled in verbatim once a
   // package is published; until then a caution banner makes the status clear.
   import Code from '$lib/components/Code.svelte'
+  import { withBase } from '$lib/paths'
   import { repoUrl } from '$lib/site'
 </script>
 
@@ -72,14 +73,14 @@
   the document itself. By default Tailwind's <code>dark</code> variant follows
   the operating system's <code>prefers-color-scheme</code>, so the framework
   themes itself automatically with no toggle required. See the
-  <a href="/docs/ui-patterns">UI patterns</a> guide for how to drive the theme from
-  a class instead.
+  <a href={withBase('/docs/ui-patterns')}>UI patterns</a> guide for how to drive the
+  theme from a class instead.
 </p>
 
 <h2 id="next" class="ow-heading-2">Next steps</h2>
 <p>
   With the stylesheet imported, read the
-  <a href="/docs/markup-patterns">Markup patterns</a> guide to learn how to
-  author Orangewind class markup, then browse the
-  <a href="/docs/components">component reference</a>.
+  <a href={withBase('/docs/markup-patterns')}>Markup patterns</a> guide to learn
+  how to author Orangewind class markup, then browse the
+  <a href={withBase('/docs/components')}>component reference</a>.
 </p>

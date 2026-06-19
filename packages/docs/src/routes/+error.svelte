@@ -6,6 +6,7 @@
   import { page } from '$app/state'
   import Navigation from '$lib/components/Navigation.svelte'
   import Footer from '$lib/components/Footer.svelte'
+  import { withBase } from '$lib/paths'
   import { site } from '$lib/site'
 
   // Friendly copy per status, falling back to a generic message.
@@ -40,8 +41,8 @@
       <h1 class="ow-heading-1">{heading}</h1>
       <p class="text-ow-text-muted mb-6">{body}</p>
       <div class="flex flex-wrap justify-center gap-3">
-        <a class="ow-btn-positive" href="/">Back to home</a>
-        <a class="ow-btn-base" href="/docs">Browse the docs</a>
+        <a class="ow-btn-positive" href={withBase('/')}>Back to home</a>
+        <a class="ow-btn-base" href={withBase('/docs')}>Browse the docs</a>
       </div>
     </div>
   </main>

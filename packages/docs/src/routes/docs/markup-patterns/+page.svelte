@@ -3,6 +3,7 @@
   // markup Orangewind expects — naming convention, state classes, nesting,
   // composing with raw Tailwind utilities, and common pitfalls.
   import Example from '$lib/components/Example.svelte'
+  import { withBase } from '$lib/paths'
 </script>
 
 <p>
@@ -122,8 +123,8 @@
 <p>
   Prefer padding and gap over margins when spacing things out — it composes more
   predictably inside Orangewind's grid-based layout components. The
-  <a href="/docs/ui-patterns">UI patterns</a> guide goes deeper on spacing, theming
-  and breakpoints.
+  <a href={withBase('/docs/ui-patterns')}>UI patterns</a> guide goes deeper on spacing,
+  theming and breakpoints.
 </p>
 
 <h2 id="pitfalls" class="ow-heading-2">Common pitfalls</h2>

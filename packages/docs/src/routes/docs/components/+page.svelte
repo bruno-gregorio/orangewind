@@ -1,5 +1,6 @@
 <script lang="ts">
   import { componentGroups, pathForComponent } from '$lib/manifest'
+  import { withBase } from '$lib/paths'
 </script>
 
 <p>
@@ -19,7 +20,7 @@
       {#each group.items as item (item.slug)}
         <li>
           {#if item.status === 'ready'}
-            <a href={pathForComponent(item.slug)}>{item.title}</a>
+            <a href={withBase(pathForComponent(item.slug))}>{item.title}</a>
           {:else}
             <span class="opacity-40" title="Coming soon">{item.title}</span>
           {/if}

@@ -9,7 +9,8 @@
     "lint": "eslint --fix .",
     "check": "eslint . && prettier --check .",
     "storybook": "bun run --cwd packages/test-bench storybook",
-    "docs": "bun run --cwd packages/docs dev"
+    "docs": "bun run --cwd packages/docs dev",
+    "docs:deploy": "bash scripts/deploy-docs.sh"
   },
   "devDependencies": {
     "@types/bun": "latest",

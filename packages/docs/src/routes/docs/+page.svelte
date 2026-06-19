@@ -1,3 +1,7 @@
+<script lang="ts">
+  import { withBase } from '$lib/paths'
+</script>
+
 <h2 id="overview" class="ow-heading-2">Overview</h2>
 <p>
   Orangewind re-implements Canonical's Vanilla Framework as a Tailwind CSS v4
@@ -24,6 +28,6 @@
 
 <h2 id="start" class="ow-heading-2">Where to start</h2>
 <p>
-  The <a href="/docs/components/buttons">Buttons</a> page is a good first stop — it
-  shows the example format used throughout these docs.
+  The <a href={withBase('/docs/components/buttons')}>Buttons</a> page is a good first
+  stop — it shows the example format used throughout these docs.
 </p>

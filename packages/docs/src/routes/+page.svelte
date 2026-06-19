@@ -6,6 +6,7 @@
   // component reference and the repository.
   import Navigation from '$lib/components/Navigation.svelte'
   import Footer from '$lib/components/Footer.svelte'
+  import { withBase } from '$lib/paths'
   import { site, repoUrl } from '$lib/site'
 
   const features = [
@@ -57,11 +58,16 @@
             dark variant rather than duplicating them.
           </p>
           <div class="ow-cta-block flex flex-wrap gap-3 pb-0">
-            <a class="ow-btn-positive ow-has-icon" href="/docs/get-started">
+            <a
+              class="ow-btn-positive ow-has-icon"
+              href={withBase('/docs/get-started')}
+            >
               <i class="ow-icon-begin-downloading" aria-hidden="true"></i>
               <span>Get started</span>
             </a>
-            <a class="ow-btn" href="/docs/components">Browse components</a>
+            <a class="ow-btn" href={withBase('/docs/components')}
+              >Browse components</a
+            >
             <a
               class="ow-btn-base ow-has-icon"
               href={repoUrl}
@@ -97,17 +103,17 @@
       <div class="mx-auto grid max-w-5xl gap-4 px-6">
         <hr class="ow-rule" />
         <div class="grid gap-3 lg:grid-cols-3">
-          <a class="ow-card" href="/docs/get-started">
+          <a class="ow-card" href={withBase('/docs/get-started')}>
             <h3 class="ow-heading-5">Get started</h3>
             <p class="m-0">Install Orangewind and import the stylesheet.</p>
           </a>
-          <a class="ow-card" href="/docs/markup-patterns">
+          <a class="ow-card" href={withBase('/docs/markup-patterns')}>
             <h3 class="ow-heading-5">Markup patterns</h3>
             <p class="m-0">
               How to author the class markup the framework expects.
             </p>
           </a>
-          <a class="ow-card" href="/docs/ui-patterns">
+          <a class="ow-card" href={withBase('/docs/ui-patterns')}>
             <h3 class="ow-heading-5">UI patterns</h3>
             <p class="m-0">Theming, dark mode, breakpoints and spacing.</p>
           </a>

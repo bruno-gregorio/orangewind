@@ -5,6 +5,7 @@
   // (Navigation/SideNav/Footer) carry the `ow-docs-*` area classes themselves.
   import { page } from '$app/state'
   import { titleForPath } from '$lib/manifest'
+  import { stripBase } from '$lib/paths'
   import { site } from '$lib/site'
   import Navigation from '$lib/components/Navigation.svelte'
   import SideNav from '$lib/components/SideNav.svelte'
@@ -12,7 +13,7 @@
   import Footer from '$lib/components/Footer.svelte'
 
   const { children } = $props()
-  const title = $derived(titleForPath(page.url.pathname))
+  const title = $derived(titleForPath(stripBase(page.url.pathname)))
 </script>
 
 <svelte:head>

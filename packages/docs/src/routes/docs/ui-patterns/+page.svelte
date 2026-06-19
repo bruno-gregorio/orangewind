@@ -4,6 +4,7 @@
   // (padding/gap over margins), and Tailwind preflight interplay.
   import Example from '$lib/components/Example.svelte'
   import Code from '$lib/components/Code.svelte'
+  import { withBase } from '$lib/paths'
 </script>
 
 <p>
@@ -177,6 +178,7 @@
   get Vanilla typography on a heading, apply the class (<code>ow-heading-2</code
   >) rather than relying on the bare
   <code>&lt;h2&gt;</code>; to style a link, use the
-  <a href="/docs/components/links">link</a> classes. Keep importing Tailwind before
-  Orangewind so the reset lands first and the component layers can build on it.
+  <a href={withBase('/docs/components/links')}>link</a> classes. Keep importing Tailwind
+  before Orangewind so the reset lands first and the component layers can build on
+  it.
 </p>

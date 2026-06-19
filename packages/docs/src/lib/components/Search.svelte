@@ -4,6 +4,7 @@
   // in-memory (the manifest is tiny), so there is no index to build or ship.
   import { goto } from '$app/navigation'
   import { componentGroups, guides, pathForComponent } from '$lib/manifest'
+  import { withBase } from '$lib/paths'
 
   type Result = { title: string; path: string; group: string }
 
@@ -52,7 +53,7 @@
     if (!result) return
     query = ''
     focused = false
-    goto(result.path)
+    goto(withBase(result.path))
   }
 
   const onKeydown = (event: KeyboardEvent): void => {
@@ -133,7 +134,7 @@
             class={['ow-docs-search-result', i === active && 'is-active']
               .filter(Boolean)
               .join(' ')}
-            href={result.path}
+            href={withBase(result.path)}
             tabindex="-1"
             onclick={event => {
               event.preventDefault()

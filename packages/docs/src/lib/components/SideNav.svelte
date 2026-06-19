@@ -11,17 +11,20 @@
   // own CSS swaps the two), so there is a single markup for both.
   import { page } from '$app/state'
   import { componentGroups, guides, pathForComponent } from '$lib/manifest'
+  import { withBase, stripBase } from '$lib/paths'
   import Search from '$lib/components/Search.svelte'
 
-  const isActive = (href: string): boolean => page.url.pathname === href
+  // Compared against base-free manifest routes, so strip the base off the
+  // current pathname first (it carries the base under GitHub Pages hosting).
+  const currentPath = $derived(stripBase(page.url.pathname))
+  const isActive = (href: string): boolean => currentPath === href
 
   // The group containing the current page — used to default-open its accordion.
   const activeGroup = $derived(
     componentGroups.find(group =>
       group.items.some(
         item =>
-          item.status === 'ready' &&
-          pathForComponent(item.slug) === page.url.pathname
+          item.status === 'ready' && pathForComponent(item.slug) === currentPath
       )
     )?.heading
   )
@@ -124,7 +127,7 @@
           <li class="ow-side-navigation-item">
             <a
               class="ow-side-navigation-link"
-              href="/docs"
+              href={withBase('/docs')}
               aria-current={isActive('/docs') ? 'page' : undefined}
             >
               Introduction
@@ -134,7 +137,7 @@
             <li class="ow-side-navigation-item">
               <a
                 class="ow-side-navigation-link"
-                href={guide.path}
+                href={withBase(guide.path)}
                 aria-current={isActive(guide.path) ? 'page' : undefined}
               >
                 {guide.title}
@@ -144,7 +147,7 @@
           <li class="ow-side-navigation-item">
             <a
               class="ow-side-navigation-link"
-              href="/docs/components"
+              href={withBase('/docs/components')}
               aria-current={isActive('/docs/components') ? 'page' : undefined}
             >
               All components
@@ -173,11 +176,11 @@
                 {#each group.items as item (item.slug)}
                   <li class="ow-side-navigation-item">
                     {#if item.status === 'ready'}
-                      {@const href = pathForComponent(item.slug)}
+                      {@const route = pathForComponent(item.slug)}
                       <a
                         class="ow-side-navigation-link"
-                        {href}
-                        aria-current={isActive(href) ? 'page' : undefined}
+                        href={withBase(route)}
+                        aria-current={isActive(route) ? 'page' : undefined}
                       >
                         {item.title}
                       </a>

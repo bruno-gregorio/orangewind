@@ -25,6 +25,47 @@ bun run check         # type-check (svelte-check)
 Lint/format come from the monorepo root: `bun run check` (eslint + prettier) and
 `bun run format` there.
 
+## Deploying to GitHub Pages
+
+The site is published to GitHub Pages at
+**https://bruno-gregorio.github.io/orangewind/**. From the repository root:
+
+```sh
+bun run docs:deploy   # production build → push to the gh-pages branch
+```
+
+(equivalently, `bash scripts/deploy-docs.sh`). The script:
+
+1. Builds the static site with `BASE_PATH=/orangewind` so every asset and link
+   resolves under the project sub-path GitHub Pages serves it from.
+2. Writes a `.nojekyll` marker into the build so Pages serves SvelteKit's
+   `_app/` bundle (Jekyll otherwise drops underscore-prefixed paths).
+3. Force-updates the **`gh-pages`** branch with the fresh build, via a throwaway
+   git worktree — your checkout and working tree are never touched — and pushes
+   it to `origin`.
+
+It deploys from a clean commit, so commit or stash your changes first (or pass
+`ALLOW_DIRTY=1` to override). `BASE_PATH`, `BRANCH`, `REMOTE` and `ALLOW_DIRTY`
+can all be overridden via the environment — see the header of
+[`scripts/deploy-docs.sh`](../../scripts/deploy-docs.sh).
+
+**One-time GitHub setup:** in the repository **Settings → Pages**, set _Source_
+to **Deploy from a branch** and pick **`gh-pages`** / **`/ (root)`**. The first
+`docs:deploy` run creates the branch; subsequent runs replace its contents.
+
+### The base path
+
+Because the site lives at `/orangewind/` rather than a domain root, the
+production build sets [`paths.base`](svelte.config.js) and every internal link
+must route through it. SvelteKit does **not** rewrite hardcoded `href` strings,
+so links use the two helpers in [`src/lib/paths.ts`](src/lib/paths.ts):
+`withBase('/docs')` when building an `href`, and `stripBase(page.url.pathname)`
+when comparing the current path against the (base-free) routes in
+[`manifest.ts`](src/lib/manifest.ts). Both are no-ops in dev/preview, where the
+site is served from the root. When adding a page, build internal links with
+`withBase` — a forgotten prefix is caught as a hard error by the prerender
+build, not silently shipped.
+
 ## How it is built
 
 - **Static output.** `@sveltejs/adapter-static` with `export const prerender =
