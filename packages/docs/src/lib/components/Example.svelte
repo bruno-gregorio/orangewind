@@ -43,17 +43,17 @@
   }
 </script>
 
-<div class="grid gap-3">
+<div class="grid min-w-0 gap-3">
   <div
     class={[
-      'rounded border border-ow-surface-border p-6',
+      'min-w-0 overflow-x-auto rounded border border-ow-surface-border p-6',
       block ? 'grid gap-4' : 'flex flex-wrap items-center gap-3'
     ].join(' ')}
   >
     {@render children()}
   </div>
 
-  <div class="ow-code-snippet ow-is-bordered">
+  <div class="ow-code-snippet ow-is-bordered min-w-0">
     <div class="ow-code-snippet-header">
       <h5 class="ow-code-snippet-title">{title ?? 'Markup'}</h5>
       <div class="ow-code-snippet-actions">

@@ -3,8 +3,8 @@
 </script>
 
 <!-- Mandatory headline demonstration — a standalone code snippet. -->
-<div class="grid gap-3 rounded border border-ow-surface-border p-8">
-  <div class="ow-code-snippet ow-is-bordered">
+<div class="grid min-w-0 gap-3 overflow-x-auto rounded border border-ow-surface-border p-8">
+  <div class="ow-code-snippet ow-is-bordered min-w-0">
     <div class="ow-code-snippet-header">
       <h5 class="ow-code-snippet-title">Install Thunderbird as a snap</h5>
       <div class="ow-code-snippet-actions">
