@@ -4,6 +4,7 @@
   import { page } from '$app/state'
   import { site, primaryNav, externalLinks } from '$lib/site'
   import { withBase, stripBase } from '$lib/paths'
+  import Logo from '$lib/components/Logo.svelte'
 
   const isActive = (href: string): boolean => {
     const path = stripBase(page.url.pathname)
@@ -19,7 +20,7 @@
       <div class="ow-navigation-tagged-logo">
         <a class="ow-navigation-link" href={withBase('/')}>
           <span class="ow-navigation-logo-tag">
-            <i class="ow-navigation-logo-icon ow-icon-blueprint"></i>
+            <Logo variant="glyph" size={16} title={site.name} />
           </span>
           <span class="ow-navigation-logo-title">
             {site.name}

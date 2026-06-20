@@ -6,6 +6,7 @@
   // component reference and the repository.
   import Navigation from '$lib/components/Navigation.svelte'
   import Footer from '$lib/components/Footer.svelte'
+  import Logo from '$lib/components/Logo.svelte'
   import { withBase } from '$lib/paths'
   import { site, repoUrl } from '$lib/site'
 
@@ -47,6 +48,7 @@
     <div class="overflow-hidden">
       <div class="ow-suru-25-75">
         <div class="mx-auto grid max-w-5xl gap-6 px-6">
+          <Logo variant="badge" size={64} class="drop-shadow-sm" />
           <h1 class="ow-heading-1 mb-0 max-w-3xl">{site.name}</h1>
           <p class="ow-heading-4 m-0 max-w-2xl">
             Canonical's Vanilla Framework, re-implemented as a Tailwind CSS v4
