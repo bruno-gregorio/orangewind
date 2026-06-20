@@ -46,7 +46,7 @@
 
   <main id="main-content" tabindex="-1">
     <div class="overflow-hidden">
-      <div class="ow-suru-25-75">
+      <div class="ow-suru-25-75 [--ow-suru-max-width:100%]">
         <div class="mx-auto grid max-w-5xl gap-6 px-6">
           <Logo variant="badge" size={64} class="drop-shadow-sm" />
           <h1 class="ow-heading-1 mb-0 max-w-3xl">{site.name}</h1>
@@ -59,7 +59,7 @@
             set of <code>ow-</code> classes, reusing Tailwind's utilities, theme and
             dark variant rather than duplicating them.
           </p>
-          <div class="ow-cta-block flex flex-wrap gap-3 pb-0">
+          <div class="ow-cta-block flex flex-wrap items-center gap-3 py-4">
             <a
               class="ow-btn-positive ow-has-icon"
               href={withBase('/docs/get-started')}
